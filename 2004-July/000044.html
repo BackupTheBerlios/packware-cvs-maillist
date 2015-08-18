@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] tools/mkdis mkdis.py,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20tools/mkdis%20mkdis.py%2CNONE%2C1.1&In-Reply-To=%3C200407301756.i6UHuV619320%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000043.html">
+   <LINK REL="Next"  HREF="000045.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] tools/mkdis mkdis.py,NONE,1.1</H1>
+    <B>stoodi</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20tools/mkdis%20mkdis.py%2CNONE%2C1.1&In-Reply-To=%3C200407301756.i6UHuV619320%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] tools/mkdis mkdis.py,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 19:56:31 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000043.html">[Packware-cvs] tools/mkdis - New directory
+</A></li>
+        <LI>Next message: <A HREF="000045.html">[Packware-cvs] pwbuild/xap/sylpheed-claws - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/tools/mkdis
+In directory sheep:/tmp/cvs-serv28106
+
+Added Files:
+	mkdis.py 
+Log Message:
+- Initial commit.
+- Version 0.4
+
+
+--- NEW FILE: mkdis.py ---
+#!/usr/bin/python
+# This is just prototype for future development :D
+# for now, works.
+#
+# StOOdi's excersizes
+# Version 0.4
+#
+# TODO: 
+# - names distribution directory (ex. kde, gnome, xfce)
+# - mdsums from .md5sum files
+# - maybe versions from distribution files
+#
+
+import sys, os, getopt
+
+def make_dist(name = 'NoName', version = 'Version', link='<A HREF="http://nobady.home">http://nobady.home</A>'):
+
+    shell = &quot;#!/bin/sh&quot;
+    pname = &quot;name=&quot; + '&quot;' + name + '&quot;'
+    pversion = &quot;version=&quot; + '&quot;' + version + '&quot;'
+    build = &quot;build=&quot; + '&quot;' + '1' + '&quot;'
+    pwbuilder = &quot;_pwbuilder 0.6.4&quot;
+    doc = &quot;_doc -d&quot; 
+    source = &quot;_source -g -m md5sum&quot; + &quot; &quot; + link  
+    copt1 = &quot;_c_opt --prefix=/usr&quot;
+    cmi = &quot;_cmi&quot;
+    log = &quot;# $&quot; + &quot;Log&quot; + &quot;$&quot; # Stupid but, cvs ... eh...
+    CR = '\n'
+    DCR = '\n\n'
+    
+    lines = [ shell, DCR,
+              pname, CR,
+              pversion, CR,
+              build, DCR,
+              pwbuilder, DCR,
+              doc, DCR,
+              source, DCR,
+              copt1, DCR,
+              cmi, DCR,
+              log, CR ]
+    
+    # Here what we do.
+    cwd = os.getcwd()   # getting current working dir
+    os.mkdir(cwd + os.sep + name)      # makes dist dir
+    os.chdir(name)  # go to dist dir
+    # Make needed files
+    buildfile = open(name + &quot;.pwbuild&quot;,'w')
+    buildfile.writelines(lines)
+    buildfile.close()
+    # Here we can add freshinfo support :)
+    infofile = open(name + &quot;.pwinfo&quot;, 'w')
+    infofile.close()
+    os.chdir('..')
+    
+def usage():
+    print &quot;&quot;&quot;
+
+    -n --name       name of package
+    -v --version    version of pakcage
+    -l --link       link to source files
+    -f --filelist   file with packages names one in line
+                    this parameter should be the last.
+    
+    mkdis.py -n name -v version -l link
+
+    mkdis.py -v 3.44 -f filelist.txt
+
+
+    Not given parameter take default value.
+    
+    &quot;&quot;&quot;
+
+def main(argv):                         
+
+    pname = 'None'
+    pversion = 'None'
+    plink = '<A HREF="http://linktofiles">http://linktofiles</A>'
+                     
+    try:                                
+        opts, args = getopt.getopt(argv, &quot;n:v:l:f:h&quot;, [&quot;name&quot;,
+                                                      &quot;version&quot;,
+                                                      &quot;link&quot;,
+                                                      &quot;filelist&quot;,
+                                                      &quot;help&quot;]) 
+    except getopt.GetoptError:           
+        usage()                          
+        sys.exit(2)                     
+
+    for opt, arg in opts:                
+
+        if opt in (&quot;-h&quot;, &quot;--help&quot;):      
+            usage()
+            sys.exit(2)
+            
+        elif opt in (&quot;-n&quot;, &quot;--name&quot;): 
+            pname = arg
+
+        elif opt in (&quot;-v&quot;, &quot;--version&quot;):
+            pversion = arg
+
+        elif opt in (&quot;-l&quot;, &quot;--link&quot;):
+            plink = arg
+
+        elif opt in (&quot;-f&quot;, &quot;--filelist&quot;):
+            pfname = arg
+
+            file = open(pfname, 'r')
+            lines = file.readlines()
+                        
+            for fname in lines:
+                fname = fname.rstrip()
+                make_dist(name = fname, version = pversion, link = plink)
+            sys.exit(2)
+            
+
+    make_dist(name = pname , version = pversion , link = plink)
+
+
+if __name__ == &quot;__main__&quot;:
+    main(sys.argv[1:])
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000043.html">[Packware-cvs] tools/mkdis - New directory
+</A></li>
+	<LI>Next message: <A HREF="000045.html">[Packware-cvs] pwbuild/xap/sylpheed-claws - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#44">[ date ]</a>
+              <a href="thread.html#44">[ thread ]</a>
+              <a href="subject.html#44">[ subject ]</a>
+              <a href="author.html#44">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

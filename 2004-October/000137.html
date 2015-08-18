@@ -1,0 +1,253 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,NONE,1.1 wxgtk.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/d/wxgtk%20wxgtk.pwbuild%2CNONE%2C1.1%20wxgtk.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410042013.i94KDkB14391%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000136.html">
+   <LINK REL="Next"  HREF="000138.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,NONE,1.1 wxgtk.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/d/wxgtk%20wxgtk.pwbuild%2CNONE%2C1.1%20wxgtk.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410042013.i94KDkB14391%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,NONE,1.1 wxgtk.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Oct  4 22:13:46 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000136.html">[Packware-cvs] pwbuild/d/wxgtk - New directory
+</A></li>
+        <LI>Next message: <A HREF="000138.html">[Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#137">[ date ]</a>
+              <a href="thread.html#137">[ thread ]</a>
+              <a href="subject.html#137">[ subject ]</a>
+              <a href="author.html#137">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/d/wxgtk
+In directory sheep:/tmp/cvs-serv6994
+
+Added Files:
+	wxgtk.pwbuild wxgtk.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.4.2.
+
+
+--- NEW FILE: wxgtk.pwbuild ---
+#!/bin/sh
+
+name=&quot;wxgtk&quot;
+version=&quot;2.4.2&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_source -m cdadfe82fc93f8a65a2ae18a95b0b0e3 -s 5381935 -p wxwindows -n wxGTK -f
+
+_doc -d *.txt
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+_c_opt --enable-gui
+_c_opt --with-gtk
+_c_opt --enable-gtk2
+_c_opt --with-libpng
+_c_opt --with-libjpeg
+_c_opt --with-libtiff
+_c_opt --with-opengl
+_c_opt --with-regex
+_c_opt --with-zlib
+_c_opt --enable-shared
+_c_opt --enable-optimise
+_c_opt --enable-intl
+_c_opt --enable-config
+_c_opt --enable-protocols
+_c_opt --enable-ftp
+_c_opt --enable-http
+_c_opt --enable-fileproto
+_c_opt --enable-sockets
+_c_opt --enable-ole
+_c_opt --enable-dataobj
+_c_opt --enable-ipc
+_c_opt --enable-cmdline
+_c_opt --enable-datetime
+_c_opt --enable-timedate
+_c_opt --enable-stopwatch
+_c_opt --enable-dialupman
+_c_opt --enable-apple_ieee
+_c_opt --enable-timer
+_c_opt --enable-wave
+_c_opt --enable-fraction
+_c_opt --enable-dynlib
+_c_opt --enable-dynamicloader
+_c_opt --enable-longlong
+_c_opt --enable-geometry
+_c_opt --enable-log
+_c_opt --enable-streamses
+_c_opt --enable-file
+_c_opt --enable-ffile
+_c_opt --enable-textbuf
+_c_opt --enable-textfile
+_c_opt --enable-fontmap
+_c_opt --enable-wxprintfv
+_c_opt --enable-std_iostreams
+_c_opt --enable-filesystem
+_c_opt --enable-fs_inet
+_c_opt --enable-fs_zip
+_c_opt --enable-zipstream
+_c_opt --enable-catch_segvs
+_c_opt --enable-snglinst
+_c_opt --enable-mimetype
+_c_opt --enable-sysoptions
+_c_opt --enable-url
+_c_opt --enable-protocol
+_c_opt --enable-protocol-http
+_c_opt --enable-protocol-ftp
+_c_opt --enable-protocol-file
+_c_opt --enable-threads
+_c_opt --enable-docview
+_c_opt --enable-help
+_c_opt --enable-html
+_c_opt --enable-htmlhelp
+_c_opt --enable-constraints
+_c_opt --enable-printarch
+_c_opt --enable-mdi
+_c_opt --enable-loggui
+_c_opt --enable-logwin
+_c_opt --enable-logdialog
+_c_opt --enable-postscript
+_c_opt --enable-prologio
+_c_opt --enable-resources
+_c_opt --enable-xresources
+_c_opt --enable-clipboard
+_c_opt --enable-dnd
+_c_opt --enable-metafile
+_c_opt --enable-treelayout
+_c_opt --enable-controls
+_c_opt --enable-accel
+_c_opt --enable-button
+_c_opt --enable-bmpbutton
+_c_opt --enable-calendar
+_c_opt --enable-caret
+_c_opt --enable-checkbox
+_c_opt --enable-checklst
+_c_opt --enable-choice
+_c_opt --enable-combobox
+_c_opt --enable-gauge
+_c_opt --enable-grid
+_c_opt --enable-newgrid
+_c_opt --enable-imaglist
+_c_opt --enable-listbox
+_c_opt --enable-listctrl
+_c_opt --enable-notebook
+_c_opt --enable-propsheet
+_c_opt --enable-radiobox
+_c_opt --enable-radiobtn
+_c_opt --enable-sash
+_c_opt --enable-scrollbar
+_c_opt --enable-slider
+_c_opt --enable-spinbtn
+_c_opt --enable-spinctrl
+_c_opt --enable-splitter
+_c_opt --enable-statbmp
+_c_opt --enable-statbox
+_c_opt --enable-statline
+_c_opt --enable-stattext
+_c_opt --enable-statusbar
+_c_opt --enable-tabdialog
+_c_opt --enable-textctrl
+_c_opt --enable-togglebtn
+_c_opt --enable-toolbar
+_c_opt --enable-tbarnative
+_c_opt --enable-tbarsmpl
+_c_opt --enable-treectrl
+_c_opt --enable-tipwindow
+_c_opt --enable-popupwin
+_c_opt --enable-commondlgs
+_c_opt --enable-choicedlg
+_c_opt --enable-coldlg
+_c_opt --enable-filedlg
+_c_opt --enable-finddlg
+_c_opt --enable-fontdlg
+_c_opt --enable-dirdlg
+_c_opt --enable-msgdlg
+_c_opt --enable-numberdlg
+_c_opt --enable-splash
+_c_opt --enable-textdlg
+_c_opt --enable-tipdlg
+_c_opt --enable-progressdlg
+_c_opt --enable-wizarddlg
+_c_opt --enable-menus
+_c_opt --enable-miniframe
+_c_opt --enable-tooltips
+_c_opt --enable-splines
+_c_opt --enable-validators
+_c_opt --enable-busyinfo
+_c_opt --enable-joystick
+_c_opt --enable-dragimage
+_c_opt --enable-palette
+_c_opt --enable-image
+_c_opt --enable-gif
+_c_opt --enable-pcx
+_c_opt --enable-iff
+_c_opt --enable-pnm
+_c_opt --enable-xpm
+_c_opt --enable-icocur
+
+_i_opt prefix=${pkg}/usr
+
+_cmi
+
+rm -r ${pkg}/usr/lib/wx
+
+cp -R ${src1}/utils ${pkg}/usr/share/wx/
+cp -R ${src1}/samples ${pkg}/usr/share/wx/
+cp -R ${src1}/contrib ${pkg}/usr/share/wx/
+cp -R ${src1}/demos ${pkg}/usr/share/wx/
+
+# $Log: wxgtk.pwbuild,v $
+# Revision 1.1  2004/10/04 20:13:44  swiergot
+# - Initial commit.
+# - Version 2.4.2.
+#
+
+--- NEW FILE: wxgtk.pwinfo ---
+info=&quot;GTK port of the cross-platform wxWindows C++application framework class library&quot;
+desc=&quot;wxWindows/GTK is the GTK+ port of the C++ cross-platform wxWindows GUI library, offering classes for all common GUI controls as well as a comprehensive set of helper classes for most common application tasks, ranging from networking to HTML display and image manipulation. There are also Python and Perl bindings available for the GTK and the MSW port, and documentation available for practically all classes.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000136.html">[Packware-cvs] pwbuild/d/wxgtk - New directory
+</A></li>
+	<LI>Next message: <A HREF="000138.html">[Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#137">[ date ]</a>
+              <a href="thread.html#137">[ thread ]</a>
+              <a href="subject.html#137">[ subject ]</a>
+              <a href="author.html#137">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

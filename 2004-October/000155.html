@@ -1,0 +1,2372 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/psi psi-client_wrap-mod.diff,NONE,1.1 psi-emots-mod.diff,NONE,1.1 psi-empty_group-fix.diff,NONE,1.1 psi-framechecks-mod.diff,NONE,1.1 psi-gnome_toolwindow-mod.diff,NONE,1.1 psi-group_openclose_single_click-mod.diff,NONE,1.1 psi-headings-mod.diff,NONE,1.1 psi-icon_buttons_big_return-mod.diff,NONE,1.1 psi-iconselect-mod.diff,NONE,1.1 psi-indicator-icon.pw.patch,NONE,1.1 psi-line_in_options-mod.diff,NONE,1.1 psi-linkify-mod-rev-fix.diff,NONE,1.1 psi-nicechats-mod.diff,NONE,1.1 psi-no_online_status-mod.diff,NONE,1.1 psi-options_resize-fix.diff,NONE,1.1 psi-qt_trans-add.diff,NONE,1.1 psi-rich_contactview-0.7-add.diff,NONE,1.1 psi-save_profile-mod.diff,NONE,1.1 psi-settoggles-fix.diff,NONE,1.1 psi-status_history-add.diff,NONE,1.1 psi-status_indicator++-add.diff,NONE,1.1 psi-subs_reason-recv.diff,NONE,1.1 psi-thin_borders-mod.diff,NONE,1.1 psi-tooltips_linkify-rev.diff,NONE,1.1 psi-url_emoticon-mod.diff,NONE,1.1 psi-weather_agent_icons-add.diff,NONE,1.1 richlistview.cpp,NONE,1.1 richlistview.h,NONE,1.1 indicator.png,1.1,1.2 psi-cvs.pwbuild,1.3,1.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/psi%20psi-client_wrap-mod.diff%2CNONE%2C1.1%20psi-emots-mod.diff%2CNONE%2C1.1%20psi-empty_group-fix.diff%2CNONE%2C1.1%20psi-framechecks-mod.diff%2CNONE%2C1.1%20psi-gnome_toolwindow-mod.diff%2CNONE%2C1.1%20psi-group_openclose_single_click-mod.diff%2CNONE%2C1.1%20psi-headings-mod.diff%2CNONE%2C1.1%20psi-icon_buttons_big_return-mod.diff%2CNONE%2C1.1%20psi-iconselect-mod.diff%2CNONE%2C1.1%20psi-indicator-icon.pw.patch%2CNONE%2C1.1%20psi-line_in_options-mod.diff%2CNONE%2C1.1%20psi-linkify-mod-rev-fix.diff%2CNONE%2C1.1%20psi-nicechats-mod.diff%2CNONE%2C1.1%20psi-no_online_status-mod.diff%2CNONE%2C1.1%20psi-options_resize-fix.diff%2CNONE%2C1.1%20psi-qt_trans-add.diff%2CNONE%2C1.1%20psi-rich_contactview-0.7-add.diff%2CNONE%2C1.1%20psi-save_profile-mod.diff%2CNONE%2C1.1%20psi-settoggles-fix.diff%2CNONE%2C1.1%20psi-status_history-add.diff%2CNONE%2C1.1%20psi-status_indicator%2B%2B-add.diff%2CNONE%2C1.1%20psi-subs_reason-recv.diff%2CNONE%2C1.1%20psi-thin_borders-mod.diff%2CNONE%2C1.1%20psi-tooltips_linkify-rev.diff%2CNONE%2C1.1%20psi-url_emoticon-mod.diff%2CNONE%2C1.1%20psi-weather_agent_icons-add.diff%2CNONE%2C1.1%20richlistview.cpp%2CNONE%2C1.1%20richlistview.h%2CNONE%2C1.1%20indicator.png%2C1.1%2C1.2%20psi-cvs.pwbuild%2C1.3%2C1.4&In-Reply-To=%3C200410181158.i9IBwJB15759%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000153.html">
+   <LINK REL="Next"  HREF="000154.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/psi psi-client_wrap-mod.diff,NONE,1.1 psi-emots-mod.diff,NONE,1.1 psi-empty_group-fix.diff,NONE,1.1 psi-framechecks-mod.diff,NONE,1.1 psi-gnome_toolwindow-mod.diff,NONE,1.1 psi-group_openclose_single_click-mod.diff,NONE,1.1 psi-headings-mod.diff,NONE,1.1 psi-icon_buttons_big_return-mod.diff,NONE,1.1 psi-iconselect-mod.diff,NONE,1.1 psi-indicator-icon.pw.patch,NONE,1.1 psi-line_in_options-mod.diff,NONE,1.1 psi-linkify-mod-rev-fix.diff,NONE,1.1 psi-nicechats-mod.diff,NONE,1.1 psi-no_online_status-mod.diff,NONE,1.1 psi-options_resize-fix.diff,NONE,1.1 psi-qt_trans-add.diff,NONE,1.1 psi-rich_contactview-0.7-add.diff,NONE,1.1 psi-save_profile-mod.diff,NONE,1.1 psi-settoggles-fix.diff,NONE,1.1 psi-status_history-add.diff,NONE,1.1 psi-status_indicator++-add.diff,NONE,1.1 psi-subs_reason-recv.diff,NONE,1.1 psi-thin_borders-mod.diff,NONE,1.1 psi-tooltips_linkify-rev.diff,NONE,1.1 psi-url_emoticon-mod.diff,NONE,1.1 psi-weather_agent_icons-add.diff,NONE,1.1 richlistview.cpp,NONE,1.1 richlistview.h,NONE,1.1 indicator.png,1.1,1.2 psi-cvs.pwbuild,1.3,1.4</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/psi%20psi-client_wrap-mod.diff%2CNONE%2C1.1%20psi-emots-mod.diff%2CNONE%2C1.1%20psi-empty_group-fix.diff%2CNONE%2C1.1%20psi-framechecks-mod.diff%2CNONE%2C1.1%20psi-gnome_toolwindow-mod.diff%2CNONE%2C1.1%20psi-group_openclose_single_click-mod.diff%2CNONE%2C1.1%20psi-headings-mod.diff%2CNONE%2C1.1%20psi-icon_buttons_big_return-mod.diff%2CNONE%2C1.1%20psi-iconselect-mod.diff%2CNONE%2C1.1%20psi-indicator-icon.pw.patch%2CNONE%2C1.1%20psi-line_in_options-mod.diff%2CNONE%2C1.1%20psi-linkify-mod-rev-fix.diff%2CNONE%2C1.1%20psi-nicechats-mod.diff%2CNONE%2C1.1%20psi-no_online_status-mod.diff%2CNONE%2C1.1%20psi-options_resize-fix.diff%2CNONE%2C1.1%20psi-qt_trans-add.diff%2CNONE%2C1.1%20psi-rich_contactview-0.7-add.diff%2CNONE%2C1.1%20psi-save_profile-mod.diff%2CNONE%2C1.1%20psi-settoggles-fix.diff%2CNONE%2C1.1%20psi-status_history-add.diff%2CNONE%2C1.1%20psi-status_indicator%2B%2B-add.diff%2CNONE%2C1.1%20psi-subs_reason-recv.diff%2CNONE%2C1.1%20psi-thin_borders-mod.diff%2CNONE%2C1.1%20psi-tooltips_linkify-rev.diff%2CNONE%2C1.1%20psi-url_emoticon-mod.diff%2CNONE%2C1.1%20psi-weather_agent_icons-add.diff%2CNONE%2C1.1%20richlistview.cpp%2CNONE%2C1.1%20richlistview.h%2CNONE%2C1.1%20indicator.png%2C1.1%2C1.2%20psi-cvs.pwbuild%2C1.3%2C1.4&In-Reply-To=%3C200410181158.i9IBwJB15759%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/psi psi-client_wrap-mod.diff,NONE,1.1 psi-emots-mod.diff,NONE,1.1 psi-empty_group-fix.diff,NONE,1.1 psi-framechecks-mod.diff,NONE,1.1 psi-gnome_toolwindow-mod.diff,NONE,1.1 psi-group_openclose_single_click-mod.diff,NONE,1.1 psi-headings-mod.diff,NONE,1.1 psi-icon_buttons_big_return-mod.diff,NONE,1.1 psi-iconselect-mod.diff,NONE,1.1 psi-indicator-icon.pw.patch,NONE,1.1 psi-line_in_options-mod.diff,NONE,1.1 psi-linkify-mod-rev-fix.diff,NONE,1.1 psi-nicechats-mod.diff,NONE,1.1 psi-no_online_status-mod.diff,NONE,1.1 psi-options_resize-fix.diff,NONE,1.1 psi-qt_trans-add.diff,NONE,1.1 psi-rich_contactview-0.7-add.diff,NONE,1.1 psi-save_profile-mod.diff,NONE,1.1 psi-settoggles-fix.diff,NONE,1.1 psi-status_history-add.diff,NONE,1.1 psi-status_indicator++-add.diff,NONE,1.1 psi-subs_reason-recv.diff,NONE,1.1 psi-thin_borders-mod.diff,NONE,1.1 psi-tooltips_linkify-rev.diff,NONE,1.1 psi-url_emoticon-mod.diff,NONE,1.1 psi-weather_agent_icons-add.diff,NONE,1.1 richlistview.cpp,NONE,1.1 richlistview.h,NONE,1.1 indicator.png,1.1,1.2 psi-cvs.pwbuild,1.3,1.4">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Oct 18 13:58:19 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000153.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs exec,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000154.html">[Packware-cvs] pwbuild/xap/psi psi-no_default_status_text.patch,1.1,NONE psi-no_online_status.patch,1.1,NONE psi-offline_status.patch,1.1,NONE psi-status_history.patch,1.1,NONE psi-status_indicator-cvs.patch,1.1,NONE psi-status_indicator.patch,1.1,NONE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#155">[ date ]</a>
+              <a href="thread.html#155">[ thread ]</a>
+              <a href="subject.html#155">[ subject ]</a>
+              <a href="author.html#155">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/psi
+In directory sheep:/tmp/cvs-serv23960
+
+Modified Files:
+	indicator.png psi-cvs.pwbuild 
+Added Files:
+	psi-client_wrap-mod.diff psi-emots-mod.diff 
+	psi-empty_group-fix.diff psi-framechecks-mod.diff 
+	psi-gnome_toolwindow-mod.diff 
+	psi-group_openclose_single_click-mod.diff 
+	psi-headings-mod.diff psi-icon_buttons_big_return-mod.diff 
+	psi-iconselect-mod.diff psi-indicator-icon.pw.patch 
+	psi-line_in_options-mod.diff psi-linkify-mod-rev-fix.diff 
+	psi-nicechats-mod.diff psi-no_online_status-mod.diff 
+	psi-options_resize-fix.diff psi-qt_trans-add.diff 
+	psi-rich_contactview-0.7-add.diff psi-save_profile-mod.diff 
+	psi-settoggles-fix.diff psi-status_history-add.diff 
+	psi-status_indicator++-add.diff psi-subs_reason-recv.diff 
+	psi-thin_borders-mod.diff psi-tooltips_linkify-rev.diff 
+	psi-url_emoticon-mod.diff psi-weather_agent_icons-add.diff 
+	richlistview.cpp richlistview.h 
+Log Message:
+- Version 20041018.
+- Added many patches from <A HREF="http://ftp.xiaoka.com/friends/skazi/psi/patches/.">http://ftp.xiaoka.com/friends/skazi/psi/patches/.</A>
+
+
+--- NEW FILE: psi-client_wrap-mod.diff ---
+diff -ru psi-clean/src/userlist.cpp psi/src/userlist.cpp
+--- psi-clean/src/userlist.cpp	Wed Jul 30 09:38:36 2003
++++ psi/src/userlist.cpp	Wed Jul 30 15:17:12 2003
+@@ -384,7 +384,7 @@
+ 				if(trim)
+ 					ver.truncate(200);
+ 				ver = expandEntities(ver);
+-				str += QString(&quot;&lt;br&gt;&lt;nobr&gt;&quot;) + QObject::tr(&quot;Using&quot;) + QString(&quot;: %1&quot;).arg(ver) + &quot;&lt;/nobr&gt;&quot;;
++				str += QString(&quot;&lt;br&gt;&quot;) + QObject::tr(&quot;Using&quot;) + QString(&quot;: %1&quot;).arg(ver);
+ 			}
+ 
+ 			// status message
+
+
+--- NEW FILE: psi-emots-mod.diff ---
+diff -ru -X exclude psi-clean/libpsi/psiwidgets/psitextview.cpp psi/libpsi/psiwidgets/psitextview.cpp
+--- psi-clean/libpsi/psiwidgets/psitextview.cpp	Thu Apr 01 09:44:40 2004
++++ psi/libpsi/psiwidgets/psitextview.cpp	Mon Apr 19 14:50:32 2004
+@@ -242,6 +242,9 @@
+ 		y = ypos;
+ 	}
+ 
++	y+=2; cy+=2; 
++	p-&gt;setClipping(FALSE);
++
+ 	if ( !icon ) {
+ 		p-&gt;fillRect( x, y, width, height, cg.dark() );
+ 		return;
+diff -ru -X exclude psi-clean/src/common.cpp psi/src/common.cpp
+--- psi-clean/src/common.cpp	Sun Mar 21 15:44:42 2004
++++ psi/src/common.cpp	Mon Apr 19 14:54:52 2004
+@@ -635,11 +635,10 @@
+ 							continue;
+ 
+ 						if(ePos == -1 || n &lt; ePos || (rx.matchedLength() &gt; foundLen &amp;&amp; n &lt; ePos + foundLen)) {
+-							// there must be whitespace at least on one side of the emoticon
+ 							if ( ( n == 0 ) ||
+ 							     ( n+rx.matchedLength() == (int)str.length() ) ||
+-							     ( n &gt; 0 &amp;&amp; str[n-1].isSpace() ) ||
+-							     ( n+rx.matchedLength() &lt; (int)str.length() &amp;&amp; str[n+rx.matchedLength()].isSpace() ) )
++							     ( n &gt; 0 &amp;&amp; ( !option.spaceEmoticons || str[n+rx.matchedLength()].isSpace() ) ) ||
++							     ( n+rx.matchedLength() &lt; (int)str.length() &amp;&amp; ( !option.spaceEmoticons || str[n+rx.matchedLength()].isSpace() ) ) )
+ 							{
+ 								ePos = n;
+ 								closest = icon;
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Thu Mar 04 22:04:00 2004
++++ psi/src/common.h	Mon Apr 19 14:54:12 2004
+@@ -108,7 +108,7 @@
+ 	QString player;
+ 	QString customBrowser, customMailer;
+ 
+-	bool ignoreHeadline, ignoreNonRoster, scrollTo, keepSizes, useEmoticons, alertOpenChats;
++	bool ignoreHeadline, ignoreNonRoster, scrollTo, keepSizes, useEmoticons, spaceEmoticons, alertOpenChats;
+ 	bool raiseChatWindow, showSubjects, showCounter, chatSays, chatSoftReturn, showGroupCounts;
+ 
+ 	QSize sizeEventDlg, sizeChatDlg;
+diff -ru -X exclude psi-clean/src/eventdlg.cpp psi/src/eventdlg.cpp
+--- psi-clean/src/eventdlg.cpp	Thu Apr 01 09:44:50 2004
++++ psi/src/eventdlg.cpp	Mon Apr 19 14:50:32 2004
+@@ -1465,10 +1465,12 @@
+ 		d-&gt;mle-&gt;moveCursor(QTextEdit::MoveHome, false);
+ 		d-&gt;mle-&gt;setTextFormat(RichText);
+ 
++		txt = linkify(txt);
++
+ 		if(option.useEmoticons)
+ 			txt = emoticonify(txt);
+ 
+-		d-&gt;mle-&gt;setText(&quot;&lt;qt&gt;&quot; + linkify(txt) + &quot;&lt;/qt&gt;&quot;);
++		d-&gt;mle-&gt;setText(&quot;&lt;qt&gt;&quot; + txt + &quot;&lt;/qt&gt;&quot;);
+ 
+ 		d-&gt;le_subj-&gt;setText(m.subject());
+ 		d-&gt;le_subj-&gt;setCursorPosition(0);
+diff -ru -X exclude psi-clean/src/options/opt_iconset.cpp psi/src/options/opt_iconset.cpp
+--- psi-clean/src/options/opt_iconset.cpp	Sat Jan 17 14:48:14 2004
++++ psi/src/options/opt_iconset.cpp	Mon Apr 19 14:59:00 2004
+@@ -459,6 +459,7 @@
+ 
+ 	IconsetEmoUI *d = (IconsetEmoUI *)w;
+ 	opt-&gt;useEmoticons = d-&gt;ck_useEmoticons-&gt;isChecked();
++	opt-&gt;spaceEmoticons = d-&gt;ck_spaceEmoticons-&gt;isChecked();
+ 
+ 	opt-&gt;emoticons.clear();
+ 	IconWidgetItem *item = (IconWidgetItem *)d-&gt;iss_emoticons-&gt;firstItem();
+@@ -483,6 +484,7 @@
+ 
+ 	IconsetEmoUI *d = (IconsetEmoUI *)w;
+ 	d-&gt;ck_useEmoticons-&gt;setChecked( opt-&gt;useEmoticons );
++	d-&gt;ck_spaceEmoticons-&gt;setChecked( opt-&gt;spaceEmoticons );
+ 
+ 	// fill in the iconset view
+ 	d-&gt;iss_emoticons-&gt;clear();
+@@ -514,6 +516,8 @@
+ 		customPal.setDisabled(customPal.inactive());
+ 		d-&gt;ck_useEmoticons-&gt;setEnabled(false);
+ 		d-&gt;ck_useEmoticons-&gt;setPalette(customPal);
++		d-&gt;ck_spaceEmoticons-&gt;setEnabled(false);
++		d-&gt;ck_spaceEmoticons-&gt;setPalette(customPal);
+ 
+ 		d-&gt;groupBox9-&gt;setEnabled(false);
+ 		d-&gt;groupBox9-&gt;setPalette(customPal);
+@@ -557,6 +561,8 @@
+ 	else if ( e-&gt;type() == QEvent::User + 1 ) { // finish event
+ 		d-&gt;ck_useEmoticons-&gt;setEnabled(true);
+ 		d-&gt;ck_useEmoticons-&gt;unsetPalette();
++		d-&gt;ck_spaceEmoticons-&gt;setEnabled(true);
++		d-&gt;ck_spaceEmoticons-&gt;unsetPalette();
+ 
+ 		d-&gt;groupBox9-&gt;setEnabled(true);
+ 		d-&gt;groupBox9-&gt;unsetPalette();
+@@ -566,6 +572,10 @@
+ 		bool checked = d-&gt;ck_useEmoticons-&gt;isChecked();
+ 		d-&gt;ck_useEmoticons-&gt;setChecked( true );
+ 		d-&gt;ck_useEmoticons-&gt;setChecked( checked );
++
++		checked = d-&gt;ck_spaceEmoticons-&gt;isChecked();
++		d-&gt;ck_spaceEmoticons-&gt;setChecked( true );
++		d-&gt;ck_spaceEmoticons-&gt;setChecked( checked );
+ 
+ 		d-&gt;progress-&gt;hide();
+ 
+diff -ru -X exclude psi-clean/src/options/opt_iconset_emo.ui psi/src/options/opt_iconset_emo.ui
+--- psi-clean/src/options/opt_iconset_emo.ui	Sun Sep 14 23:38:50 2003
++++ psi/src/options/opt_iconset_emo.ui	Mon Apr 19 15:01:08 2004
+@@ -28,6 +28,17 @@
+             &lt;/property&gt;
+             &lt;property name=&quot;text&quot;&gt;
+                 &lt;string&gt;Enable Emoticons&lt;/string&gt;
++            &lt;/property&gt;
++            &lt;property name=&quot;checked&quot;&gt;
++                &lt;bool&gt;true&lt;/bool&gt;
++            &lt;/property&gt;
++        &lt;/widget&gt;
++        &lt;widget class=&quot;QCheckBox&quot;&gt;
++            &lt;property name=&quot;name&quot;&gt;
++                &lt;cstring&gt;ck_spaceEmoticons&lt;/cstring&gt;
++            &lt;/property&gt;
++            &lt;property name=&quot;text&quot;&gt;
++                &lt;string&gt;Require whitespace before/after emoticons&lt;/string&gt;
+             &lt;/property&gt;
+             &lt;property name=&quot;checked&quot;&gt;
+                 &lt;bool&gt;true&lt;/bool&gt;
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sun Mar 21 15:47:06 2004
++++ psi/src/psi_profiles.cpp	Mon Apr 19 14:55:54 2004
+@@ -382,6 +382,7 @@
+ 	prefs.asMessage = QObject::tr(&quot;Auto Status (idle)&quot;);
+ 	prefs.scrollTo = TRUE;
+ 	prefs.useEmoticons = false;
++	prefs.spaceEmoticons = false;
+ 	prefs.alertOpenChats = false;
+ 	prefs.raiseChatWindow = false;
+ 	prefs.showSubjects = true;
+@@ -660,6 +661,7 @@
+ 			p_misc.appendChild(textTag(doc, &quot;ignoreNonRoster&quot;, prefs.ignoreNonRoster));
+ 			p_misc.appendChild(textTag(doc, &quot;scrollTo&quot;, prefs.scrollTo));
+ 			p_misc.appendChild(textTag(doc, &quot;useEmoticons&quot;, prefs.useEmoticons));
++			p_misc.appendChild(textTag(doc, &quot;spaceEmoticons&quot;, prefs.spaceEmoticons));
+ 			p_misc.appendChild(textTag(doc, &quot;alertOpenChats&quot;, prefs.alertOpenChats));
+ 			p_misc.appendChild(textTag(doc, &quot;raiseChatWindow&quot;, prefs.raiseChatWindow));
+ 			p_misc.appendChild(textTag(doc, &quot;showSubjects&quot;, prefs.showSubjects));
+@@ -1141,6 +1143,7 @@
+ 				readBoolEntry(tag, &quot;ignoreNonRoster&quot;, &amp;prefs.ignoreNonRoster);
+ 				readBoolEntry(tag, &quot;scrollTo&quot;, &amp;prefs.scrollTo);
+ 				readBoolEntry(tag, &quot;useEmoticons&quot;, &amp;prefs.useEmoticons);
++				readBoolEntry(tag, &quot;spaceEmoticons&quot;, &amp;prefs.spaceEmoticons);
+ 				readBoolEntry(tag, &quot;alertOpenChats&quot;, &amp;prefs.alertOpenChats);
+ 				readBoolEntry(tag, &quot;raiseChatWindow&quot;, &amp;prefs.raiseChatWindow);
+ 				readBoolEntry(tag, &quot;showSubjects&quot;, &amp;prefs.showSubjects);
+
+--- NEW FILE: psi-empty_group-fix.diff ---
+diff -ru -X exclude iris-clean/xmpp-im/types.cpp iris/xmpp-im/types.cpp
+--- ../../iris-clean/xmpp-im/types.cpp	Wed Nov 26 18:24:42 2003
++++ ../../iris/xmpp-im/types.cpp	Thu May 20 12:12:28 2004
+@@ -941,7 +1026,7 @@
+ 
+ bool RosterItem::addGroup(const QString &amp;g)
+ {
+-	if(inGroup(g))
++	if(inGroup(g) || g.isEmpty())
+ 		return false;
+ 
+ 	v_groups += g;
+@@ -990,8 +1075,10 @@
+ 		QDomElement i = n.toElement();
+ 		if(i.isNull())
+ 			continue;
+-		if(i.tagName() == &quot;group&quot;)
++		if(i.tagName() == &quot;group&quot;){
+ 			g += tagContent(i);
++			g.remove(QString(&quot;&quot;));
++		}
+ 	}
+ 	QString a = item.attribute(&quot;ask&quot;);
+ 
+
+--- NEW FILE: psi-framechecks-mod.diff ---
+diff -ru -X exclude psi-clean/src/options/opt_application-ui.ui psi/src/options/opt_application-ui.ui
+--- psi-clean/src/options/opt_application-ui.ui	Thu Mar 04 22:04:10 2004
++++ psi/src/options/opt_application-ui.ui	Thu May 13 10:53:18 2004
+@@ -124,6 +124,12 @@
+                             &lt;property name=&quot;name&quot;&gt;
+                                 &lt;cstring&gt;le_linkMailer&lt;/cstring&gt;
+                             &lt;/property&gt;
++                            &lt;property name=&quot;frameShape&quot;&gt;
++                                &lt;enum&gt;LineEditPanel&lt;/enum&gt;
++                            &lt;/property&gt;
++                            &lt;property name=&quot;frameShadow&quot;&gt;
++                                &lt;enum&gt;Sunken&lt;/enum&gt;
++                            &lt;/property&gt;
+                         &lt;/widget&gt;
+                         &lt;widget class=&quot;QLineEdit&quot; row=&quot;0&quot; column=&quot;1&quot;&gt;
+                             &lt;property name=&quot;name&quot;&gt;
+@@ -150,24 +156,16 @@
+                 &lt;/widget&gt;
+             &lt;/vbox&gt;
+         &lt;/widget&gt;
+-        &lt;widget class=&quot;QCheckBox&quot;&gt;
+-            &lt;property name=&quot;name&quot;&gt;
+-                &lt;cstring&gt;ck_docklet&lt;/cstring&gt;
+-            &lt;/property&gt;
+-            &lt;property name=&quot;text&quot;&gt;
+-                &lt;string&gt;Enable Docklet&lt;/string&gt;
+-            &lt;/property&gt;
+-            &lt;property name=&quot;checked&quot;&gt;
+-                &lt;bool&gt;true&lt;/bool&gt;
+-            &lt;/property&gt;
+-        &lt;/widget&gt;
+         &lt;widget class=&quot;QGroupBox&quot;&gt;
+             &lt;property name=&quot;name&quot;&gt;
+-                &lt;cstring&gt;groupBox7&lt;/cstring&gt;
++                &lt;cstring&gt;ck_docklet&lt;/cstring&gt;
+             &lt;/property&gt;
+             &lt;property name=&quot;title&quot;&gt;
+                 &lt;string&gt;Docklet&lt;/string&gt;
+             &lt;/property&gt;
++            &lt;property name=&quot;checkable&quot;&gt;
++                &lt;bool&gt;true&lt;/bool&gt;
++            &lt;/property&gt;
+             &lt;vbox&gt;
+                 &lt;property name=&quot;name&quot;&gt;
+                     &lt;cstring&gt;unnamed&lt;/cstring&gt;
+@@ -283,14 +281,6 @@
+         &lt;/widget&gt;
+     &lt;/vbox&gt;
+ &lt;/widget&gt;
+-&lt;connections&gt;
+-    &lt;connection&gt;
+-        &lt;sender&gt;ck_docklet&lt;/sender&gt;
+-        &lt;signal&gt;toggled(bool)&lt;/signal&gt;
+-        &lt;receiver&gt;groupBox7&lt;/receiver&gt;
+-        &lt;slot&gt;setEnabled(bool)&lt;/slot&gt;
+-    &lt;/connection&gt;
+-&lt;/connections&gt;
+ &lt;tabstops&gt;
+     &lt;tabstop&gt;ck_alwaysOnTop&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_keepSizes&lt;/tabstop&gt;
+@@ -298,7 +288,6 @@
+     &lt;tabstop&gt;cb_link&lt;/tabstop&gt;
+     &lt;tabstop&gt;le_linkBrowser&lt;/tabstop&gt;
+     &lt;tabstop&gt;le_linkMailer&lt;/tabstop&gt;
+-    &lt;tabstop&gt;ck_docklet&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_dockDCstyle&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_dockHideMW&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_dockToolMW&lt;/tabstop&gt;
+diff -ru -X exclude psi-clean/src/options/opt_events-ui.ui psi/src/options/opt_events-ui.ui
+--- psi-clean/src/options/opt_events-ui.ui	Sun Jan 04 19:30:30 2004
++++ psi/src/options/opt_events-ui.ui	Thu May 13 10:58:58 2004
+@@ -121,24 +121,16 @@
+                 &lt;/widget&gt;
+             &lt;/hbox&gt;
+         &lt;/widget&gt;
+-        &lt;widget class=&quot;QCheckBox&quot;&gt;
+-            &lt;property name=&quot;name&quot;&gt;
+-                &lt;cstring&gt;ck_popupOn&lt;/cstring&gt;
+-            &lt;/property&gt;
+-            &lt;property name=&quot;text&quot;&gt;
+-                &lt;string&gt;Enable popup notifications&lt;/string&gt;
+-            &lt;/property&gt;
+-            &lt;property name=&quot;checked&quot;&gt;
+-                &lt;bool&gt;true&lt;/bool&gt;
+-            &lt;/property&gt;
+-        &lt;/widget&gt;
+         &lt;widget class=&quot;QGroupBox&quot;&gt;
+             &lt;property name=&quot;name&quot;&gt;
+-                &lt;cstring&gt;groupBox1&lt;/cstring&gt;
++                &lt;cstring&gt;ck_popupOn&lt;/cstring&gt;
+             &lt;/property&gt;
+             &lt;property name=&quot;title&quot;&gt;
+                 &lt;string&gt;Popup Notifications&lt;/string&gt;
+             &lt;/property&gt;
++            &lt;property name=&quot;checkable&quot;&gt;
++                &lt;bool&gt;true&lt;/bool&gt;
++            &lt;/property&gt;
+             &lt;vbox&gt;
+                 &lt;property name=&quot;name&quot;&gt;
+                     &lt;cstring&gt;unnamed&lt;/cstring&gt;
+@@ -187,14 +179,6 @@
+         &lt;/widget&gt;
+     &lt;/vbox&gt;
+ &lt;/widget&gt;
+-&lt;connections&gt;
+-    &lt;connection&gt;
+-        &lt;sender&gt;ck_popupOn&lt;/sender&gt;
+-        &lt;signal&gt;toggled(bool)&lt;/signal&gt;
+-        &lt;receiver&gt;groupBox1&lt;/receiver&gt;
+-        &lt;slot&gt;setEnabled(bool)&lt;/slot&gt;
+-    &lt;/connection&gt;
+-&lt;/connections&gt;
+ &lt;tabstops&gt;
+     &lt;tabstop&gt;ck_popupMsgs&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_allowAwayPopup&lt;/tabstop&gt;
+@@ -205,7 +189,6 @@
+     &lt;tabstop&gt;rb_aSolid&lt;/tabstop&gt;
+     &lt;tabstop&gt;rb_aBlink&lt;/tabstop&gt;
+     &lt;tabstop&gt;rb_aAnimate&lt;/tabstop&gt;
+-    &lt;tabstop&gt;ck_popupOn&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_popupOnMessage&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_popupOnOnline&lt;/tabstop&gt;
+     &lt;tabstop&gt;ck_popupOnStatus&lt;/tabstop&gt;
+diff -ru -X exclude psi-clean/src/options/opt_general_groupchat.ui psi/src/options/opt_general_groupchat.ui
+--- psi-clean/src/options/opt_general_groupchat.ui	Sat Jan 17 14:48:10 2004
++++ psi/src/options/opt_general_groupchat.ui	Thu May 13 11:00:46 2004
+@@ -30,21 +30,16 @@
+                 &lt;property name=&quot;name&quot;&gt;
+                     &lt;cstring&gt;unnamed&lt;/cstring&gt;
+                 &lt;/property&gt;
+-                &lt;widget class=&quot;QCheckBox&quot;&gt;
+-                    &lt;property name=&quot;name&quot;&gt;
+-                        &lt;cstring&gt;ck_gcHighlights&lt;/cstring&gt;
+-                    &lt;/property&gt;
+-                    &lt;property name=&quot;text&quot;&gt;
+-                        &lt;string&gt;Enable word highlighting&lt;/string&gt;
+-                    &lt;/property&gt;
+-                &lt;/widget&gt;
+                 &lt;widget class=&quot;QGroupBox&quot;&gt;
+                     &lt;property name=&quot;name&quot;&gt;
+-                        &lt;cstring&gt;alertGroupBox&lt;/cstring&gt;
++                        &lt;cstring&gt;ck_gcHighlights&lt;/cstring&gt;
+                     &lt;/property&gt;
+                     &lt;property name=&quot;title&quot;&gt;
+                         &lt;string&gt;Word Highlighting&lt;/string&gt;
+                     &lt;/property&gt;
++                    &lt;property name=&quot;checkable&quot;&gt;
++                        &lt;bool&gt;true&lt;/bool&gt;
++                    &lt;/property&gt;
+                     &lt;property name=&quot;toolTip&quot; stdset=&quot;0&quot;&gt;
+                         &lt;string&gt;Highlight lines and alert the user if this text is included in chat&lt;/string&gt;
+                     &lt;/property&gt;
+@@ -172,21 +167,16 @@
+                 &lt;property name=&quot;name&quot;&gt;
+                     &lt;cstring&gt;unnamed&lt;/cstring&gt;
+                 &lt;/property&gt;
+-                &lt;widget class=&quot;QCheckBox&quot;&gt;
+-                    &lt;property name=&quot;name&quot;&gt;
+-                        &lt;cstring&gt;ck_gcNickColoring&lt;/cstring&gt;
+-                    &lt;/property&gt;
+-                    &lt;property name=&quot;text&quot;&gt;
+-                        &lt;string&gt;Enable Nick Coloring&lt;/string&gt;
+-                    &lt;/property&gt;
+-                &lt;/widget&gt;
+                 &lt;widget class=&quot;QGroupBox&quot;&gt;
+                     &lt;property name=&quot;name&quot;&gt;
+-                        &lt;cstring&gt;ncGroupBox&lt;/cstring&gt;
++                        &lt;cstring&gt;ck_gcNickColoring&lt;/cstring&gt;
+                     &lt;/property&gt;
+                     &lt;property name=&quot;title&quot;&gt;
+                         &lt;string&gt;Nick Coloring&lt;/string&gt;
+                     &lt;/property&gt;
++                    &lt;property name=&quot;checkable&quot;&gt;
++                        &lt;bool&gt;true&lt;/bool&gt;
++                    &lt;/property&gt;
+                     &lt;vbox&gt;
+                         &lt;property name=&quot;name&quot;&gt;
+                             &lt;cstring&gt;unnamed&lt;/cstring&gt;
+@@ -318,12 +308,10 @@
+     &lt;/hbox&gt;
+ &lt;/widget&gt;
+ &lt;tabstops&gt;
+-    &lt;tabstop&gt;ck_gcHighlights&lt;/tabstop&gt;
+     &lt;tabstop&gt;lb_highlightWords&lt;/tabstop&gt;
+     &lt;tabstop&gt;le_newHighlightWord&lt;/tabstop&gt;
+     &lt;tabstop&gt;pb_removeHighlightWord&lt;/tabstop&gt;
+     &lt;tabstop&gt;pb_addHighlightWord&lt;/tabstop&gt;
+-    &lt;tabstop&gt;ck_gcNickColoring&lt;/tabstop&gt;
+     &lt;tabstop&gt;lb_nickColors&lt;/tabstop&gt;
+     &lt;tabstop&gt;le_newNickColor&lt;/tabstop&gt;
+     &lt;tabstop&gt;pb_nickColor&lt;/tabstop&gt;
+
+--- NEW FILE: psi-gnome_toolwindow-mod.diff ---
+diff -ru -X exclude psi-clean/src/mainwin.cpp psi/src/mainwin.cpp
+--- psi-clean/src/mainwin.cpp	2004-08-21 09:58:25.000000000 +0200
++++ psi/src/mainwin.cpp	2004-08-22 19:55:29.000000000 +0200
+@@ -182,7 +182,8 @@
+ //#ifdef Q_WS_X11
+ //#define TOOLW_FLAGS WStyle_Customize
+ //#else
+-#define TOOLW_FLAGS 0
++//#define TOOLW_FLAGS WStyle_NormalBorder | WStyle_Customize
++#define TOOLW_FLAGS WStyle_DialogBorder | WStyle_Customize
+ //#endif
+ 
+ MainWin::MainWin(bool _onTop, bool _asTool, PsiCon *psi, const char *name)
+
+--- NEW FILE: psi-group_openclose_single_click-mod.diff ---
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Mon Jan 26 17:33:30 2004
++++ psi/src/contactview.cpp	Sun Feb 01 20:12:08 2004
+@@ -1878,7 +1878,12 @@
+ 			item-&gt;contactProfile()-&gt;scActionDefault(item);
+ 	}
+ 	else {
+-		if(option.useleft) {
++		const QPixmap * pix = item-&gt;pixmap(0);			
++		if(button == QListView::LeftButton &amp;&amp; item-&gt;type() == ContactViewItem::Group &amp;&amp;
++		   pix &amp;&amp; viewport()-&gt;mapFromGlobal(pos).x() &lt;= pix-&gt;width() + treeStepSize()) {
++			setOpen(item, !item-&gt;isOpen());
++		}
++		else if(option.useleft) {
+ 			if(button == QListView::LeftButton) {
+ 				if(option.singleclick) {
+ 					qlv_contextPopup(i, pos, c);
+
+--- NEW FILE: psi-headings-mod.diff ---
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Mon Oct 06 07:42:10 2003
++++ psi/src/contactview.cpp	Tue Oct 14 20:46:46 2003
+@@ -2249,7 +2249,8 @@
+ 		if(d-&gt;type == Group &amp;&amp; option.clNewHeadings) {
+ 			//xcg.setColor(QColorGroup::Text, option.color[cGroupBack]);
+ 			QFont f = p-&gt;font();
+-			f.setPointSize(option.smallFontSize);
++			//f.setPointSize(option.smallFontSize);
++			f.setWeight(QFont::Bold);
+ 			p-&gt;setFont(f);
+ 		} else {
+ 			//xcg.setColor(QColorGroup::Text, option.color[cGroupFore]);
+
+--- NEW FILE: psi-icon_buttons_big_return-mod.diff ---
+diff -ru -X exclude psi-clean/libpsi/psiwidgets/iconwidget.cpp psi/libpsi/psiwidgets/iconwidget.cpp
+--- psi-clean/libpsi/psiwidgets/iconwidget.cpp	Thu Dec 18 14:10:44 2003
++++ psi/libpsi/psiwidgets/iconwidget.cpp	Thu Dec 18 14:27:52 2003
+@@ -587,11 +587,6 @@
+ 
+ void IconButton::setIcon(const Icon *i, bool activate)
+ {
+-#ifndef Q_WS_X11
+-	if ( !text().isEmpty() )
+-		return;
+-#endif
+-
+ 	forceSetIcon(i, activate);
+ 	d-&gt;forced = false;
+ }
+
+--- NEW FILE: psi-iconselect-mod.diff ---
+diff -ru psi-clean/libpsi/psiwidgets/iconselect.cpp psi/libpsi/psiwidgets/iconselect.cpp
+--- psi-clean/libpsi/psiwidgets/iconselect.cpp	Thu Aug 14 10:14:48 2003
++++ psi/libpsi/psiwidgets/iconselect.cpp	Thu Aug 14 17:53:40 2003
+@@ -15,6 +15,9 @@
+ 
+ #include &quot;iconset.h&quot;
+ 
++#include &lt;qstylesheet.h&gt;
++#define expandEntities(s) (QStyleSheet::escape(s))
++
+ //----------------------------------------------------------------------------
+ // IconSelectButton
+ //----------------------------------------------------------------------------
+@@ -109,15 +112,22 @@
+ 
+ 				// and list all possible variants in the ToolTip
+ 				QString toolTip;
++				
++				if ( str )
++					toolTip=QString(&quot;&lt;nobr&gt;&lt;b&gt;&quot;)+expandEntities(*str)+&quot;&lt;/b&gt;&lt;/nobr&gt;&quot;;
++				
+ 				QDictIterator&lt;QString&gt; it2 ( ic-&gt;text() );
+ 				for ( ; it2.current(); ++it2) {
+-					if ( !toolTip.isEmpty() )
+-						toolTip += &quot;, &quot;;
+-					toolTip += **it2;
+-					break; // comment this to get list of iconsets
++					if ( *it2!=str ) {
++						if ( !toolTip.isEmpty() )
++							toolTip += &quot;&lt;br&gt;&quot;;
++						if ( toolTip.length() &gt; 50 ) {
++							toolTip += &quot;...&quot;;
++							break;
++						}
++						toolTip += QString(&quot;&lt;nobr&gt;&quot;)+expandEntities(**it2)+&quot;&lt;/nobr&gt;&quot;;
++					}
+ 				}
+-				if ( toolTip.length() &gt; 30 )
+-					toolTip = toolTip.left(30) + &quot;...&quot;;
+ 				QToolTip::add(this, toolTip);
+ 			}
+ 		}
+
+--- NEW FILE: psi-indicator-icon.pw.patch ---
+diff -ruN psi.orig/iconsets/roster/default/icondef.xml psi/iconsets/roster/default/icondef.xml
+--- psi.orig/iconsets/roster/default/icondef.xml	2004-04-22 21:49:53.000000000 +0200
++++ psi/iconsets/roster/default/icondef.xml	2004-10-18 13:32:24.000000000 +0200
+@@ -112,4 +112,9 @@
+ 		&lt;x xmlns='name'&gt;psi/groupOpen&lt;/x&gt;
+ 		&lt;object mime='image/png'&gt;groupopen.png&lt;/object&gt;
+ 	&lt;/icon&gt;
++
++	&lt;icon&gt;
++		&lt;x&gt;psi/statInd&lt;/x&gt;
++		&lt;object mime=&quot;image/png&quot;&gt;indicator.png&lt;/object&gt;
++	&lt;/icon&gt;
+ &lt;/icondef&gt;
+
+--- NEW FILE: psi-line_in_options-mod.diff ---
+diff -ru -X exclude psi-clean/src/options/ui_options.ui psi/src/options/ui_options.ui
+--- psi-clean/src/options/ui_options.ui	Tue Nov 25 20:16:46 2003
++++ psi/src/options/ui_options.ui	Sun Nov 30 16:57:20 2003
+@@ -9,7 +9,7 @@
+             &lt;x&gt;0&lt;/x&gt;
+             &lt;y&gt;0&lt;/y&gt;
+             &lt;width&gt;408&lt;/width&gt;
+-            &lt;height&gt;292&lt;/height&gt;
++            &lt;height&gt;295&lt;/height&gt;
+         &lt;/rect&gt;
+     &lt;/property&gt;
+     &lt;property name=&quot;caption&quot;&gt;
+@@ -54,6 +54,20 @@
+                         &lt;enum&gt;LastColumn&lt;/enum&gt;
+                     &lt;/property&gt;
+                 &lt;/widget&gt;
++                &lt;widget class=&quot;Line&quot;&gt;
++                    &lt;property name=&quot;name&quot;&gt;
++                        &lt;cstring&gt;line2&lt;/cstring&gt;
++                    &lt;/property&gt;
++                    &lt;property name=&quot;frameShape&quot;&gt;
++                        &lt;enum&gt;VLine&lt;/enum&gt;
++                    &lt;/property&gt;
++                    &lt;property name=&quot;frameShadow&quot;&gt;
++                        &lt;enum&gt;Sunken&lt;/enum&gt;
++                    &lt;/property&gt;
++                    &lt;property name=&quot;orientation&quot;&gt;
++                        &lt;enum&gt;Vertical&lt;/enum&gt;
++                    &lt;/property&gt;
++                &lt;/widget&gt;
+                 &lt;widget class=&quot;QLayoutWidget&quot;&gt;
+                     &lt;property name=&quot;name&quot;&gt;
+                         &lt;cstring&gt;layout3&lt;/cstring&gt;
+
+--- NEW FILE: psi-linkify-mod-rev-fix.diff ---
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Tue Nov 04 07:12:56 2003
++++ psi/src/contactview.cpp	Tue Nov 11 12:39:18 2003
+@@ -1674,7 +1683,7 @@
+ 		return;
+ 	QRect r(itemRect(i));
+ 	if(i-&gt;type() == ContactViewItem::Contact)
+-		tip(r, i-&gt;u()-&gt;makeTip(true, false));
++		tip(r, i-&gt;u()-&gt;makeTip(true, true));
+ 	else if(i-&gt;type() == ContactViewItem::Profile) {
+-		tip(r, i-&gt;contactProfile()-&gt;makeTip(true, false));
++		tip(r, i-&gt;contactProfile()-&gt;makeTip(true, true));
+	}
+diff -ru -X exclude psi-clean/src/psipopup.cpp psi/src/psipopup.cpp
+--- psi-clean/src/psipopup.cpp	Tue Oct 28 18:05:50 2003
++++ psi/src/psipopup.cpp	Tue Nov 11 12:14:36 2003
+@@ -334,7 +334,7 @@
+ 	else
+ 		name = &quot;&lt;nobr&gt;&lt;&quot; + jid + &quot;&gt;&lt;/nobr&gt;&quot;;
+ 
+-	QString statusString = plain2rich(status);
++	QString statusString = linkify(plain2rich(status));
+ 	if ( option.useEmoticons )
+ 		statusString = emoticonify(statusString);
+ 
+diff -ru -X exclude psi-clean/src/userlist.cpp psi/src/userlist.cpp
+--- psi-clean/src/userlist.cpp	Mon Oct 27 23:42:38 2003
++++ psi/src/userlist.cpp	Tue Nov 11 12:43:50 2003
+@@ -398,7 +404,7 @@
+ 					s = plain2rich(s);
+ 				if ( doLinkify )
+ 					s = linkify(s);
+-				if( option.useEmoticons &amp;&amp; !doLinkify )
++				if( option.useEmoticons )
+ 					s = emoticonify(s);
+ 				str += QString(&quot;&lt;br&gt;&lt;nobr&gt;&lt;u&gt;%1&lt;/u&gt;&lt;/nobr&gt;&lt;br&gt;%2&quot;).arg(head).arg(s);
+ 			}
+@@ -419,14 +425,15 @@
+ 		// status message
+ 		QString s = lastUnavailableStatus().status();
+ 		if(!s.isEmpty()) {
+-			QString head = QObject::tr(&quot;Last Status Message&quot;);
++			QString head = QObject::tr(&quot;Status Message&quot;);
+ 			if(trim)
+ 				s = plain2rich(clipStatus(s, 200, 12));
+-			else {
+-				s = plain2rich(clipStatus(s, 200, 12));
+-				if ( doLinkify )
+-					s = linkify(s);
+-			}
++			else
++				s = plain2rich(s);
++			if ( doLinkify )
++				s = linkify(s);
++			if( option.useEmoticons )
++				s = emoticonify(s);
+ 			str += QString(&quot;&lt;br&gt;&lt;nobr&gt;&lt;u&gt;%1&lt;/u&gt;&lt;/nobr&gt;&lt;br&gt;%2&quot;).arg(head).arg(s);
+ 		}
+ 	}
+
+--- NEW FILE: psi-nicechats-mod.diff ---
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Tue Jan 06 17:24:54 2004
++++ psi/src/chatdlg.cpp	Sat Mar 27 11:47:06 2004
+@@ -506,7 +507,13 @@
+ 	// update the widget icon
+ #ifdef Q_WS_MAC
+ 	setIcon(IconsetFactory::icon(&quot;psi/chat&quot;));
+ #endif
++
++	d-&gt;log-&gt;setPaletteBackgroundColor(option.color[cChatBG]);
++	d-&gt;mle-&gt;setPaletteBackgroundColor(option.color[cChatBG]);
++
++	d-&gt;log-&gt;setPaletteForegroundColor(option.color[cChatMessage]);
++	d-&gt;mle-&gt;setPaletteForegroundColor(option.color[cChatMessage]);
+ }
+ 
+ void ChatDlg::optionsUpdate()
+@@ -739,7 +746,7 @@
+ 		y = 0;
+[...1042 lines suppressed...]
+ 				readBoolEntry(tag, &quot;showGroupCounts&quot;, &amp;prefs.showGroupCounts);
+ 				readBoolEntry(tag, &quot;showCounter&quot;, &amp;prefs.showCounter);
+ 				readBoolEntry(tag, &quot;chatSays&quot;, &amp;prefs.chatSays);
++				readBoolEntry(tag, &quot;showTimeStamps&quot;, &amp;prefs.showTimeStamps);
+ 				readBoolEntry(tag, &quot;jidComplete&quot;, &amp;prefs.jidComplete);
+ 				readBoolEntry(tag, &quot;grabUrls&quot;, &amp;prefs.grabUrls);
+ 				readBoolEntry(tag, &quot;smallChats&quot;, &amp;prefs.smallChats);
+@@ -1270,6 +1285,12 @@
+ 				readColorEntry(tag, &quot;groupback&quot;, &amp;prefs.color[cGroupBack]);
+ 				readColorEntry(tag, &quot;animfront&quot;, &amp;prefs.color[cAnimFront]);
+ 				readColorEntry(tag, &quot;animback&quot;, &amp;prefs.color[cAnimBack]);
++				readColorEntry(tag, &quot;chatmessage&quot;, &amp;prefs.color[cChatMessage]);
++				readColorEntry(tag, &quot;chatsys&quot;, &amp;prefs.color[cChatSys]);
++				readColorEntry(tag, &quot;chatto&quot;, &amp;prefs.color[cChatTo]);
++				readColorEntry(tag, &quot;chatfrom&quot;, &amp;prefs.color[cChatFrom]);
++				readColorEntry(tag, &quot;chatspool&quot;, &amp;prefs.color[cChatSpool]);
++				readColorEntry(tag, &quot;chatbg&quot;, &amp;prefs.color[cChatBG]);
+ 			}
+ 
+ 			tag = findSubTag(p_lnf, &quot;fonts&quot;, &amp;found);
+
+--- NEW FILE: psi-no_online_status-mod.diff ---
+diff -ru psi/src/psiaccount.cpp psi-smk2/src/psiaccount.cpp
+--- psi/src/psiaccount.cpp	2003-06-17 05:46:02.000000000 +0200
++++ psi-smk2/src/psiaccount.cpp	2003-06-19 23:48:40.000000000 +0200
+@@ -1551,7 +1551,7 @@
+ 	}
+ 	else {
+ 		if(x == STATUS_ONLINE &amp;&amp; !option.askOnline) {
+-			setStatus(Status());
++			setStatus(Status(&quot;&quot;,&quot;&quot;,0,true));
+ 		}
+ 		else if(x == STATUS_INVISIBLE){
+ 			Status s(&quot;&quot;,&quot;&quot;,0,true);
+
+--- NEW FILE: psi-options_resize-fix.diff ---
+diff -ru -X exclude psi-clean/src/options/ui_options.ui psi/src/options/ui_options.ui
+--- psi-clean/src/options/ui_options.ui	Tue Nov 25 20:16:46 2003
++++ psi/src/options/ui_options.ui	Sun Feb 15 22:21:06 2004
+                         &lt;cstring&gt;layout3&lt;/cstring&gt;
+@@ -73,7 +87,7 @@
+                             &lt;/property&gt;
+                             &lt;property name=&quot;sizePolicy&quot;&gt;
+                                 &lt;sizepolicy&gt;
+-                                    &lt;hsizetype&gt;7&lt;/hsizetype&gt;
++                                    &lt;hsizetype&gt;3&lt;/hsizetype&gt;
+                                     &lt;vsizetype&gt;3&lt;/vsizetype&gt;
+                                     &lt;horstretch&gt;0&lt;/horstretch&gt;
+                                     &lt;verstretch&gt;0&lt;/verstretch&gt;
+
+--- NEW FILE: psi-qt_trans-add.diff ---
+diff -ru -X exclude psi-clean/src/main.cpp psi/src/main.cpp
+--- psi-clean/src/main.cpp	Tue Mar 16 01:16:02 2004
++++ psi/src/main.cpp	Thu Jun 17 19:53:30 2004
+@@ -55,6 +55,7 @@
+ using namespace XMPP;
+ 
+ QTranslator *trans;
++QTranslator *qttrans;
+ QString curLang = &quot;en&quot;;
+ QString curLangName = QT_TR_NOOP(&quot;language_name&quot;);
+ 
+@@ -62,6 +63,7 @@
+ {
+ 	//printf(&quot;changing lang: [%s]\n&quot;, lang.latin1());
+ 	trans-&gt;clear();
++	qttrans-&gt;clear();
+ 	if(lang == &quot;en&quot;) {
+ 		curLang = lang;
+ 		curLangName = &quot;English&quot;;
+@@ -77,6 +79,8 @@
+ 		if(!QFile::exists(*it))
+ 			continue;
+ 		if(trans-&gt;load(&quot;psi_&quot; + lang, *it)) {
++			// try to load qt library translation
++			qttrans-&gt;load(&quot;qt_&quot; + lang, *it);
+ 			curLang = lang;
+ 			return;
+ 		}
+@@ -373,6 +377,9 @@
+ 	trans = new QTranslator(0);
+ 	app-&gt;installTranslator(trans);
+ 
++	qttrans = new QTranslator(0);
++	app-&gt;installTranslator(qttrans);
++
+ 	// need SHA1 for Iconset sound
+ 	if(!QCA::isSupported(QCA::CAP_SHA1))
+ 		QCA::insertProvider(XMPP::createProviderHash());
+@@ -385,6 +392,9 @@
+ 	app-&gt;removeTranslator(trans);
+ 	delete trans;
+ 	trans = 0;
++	app-&gt;removeTranslator(qttrans);
++	delete qttrans;
++	qttrans = 0;
+ 
+ 	delete app;
+ 
+
+--- NEW FILE: psi-rich_contactview-0.7-add.diff ---
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Tue Jun 08 05:40:46 2004
++++ psi/src/common.h	Fri Jun 18 08:18:34 2004
+@@ -85,6 +85,9 @@
+ 	QString defaultRosterIconset;
+ 	QMap&lt;QString, QString&gt; serviceRosterIconset;
+ 	QMap&lt;QString, QString&gt; customRosterIconset;
++	QString defaultTemplate;	
++	QMap&lt;QString, QString&gt; customRosterTemplate;
++	int templFieldTrim;
+ 
+ 	bool useleft, singleclick, askOnline, popupMsgs, popupChats, popupHeadlines, raise;
+ 	bool alwaysOnTop, noAwaySound, noAwayPopup, noUnlistedPopup, rosterAnim, autoVersion, autoVCardOnLogin, xmlConsoleOnLogin;
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Sun Jun 06 20:18:00 2004
++++ psi/src/contactview.cpp	Fri Jun 18 08:36:52 2004
+@@ -1698,7 +1698,7 @@
+ };
+ 
+ ContactView::ContactView(QWidget *parent, const char *name)
+-:QListView(parent, name, QListView::WRepaintNoErase | QListView::WResizeNoErase), QToolTip(viewport())
++:QListView(parent, name, 0/* these are default for QLView QListView::WRepaintNoErase | QListView::WResizeNoErase*/), QToolTip(viewport())
+ {
+ 	d = new Private(this);
+ 
+@@ -2190,7 +2190,7 @@
+ };
+ 
+ ContactViewItem::ContactViewItem(const QString &amp;profileName, ContactProfile *cp, ContactView *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d-&gt;type = Profile;
+@@ -2205,7 +2205,7 @@
+ }
+ 
+ ContactViewItem::ContactViewItem(const QString &amp;groupName, int groupType, ContactProfile *cp, ContactView *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d-&gt;type = Group;
+@@ -2221,7 +2221,7 @@
+ }
+ 
+ ContactViewItem::ContactViewItem(const QString &amp;groupName, int groupType, ContactProfile *cp, ContactViewItem *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d-&gt;type = Group;
+@@ -2240,7 +2240,7 @@
+ }
+ 
+ ContactViewItem::ContactViewItem(UserListItem *u, ContactProfile *cp, ContactViewItem *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d-&gt;cp = cp;
+@@ -2259,6 +2259,8 @@
+ 
+ 	if(!parent-&gt;isVisible())
+ 		setVisible(false);
++	else
++		setup();
+ }
+ 
+ ContactViewItem::~ContactViewItem()
+@@ -2360,6 +2388,104 @@
+ 	p-&gt;fillRect(0, 0, w, h, cg.base());
+ }
+ 
++QString jid2template(const Jid &amp;jid)
++{
++	QString templ = option.defaultTemplate;
++	QMapIterator&lt;QString, QString&gt; it = option.customRosterTemplate.begin();
++	for ( ; it != option.customRosterTemplate.end(); ++it) {
++		QRegExp rx = QRegExp(it.key());
++		if ( rx.search(jid.userHost()) != -1 ) {
++			templ = it.data();
++			break;
++		}
++	}
++	return templ;
++}
++
++QString ContactViewItem::expandTemplate(int column)
++{	
++	QString txt;
++	// default template (best case), skip all regexes
++	if(!d-&gt;u ||  (txt = jid2template(d-&gt;u-&gt;jid())).isEmpty())
++		return RichListViewItem::expandTemplate(column);
++
++	QString ins;
++	QRegExp repl;
++
++	repl.setCaseSensitive(FALSE);
++	// contact name (default)
++	ins = expandEntities(text(column));
++	repl.setPattern(&quot;&lt;text&gt;&quot;); txt.replace(repl, ins);
++	if(!ins.isEmpty()){
++		repl.setPattern(&quot;&lt;!text&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++	}
++	// jid
++	ins = expandEntities(d-&gt;u-&gt;jid().bare());
++	repl.setPattern(&quot;&lt;jid&gt;&quot;); txt.replace(repl, ins);
++	if(!ins.isEmpty()){
++		repl.setPattern(&quot;&lt;!jid&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++	}
++	// subscription
++	ins = d-&gt;u-&gt;subscription().toString();
++	repl.setPattern(&quot;&lt;subscription&gt;&quot;); txt.replace(repl, ins);
++	if(!ins.isEmpty()){
++		repl.setPattern(&quot;&lt;!subscription&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++	}
++	// resource dependent
++	UserResourceList srl = d-&gt;u-&gt;userResourceList();
++	if(!srl.isEmpty()){
++		srl.sort();
++		const UserResource &amp;r = *(srl.begin());
++		// status description
++		ins = linkify(expandEntities(r.status().status().stripWhiteSpace()));
++		if(option.useEmoticons)
++			ins = emoticonify(ins);
++		ins.replace(&quot;\n&quot;, &quot;&lt;br&gt;&quot;);
++		if(option.templFieldTrim &gt; 0 ){
++			// try not to break &lt;tags&gt;
++			int trim = ins.left(option.templFieldTrim).findRev(&quot;&lt;&quot;);
++			if( trim != -1 )
++				trim = ins.find(&quot;&gt;&quot;, trim);
++			if( trim == -1 || trim &lt; option.templFieldTrim)
++				trim = option.templFieldTrim;
++			ins = ins.left(trim).stripWhiteSpace() + (((int)ins.length() &gt; trim)?(&quot; ...&quot;):(&quot;&quot;));
++		}
++		repl.setPattern(&quot;&lt;status_msg&gt;&quot;); txt.replace(repl, ins);
++		if(!ins.isEmpty()){
++			repl.setPattern(&quot;&lt;!status_msg&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++		}
++		// resource name
++		ins = r.name();
++		if(ins.isEmpty())
++			ins = QObject::tr(&quot;[blank]&quot;);
++		repl.setPattern(&quot;&lt;resource&gt;&quot;); txt.replace(repl, ins);
++		repl.setPattern(&quot;&lt;!resource&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++		// priority
++		ins = QString(&quot;%1&quot;).arg(r.priority());
++		repl.setPattern(&quot;&lt;priority&gt;&quot;); txt.replace(repl, ins);
++		if(!ins.isEmpty()){
++			repl.setPattern(&quot;&lt;!priority&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++		}
++		// version
++		ins = expandEntities(r.versionString());
++		repl.setPattern(&quot;&lt;version&gt;&quot;); txt.replace(repl, ins);
++		if(!ins.isEmpty()){
++			repl.setPattern(&quot;&lt;!version&gt;&quot;); txt.replace(repl, QString(&quot;&lt;br&gt;&quot;) + ins);
++		}
++	}
++	// ... TODO
++
++	// nothing left (worst case), use default
++	repl.setMinimal(TRUE);
++	repl.setPattern(&quot;&lt;.*&gt;&quot;);
++	QString out = txt;
++	out.remove(repl);
++	if(out.stripWhiteSpace().isEmpty())
++		return RichListViewItem::expandTemplate(column);
++
++	return txt;
++}
++
+ void ContactViewItem::paintCell(QPainter *p, const QColorGroup &amp; cg, int column, int width, int alignment)
+ {
+ 	if ( d-&gt;type == Contact ) {
+@@ -2377,11 +2470,12 @@
+ 			xcg.setColor(QColorGroup::HighlightedText, d-&gt;animateNickColor ? option.color[cAnimFront] : option.color[cAnimBack]);
+ 		}
+ 
+-		QListViewItem::paintCell(p, xcg, column, width, alignment);
++		RichListViewItem::paintCell(p, xcg, column, width, alignment);
+ 
+-		QFontMetrics fm(p-&gt;font());
++//		QFontMetrics fm(p-&gt;font());
+ 		const QPixmap *pix = pixmap(column);
+-		int x = fm.width(text(column)) + (pix ? pix-&gt;width() : 0) + 8;
++//		int x = fm.width(text(column)) + (pix ? pix-&gt;width() : 0) + 8;
++		int x = widthUsed();
+ 
+ 		if ( d-&gt;u ) {
+ 			UserResourceList::ConstIterator it = d-&gt;u-&gt;priority();
+@@ -2798,6 +2892,7 @@
+ 	if(needUpdate)
+ 		updatePosition();
+ 
++	setup();
+ 	repaint();
+ }
+ 
+diff -ru -X exclude psi-clean/src/contactview.h psi/src/contactview.h
+--- psi-clean/src/contactview.h	Thu Mar 18 22:50:10 2004
++++ psi/src/contactview.h	Fri Jun 18 08:17:42 2004
+@@ -23,6 +23,7 @@
+ 
+ #include&lt;qobject.h&gt;
+ #include&lt;qlistview.h&gt;
++#include&lt;richlistview.h&gt;
+ #include&lt;qtooltip.h&gt;
+ #include&lt;qvaluelist.h&gt;
+ #include&quot;xmpp.h&quot;
+@@ -238,7 +239,7 @@
+ };
+ 
+ // ContactViewItem: an entry in the ContactView (profile, group, or contact)
+-class ContactViewItem : public QObject, public QListViewItem
++class ContactViewItem : public QObject, public RichListViewItem
+ {
+ 	Q_OBJECT
+ public:
+@@ -302,6 +303,7 @@
+ 	void dragEntered();
+ 	void dragLeft();
+ 	void dropped(QDropEvent *);
++	virtual QString expandTemplate(int column = 0);
+ 
+ private:
+ 	class Private;
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sat May 15 17:34:30 2004
++++ psi/src/psi_profiles.cpp	Fri Jun 18 08:23:48 2004
+@@ -556,6 +556,10 @@
+ 
+ 	prefs.customRosterIconset.clear();
+ 
++	prefs.defaultTemplate = &quot;&quot;;
++	prefs.customRosterTemplate.clear();
++	prefs.templFieldTrim = 0;
++
+ 	// roster sorting
+ 	prefs.rosterContactSortStyle = Options::ContactSortStyle_Status;
+ 	prefs.rosterGroupSortStyle   = Options::GroupSortStyle_Alpha;
+@@ -651,6 +655,22 @@
+ 					name = &quot;rank&quot;;
+ 				sorting.appendChild(textTag(doc, &quot;account&quot;, name));
+ 			}
++			{
++				QDomElement templates = doc.createElement(&quot;templates&quot;);
++				p_roster.appendChild(templates);
++				templates.setAttribute(&quot;fieldTrim&quot;, QString::number(prefs.templFieldTrim));
++
++				templates.appendChild(textTag(doc, &quot;default&quot;, prefs.defaultTemplate));
++
++				QMapIterator&lt;QString, QString&gt; it = prefs.customRosterTemplate.begin();
++				for ( ; it != prefs.customRosterTemplate.end(); ++it) {
++					QDomElement item = doc.createElement(&quot;item&quot;);
++					templates.appendChild(item);
++
++					item.setAttribute(&quot;regExp&quot;, it.key());
++					item.setAttribute(&quot;template&quot;, it.data());
++				}
++			}
+ 		}
+ 		{
+ 			QDomElement p_misc = doc.createElement(&quot;misc&quot;);
+@@ -1137,6 +1157,20 @@
+ 						prefs.rosterAccountSortStyle = Options::AccountSortStyle_Rank;
+ 					else
+ 						prefs.rosterAccountSortStyle = Options::AccountSortStyle_Alpha;
++				}
++				QDomElement templates = findSubTag(p_roster, &quot;templates&quot;, &amp;found);
++				if (found) {
++					prefs.templFieldTrim = templates.attribute(&quot;fieldTrim&quot;).toInt();
++					readEntry(templates, &quot;default&quot;, &amp;prefs.defaultTemplate);
++
++					prefs.customRosterTemplate.clear();
++					for (QDomNode n = templates.firstChild(); !n.isNull(); n = n.nextSibling()) {
++						QDomElement i = n.toElement();
++						if ( i.isNull() || i.nodeName() != &quot;item&quot;)
++							continue;
++
++						prefs.customRosterTemplate[i.attribute(&quot;regExp&quot;)] = i.attribute(&quot;template&quot;);
++					}
+ 				}
+ 			}
+ 
+diff -ru -X exclude psi-clean/src/src.pro psi/src/src.pro
+--- psi-clean/src/src.pro	Tue Jun 08 05:39:36 2004
++++ psi/src/src.pro	Fri Jun 18 08:17:42 2004
+@@ -81,6 +81,7 @@
+ 
+ # Header files
+ HEADERS += \
++	$$PSI_CPP/richlistview.h \
+ 	$$PSI_CPP/varlist.h \
+ 	$$PSI_CPP/profiles.h \
+ 	$$PSI_CPP/profiledlg.h \
+@@ -125,6 +126,7 @@
+ 
+ # Source files
+ SOURCES += \
++	$$PSI_CPP/richlistview.cpp \
+ 	$$PSI_CPP/varlist.cpp \
+ 	$$PSI_CPP/psi_profiles.cpp \
+ 	$$PSI_CPP/profiledlg.cpp \
+
+--- NEW FILE: psi-save_profile-mod.diff ---
+diff -ru -X exclude psi-clean/src/statusdlg.cpp psi/src/statusdlg.cpp
+--- psi-clean/src/statusdlg.cpp	Sun Jan 04 20:30:30 2004
++++ psi/src/statusdlg.cpp	Mon Jan 05 00:14:58 2004
+@@ -149,11 +149,16 @@
+ 	d-&gt;save = new QCheckBox(this);
+ 	d-&gt;save-&gt;setText(tr(&quot;Sa&amp;ve as Preset&quot;));
+ 	d-&gt;save-&gt;setChecked(false);
+-	hb-&gt;addWidget(pb1);
+-	hb-&gt;addStretch(1);
+ 	hb-&gt;addWidget(d-&gt;save);
+ 	hb-&gt;addStretch(1);
++	hb-&gt;addWidget(pb1);
+ 	hb-&gt;addWidget(pb2);
++	
++	setTabOrder(d-&gt;cb_type, d-&gt;cb_preset);
++	setTabOrder(d-&gt;cb_preset, d-&gt;te);
++	setTabOrder(d-&gt;te, d-&gt;save);
++	setTabOrder(d-&gt;save, pb1);
++	setTabOrder(pb1, pb2);
+ 
+ 	// set the rest up
+ 	d-&gt;te-&gt;setTextFormat(PlainText);
+
+--- NEW FILE: psi-settoggles-fix.diff ---
+diff -ru -X exclude psi-clean/src/psicon.cpp psi/src/psicon.cpp
+--- psi-clean/src/psicon.cpp	2004-08-09 21:10:21.000000000 +0200
++++ psi/src/psicon.cpp	2004-08-22 13:38:55.000000000 +0200
+@@ -915,8 +912,8 @@
+ 
+ void PsiCon::setToggles(bool tog_offline, bool tog_away, bool tog_agents, bool tog_hidden, bool tog_self)
+ {
+-	if(d-&gt;listEnabled.count() &gt; 1)
+-		return;
++//	if(d-&gt;listEnabled.count() &gt; 1)
++//		return;
+ 
+ 	d-&gt;mainwin-&gt;cvlist-&gt;setShowOffline(tog_offline);
+ 	d-&gt;mainwin-&gt;cvlist-&gt;setShowAway(tog_away);
+
+--- NEW FILE: psi-status_history-add.diff ---
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Tue Jan 27 18:09:30 2004
++++ psi/src/common.h	Tue Feb 10 17:59:16 2004
+@@ -93,6 +93,8 @@
+ 	int defaultAction;
+ 	int incomingAs;
+ 	VarList sp; //status message presets
++	int recentStatusLimit;
++	bool storePresets;
+ 	QStringList recentStatus; //recent status messages
+ 
+ 	int asAway, asXa, asOffline;
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Tue Jan 27 18:09:32 2004
++++ psi/src/psi_profiles.cpp	Tue Feb 10 18:03:10 2004
+@@ -396,6 +396,8 @@
+ 	prefs.sp.set(QObject::tr(&quot;Out for the night&quot;), QObject::tr(&quot;Out for the night.&quot;));
+ 	prefs.sp.set(QObject::tr(&quot;Greece&quot;), QObject::tr(&quot;I have gone to a far away place.  I will be back someday!&quot;));
+ 	prefs.recentStatus.clear();
++	prefs.recentStatusLimit = 5;
++	prefs.storePresets = true;
+ 
+ 	prefs.color[cOnline]    = QColor(&quot;#0060C0&quot;);
+ 	prefs.color[cListBack]  = QColor(&quot;#C0C0C0&quot;);
+@@ -752,7 +754,12 @@
+ 			p_pres.appendChild(prefs.sp.toXml(doc, &quot;statuspresets&quot;));
+ 		}
+ 		{
+-			p_pres.appendChild(stringListToXml(doc, &quot;recentstatus&quot;,prefs.recentStatus));
++			QDomElement e;
++			
++			e = stringListToXml(doc, &quot;recentstatus&quot;,prefs.recentStatus);
++			e.setAttribute(&quot;limit&quot;, prefs.recentStatusLimit);
++			setBoolAttribute(e, &quot;storePresets&quot;, prefs.storePresets);
++			p_pres.appendChild(e);
+ 		}
+ 	}
+ 
+@@ -1227,7 +1234,14 @@
+ 			tag = findSubTag(p_pres, &quot;statuspresets&quot;, &amp;found);
+ 			if(found)
+ 				prefs.sp.fromXml(tag);
+-			xmlToStringList(p_pres, &quot;recentstatus&quot;, &amp;prefs.recentStatus);
++			tag = findSubTag(p_pres, &quot;recentstatus&quot;, &amp;found);
++			if(found){
++				if(tag.hasAttribute(&quot;limit&quot;))
++					prefs.recentStatusLimit = tag.attribute(&quot;limit&quot;).toInt();
++				if(tag.hasAttribute(&quot;storePresets&quot;))
++					readBoolAttribute(tag, &quot;storePresets&quot;, &amp;prefs.storePresets);
++				xmlToStringList(p_pres, &quot;recentstatus&quot;, &amp;prefs.recentStatus);
++			}
+ 		}
+ 
+ 		QDomElement p_lnf = findSubTag(p, &quot;lookandfeel&quot;, &amp;found);
+diff -ru -X exclude psi-clean/src/statusdlg.cpp psi/src/statusdlg.cpp
+--- psi-clean/src/statusdlg.cpp	Sun Jan 04 20:30:30 2004
++++ psi/src/statusdlg.cpp	Tue Feb 10 18:27:36 2004
+@@ -72,6 +72,8 @@
+ public:
+ 	Private() {}
+ 
++	int recentNum;
++	QString newStatus;
+ 	PsiCon *psi;
+ 	PsiAccount *pa;
+ 	Status s;
+@@ -88,6 +90,7 @@
+ 	d-&gt;pa = 0;
+ 	d-&gt;psi-&gt;dialogRegister(this);
+ 	d-&gt;s = s;
++	d-&gt;recentNum = -1;
+ 
+ 	setCaption(CAP(tr(&quot;Set Status: All accounts&quot;)));
+ 	init();
+@@ -101,6 +104,7 @@
+ 	d-&gt;pa = pa;
+ 	d-&gt;pa-&gt;dialogRegister(this);
+ 	d-&gt;s = s;
++	d-&gt;recentNum = -1;
+ 
+ 	setCaption(CAP(tr(&quot;Set Status: %1&quot;).arg(d-&gt;pa-&gt;name())));
+ 	init();
+@@ -159,6 +163,8 @@
+ 	d-&gt;te-&gt;setTextFormat(PlainText);
+ 	d-&gt;te-&gt;setText(d-&gt;s.status());
+ 	d-&gt;te-&gt;selectAll();
++	d-&gt;te-&gt;installEventFilter( this );
++	d-&gt;newStatus = d-&gt;te-&gt;text();
+ 	connect(pb1, SIGNAL(clicked()), SLOT(doButton()));
+ 	connect(pb2, SIGNAL(clicked()), SLOT(cancel()));
+ 	d-&gt;te-&gt;setFocus();
+@@ -185,6 +191,37 @@
+ 		e-&gt;ignore();
+ }
+ 
++bool StatusSetDlg::eventFilter( QObject *o, QEvent *e )
++{
++	if ( e-&gt;type() == QEvent::KeyPress ) {
++		QKeyEvent *ke = (QKeyEvent*)e;
++		if(ke-&gt;key() == Key_Up &amp;&amp; (ke-&gt;state() &amp; AltButton) )
++			return historySelect(-1);
++		else if(ke-&gt;key() == Key_Down &amp;&amp; (ke-&gt;state() &amp; AltButton) )
++			return historySelect(1);
++	}
++	return FALSE; 
++}
++
++bool StatusSetDlg::historySelect(int offs)
++{
++	// d-&gt;recentNum == -1 is new status (not saved yet)
++	if(d-&gt;recentNum == -1 &amp;&amp; offs &gt; 0)
++		d-&gt;newStatus = d-&gt;te-&gt;text();
++	else if(d-&gt;recentNum == 0 &amp;&amp; offs &lt; 0){
++		d-&gt;te-&gt;setText(d-&gt;newStatus);
++		d-&gt;recentNum += offs;
++		return TRUE;
++	}
++
++	if((d-&gt;recentNum + offs &lt; 0) || (d-&gt;recentNum + offs &gt;= (int)option.recentStatus.count()))
++		return FALSE;
++
++	d-&gt;recentNum += offs;
++	d-&gt;te-&gt;setText(option.recentStatus[d-&gt;recentNum]);	
++	return TRUE;
++}
++
+ void StatusSetDlg::doButton()
+ {
+ 	// Save preset
+@@ -220,6 +257,17 @@
+ 	int type = combomap[d-&gt;cb_type-&gt;currentItem()];
+ 	QString str = d-&gt;te-&gt;text();
+ 
++	// save recent if not saved yet else bring to front
++	if(!str.isEmpty()){
++		option.recentStatus.remove(str);
++		// if status is from preset, don't save it unless storePresets = &quot;true&quot; (config.xml)
++		if(option.storePresets || option.sp.findByData(str) == option.sp.end())
++			option.recentStatus.push_front(str);
++	}
++	// trim 
++	if((int)option.recentStatus.size() &gt; option.recentStatusLimit)
++		option.recentStatus.pop_back();
++	
+ 	set(makeStatus(type, str));
+ 	close();
+ }
+diff -ru -X exclude psi-clean/src/statusdlg.h psi/src/statusdlg.h
+--- psi-clean/src/statusdlg.h	Fri Oct 24 05:38:44 2003
++++ psi/src/statusdlg.h	Tue Feb 10 17:58:26 2004
+@@ -47,6 +47,8 @@
+ 
+ protected:
+ 	void keyPressEvent(QKeyEvent *);
++	bool eventFilter(QObject *, QEvent *);
++	bool historySelect(int);
+ 
+ signals:
+ 	void set(const Status &amp;);
+diff -ru -X exclude psi-clean/src/varlist.cpp psi/src/varlist.cpp
+--- psi-clean/src/varlist.cpp	Thu Mar 13 01:13:32 2003
++++ psi/src/varlist.cpp	Tue Feb 10 18:14:50 2004
+@@ -105,6 +105,17 @@
+ 	return it;
+ }
+ 
++VarList::Iterator VarList::findByData(const QString &amp;data)
++{
++	VarList::Iterator it;
++	for(it = begin(); it != end(); ++it) {
++		if((*it).data() == data)
++			break;
++	}
++
++	return it;
++}
++
+ VarList::Iterator VarList::findByNum(int x)
+ {
+ 	int n = 0;
+diff -ru -X exclude psi-clean/src/varlist.h psi/src/varlist.h
+--- psi-clean/src/varlist.h	Thu Mar 13 01:13:32 2003
++++ psi/src/varlist.h	Tue Feb 10 18:14:16 2004
+@@ -53,6 +53,7 @@
+ 	const QString &amp; get(const QString &amp;);
+ 
+ 	VarList::Iterator findByKey(const QString &amp;);
++	VarList::Iterator findByData(const QString &amp;);
+ 	VarList::Iterator findByNum(int);
+ 
+ 	QStringList varsToStringList();
+
+--- NEW FILE: psi-status_indicator++-add.diff ---
+diff -ru -X exclude iris-clean/xmpp-im/client.cpp iris/xmpp-im/client.cpp
+--- ../../iris-clean/xmpp-im/client.cpp	Sun May 16 16:06:10 2004
++++ ../../iris/xmpp-im/client.cpp	Fri May 28 10:27:02 2004
+@@ -789,10 +789,27 @@
+ 
+ 	// unavailable?  remove the resource
+ 	if(!s.isAvailable()) {
+-		if(found) {
+-			(*rit).setStatus(s);
+-			debug(QString(&quot;Client: Removing resource from [%1]: name=[%2]\n&quot;).arg(i-&gt;jid().full()).arg(j.resource()));
+-			resourceUnavailable(j, *rit);
++		Resource r;
++		if(!found) {
++			//if (!s.status().isEmpty()) {
++				r = Resource(j.resource(), s);
++				i-&gt;resourceList() += r;
++				debug(QString(&quot;Client: Adding resource to [%1]: name=[%2]\n&quot;).arg(i-&gt;jid().full()).arg(j.resource()));
++				resourceAvailable(j, r);
++		} 
++		else {
++				(*rit).setStatus(s);
++				r = *rit;
++				debug(QString(&quot;Client: Updating resource to [%1]: name=[%2]\n&quot;).arg(i-&gt;jid().full()).arg(j.resource()));
++				resourceAvailable(j, r);			
++		}
++		
++		rit = i-&gt;resourceList().find(j.resource());
++		found = (rit == i-&gt;resourceList().end()) ? false: true;
++		
++ 		if(found) {
++ 			(*rit).setStatus(s);
++ 			debug(QString(&quot;Client: Removing resource from [%1]: name=[%2]\n&quot;).arg(i-&gt;jid().full()).arg(j.resource())); 	resourceUnavailable(j, *rit);
+ 			i-&gt;resourceList().remove(rit);
+ 			i-&gt;setLastUnavailableStatus(s);
+ 		}
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Sun May 16 16:06:14 2004
++++ psi/src/chatdlg.cpp	Fri May 28 10:27:02 2004
+@@ -371,8 +371,10 @@
+ 			u = ul.first();
+ 			if(rname.isEmpty()) {
+ 				// use priority
+-				if(!u-&gt;isAvailable())
++				if(!u-&gt;isAvailable()){
+ 					status = STATUS_OFFLINE;
++					statusString = u-&gt;lastUnavailableStatus().status();
++				}
+ 				else {
+ 					const UserResource &amp;r = *u-&gt;userResourceList().priority();
+ 					status = makeSTATUS(r.status());
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Fri May 07 20:23:00 2004
++++ psi/src/common.h	Fri May 28 10:27:02 2004
+@@ -138,6 +138,7 @@
+ 	QStringList gcHighlights, gcNickColors;
+ 
+ 	bool clNewHeadings;
++	bool clStIndicator;
+ 
+ 	// passive popups
+ 	bool ppIsOn;
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Sun Mar 21 15:45:20 2004
++++ psi/src/contactview.cpp	Fri May 28 10:27:36 2004
+@@ -25,6 +25,7 @@
+ #include&lt;qheader.h&gt;
+ #include&lt;qtimer.h&gt;
+ #include&lt;qpainter.h&gt;
++#include&lt;qbitmap.h&gt;
+ #include&lt;qpopupmenu.h&gt;
+ #include&lt;qmessagebox.h&gt;
+ #include&lt;qinputdialog.h&gt;
+@@ -2111,7 +2112,7 @@
+ 		cp = _cp;
+ 		u = 0;
+ 
+-		icon = lastIcon = 0;
++		icon = lastIcon = indIcon = 0;
+ 	}
+ 
+ 	~Private() {
+@@ -2171,7 +2172,7 @@
+ 	bool alerting;
+ 	bool animatingNick;
+ 
+-	Icon *icon, *lastIcon;
++	Icon *icon, *lastIcon, *indIcon;
+ 	int animateNickX, animateNickColor; // nick animation
+ };
+ 
+@@ -2380,6 +2382,11 @@
+ 				}
+ 			}
+ 		}
++
++		if( d-&gt;indIcon ){
++			const QPixmap &amp;ipix = d-&gt;indIcon-&gt;pixmap();
++			p-&gt;drawPixmap((pix-&gt;width() - ipix.width())/2, (height() - ipix.height())/2, ipix);
++		}
+ 	}
+ 	else if ( d-&gt;type == Group || d-&gt;type == Profile ) {
+ 		QColorGroup xcg = cg;
+@@ -2652,12 +2659,13 @@
+ 
+ void ContactViewItem::setIcon(const Icon *icon, bool alert)
+ {
++	/* needed by status indicator :o| 
+ 	if ( d-&gt;lastIcon == icon ) {
+ 		return; // cause less flicker. but still have to run calltree valgring skin on psi while online (mblsha).
+ 	}
+ 	else
+ 		d-&gt;lastIcon = (Icon *)icon;
+-
++	*/
+ 	if ( d-&gt;icon ) {
+ 		disconnect(d-&gt;icon, 0, this, 0 );
+ 		d-&gt;icon-&gt;stop();
+@@ -2679,11 +2687,29 @@
+ 		pix = d-&gt;icon-&gt;pixmap();
+ 	}
+ 
+-	setPixmap(0, pix);
++	iconUpdated(pix);
+ }
+ 
+ void ContactViewItem::iconUpdated(const QPixmap &amp;pix)
+ {
++	// set status indicator icon
++	if(d-&gt;u){
++		bool ind = false;
++		if(!d-&gt;u-&gt;userResourceList().isEmpty() &amp;&amp; option.clStIndicator) {
++			UserResourceList srl = d-&gt;u-&gt;userResourceList();
++
++			for(UserResourceList::ConstIterator rit = srl.begin(); rit != srl.end(); ++rit)
++				if(!(*rit).status().status().isEmpty()) { ind = true; break; }
++			
++		} 
++		else if(!d-&gt;u-&gt;lastUnavailableStatus().status().isEmpty() &amp;&amp; option.clStIndicator)
++			ind = true;
++
++		if(ind)
++			d-&gt;indIcon = is-&gt;indicatorPtr(d-&gt;u-&gt;jid());
++		else
++			d-&gt;indIcon = 0;
++	}
+ 	setPixmap(0, pix);
+ }
+ 
+diff -ru -X exclude psi-clean/src/options/opt_appearance-ui.ui psi/src/options/opt_appearance-ui.ui
+--- psi-clean/src/options/opt_appearance-ui.ui	Sat May 01 18:08:18 2004
++++ psi/src/options/opt_appearance-ui.ui	Fri May 28 10:27:02 2004
+@@ -30,6 +30,14 @@
+                 &lt;string&gt;Small group headings in roster&lt;/string&gt;
+             &lt;/property&gt;
+         &lt;/widget&gt;
++        &lt;widget class=&quot;QCheckBox&quot;&gt;
++            &lt;property name=&quot;name&quot;&gt;
++                &lt;cstring&gt;ck_statusIndicator&lt;/cstring&gt;
++            &lt;/property&gt;
++            &lt;property name=&quot;text&quot;&gt;
++                &lt;string&gt;Show indicator for text statuses&lt;/string&gt;
++            &lt;/property&gt;
++        &lt;/widget&gt;
+         &lt;widget class=&quot;QGroupBox&quot;&gt;
+             &lt;property name=&quot;name&quot;&gt;
+                 &lt;cstring&gt;groupBox11&lt;/cstring&gt;
+diff -ru -X exclude psi-clean/src/options/opt_appearance.cpp psi/src/options/opt_appearance.cpp
+--- psi-clean/src/options/opt_appearance.cpp	Sat May 01 18:08:20 2004
++++ psi/src/options/opt_appearance.cpp	Fri May 28 10:27:02 2004
+@@ -148,6 +148,9 @@
+ 	QWhatsThis::add(d-&gt;pb_cAnimBack,
+ 		tr(&quot;Specifies the background animation color for nicks.&quot;));
+ 
++	QWhatsThis::add(d-&gt;ck_statusIndicator,
++		tr(&quot;Displays an indicator by the contact name if the contact entered a descriptive text status line.&quot;));
++
+ 	QWhatsThis::add(d-&gt;ck_newHeadings,
+ 		tr(&quot;Toggles on new, smaller group headings.&quot;));
+ 
+@@ -161,6 +164,7 @@
+ 
+ 	OptAppearanceUI *d = (OptAppearanceUI *)w;
+ 	opt-&gt;clNewHeadings = d-&gt;ck_newHeadings-&gt;isChecked();
++	opt-&gt;clStIndicator = d-&gt;ck_statusIndicator-&gt;isChecked();
+ 	//opt-&gt;avatarsChatdlgEnabled = d-&gt;ck_avatarsChatdlg-&gt;isChecked(); // Avatars
+ 
+ 	int n;
+@@ -177,6 +181,7 @@
+ 
+ 	OptAppearanceUI *d = (OptAppearanceUI *)w;
+ 	d-&gt;ck_newHeadings-&gt;setChecked( opt-&gt;clNewHeadings );
++	d-&gt;ck_statusIndicator-&gt;setChecked( opt-&gt;clStIndicator );
+ 	//d-&gt;ck_avatarsChatdlg-&gt;setChecked( opt-&gt;avatarsChatdlgEnabled ); // Avatars
+ 
+ 	int n;
+diff -ru -X exclude psi-clean/src/psiiconset.cpp psi/src/psiiconset.cpp
+--- psi-clean/src/psiiconset.cpp	Wed May 05 14:41:20 2004
++++ psi/src/psiiconset.cpp	Fri May 28 10:27:02 2004
+@@ -513,6 +513,19 @@
+ 	return Icon();
+ }
+ 
++Icon *PsiIconset::indicatorPtr(const XMPP::Jid &amp;jid)
++{
++	return d-&gt;jid2icon(jid, &quot;psi/statInd&quot;);
++}
++
++Icon PsiIconset::indicator(const XMPP::Jid &amp;jid)
++{
++	Icon *icon = indicatorPtr(jid);
++	if ( icon )
++		return *icon;
++	return Icon();
++}
++
+ Icon *PsiIconset::statusPtr(const XMPP::Jid &amp;jid, int s)
+ {
+ 	return d-&gt;jid2icon(jid, status2name(s));
+diff -ru -X exclude psi-clean/src/psiiconset.h psi/src/psiiconset.h
+--- psi-clean/src/psiiconset.h	Sat Nov 22 07:47:10 2003
++++ psi/src/psiiconset.h	Fri May 28 10:27:02 2004
+@@ -61,9 +61,11 @@
+ 	// JID-enabled status functions
+ 	Icon *statusPtr(const XMPP::Jid &amp;, int);
+ 	Icon *statusPtr(const XMPP::Jid &amp;, const XMPP::Status &amp;);
++	Icon *indicatorPtr(const XMPP::Jid &amp;);
+ 
+ 	Icon status(const XMPP::Jid &amp;, int);
+ 	Icon status(const XMPP::Jid &amp;, const XMPP::Status &amp;);
++	Icon indicator(const XMPP::Jid &amp;);
+ 
+ 	// functions to get status icon by transport name
+ 	Icon *transportStatusPtr(QString name, int);
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sun May 16 16:06:18 2004
++++ psi/src/psi_profiles.cpp	Fri May 28 10:27:02 2004
+@@ -423,6 +423,8 @@
+ 		prefs.font[fPopup] = font.toString();
+ 	}
+ 
++	prefs.clStIndicator = TRUE;
++
+ 	// calculate the small font size
+ 	const int minimumFontSize = 7;
+ 	prefs.smallFontSize = qApp-&gt;font().pointSize();
+@@ -783,6 +785,7 @@
+ 		p.appendChild(p_lnf);
+ 
+ 		p_lnf.appendChild(textTag(doc, &quot;newHeadings&quot;, prefs.clNewHeadings));
++		p_lnf.appendChild(textTag(doc, &quot;statusIndicator&quot;, prefs.clStIndicator));
+ 
+ 		{
+ 			QDomElement tag = doc.createElement(&quot;colors&quot;);
+@@ -1271,6 +1274,7 @@
+ 			bool found;
+ 
+ 			readBoolEntry(p_lnf, &quot;newHeadings&quot;, &amp;prefs.clNewHeadings);
++			readBoolEntry(p_lnf, &quot;statusIndicator&quot;, &amp;prefs.clStIndicator);
+ 
+ 			QDomElement tag = findSubTag(p_lnf, &quot;colors&quot;, &amp;found);
+ 			if(found) {
+
+--- NEW FILE: psi-subs_reason-recv.diff ---
+diff -ru -X exclude iris-clean/include/im.h iris/include/im.h
+--- ../../iris-clean/include/im.h	Sat Dec 06 20:29:16 2003
++++ ../../iris/include/im.h	Tue Feb 03 01:31:32 2004
+@@ -582,7 +582,7 @@
+ 		void resourceAvailable(const Jid &amp;, const Resource &amp;);
+ 		void resourceUnavailable(const Jid &amp;, const Resource &amp;);
+ 		void presenceError(const Jid &amp;, int, const QString &amp;);
+-		void subscription(const Jid &amp;, const QString &amp;);
++		void subscription(const Jid &amp;, const QString &amp;, const QString &amp;);
+ 		void messageReceived(const Message &amp;);
+ 		void debugText(const QString &amp;);
+ 		void xmlIncoming(const QString &amp;);
+@@ -608,7 +608,7 @@
+ 		void slotRosterRequestFinished();
+ 
+ 		// basic daemons
+-		void ppSubscription(const Jid &amp;, const QString &amp;);
++		void ppSubscription(const Jid &amp;, const QString &amp;, const QString &amp;);
+ 		void ppPresence(const Jid &amp;, const Status &amp;);
+ 		void pmMessage(const Message &amp;);
+ 		void prRoster(const Roster &amp;);
+diff -ru -X exclude iris-clean/xmpp-im/client.cpp iris/xmpp-im/client.cpp
+--- ../../iris-clean/xmpp-im/client.cpp	Sat Dec 06 20:29:22 2003
++++ ../../iris/xmpp-im/client.cpp	Tue Feb 03 01:30:32 2004
+@@ -200,7 +200,7 @@
+ 	d-&gt;resourceList += Resource(resource(), stat);
+ 
+ 	JT_PushPresence *pp = new JT_PushPresence(rootTask());
+-	connect(pp, SIGNAL(subscription(const Jid &amp;, const QString &amp;)), SLOT(ppSubscription(const Jid &amp;, const QString &amp;)));
++	connect(pp, SIGNAL(subscription(const Jid &amp;, const QString &amp;, const QString &amp;)), SLOT(ppSubscription(const Jid &amp;, const QString &amp;, const QString &amp;)));
+ 	connect(pp, SIGNAL(presence(const Jid &amp;, const Status &amp;)), SLOT(ppPresence(const Jid &amp;, const Status &amp;)));
+ 
+ 	JT_PushMessage *pm = new JT_PushMessage(rootTask());
+@@ -647,9 +647,9 @@
+ 	return Jid(s);
+ }
+ 
+-void Client::ppSubscription(const Jid &amp;j, const QString &amp;s)
++void Client::ppSubscription(const Jid &amp;j, const QString &amp;s, const QString &amp;r)
+ {
+-	subscription(j, s);
++	subscription(j, s, r);
+ }
+ 
+ void Client::ppPresence(const Jid &amp;j, const Status &amp;s)
+diff -ru -X exclude iris-clean/xmpp-im/xmpp_tasks.cpp iris/xmpp-im/xmpp_tasks.cpp
+--- ../../iris-clean/xmpp-im/xmpp_tasks.cpp	Fri Jan 16 17:06:28 2004
++++ ../../iris/xmpp-im/xmpp_tasks.cpp	Tue Feb 03 01:38:12 2004
+@@ -561,6 +561,9 @@
+ 	Jid j(e.attribute(&quot;from&quot;));
+ 	Status p;
+ 
++	QDomElement tag;
++	bool found;
++
+ 	if(e.hasAttribute(&quot;type&quot;)) {
+ 		QString type = e.attribute(&quot;type&quot;);
+ 		if(type == &quot;unavailable&quot;) {
+@@ -573,13 +576,14 @@
+ 			p.setError(code, str);
+ 		}
+ 		else {
+-			subscription(j, type);
++			tag = findSubTag(e, &quot;status&quot;, &amp;found);
++			if(found)
++				subscription(j, type, tagContent(tag));
++			else
++				subscription(j, type, &quot;&quot;);
+ 			return true;
+ 		}
+ 	}
+-
+-	QDomElement tag;
+-	bool found;
+ 
+ 	tag = findSubTag(e, &quot;status&quot;, &amp;found);
+ 	if(found)
+diff -ru -X exclude iris-clean/xmpp-im/xmpp_tasks.h iris/xmpp-im/xmpp_tasks.h
+--- ../../iris-clean/xmpp-im/xmpp_tasks.h	Fri Oct 24 05:38:10 2003
++++ ../../iris/xmpp-im/xmpp_tasks.h	Tue Feb 03 01:29:08 2004
+@@ -155,7 +155,7 @@
+ 
+ 	signals:
+ 		void presence(const Jid &amp;, const Status &amp;);
+-		void subscription(const Jid &amp;, const QString &amp;);
++		void subscription(const Jid &amp;, const QString &amp;, const QString &amp;);
+ 
+ 	private:
+ 		class Private;
+diff -ru -X exclude psi-clean/src/eventdb.cpp psi/src/eventdb.cpp
+--- psi-clean/src/eventdb.cpp	Tue Aug 19 15:53:16 2003
++++ psi/src/eventdb.cpp	Tue Feb 03 01:41:50 2004
+@@ -744,7 +744,7 @@
+ 		else if(type == 8)
+ 			subType = &quot;unsubscribed&quot;;
+ 
+-		AuthEvent *ae = new AuthEvent(j, subType, 0);
++		AuthEvent *ae = new AuthEvent(j, subType, &quot;&quot;, 0);
+ 		ae-&gt;setTimeStamp(QDateTime::fromString(sTime, Qt::ISODate));
+ 		return ae;
+ 	}
+diff -ru -X exclude psi-clean/src/eventdlg.cpp psi/src/eventdlg.cpp
+--- psi-clean/src/eventdlg.cpp	Thu Dec 18 14:10:46 2003
++++ psi/src/eventdlg.cpp	Tue Feb 03 01:22:34 2004
+@@ -1487,6 +1487,8 @@
+ 		d-&gt;le_subj-&gt;setText(&quot;&quot;);
+ 		if(type == &quot;subscribe&quot;) {
+ 			QString body(tr(&quot;&lt;big&gt;[System Message]&lt;/big&gt;&lt;br&gt;This user wants to subscribe to your presence.  Click the button labelled \&quot;Add/Auth\&quot; to authorize the subscription.  This will also add the person to your contact list if it is not already there.&quot;));
++			if(!ae-&gt;reason().isEmpty())
++				body += QString(tr(&quot;&lt;br&gt;&lt;br&gt;Reason:&lt;br&gt;%1&quot;)).arg(ae-&gt;reason());
+ 			d-&gt;mle-&gt;moveCursor(QTextEdit::MoveHome, false);
+ 			d-&gt;mle-&gt;setTextFormat(RichText);
+ 			d-&gt;mle-&gt;setText(&quot;&lt;qt&gt;&quot; + body + &quot;&lt;/qt&gt;&quot;);
+diff -ru -X exclude psi-clean/src/psiaccount.cpp psi/src/psiaccount.cpp
+--- psi-clean/src/psiaccount.cpp	Tue Jan 27 18:09:36 2004
++++ psi/src/psiaccount.cpp	Tue Feb 03 02:02:50 2004
+@@ -400,7 +400,7 @@
+ 	connect(d-&gt;client, SIGNAL(resourceUnavailable(const Jid &amp;, const Resource &amp;)), SLOT(client_resourceUnavailable(const Jid &amp;, const Resource &amp;)));
+ 	connect(d-&gt;client, SIGNAL(presenceError(const Jid &amp;, int, const QString &amp;)), SLOT(client_presenceError(const Jid &amp;, int, const QString &amp;)));
+ 	connect(d-&gt;client, SIGNAL(messageReceived(const Message &amp;)), SLOT(client_messageReceived(const Message &amp;)));
+-	connect(d-&gt;client, SIGNAL(subscription(const Jid &amp;, const QString &amp;)), SLOT(client_subscription(const Jid &amp;, const QString &amp;)));
++	connect(d-&gt;client, SIGNAL(subscription(const Jid &amp;, const QString &amp;, const QString &amp;)), SLOT(client_subscription(const Jid &amp;, const QString &amp;, const QString &amp;)));
+ 	connect(d-&gt;client, SIGNAL(debugText(const QString &amp;)), SLOT(client_debugText(const QString &amp;)));
+ 	connect(d-&gt;client, SIGNAL(groupChatJoined(const Jid &amp;)), SLOT(client_groupChatJoined(const Jid &amp;)));
+ 	connect(d-&gt;client, SIGNAL(groupChatLeft(const Jid &amp;)), SLOT(client_groupChatLeft(const Jid &amp;)));
+@@ -1428,7 +1428,7 @@
+ 	handleEvent(me);
+ }
+ 
+-void PsiAccount::client_subscription(const Jid &amp;j, const QString &amp;str)
++void PsiAccount::client_subscription(const Jid &amp;j, const QString &amp;str, const QString &amp;reason)
+ {
+ 	// if they remove our subscription, then we lost presence
+ 	if(str == &quot;unsubscribed&quot;) {
+@@ -1437,7 +1437,7 @@
+ 			simulateContactOffline(u);
+ 	}
+ 
+-	AuthEvent *ae = new AuthEvent(j, str, this);
++	AuthEvent *ae = new AuthEvent(j, str, reason, this);
+ 	ae-&gt;setTimeStamp(QDateTime::currentDateTime());
+ 	handleEvent(ae);
+ }
+diff -ru -X exclude psi-clean/src/psiaccount.h psi/src/psiaccount.h
+--- psi-clean/src/psiaccount.h	Tue Jan 27 18:09:36 2004
++++ psi/src/psiaccount.h	Tue Feb 03 01:39:16 2004
+@@ -280,7 +280,7 @@
+ 	void client_resourceUnavailable(const Jid &amp;, const Resource &amp;);
+ 	void client_presenceError(const Jid &amp;, int, const QString &amp;);
+ 	void client_messageReceived(const Message &amp;);
+-	void client_subscription(const Jid &amp;, const QString &amp;);
++	void client_subscription(const Jid &amp;, const QString &amp;, const QString &amp;);
+ 	void client_debugText(const QString &amp;);
+ 	void client_groupChatJoined(const Jid &amp;);
+ 	void client_groupChatLeft(const Jid &amp;);
+diff -ru -X exclude psi-clean/src/psievent.cpp psi/src/psievent.cpp
+--- psi-clean/src/psievent.cpp	Tue Jan 27 18:09:38 2004
++++ psi/src/psievent.cpp	Tue Feb 03 01:40:56 2004
+@@ -294,15 +294,16 @@
+ // AuthEvent
+ //----------------------------------------------------------------------------
+ 
+-AuthEvent::AuthEvent(const Jid &amp;j, const QString &amp;authType, PsiAccount *acc)
++AuthEvent::AuthEvent(const Jid &amp;j, const QString &amp;authType, const QString &amp;reason, PsiAccount *acc)
+ : PsiEvent(acc)
+ {
+ 	v_from = j;
+ 	v_at = authType;
++	v_reason = reason;
+ }
+ 
+ AuthEvent::AuthEvent(const AuthEvent &amp;from)
+-: PsiEvent(from), v_from(from.v_from), v_at(from.v_at)
++: PsiEvent(from), v_from(from.v_from), v_at(from.v_at), v_reason(from.v_reason)
+ {
+ }
+ 
+@@ -330,6 +331,11 @@
+ 	return v_at;
+ }
+ 
++QString AuthEvent::reason() const
++{
++	return v_reason;
++}
++
+ QDomElement *AuthEvent::toXml(QDomDocument *doc) const
+ {
+ 	QDomElement *e = PsiEvent::toXml(doc);
+@@ -338,6 +344,7 @@
+ 
+ 	e-&gt;appendChild( textTag(*doc, &quot;from&quot;,	 v_from.full()) );
+ 	e-&gt;appendChild( textTag(*doc, &quot;authType&quot;, v_at) );
++	e-&gt;appendChild( textTag(*doc, &quot;reason&quot;, v_reason) );
+ 
+ 	return 0;
+ }
+@@ -349,6 +356,7 @@
+ 
+ 	v_from = Jid( subTagText(*e, &quot;from&quot;) );
+ 	v_at   = subTagText(*e, &quot;authType&quot;);
++	v_at   = subTagText(*e, &quot;reason&quot;);
+ 
+ 	return false;
+ }
+@@ -692,7 +700,7 @@
+ 			}
+ 		}
+ 		else if ( eventType == &quot;AuthEvent&quot; ) {
+-			event = new AuthEvent(&quot;&quot;, &quot;&quot;, 0);
++			event = new AuthEvent(&quot;&quot;, &quot;&quot;, &quot;&quot;, 0);
+ 			if ( !event-&gt;fromXml(d-&gt;psi, &amp;e) ) {
+ 				delete event;
+ 				event = 0;
+diff -ru -X exclude psi-clean/src/psievent.h psi/src/psievent.h
+--- psi-clean/src/psievent.h	Tue Jan 27 18:09:38 2004
++++ psi/src/psievent.h	Tue Feb 03 01:23:44 2004
+@@ -112,7 +112,7 @@
+ {
+ 	Q_OBJECT
+ public:
+-	AuthEvent(const Jid &amp;j, const QString &amp;authType, PsiAccount *acc);
++	AuthEvent(const Jid &amp;j, const QString &amp;authType, const QString &amp;reason, PsiAccount *acc);
+ 	AuthEvent(const AuthEvent &amp;from);
+ 	~AuthEvent();
+ 
+@@ -121,6 +121,8 @@
+ 	void setFrom(const Jid &amp;j);
+ 
+ 	QString authType() const;
++	
++	QString reason() const;
+ 
+ 	QDomElement *toXml(QDomDocument *) const;
+ 	bool fromXml(PsiCon *, const QDomElement *);
+@@ -130,6 +132,7 @@
+ private:
+ 	Jid v_from;
+ 	QString v_at;
++	QString v_reason;
+ };
+ 
+ // request pgp passphrase
+
+--- NEW FILE: psi-thin_borders-mod.diff ---
+diff -ru -X exclude psi-clean/src/mainwin.cpp psi/src/mainwin.cpp
+--- psi-clean/src/mainwin.cpp	Wed May 05 14:41:00 2004
++++ psi/src/mainwin.cpp	Tue May 11 15:09:24 2004
+@@ -97,6 +97,6 @@
+ 	QWidget *center = new QWidget (this, &quot;Central widget&quot;);
+ 	setCentralWidget ( center );
+ 
+-	d-&gt;vb_main = new QVBoxLayout(center, 2);
++	d-&gt;vb_main = new QVBoxLayout(center);
+ 	cvlist = new ContactView(center);
+ 
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Fri May 07 20:23:00 2004
++++ psi/src/chatdlg.cpp	Tue May 11 19:10:18 2004
+@@ -133,13 +133,13 @@
+ 	d-&gt;key = &quot;&quot;;
+ 	d-&gt;lastWasEncrypted = false;
+ 
+-	QVBoxLayout *vb1 = new QVBoxLayout(this, 4);
++	QVBoxLayout *vb1 = new QVBoxLayout(this, 2);
+ 	QSplitter *sp = new QSplitter(Vertical, this);
+ 	vb1-&gt;addWidget(sp);
+ 
+ 	QWidget *sp_top = new QWidget(sp);
+ 	// first row
+-	QVBoxLayout *vb2 = new QVBoxLayout(sp_top, 4);
++	QVBoxLayout *vb2 = new QVBoxLayout(sp_top, 2);
+ 	d-&gt;lb_ident = d-&gt;pa-&gt;accountLabel(sp_top, true);
+ 	d-&gt;lb_ident-&gt;setSizePolicy(QSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum ));
+ 
+@@ -164,7 +164,7 @@
+ 
+ 	QWidget *sp_bottom = new QWidget(sp);
+ 	// tool area
+-	QVBoxLayout *vb3 = new QVBoxLayout(sp_bottom, 4);
++	QVBoxLayout *vb3 = new QVBoxLayout(sp_bottom, 2);
+ 	QHBoxLayout *hb3 = new QHBoxLayout(vb3);
+ 	d-&gt;tb_clear = new IconToolButton(sp_bottom);
+ 	connect(d-&gt;tb_clear, SIGNAL(clicked()), SLOT(doClearButton()));
+
+--- NEW FILE: psi-tooltips_linkify-rev.diff ---
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Thu Apr 01 09:44:42 2004
++++ psi/src/chatdlg.cpp	Thu Apr 01 10:02:20 2004
+@@ -406,7 +406,7 @@
+ 		//}
+ 
+ 		if(u)
+-			QToolTip::add(d-&gt;lb_status, u-&gt;makeTip(true, false));
++			QToolTip::add(d-&gt;lb_status, u-&gt;makeTip());
+ 		else
+ 			QToolTip::remove(d-&gt;lb_status);
+ 
+diff -ru -X exclude psi-clean/src/eventdlg.cpp psi/src/eventdlg.cpp
+--- psi-clean/src/eventdlg.cpp	Thu Apr 01 09:44:50 2004
++++ psi/src/eventdlg.cpp	Thu Apr 01 10:02:34 2004
+@@ -1410,7 +1410,7 @@
+ 			d-&gt;lb_status-&gt;setIcon(is-&gt;statusPtr(jid, status));
+ 
+ 		if(u)
+-			QToolTip::add(d-&gt;lb_status, u-&gt;makeTip(true, false));
++			QToolTip::add(d-&gt;lb_status, u-&gt;makeTip());
+ 		else
+ 			QToolTip::remove(d-&gt;lb_status);
+ 
+
+--- NEW FILE: psi-url_emoticon-mod.diff ---
+diff -ru -X exclude psi-clean/src/common.cpp psi/src/common.cpp
+--- psi-clean/src/common.cpp	Sat Oct 25 09:10:08 2003
++++ psi/src/common.cpp	Sun Oct 26 15:53:26 2003
+@@ -603,6 +586,11 @@
+ 		// returns us the first chunk as a plaintext string
+ 		QString str = p.next();
+ 
++		if ( p.tag() == &quot;a&quot; ) {
++			p.putPlain(str);
++			continue;
++		}
++
+ 		int i = 0;
+ 		while ( i &gt;= 0 ) {
+ 			// find closest emoticon
+diff -ru -X exclude psi-clean/src/rtparse.cpp psi/src/rtparse.cpp
+--- psi-clean/src/rtparse.cpp	Thu Mar 13 01:13:32 2003
++++ psi/src/rtparse.cpp	Sun Oct 26 15:55:06 2003
+@@ -27,6 +27,7 @@
+ 	in = _in;
+ 	v_atEnd = false;
+ 	v_at = 0;
++	v_tag = &quot;&quot;;
+ 	//printf(&quot;rtparse:\n&quot;);
+ }
+ 
+@@ -36,6 +37,11 @@
+ 	return out;
+ }
+ 
++const QString &amp;RTParse::tag() const
++{
++	return v_tag;
++}
++
+ QString RTParse::next()
+ {
+ 	if(v_atEnd)
+@@ -52,6 +58,8 @@
+ 			++n;
+ 			s = in.mid(v_at, n-v_at);
+ 		}
++		int te = in.find(QRegExp(&quot;\\s|&gt;&quot;), v_at);
++		v_tag = in.mid(v_at+1, te-v_at-1);
+ 		v_at += s.length();
+ 		out += s;
+ 	}
+diff -ru -X exclude psi-clean/src/rtparse.h psi/src/rtparse.h
+--- psi-clean/src/rtparse.h	Thu Mar 13 01:13:32 2003
++++ psi/src/rtparse.h	Sun Oct 26 15:54:00 2003
+@@ -31,12 +31,14 @@
+ 	const QString &amp;output() const;
+ 
+ 	QString next();
++	const QString &amp;tag() const;
+ 	bool atEnd() const;
+ 	void putPlain(const QString &amp;);
+ 	void putRich(const QString &amp;);
+ 
+ private:
+ 	QString in, out;
++	QString v_tag;
+ 	int v_at;
+ 	bool v_atEnd;
+ };
+
+--- NEW FILE: psi-weather_agent_icons-add.diff ---
+diff -ru -X exclude psi-clean/src/common.cpp psi/src/common.cpp
+--- psi-clean/src/common.cpp	Sun Sep 14 23:38:20 2003
++++ psi/src/common.cpp	Sat Sep 27 09:23:40 2003
+@@ -790,6 +790,11 @@
+ 		// voice
+ 		return is-&gt;status(STATUS_ONLINE);
+ 	}
++	else if ( category == &quot;application&quot; ) {
++		QString trans;
++		if (type == &quot;weather&quot; || type == &quot;x-weather&quot;)
++			return is-&gt;transportStatus(&quot;weather&quot;, STATUS_ONLINE);
++	}
+ 	// application
+ 	   // bot
+ 	   // calendar
+diff -ru -X exclude psi-clean/src/options/opt_iconset_roster.ui psi/src/options/opt_iconset_roster.ui
+--- psi-clean/src/options/opt_iconset_roster.ui	Mon Sep 29 22:47:28 2003
++++ psi/src/options/opt_iconset_roster.ui	Mon Sep 29 22:54:42 2003
+@@ -124,6 +124,26 @@
+                         &lt;/column&gt;
+                     &lt;item&gt;
+                         &lt;property name=&quot;text&quot;&gt;
++                            &lt;string&gt;Weather&lt;/string&gt;
++                        &lt;/property&gt;
++                        &lt;property name=&quot;text&quot;&gt;
++                            &lt;string&gt;&lt;/string&gt;
++                        &lt;/property&gt;
++                        &lt;property name=&quot;text&quot;&gt;
++                            &lt;string&gt;weather&lt;/string&gt;
++                        &lt;/property&gt;
++                        &lt;property name=&quot;pixmap&quot;&gt;
++                            &lt;pixmap&gt;&lt;/pixmap&gt;
++                        &lt;/property&gt;
++                        &lt;property name=&quot;pixmap&quot;&gt;
++                            &lt;pixmap&gt;&lt;/pixmap&gt;
++                        &lt;/property&gt;
++                        &lt;property name=&quot;pixmap&quot;&gt;
++                            &lt;pixmap&gt;&lt;/pixmap&gt;
++                        &lt;/property&gt;
++                    &lt;/item&gt;
++                    &lt;item&gt;
++                        &lt;property name=&quot;text&quot;&gt;
+                             &lt;string&gt;Default&lt;/string&gt;
+                         &lt;/property&gt;
+                         &lt;property name=&quot;text&quot;&gt;
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sun Sep 14 23:38:34 2003
++++ psi/src/psi_profiles.cpp	Sat Sep 27 09:04:04 2003
+@@ -515,6 +515,7 @@
+ 	prefs.serviceRosterIconset[&quot;msn&quot;]	= &quot;msn&quot;;
+ 	prefs.serviceRosterIconset[&quot;yahoo&quot;]	= &quot;yahoo&quot;;
+ 	prefs.serviceRosterIconset[&quot;sms&quot;]	= &quot;sms&quot;;
++	prefs.serviceRosterIconset[&quot;weather&quot;]	= &quot;weather.jisp&quot;;
+ 
+ 	prefs.customRosterIconset.clear();
+ 
+diff -ru -X exclude psi-clean/src/psiiconset.cpp psi/src/psiiconset.cpp
+--- psi-clean/src/psiiconset.cpp	Mon Sep 08 19:16:12 2003
++++ psi/src/psiiconset.cpp	Sat Sep 27 09:35:34 2003
+@@ -114,7 +114,8 @@
+ 			services[&quot;icq&quot;]		= QRegExp(&quot;^icq&quot;);
+ 			services[&quot;msn&quot;]		= QRegExp(&quot;^msn&quot;);
+ 			services[&quot;yahoo&quot;]	= QRegExp(&quot;^yahoo&quot;);
+ 			services[&quot;sms&quot;]		= QRegExp(&quot;^sms&quot;);
++			services[&quot;weather&quot;]	= QRegExp(&quot;^(pogoda|weather)&quot;);
+ 
+ 			bool found = false;
+ 
+
+--- NEW FILE: richlistview.cpp ---
+#include &quot;richlistview.h&quot;
+#include &lt;qsimplerichtext.h&gt;
+#include &lt;qpainter.h&gt;
+#include &lt;qpixmap.h&gt;
+#include &lt;qapplication.h&gt;
+
+RichListViewItem::RichListViewItem( QListView * parent ):
+QListViewItem(parent)
+{
+	v_rt = 0;
+	v_active = v_selected = false;
+}
+
+RichListViewItem::RichListViewItem( QListViewItem * parent ):
+QListViewItem(parent)
+{
+	v_rt = 0;
+	v_active = v_selected = false;
+}
+
+RichListViewItem::~RichListViewItem()
+{
+	if(v_rt)
+		delete v_rt;
+}
+
+void RichListViewItem::setup()
+{
+	QListViewItem::setup();
+	int h = height();
+
+	QString txt = expandTemplate(0); // single column !!!
+	if( txt.isEmpty() ){
+		if(v_rt)
+			delete v_rt;
+		v_rt = 0;
+		return;
+	}
+    
+	const QListView* lv = listView();
+	const QPixmap* px = pixmap(0);
+	int left =  lv-&gt;itemMargin() + ((px)?(px-&gt;width() + lv-&gt;itemMargin()):0);
+
+	v_active = lv-&gt;isActiveWindow();
+	v_selected = isSelected();
+
+	if ( v_selected  ) {
+		txt = QString(&quot;&lt;font color=\&quot;%1\&quot;&gt;&quot;).arg(listView()-&gt;colorGroup().color( QColorGroup::HighlightedText ).name()) + txt + &quot;&lt;/font&gt;&quot;;
+	}
+	
+	if(v_rt)
+		delete v_rt;
+	v_rt = new QSimpleRichText(txt, lv-&gt;font());
+	
+	v_rt-&gt;setWidth(lv-&gt;columnWidth(0) - left - depth() * lv-&gt;treeStepSize());
+
+	v_widthUsed = v_rt-&gt;widthUsed() + left;
+
+	h = QMAX( h, v_rt-&gt;height() );
+
+    if ( h % 2 &gt; 0 )
+	h++;
+    setHeight( h );
+}
+
+void RichListViewItem::paintCell(QPainter *p, const QColorGroup &amp;cg, int column, int width, int align)
+{
+	if(!v_rt){
+		QListViewItem::paintCell(p, cg, column, width, align);
+		return;
+	}
+
+	p-&gt;save();
+
+	QListView* lv = listView();
+
+	if ( isSelected() != v_selected || lv-&gt;isActiveWindow() != v_active) 
+		setup();
+	
+	int r = lv-&gt;itemMargin();
+	
+	const QBrush *paper;
+	// setup (colors, sizes, ...)
+	if ( isSelected() ) {
+		paper = &amp;cg.brush( QColorGroup::Highlight );
+	}
+	else{
+		const QColorGroup::ColorRole crole = QPalette::backgroundRoleFromMode( lv-&gt;viewport()-&gt;backgroundMode() );
+		paper = &amp;cg.brush( crole );
+	}
+	
+	const QPixmap * px = pixmap( column );
+	QRect pxrect;
+	int pxw = 0;
+	int pxh = 0;
+	if(px) {
+		pxw = px-&gt;width();
+		pxh = px-&gt;height();
+		pxrect = QRect(r, (height() - pxh)/2, pxw, pxh);
+		r += pxw + lv-&gt;itemMargin();
+	}
+
+	if(px)
+		pxrect.moveTop((height() - pxh)/2);
+
+	// start drawing
+	QRect rtrect(r, (height() - v_rt-&gt;height())/2, v_widthUsed, v_rt-&gt;height());
+	v_rt-&gt;draw(p, rtrect.left(), rtrect.top(), rtrect, cg, paper);
+	
+	QRegion clip(0, 0, width, height());
+	clip -= rtrect;
+	p-&gt;setClipRegion(clip, QPainter::CoordPainter);
+	p-&gt;fillRect( 0, 0, width, height(), *paper );
+
+	if(px)
+		p-&gt;drawPixmap(pxrect, *px);
+
+	p-&gt;restore();
+}
+
+int RichListViewItem::widthUsed()
+{
+	return v_widthUsed;
+}
+
+--- NEW FILE: richlistview.h ---
+#ifndef RICHLISTVIEW_H
+#define RICHLISTVIEW_H
+
+#include &quot;qlistview.h&quot;
+class QSimpleRichText;
+class RichListViewItem : public QListViewItem  
+{
+	int v_widthUsed;
+	bool v_selected, v_active;
+	QSimpleRichText* v_rt;
+protected:
+	virtual void paintCell( QPainter * p, const QColorGroup &amp; cg, int column, int width, int align );	
+	virtual QString expandTemplate(int column = 0) { return QString::null;};
+public:
+	RichListViewItem( QListView * parent );
+	RichListViewItem( QListViewItem * parent );
+    virtual void setup();
+	virtual ~RichListViewItem();
+	int widthUsed();
+};
+
+#endif
+
+Index: indicator.png
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/psi/indicator.png,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+Binary files /tmp/cvs.BxsRHK and /tmp/cvs.bjEMT4 differ
+
+Index: psi-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/psi/psi-cvs.pwbuild,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** psi-cvs.pwbuild	19 Aug 2004 08:10:48 -0000	1.3
+--- psi-cvs.pwbuild	18 Oct 2004 11:58:16 -0000	1.4
+***************
+*** 2,6 ****
+  
+  name=&quot;psi&quot;
+! version=&quot;20040819&quot;
+  build=&quot;1&quot;
+  
+--- 2,6 ----
+  
+  name=&quot;psi&quot;
+! version=&quot;20041018&quot;
+  build=&quot;1&quot;
+  
+***************
+*** 9,45 ****
+  _doc -d ChangeLog -x CVS
+  
+! _source -m bb2b879b12fed18c4301543d6d58ee96 -s 1845166 -t ${name}/${name} <A HREF="ftp://ftp.berlios.de/pub/packware/sources/">ftp://ftp.berlios.de/pub/packware/sources/</A>
+  
+  _patch -p 0 translations
+! _patch no_online_status
+! _patch no_default_status_text
+! _patch status_history
+! #_patch status_indicator-cvs
+  
+  _have_libmng &amp;&amp; _patch enable-mng
+  
+! _setexecdir ${src1}/../qca
+! _execindir cp README ${doc}/README.qca
+! _execindir _configure --prefix=/usr
+  _qconf_fix ${src1}/../qca/Makefile
+! _execindir _make
+! _execindir _install
+  
+  if _have_sasl2; then
+!     _setexecdir ${src1}/../qca/plugins/qca-sasl
+!     _execindir cp README ${doc}/README.qca-sasl
+!     _execindir _configure
+      _qconf_fix ${src1}/../qca/plugins/qca-sasl/Makefile
+!     _execindir _make
+!     _execindir _install
+  fi
+  
+  if _have_openssl; then
+!     _setexecdir ${src1}/../qca/plugins/qca-tls
+!     _execindir cp README ${doc}/README.qca-tls
+!     _execindir _configure
+      _qconf_fix ${src1}/../qca/plugins/qca-tls/Makefile
+!     _execindir _make
+!     _execindir _install
+  fi
+  
+--- 9,69 ----
+  _doc -d ChangeLog -x CVS
+  
+! _source -m 196aed09319ba5ba584b4605ffdf63b4 -s 1848309 -t ${name}/${name} <A HREF="ftp://ftp.berlios.de/pub/packware/sources/">ftp://ftp.berlios.de/pub/packware/sources/</A>
+  
++ cp ${src}/richlistview.* ${src1}/src
++ 
++ _patch client_wrap-mod
++ _patch emots-mod
++ _patch empty_group-fix
++ _patch framechecks-mod
++ _patch gnome_toolwindow-mod
++ _patch group_openclose_single_click-mod
++ _patch headings-mod
++ _patch icon_buttons_big_return-mod
++ _patch iconselect-mod
++ _patch line_in_options-mod
++ _patch linkify-mod-rev-fix
++ _patch nicechats-mod
++ _patch no_online_status-mod
++ _patch options_resize-fix
++ _patch qt_trans-add
++ _patch rich_contactview-0.7-add
++ _patch save_profile-mod
++ _patch settoggles-fix
++ _patch status_history-add
++ _patch status_indicator++-add
++ _patch subs_reason-recv
++ _patch thin_borders-mod
++ _patch tooltips_linkify-rev
++ _patch url_emoticon-mod
++ _patch weather_agent_icons-add
+  _patch -p 0 translations
+! _patch indicator-icon
+  
+  _have_libmng &amp;&amp; _patch enable-mng
+  
+! execdir=${src1}/../qca
+! _execindir ${execdir} cp README ${doc}/README.qca
+! _configure -d ${execdir} --prefix=/usr
+  _qconf_fix ${src1}/../qca/Makefile
+! _make -d ${execdir} 
+! _install -d ${execdir} 
+  
+  if _have_sasl2; then
+!     execdir=${src1}/../qca/plugins/qca-sasl
+!     _execindir ${execdir} cp README ${doc}/README.qca-sasl
+!     _configure -d ${execdir}
+      _qconf_fix ${src1}/../qca/plugins/qca-sasl/Makefile
+!     _make -d ${execdir}
+!     _install -d ${execdir}
+  fi
+  
+  if _have_openssl; then
+!     execdir=${src1}/../qca/plugins/qca-tls
+!     _execindir ${execdir} cp README ${doc}/README.qca-tls
+!     _configure -d ${execdir}
+      _qconf_fix ${src1}/../qca/plugins/qca-tls/Makefile
+!     _make -d ${execdir}
+!     _install -d ${execdir}
+  fi
+  
+***************
+*** 61,64 ****
+--- 85,90 ----
+  _install
+  
++ find ${pkg}/usr/share/psi -type d -name CVS -exec rm -rf {} \; 2&gt; /dev/null
++ 
+  rm ${pkg}/usr/share/psi/{COPYING,README}
+  ln -s ${docdir}/COPYING ${pkg}/usr/share/psi
+***************
+*** 68,71 ****
+--- 94,101 ----
+  
+  # $Log$
++ # Revision 1.4  2004/10/18 11:58:16  swiergot
++ # - Version 20041018.
++ # - Added many patches from <A HREF="http://ftp.xiaoka.com/friends/skazi/psi/patches/.">http://ftp.xiaoka.com/friends/skazi/psi/patches/.</A>
++ #
+  # Revision 1.3  2004/08/19 08:10:48  swiergot
+  # - Version 20040819.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000153.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs exec,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000154.html">[Packware-cvs] pwbuild/xap/psi psi-no_default_status_text.patch,1.1,NONE psi-no_online_status.patch,1.1,NONE psi-offline_status.patch,1.1,NONE psi-status_history.patch,1.1,NONE psi-status_indicator-cvs.patch,1.1,NONE psi-status_indicator.patch,1.1,NONE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#155">[ date ]</a>
+              <a href="thread.html#155">[ thread ]</a>
+              <a href="subject.html#155">[ subject ]</a>
+              <a href="author.html#155">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/mplayer-fonts mplayer-fonts.pw-postinst,NONE,1.1 mplayer-fonts.pwbuild,NONE,1.1 mplayer-fonts.pwinfo,NONE,1.1 mplayerfontconfig,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/mplayer-fonts%20mplayer-fonts.pw-postinst%2CNONE%2C1.1%20mplayer-fonts.pwbuild%2CNONE%2C1.1%20mplayer-fonts.pwinfo%2CNONE%2C1.1%20mplayerfontconfig%2CNONE%2C1.1&In-Reply-To=%3C200408161112.i7GBCD608076%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000091.html">
+   <LINK REL="Next"  HREF="000093.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/mplayer-fonts mplayer-fonts.pw-postinst,NONE,1.1 mplayer-fonts.pwbuild,NONE,1.1 mplayer-fonts.pwinfo,NONE,1.1 mplayerfontconfig,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/mplayer-fonts%20mplayer-fonts.pw-postinst%2CNONE%2C1.1%20mplayer-fonts.pwbuild%2CNONE%2C1.1%20mplayer-fonts.pwinfo%2CNONE%2C1.1%20mplayerfontconfig%2CNONE%2C1.1&In-Reply-To=%3C200408161112.i7GBCD608076%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/mplayer-fonts mplayer-fonts.pw-postinst,NONE,1.1 mplayer-fonts.pwbuild,NONE,1.1 mplayer-fonts.pwinfo,NONE,1.1 mplayerfontconfig,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Aug 16 13:12:13 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000091.html">[Packware-cvs] pwbuild/xap/mplayer-codecs-windows-essential mplayer-codecs-windows-essential.pwbuild,NONE,1.1 mplayer-codecs-windows-essential.pwinfo,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000093.html">[Packware-cvs] pwbuild/xap/mplayer-skins mplayer-skins.pwbuild,NONE,1.1 mplayer-skins.pwinfo,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#92">[ date ]</a>
+              <a href="thread.html#92">[ thread ]</a>
+              <a href="subject.html#92">[ subject ]</a>
+              <a href="author.html#92">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/mplayer-fonts
+In directory sheep:/tmp/cvs-serv27143
+
+Added Files:
+	mplayer-fonts.pw-postinst mplayer-fonts.pwbuild 
+	mplayer-fonts.pwinfo mplayerfontconfig 
+Log Message:
+- Initial commit.
+- Version 20030714.
+
+
+--- NEW FILE: mplayer-fonts.pw-postinst ---
+#!/bin/sh
+
+if [ ! -e usr/share/mplayer/font ]; then
+
+    echo
+    echo &quot;Setting up arial-24-iso-8859-1 as your default font. Use mplayerfontconfig to&quot;
+    echo &quot;select another one.&quot;
+    ln -s fonts/font-arial-24-iso-8859-1 usr/share/mplayer/font
+
+fi
+
+--- NEW FILE: mplayer-fonts.pwbuild ---
+#!/bin/sh
+
+name=&quot;mplayer-fonts&quot;
+version=&quot;20030714&quot;
+build=&quot;1&quot;
+
+_doc -s 1 README-*
+_doc -s 2 README-*
+_doc -s 3 README-*
+_doc -s 4 README-*
+
+_pwbuilder 0.6.3
+
+_source -m d0afd83cd04c29a714a62b427aace5c5 -s 249705 <A HREF="ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-cp1250.tar.bz2">ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-cp1250.tar.bz2</A>
+_source -m 1ecd31d17b51f16332b1fcc7da36b312 -s 234242 <A HREF="ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-1.tar.bz2">ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-1.tar.bz2</A>
+_source -m 7b47904a925cf58ea546ca15f3df160c -s 222208 <A HREF="ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-2.tar.bz2">ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-2.tar.bz2</A>
+_source -m 956a9d9ea51970e057f0deb7b2e25889 -s 198950 <A HREF="ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-7.tar.bz2">ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-7.tar.bz2</A>
+
+mkdir ${pkg}/usr/share/mplayer/fonts ${pkg}/usr/bin
+cp ${src}/mplayerfontconfig ${pkg}/usr/bin
+chmod 755 ${pkg}/usr/bin/mplayerfontconfig
+mv ${src1}/font-* ${pkg}/usr/share/mplayer/fonts
+mv ${src2}/font-* ${pkg}/usr/share/mplayer/fonts
+mv ${src3}/font-* ${pkg}/usr/share/mplayer/fonts
+mv ${src4}/font-* ${pkg}/usr/share/mplayer/fonts
+
+# $Log: mplayer-fonts.pwbuild,v $
+# Revision 1.1  2004/08/16 11:12:10  swiergot
+# - Initial commit.
+# - Version 20030714.
+#
+
+--- NEW FILE: mplayer-fonts.pwinfo ---
+info=&quot;Fonts for MPlayer.&quot;
+desc=&quot;This package contains fonts used by MPlayer to display OSD menu and subtitles.&quot;
+
+--- NEW FILE: mplayerfontconfig ---
+#!/bin/sh
+
+# mplayerfontconfig - sets up a font for MPlayer
+# Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+# Released under the terms of the GNU General Public License 2 or later
+
+if [ ! -d /usr/share/mplayer/fonts ]; then
+  exit
+fi
+
+if [ &quot;$USER&quot; = &quot;root&quot; ]; then
+  MPLAYERDIR=/usr/share/mplayer
+else
+  MPLAYERDIR=~/.mplayer
+fi
+
+if [ ! -d $MPLAYERDIR ]; then
+  mkdir -p ~/.mplayer
+fi
+
+if [ -d $MPLAYERDIR/font ]; then
+  if [ ! -L $MPLAYERDIR/font ]; then
+    dialog --backtitle &quot;MPlayer font setup&quot; --title &quot;WARNING&quot; --msgbox &quot;$MPLAYERDIR/font is a real directory, not
+a symlink. If you choose a new font, this directory will be removed with all its content.&quot; 7 64
+  fi
+fi
+
+FONTS=&quot;`ls -1d /usr/share/mplayer/fonts/font-* | cut -f 2 -d - | sort | uniq`&quot;
+
+if [ &quot;$FONTS&quot; = &quot;&quot; ]; then
+  dialog --backtitle &quot;MPlayer font setup&quot; --title &quot;ERROR&quot; --msgbox &quot;The /usr/share/mplayer/fonts directory is empty. Hit Enter to exit.&quot; 5 71
+  exit
+fi
+
+COUNT=1
+
+for i in $FONTS; do
+  FONTMENU=&quot;$FONTMENU $COUNT $i&quot;
+  FONTLIST=&quot;$FONTLIST $i&quot;
+  COUNT=`expr $COUNT + 1`
+done
+
+TMP=&quot;`mktemp /tmp/mplayerconfig-XXXXXX`&quot;
+rm -rf $TMP
+touch $TMP
+
+dialog --backtitle &quot;MPlayer font setup&quot; --title &quot;CHOOSE FONT FAMILY&quot; --menu &quot;Please select font family.&quot; `expr 6 + $COUNT` 30 `expr $COUNT - 1` $FONTMENU 2&gt; $TMP
+
+RESULT=`cat $TMP`
+
+if [ &quot;$RESULT&quot; = &quot;&quot; ]; then
+
+    rm -f $TMP
+    clear
+    exit
+
+fi
+
+FONTFAMILY=&quot;`echo $FONTLIST | awk \&quot;{ print \\$$RESULT }\&quot;`&quot;
+
+FONTS=&quot;`ls -1d /usr/share/mplayer/fonts/font-$FONTFAMILY-* | cut -f 3 -d - | sort | uniq`&quot;
+
+COUNT=1
+FONTMENU=&quot;&quot;
+FONTLIST=&quot;&quot;
+
+for i in $FONTS; do
+  FONTMENU=&quot;$FONTMENU $COUNT $i&quot;
+  FONTLIST=&quot;$FONTLIST $i&quot;
+  COUNT=`expr $COUNT + 1`
+done
+
+dialog --backtitle &quot;MPlayer font setup&quot; --title &quot;CHOOSE FONT SIZE&quot; --menu &quot;Please select font size.&quot; `expr 6 + $COUNT` 28 `expr $COUNT - 1` $FONTMENU 2&gt; $TMP
+
+RESULT=`cat $TMP`
+
+if [ &quot;$RESULT&quot; = &quot;&quot; ]; then
+
+    rm -f $TMP
+    clear
+    exit
+
+fi
+
+FONTSIZE=&quot;`echo $FONTLIST | awk \&quot;{ print \\$$RESULT }\&quot;`&quot;
+
+FONTS=&quot;`ls -1d /usr/share/mplayer/fonts/font-$FONTFAMILY-$FONTSIZE-* | cut -f 4- -d - | sort | uniq`&quot;
+
+COUNT=1
+FONTMENU=&quot;&quot;
+FONTLIST=&quot;&quot;
+
+for i in $FONTS; do
+  FONTMENU=&quot;$FONTMENU $COUNT $i&quot;
+  FONTLIST=&quot;$FONTLIST $i&quot;
+  COUNT=`expr $COUNT + 1`
+done
+
+dialog --backtitle &quot;MPlayer font setup&quot; --title &quot;CHOOSE FONT CHARSET&quot; --menu &quot;Please select font charset.&quot; `expr 6 + $COUNT` 31 `expr $COUNT - 1` $FONTMENU 2&gt; $TMP
+
+RESULT=`cat $TMP`
+
+if [ &quot;$RESULT&quot; = &quot;&quot; ]; then
+
+    rm -f $TMP
+    clear
+    exit
+
+fi
+
+FONTCHARSET=&quot;`echo $FONTLIST | awk \&quot;{ print \\$$RESULT }\&quot;`&quot;
+
+dialog --backtitle &quot;MPlayer font setup&quot; --title &quot;SELECTED FONT&quot; --yesno &quot;You have just selected the following font:
+$FONTFAMILY-$FONTSIZE-$FONTCHARSET
+Do you want to apply this font to be used by MPlayer?&quot; 7 57
+
+if [ &quot;$?&quot; = &quot;0&quot; ]; then
+
+    rm -rf $MPLAYERDIR/font
+    ln -s /usr/share/mplayer/fonts/font-$FONTFAMILY-$FONTSIZE-$FONTCHARSET $MPLAYERDIR/font
+
+fi
+
+rm -f $TMP
+clear
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000091.html">[Packware-cvs] pwbuild/xap/mplayer-codecs-windows-essential mplayer-codecs-windows-essential.pwbuild,NONE,1.1 mplayer-codecs-windows-essential.pwinfo,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000093.html">[Packware-cvs] pwbuild/xap/mplayer-skins mplayer-skins.pwbuild,NONE,1.1 mplayer-skins.pwinfo,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#92">[ date ]</a>
+              <a href="thread.html#92">[ thread ]</a>
+              <a href="subject.html#92">[ subject ]</a>
+              <a href="author.html#92">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

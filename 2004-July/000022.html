@@ -1,0 +1,248 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal arch,NONE,1.1 doc,NONE,1.1 var,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/internal%20arch%2CNONE%2C1.1%20doc%2CNONE%2C1.1%20var%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6u621813%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000026.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal arch,NONE,1.1 doc,NONE,1.1 var,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/internal%20arch%2CNONE%2C1.1%20doc%2CNONE%2C1.1%20var%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6u621813%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal arch,NONE,1.1 doc,NONE,1.1 var,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 00:06:56 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000026.html">[Packware-cvs] pwbuild - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/internal
+In directory sheep:/tmp/cvs-serv15405/src/usr/lib/pwbuilder/include/internal
+
+Added Files:
+	arch doc var 
+Log Message:
+- Initial commit.
+
+
+--- NEW FILE: arch ---
+#!/bin/sh
+
+function is_arch_dep () {
+
+	if [ -d lib/modules ]; then
+
+		return 0
+
+	fi
+
+	if [ -d usr/lib ]; then
+
+		if find usr/lib -type f -name '*.a' | grep '[.]a$' &gt; /dev/null 2&gt;&amp;1; then
+
+			return 0
+
+		fi
+
+	fi
+
+	if [ -d usr/src ]; then
+
+		if find usr/src -name bzImage | grep bzImage &gt; /dev/null 2&gt;&amp;1; then
+
+			return 0
+
+		fi
+
+	fi
+
+	# Which one is faster?
+	#find . -type f -exec file -b {} \; | sort | uniq | egrep &quot;x86|186|286|386|8086|Dev86|Intel 80&quot; &gt; /dev/null 2&gt;&amp;1
+	find . -type f ! -path './usr/include/*' ! -name '*.h' -exec file -b {} \; | \
+		egrep &quot;x86|186|286|386|8086|Dev86|Intel 80&quot; &gt; /dev/null 2&gt;&amp;1
+
+	return $?
+
+}
+
+--- NEW FILE: doc ---
+#!/bin/sh
+
+function copy_defdoc() {
+
+	eval &quot;srcd=\&quot;\${src$1}\&quot;&quot;
+
+	altdir=&quot;&quot;
+
+	if [ ! &quot;$2&quot; = &quot;x&quot; ]; then
+
+		altdir=&quot;`echo $2 | cut -c 2-`&quot;
+		echo &quot;${altdir}&quot; &gt;&gt; ${tmp}/altdirs
+		altdir=&quot;-${altdir}&quot;
+
+	fi
+
+	(
+
+	unset LC_ALL
+	unset LANG
+
+	cd &quot;${srcd}&quot;
+
+	if [ &quot;$3&quot; = &quot;&quot; ]; then
+
+		find . | egrep '^[.]/[A-Z]+$|^[.]/ABOUT-NLS$' | sed &quot;s}\.}${srcd}}&quot; &gt;&gt; ${tmp}/doc${altdir}
+
+	else
+
+		cd $3
+		find . | egrep '^[.]/[A-Z]+$|^[.]/ABOUT-NLS$' | sed &quot;s}\.}${srcd}/$3}&quot; &gt;&gt; ${tmp}/doc${altdir}
+
+	fi
+
+	)
+
+}
+
+function copy_doc() {
+
+	eval &quot;srcd=\&quot;\${src$1}\&quot;&quot;
+
+	shift
+
+	altdir=&quot;&quot;
+
+	if [ ! &quot;$1&quot; = &quot;x&quot; ]; then
+
+		altdir=&quot;`echo $1 | cut -c 2-`&quot;
+		echo &quot;${altdir}&quot; &gt;&gt; ${tmp}/altdirs
+		altdir=&quot;-${altdir}&quot;
+
+	fi
+
+	shift
+
+	[ ! &quot;$1&quot; = &quot;&quot; ] &amp;&amp; subdir=&quot;/$1&quot;
+
+	shift
+
+	for i in &quot;$@&quot;; do
+	
+		echo &quot;${srcd}${subdir}/${i}&quot; &gt;&gt; ${tmp}/doc${altdir}
+
+	done
+
+}
+
+function exclude_doc() {
+
+	eval &quot;srcd=\&quot;\${src$1}\&quot;&quot;
+
+	shift
+
+	altdir=&quot;&quot;
+
+	if [ ! &quot;$1&quot; = &quot;x&quot; ]; then
+
+		altdir=&quot;`echo $1 | cut -c 2-`&quot;
+		echo &quot;${altdir}&quot; &gt;&gt; ${tmp}/altdirs
+		altdir=&quot;-${altdir}&quot;
+
+	fi
+
+	shift
+
+	[ ! &quot;$1&quot; = &quot;&quot; ] &amp;&amp; subdir=&quot;/$1&quot;
+
+	shift
+
+	for i in &quot;$@&quot;; do
+
+		echo &quot;${srcd}${subdir}/${i}&quot; &gt;&gt; ${tmp}/exdoc${altdir}
+
+	done
+
+}
+
+function finish_doc() {
+
+	touch ${tmp}/doc
+	touch ${tmp}/exdoc
+	sort ${tmp}/doc ${tmp}/exdoc | uniq -u &gt; ${tmp}/redoc
+	[ -s ${tmp}/redoc ] &amp;&amp; cp -af `cat ${tmp}/redoc` ${doc}
+
+	if [ -f ${tmp}/altdirs ]; then
+
+		sort ${tmp}/altdirs | uniq &gt; ${tmp}/realtdirs
+
+		for i in `cat ${tmp}/realtdirs`; do
+
+			touch ${tmp}/exdoc-${i}
+			sort ${tmp}/doc-${i} ${tmp}/exdoc-${i} | uniq -u &gt; ${tmp}/redoc
+			mkdir ${pkg}/usr/doc/${i}
+			[ -s ${tmp}/redoc ] &amp;&amp; cp -af `cat ${tmp}/redoc` ${pkg}/usr/doc/${i}
+
+		done
+
+	fi
+
+}
+
+--- NEW FILE: var ---
+#!/bin/sh
+
+function getvar() {
+
+	if [ ! -f &quot;${var}/$1&quot; ]; then
+
+		return
+
+	fi
+
+	cat ${var}/$1
+
+}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000026.html">[Packware-cvs] pwbuild - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#22">[ date ]</a>
+              <a href="thread.html#22">[ thread ]</a>
+              <a href="subject.html#22">[ subject ]</a>
+              <a href="author.html#22">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

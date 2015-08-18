@@ -1,0 +1,607 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/have alsa,NONE,1.1 apache1,NONE,1.1 apache2,NONE,1.1 aspell,NONE,1.1 c_client,NONE,1.1 cyrus,NONE,1.1 glib,NONE,1.1 glib2,NONE,1.1 gpg,NONE,1.1 gpgme,NONE,1.1 gtk,NONE,1.1 gtk2,NONE,1.1 imlib,NONE,1.1 ldap,NONE,1.1 libmng,NONE,1.1 mm,NONE,1.1 mysql,NONE,1.1 ncurses,NONE,1.1 openssl,NONE,1.1 perl,NONE,1.1 pgsql,NONE,1.1 python,NONE,1.1 qt,NONE,1.1 recode,NONE,1.1 sasl,NONE,1.1 sasl2,NONE,1.1 sdl,NONE,1.1 slang,NONE,1.1 tcl,NONE,1.1 tclx,NONE,1.1 tk,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/have%20alsa%2CNONE%2C1.1%20apache1%2CNONE%2C1.1%20apache2%2CNONE%2C1.1%20aspell%2CNONE%2C1.1%20c_client%2CNONE%2C1.1%20cyrus%2CNONE%2C1.1%20glib%2CNONE%2C1.1%20glib2%2CNONE%2C1.1%20gpg%2CNONE%2C1.1%20gpgme%2CNONE%2C1.1%20gtk%2CNONE%2C1.1%20gtk2%2CNONE%2C1.1%20imlib%2CNONE%2C1.1%20ldap%2CNONE%2C1.1%20libmng%2CNONE%2C1.1%20mm%2CNONE%2C1.1%20mysql%2CNONE%2C1.1%20ncurses%2CNONE%2C1.1%20openssl%2CNONE%2C1.1%20perl%2CNONE%2C1.1%20pgsql%2CNONE%2C1.1%20python%2CNONE%2C1.1%20qt%2CNONE%2C1.1%20recode%2CNONE%2C1.1%20sasl%2CNONE%2C1.1%20sasl2%2CNONE%2C1.1%20sdl%2CNONE%2C1.1%20slang%2CNONE%2C1.1%20tcl%2CNONE%2C1.1%20tclx%2CNONE%2C1.1%20tk%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6t621807%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000018.html">
+   <LINK REL="Next"  HREF="000025.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/have alsa,NONE,1.1 apache1,NONE,1.1 apache2,NONE,1.1 aspell,NONE,1.1 c_client,NONE,1.1 cyrus,NONE,1.1 glib,NONE,1.1 glib2,NONE,1.1 gpg,NONE,1.1 gpgme,NONE,1.1 gtk,NONE,1.1 gtk2,NONE,1.1 imlib,NONE,1.1 ldap,NONE,1.1 libmng,NONE,1.1 mm,NONE,1.1 mysql,NONE,1.1 ncurses,NONE,1.1 openssl,NONE,1.1 perl,NONE,1.1 pgsql,NONE,1.1 python,NONE,1.1 qt,NONE,1.1 recode,NONE,1.1 sasl,NONE,1.1 sasl2,NONE,1.1 sdl,NONE,1.1 slang,NONE,1.1 tcl,NONE,1.1 tclx,NONE,1.1 tk,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/have%20alsa%2CNONE%2C1.1%20apache1%2CNONE%2C1.1%20apache2%2CNONE%2C1.1%20aspell%2CNONE%2C1.1%20c_client%2CNONE%2C1.1%20cyrus%2CNONE%2C1.1%20glib%2CNONE%2C1.1%20glib2%2CNONE%2C1.1%20gpg%2CNONE%2C1.1%20gpgme%2CNONE%2C1.1%20gtk%2CNONE%2C1.1%20gtk2%2CNONE%2C1.1%20imlib%2CNONE%2C1.1%20ldap%2CNONE%2C1.1%20libmng%2CNONE%2C1.1%20mm%2CNONE%2C1.1%20mysql%2CNONE%2C1.1%20ncurses%2CNONE%2C1.1%20openssl%2CNONE%2C1.1%20perl%2CNONE%2C1.1%20pgsql%2CNONE%2C1.1%20python%2CNONE%2C1.1%20qt%2CNONE%2C1.1%20recode%2CNONE%2C1.1%20sasl%2CNONE%2C1.1%20sasl2%2CNONE%2C1.1%20sdl%2CNONE%2C1.1%20slang%2CNONE%2C1.1%20tcl%2CNONE%2C1.1%20tclx%2CNONE%2C1.1%20tk%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6t621807%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/have alsa,NONE,1.1 apache1,NONE,1.1 apache2,NONE,1.1 aspell,NONE,1.1 c_client,NONE,1.1 cyrus,NONE,1.1 glib,NONE,1.1 glib2,NONE,1.1 gpg,NONE,1.1 gpgme,NONE,1.1 gtk,NONE,1.1 gtk2,NONE,1.1 imlib,NONE,1.1 ldap,NONE,1.1 libmng,NONE,1.1 mm,NONE,1.1 mysql,NONE,1.1 ncurses,NONE,1.1 openssl,NONE,1.1 perl,NONE,1.1 pgsql,NONE,1.1 python,NONE,1.1 qt,NONE,1.1 recode,NONE,1.1 sasl,NONE,1.1 sasl2,NONE,1.1 sdl,NONE,1.1 slang,NONE,1.1 tcl,NONE,1.1 tclx,NONE,1.1 tk,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 00:06:55 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000018.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include createenv,NONE,1.1 createpkg,NONE,1.1 finishpkg,NONE,1.1 functions,NONE,1.1 mainfunc,NONE,1.1 runbuild,NONE,1.1 slackver,NONE,1.1 version,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000025.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/have
+In directory sheep:/tmp/cvs-serv15405/src/usr/lib/pwbuilder/include/have
+
+Added Files:
+	alsa apache1 apache2 aspell c_client cyrus glib glib2 gpg 
+	gpgme gtk gtk2 imlib ldap libmng mm mysql ncurses openssl perl 
+	pgsql python qt recode sasl sasl2 sdl slang tcl tclx tk 
+Log Message:
+- Initial commit.
+
+
+--- NEW FILE: alsa ---
+#!/bin/sh
+
+function _have_alsa() {
+
+	if [ -f /usr/include/alsa/asoundlib.h ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: apache1 ---
+#!/bin/sh
+
+function _have_apache1() {
+
+	if [ ! -x /usr/sbin/httpd ]; then
+
+		return 1;
+
+	fi
+
+	if /usr/sbin/httpd -v | grep Apache/1 &gt; /dev/null 2&gt;&amp;1; then
+
+		return 0;
+
+	fi
+
+	return 1;
+
+}
+
+--- NEW FILE: apache2 ---
+#!/bin/sh
+
+function _have_apache2() {
+
+	if [ ! -x /usr/sbin/httpd ]; then
+
+		return 1;
+
+	fi
+
+	if /usr/sbin/httpd -v | grep Apache/1 &gt; /dev/null 2&gt;&amp;1; then
+
+		return 1;
+
+	fi
+
+	return 0;
+
+}
+
+--- NEW FILE: aspell ---
+#!/bin/sh
+
+function _have_aspell() {
+
+	if [ -x /usr/bin/aspell ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: c_client ---
+#!/bin/sh
+
+function _have_c_client() {
+
+	if [ -f /usr/lib/c-client.a -a -d /usr/include/c-client ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: cyrus ---
+#!/bin/sh
+
+function _have_cyrus() {
+
+	if [ -f /usr/lib/libcyrus.a -a -d /usr/include/cyrus ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: glib ---
+#!/bin/sh
+
+function _have_glib() {
+
+	if [ -x /usr/bin/glib-config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: glib2 ---
+#!/bin/sh
+
+function _have_glib2() {
+
+	if [ -f /usr/lib/pkgconfig/glib-2.0.pc ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: gpg ---
+#!/bin/sh
+
+function _have_gpg() {
+
+	if [ -x /usr/bin/gpg ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: gpgme ---
+#!/bin/sh
+
+function _have_gpgme() {
+
+	if [ -x /usr/bin/gpgme-config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: gtk ---
+#!/bin/sh
+
+function _have_gtk() {
+
+	if [ -x /usr/bin/gtk-config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: gtk2 ---
+#!/bin/sh
+
+function _have_gtk2() {
+
+	if [ -f /usr/lib/pkgconfig/gtk+-2.0.pc ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: imlib ---
+#!/bin/sh
+
+function _have_imlib() {
+
+	if [ -x /usr/bin/imlib_config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: ldap ---
+#!/bin/sh
+
+function _have_ldap() {
+
+	if [ -f /usr/include/ldap.h ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: libmng ---
+#!/bin/sh
+
+function _have_libmng() {
+
+	if [ -f /usr/lib/libmng.so ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: mm ---
+#!/bin/sh
+
+function _have_mm() {
+
+	if [ -x /usr/bin/mm-config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: mysql ---
+#!/bin/sh
+
+function _have_mysql() {
+
+	if [ -x /usr/bin/mysql_config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: ncurses ---
+#!/bin/sh
+
+function _have_ncurses() {
+
+	if [ -x /usr/lib/libncurses.so ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: openssl ---
+#!/bin/sh
+
+function _have_openssl() {
+
+	if [ -f /usr/lib/pkgconfig/openssl.pc ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: perl ---
+#!/bin/sh
+
+function _have_perl() {
+
+	if [ -x /usr/bin/perl ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: pgsql ---
+#!/bin/sh
+
+function _have_pgsql() {
+
+	if [ -x /usr/bin/pg_config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: python ---
+#!/bin/sh
+
+function _have_python() {
+
+	if [ -x /usr/bin/python ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: qt ---
+#!/bin/sh
+
+function _have_qt() {
+
+	if [ -d /usr/lib/qt ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: recode ---
+#!/bin/sh
+
+function _have_recode() {
+
+	if [ -x /usr/include/recode.h ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: sasl ---
+#!/bin/sh
+
+function _have_sasl() {
+
+	if [ -d /usr/lib/sasl ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: sasl2 ---
+#!/bin/sh
+
+function _have_sasl2() {
+
+	if [ -d /usr/lib/sasl2 ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: sdl ---
+#!/bin/sh
+
+function _have_sdl() {
+
+	if [ -x /usr/bin/sdl-config ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: slang ---
+#!/bin/sh
+
+function _have_slang() {
+
+	if [ -x /usr/lib/libslang.so ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: tcl ---
+#!/bin/sh
+
+function _have_tcl() {
+
+	if [ -x /usr/lib/libtcl.so ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: tclx ---
+#!/bin/sh
+
+function _have_tclx() {
+
+	if [ -x /usr/lib/libtclx.so ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+--- NEW FILE: tk ---
+#!/bin/sh
+
+function _have_tk() {
+
+	if [ -x /usr/lib/libtk.so ]; then
+
+		return 0;
+
+	else
+
+		return 1;
+
+	fi
+
+}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000018.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include createenv,NONE,1.1 createpkg,NONE,1.1 finishpkg,NONE,1.1 functions,NONE,1.1 mainfunc,NONE,1.1 runbuild,NONE,1.1 slackver,NONE,1.1 version,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000025.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

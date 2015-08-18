@@ -1,0 +1,367 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/ap/clamav clamav-config.pw.patch,NONE,1.1 clamav.cron,NONE,1.1 clamav.logrotate,NONE,1.1 clamav.pw-postinst,NONE,1.1 clamav.pwbuild,NONE,1.1 clamav.pwinfo,NONE,1.1 rc.clamd,NONE,1.1 rc.clamd-db,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/clamav%20clamav-config.pw.patch%2CNONE%2C1.1%20clamav.cron%2CNONE%2C1.1%20clamav.logrotate%2CNONE%2C1.1%20clamav.pw-postinst%2CNONE%2C1.1%20clamav.pwbuild%2CNONE%2C1.1%20clamav.pwinfo%2CNONE%2C1.1%20rc.clamd%2CNONE%2C1.1%20rc.clamd-db%2CNONE%2C1.1&In-Reply-To=%3C200408011352.i71DqE627869%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000064.html">
+   <LINK REL="Next"  HREF="000066.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/ap/clamav clamav-config.pw.patch,NONE,1.1 clamav.cron,NONE,1.1 clamav.logrotate,NONE,1.1 clamav.pw-postinst,NONE,1.1 clamav.pwbuild,NONE,1.1 clamav.pwinfo,NONE,1.1 rc.clamd,NONE,1.1 rc.clamd-db,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/clamav%20clamav-config.pw.patch%2CNONE%2C1.1%20clamav.cron%2CNONE%2C1.1%20clamav.logrotate%2CNONE%2C1.1%20clamav.pw-postinst%2CNONE%2C1.1%20clamav.pwbuild%2CNONE%2C1.1%20clamav.pwinfo%2CNONE%2C1.1%20rc.clamd%2CNONE%2C1.1%20rc.clamd-db%2CNONE%2C1.1&In-Reply-To=%3C200408011352.i71DqE627869%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/ap/clamav clamav-config.pw.patch,NONE,1.1 clamav.cron,NONE,1.1 clamav.logrotate,NONE,1.1 clamav.pw-postinst,NONE,1.1 clamav.pwbuild,NONE,1.1 clamav.pwinfo,NONE,1.1 rc.clamd,NONE,1.1 rc.clamd-db,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug  1 15:52:14 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000064.html">[Packware-cvs] pwbuild/ap/clamav - New directory
+</A></li>
+        <LI>Next message: <A HREF="000066.html">[Packware-cvs] ./pwbuild/n/dctc - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/ap/clamav
+In directory sheep:/tmp/cvs-serv31078
+
+Added Files:
+	clamav-config.pw.patch clamav.cron clamav.logrotate 
+	clamav.pw-postinst clamav.pwbuild clamav.pwinfo rc.clamd 
+	rc.clamd-db 
+Log Message:
+- Initial commit.
+- Version 0.75.1.
+
+
+--- NEW FILE: clamav-config.pw.patch ---
+diff -ruN clamav-0.75.1.orig/etc/clamav.conf clamav-0.75.1/etc/clamav.conf
+--- clamav-0.75.1.orig/etc/clamav.conf	2004-05-13 01:59:21.000000000 +0200
++++ clamav-0.75.1/etc/clamav.conf	2004-08-01 15:47:29.000000000 +0200
+@@ -5,12 +5,12 @@
+ 
+ 
+ # Comment or remove the line below.
+-Example
++#Example
+ 
+ # Uncomment this option to enable logging.
+ # LogFile must be writable for the user running the daemon.
+ # Full path is required.
+-#LogFile /tmp/clamd.log
++LogFile /var/log/clamav
+ 
+ # By default the log file is locked for writing - the lock protects against
+ # running clamd multiple times (if want to run another clamd, please
+@@ -24,17 +24,17 @@
+ # You may use 'M' or 'm' for megabytes (1M = 1m = 1048576 bytes)
+ # and 'K' or 'k' for kilobytes (1K = 1k = 1024 bytes). To specify the size
+ # in bytes just don't use modifiers.
+-#LogFileMaxSize 2M
++LogFileMaxSize 10M
+ 
+ # Log time with an each message.
+-#LogTime
++LogTime
+ 
+ # Log also clean files. May be useful in debugging but will drastically
+ # increase the log size.
+ #LogClean
+ 
+ # Use system logger (can work together with LogFile).
+-#LogSyslog
++LogSyslog
+ 
+ # Specify the type of syslog messages - please refer to 'man syslog'
+ # for facility names. Default is LOG_LOCAL6.
+@@ -45,7 +45,7 @@
+ 
+ # This option allows you to save the process identifier of the listening
+ # daemon (main thread).
+-#PidFile /var/run/clamd.pid
++PidFile /var/run/clamd.pid
+ 
+ # Optional path to the global temporary directory.
+ # Default is system specific - usually /var/tmp or /tmp.
+@@ -54,7 +54,7 @@
+ # Path to the database directory.
+ # Default is the hardcoded directory (mostly /usr/local/share/clamav,
+ # but it depends on installation options).
+-#DatabaseDirectory /var/lib/clamav
++DatabaseDirectory /usr/share/clamav
+ 
+ # The daemon works in local or network mode. Currently the local mode is
+ # recommended for security reasons.
+@@ -65,7 +65,7 @@
+ LocalSocket /tmp/clamd
+ 
+ # Remove stale socket after unclean shutdown.
+-#FixStaleSocket
++FixStaleSocket
+ 
+ # TCP port address.
+ #TCPSocket 3310
+@@ -74,7 +74,7 @@
+ # By default we bind to INADDR_ANY, probably not wise.
+ # Enable the following to provide some degree of protection
+ # from the outside world.
+-#TCPAddr 127.0.0.1
++TCPAddr 127.0.0.1
+ 
+ # Maximum length the queue of pending connections may grow to.
+ # Default is 15.
+@@ -85,12 +85,12 @@
+ #StreamSaveToDisk
+ 
+ # Close the connection if this limit is exceeded.
+-#StreamMaxLength 10M
++StreamMaxLength 10M
+ 
+ # Maximal number of a threads running at the same time.
+ # Default is 5, and it should be sufficient for a typical workstation.
+ # You may need to increase threads number for a server machine.
+-#MaxThreads 10
++MaxThreads 20
+ 
+ # Waiting for data from a client socket will timeout after this time (seconds).
+ # Default is 120. Value of 0 disables the timeout.
+@@ -109,7 +109,7 @@
+ 
+ # Do internal checks (eg. check the integrity of the database structures)
+ # By default clamd checks itself every 3600 seconds (1 hour).
+-#SelfCheck 600
++SelfCheck 600
+ 
+ # Execute a command when a virus is found. In the command string %v will
+ # be replaced by the virus name.
+@@ -118,7 +118,7 @@
+ 
+ # Run as selected user (clamd must be started by root).
+ # By default it doesn't drop privileges.
+-#User clamav
++User clamav
+ 
+ # Initialize the supplementary group access (for all groups in /etc/group
+ # user is added in. clamd must be started by root).
+@@ -145,7 +145,7 @@
+ ##
+ 
+ # Uncomment this option if you are planning to scan mail files.
+-#ScanMail
++ScanMail
+ 
+ ##
+ ## Archive support
+diff -ruN clamav-0.75.1.orig/etc/freshclam.conf clamav-0.75.1/etc/freshclam.conf
+--- clamav-0.75.1.orig/etc/freshclam.conf	2004-05-11 01:19:48.000000000 +0200
++++ clamav-0.75.1/etc/freshclam.conf	2004-08-01 15:47:50.000000000 +0200
+@@ -6,7 +6,7 @@
+ 
+ # It should match clamav.conf's directive ! (in most cases you shouldn't
+ # change it)
+-#DatabaseDirectory /var/lib/clamav
++DatabaseDirectory /usr/share/clamav
+ 
+ # Path to the log file (make sure it has proper permissions)
+ #UpdateLogFile /var/log/freshclam.log
+@@ -44,7 +44,7 @@
+ #HTTPProxyPassword mypass
+ 
+ # Send the RELOAD command to clamd.
+-#NotifyClamd [/optional/config/file/path]
++NotifyClamd
+ 
+ # Run command after database update.
+ #OnUpdateExecute command
+
+--- NEW FILE: clamav.cron ---
+#!/bin/sh
+
+/usr/bin/freshclam --datadir /usr/share/clamav
+
+--- NEW FILE: clamav.logrotate ---
+/var/log/clamav {
+    weekly
+    missingok
+    compress
+    create 640 clamav clamav
+    postrotate
+	/etc/rc.d/rc.clamd restart
+    endscript
+}
+
+--- NEW FILE: clamav.pw-postinst ---
+grep ^clamav: etc/group &gt; /dev/null 2&gt;&amp;1 || \
+    groupadd -g 200 clamav
+
+grep ^clamav: etc/passwd &gt; /dev/null 2&gt;&amp;1 || \
+    useradd -u 200 -d /dev/null -s /dev/null -g clamav clamav
+
+chown clamav.clamav /var/log/clamav
+chown -R clamav.clamav /usr/share/clamav
+
+--- NEW FILE: clamav.pwbuild ---
+#!/bin/sh
+
+name=&quot;clamav&quot;
+version=&quot;0.75.1&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -m 2c85b7957eba9fd9e9ff8c2537ae006f -s 2777319 -g -f
+
+_patch config
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+_c_opt --disable-clamav
+
+_cmi
+
+mkdir ${pkg}/etc/logrotate.d
+cp ${src}/clamav.logrotate ${pkg}/etc/logrotate.d/clamav
+
+mkdir ${pkg}/etc/rc.d
+cp ${src}/rc.clamd ${pkg}/etc/rc.d
+chmod 755 ${pkg}/etc/rc.d/rc.clamd
+cp ${src}/rc.clamd-db ${pkg}/etc/rc.d
+chmod 755 ${pkg}/etc/rc.d/rc.clamd-db
+
+mkdir ${pkg}/etc/cron.daily
+cp ${src}/clamav.cron ${pkg}/etc/cron.daily/clamav
+
+mkdir ${pkg}/var/log
+touch ${pkg}/var/log/clamav
+
+# $Log: clamav.pwbuild,v $
+# Revision 1.1  2004/08/01 13:52:11  swiergot
+# - Initial commit.
+# - Version 0.75.1.
+#
+
+--- NEW FILE: clamav.pwinfo ---
+info=&quot;An anti-virus utility for Unix.&quot;
+desc=&quot;Clam AntiVirus is an anti-virus toolkit for Unix. The main purpose of this software is the integration with mail servers (attachment scanning). The package provides a flexible and scalable multi-threaded daemon, a commandline scanner, and a tool for automatic updating via Internet. The programs are based on a shared library distributed with the Clam AntiVirus package, which you can use in your own software.&quot;
+
+--- NEW FILE: rc.clamd ---
+#!/bin/sh
+#
+# /etc/rc.d/rc.clamd
+#
+# Start/stop/restart the Clam AntiVirus' clamd daemon.
+#
+
+clamd_start() {
+  if [ -x /usr/sbin/clamd ]; then
+    echo &quot;Starting clamd...&quot;
+    /usr/sbin/clamd
+  fi
+}
+
+clamd_stop() {
+    echo &quot;Stopping clamd...&quot;
+    killall clamd
+}
+
+clamd_restart() {
+    clamd_stop
+    sleep 3
+    clamd_start
+}
+
+case &quot;$1&quot; in
+'start')
+  clamd_start
+  ;;
+'stop')
+  clamd_stop
+  ;;
+'restart')
+  clamd_restart
+  ;;
+*)
+  echo &quot;Usage: $0 start|stop|restart&quot;
+  ;;
+esac
+
+--- NEW FILE: rc.clamd-db ---
+#!/bin/sh
+#
+# /etc/rc.d/rc.clamd-db
+#
+# Start/stop/restart the Clam AntiVirus' freshclam daemon
+#
+
+clamddb_start() {
+  if [ -x /usr/bin/freshclam ]; then
+    echo &quot;Starting freshclam...&quot;
+    /usr/bin/freshclam -d --datadir /usr/share/clamav
+  fi
+}
+
+clamddb_stop() {
+    echo &quot;Stopping freshclam...&quot;
+    killall freshclam
+}
+
+clamddb_restart() {
+    clamddb_stop
+    sleep 3
+    clamddb_start
+}
+
+case &quot;$1&quot; in
+'start')
+  clamddb_start
+  ;;
+'stop')
+  clamddb_stop
+  ;;
+'restart')
+  clamddb_restart
+  ;;
+*)
+  echo &quot;Usage: $0 start|stop|restart&quot;
+  ;;
+esac
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000064.html">[Packware-cvs] pwbuild/ap/clamav - New directory
+</A></li>
+	<LI>Next message: <A HREF="000066.html">[Packware-cvs] ./pwbuild/n/dctc - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#65">[ date ]</a>
+              <a href="thread.html#65">[ thread ]</a>
+              <a href="subject.html#65">[ subject ]</a>
+              <a href="author.html#65">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

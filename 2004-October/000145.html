@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/po pl.po,1.1,1.2 pwbuilder.pot,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/po%20pl.po%2C1.1%2C1.2%20pwbuilder.pot%2C1.1%2C1.2&In-Reply-To=%3C200410181137.i9IBbdB15386%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000144.html">
+   <LINK REL="Next"  HREF="000147.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/po pl.po,1.1,1.2 pwbuilder.pot,1.1,1.2</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/po%20pl.po%2C1.1%2C1.2%20pwbuilder.pot%2C1.1%2C1.2&In-Reply-To=%3C200410181137.i9IBbdB15386%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/po pl.po,1.1,1.2 pwbuilder.pot,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Oct 18 13:37:39 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000144.html">[Packware-cvs] pwbuilder pwbuilder.pwbuild,1.2,1.3
+</A></li>
+        <LI>Next message: <A HREF="000147.html">[Packware-cvs] pwbuilder/doc ChangeLog,1.2,1.3 README,1.1,1.2 REPO,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/po
+In directory sheep:/tmp/cvs-serv23088/po
+
+Modified Files:
+	pl.po pwbuilder.pot 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: pl.po
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/po/pl.po,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** pl.po	29 Jul 2004 22:06:51 -0000	1.1
+--- pl.po	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 49,52 ****
+--- 49,56 ----
+  msgstr &quot;_sub: nie podano nazwy podpakietu&quot;
+  
++ #: /usr/lib/pwbuilder/include/funcs/make:27
++ msgid &quot;_make: must not be invoked with _execindir; use -d instead&quot;
++ msgstr &quot;_make: nie mo&#191;na wywo&#179;a&#230; z _execindir; u&#191;yj -d&quot;
++ 
+  #: /usr/lib/pwbuilder/include/funcs/make:65
+  msgid &quot;! Error: make failed&quot;
+***************
+*** 117,120 ****
+--- 121,128 ----
+  msgstr &quot;! B&#179;&#177;d: na&#179;o&#191;enie nie powiod&#179;o si&#234;&quot;
+  
++ #: /usr/lib/pwbuilder/include/funcs/configure:27
++ msgid &quot;_configure: must not be invoked with _execindir; use -d instead&quot;
++ msgstr &quot;_configure: nie mo&#191;na wywo&#179;a&#230; z _execindir; u&#191;yj -d&quot;
++ 
+  #: /usr/lib/pwbuilder/include/funcs/configure:65
+  msgid &quot;! Error: configure failed&quot;
+***************
+*** 172,175 ****
+--- 180,187 ----
+  msgid &quot;_alt_install: no command specified&quot;
+  msgstr &quot;_alt_install: nie podano polecenia&quot;
++ 
++ #: /usr/lib/pwbuilder/include/funcs/install:29
++ msgid &quot;_install: must not be invoked with _execindir; use -d instead&quot;
++ msgstr &quot;_install: nie mo&#191;na wywo&#179;a&#230; z _execindir; u&#191;yj -d&quot;
+  
+  #: /usr/lib/pwbuilder/include/funcs/install:73
+
+Index: pwbuilder.pot
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/po/pwbuilder.pot,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** pwbuilder.pot	29 Jul 2004 22:06:51 -0000	1.1
+--- pwbuilder.pot	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 52,55 ****
+--- 52,59 ----
+  msgstr &quot;&quot;
+  
++ #: /usr/lib/pwbuilder/include/funcs/make:27
++ msgid &quot;_make: must not be invoked with _execindir; use -d instead&quot;
++ msgstr &quot;&quot;
++ 
+  #: /usr/lib/pwbuilder/include/funcs/make:65
+  msgid &quot;! Error: make failed&quot;
+***************
+*** 120,123 ****
+--- 124,131 ----
+  msgstr &quot;&quot;
+  
++ #: /usr/lib/pwbuilder/include/funcs/configure:27
++ msgid &quot;_configure: must not be invoked with _execindir; use -d instead&quot;
++ msgstr &quot;&quot;
++ 
+  #: /usr/lib/pwbuilder/include/funcs/configure:65
+  msgid &quot;! Error: configure failed&quot;
+***************
+*** 174,177 ****
+--- 182,189 ----
+  #: /usr/lib/pwbuilder/include/funcs/alt_install:23
+  msgid &quot;_alt_install: no command specified&quot;
++ msgstr &quot;&quot;
++ 
++ #: /usr/lib/pwbuilder/include/funcs/install:29
++ msgid &quot;_install: must not be invoked with _execindir; use -d instead&quot;
+  msgstr &quot;&quot;
+  
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000144.html">[Packware-cvs] pwbuilder pwbuilder.pwbuild,1.2,1.3
+</A></li>
+	<LI>Next message: <A HREF="000147.html">[Packware-cvs] pwbuilder/doc ChangeLog,1.2,1.3 README,1.1,1.2 REPO,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#145">[ date ]</a>
+              <a href="thread.html#145">[ thread ]</a>
+              <a href="subject.html#145">[ subject ]</a>
+              <a href="author.html#145">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

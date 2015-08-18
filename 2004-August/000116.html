@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.5,1.6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/kadu%20kadu-modules-cvs.pw.patch%2C1.5%2C1.6&In-Reply-To=%3C200408291727.i7THRJ621679%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000115.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.5,1.6</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/kadu%20kadu-modules-cvs.pw.patch%2C1.5%2C1.6&In-Reply-To=%3C200408291727.i7THRJ621679%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.5,1.6">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug 29 19:27:19 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000115.html">[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.3,1.4 kadu-modules-cvs.pw.patch,1.4,1.5
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv29628
+
+Modified Files:
+	kadu-modules-cvs.pw.patch 
+Log Message:
+- Enabled weather module.
+
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** kadu-modules-cvs.pw.patch	29 Aug 2004 14:35:12 -0000	1.5
+--- kadu-modules-cvs.pw.patch	29 Aug 2004 17:27:17 -0000	1.6
+***************
+*** 1,5 ****
+  diff -ruN kadu.orig/.config kadu/.config
+  --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 16:17:02.000000000 +0200
+  @@ -13,25 +13,25 @@
+   #
+--- 1,5 ----
+  diff -ruN kadu.orig/.config kadu/.config
+  --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 18:11:59.000000000 +0200
+  @@ -13,25 +13,25 @@
+   #
+***************
+*** 70,74 ****
+   
+   #
+! @@ -95,28 +95,28 @@
+   #
+   
+--- 70,74 ----
+   
+   #
+! @@ -95,31 +95,31 @@
+   #
+   
+***************
+*** 106,110 ****
+   
+   # Weather checking
+!  module_weather=n
+  @@ -136,8 +136,8 @@
+   icons_default=y
+--- 106,114 ----
+   
+   # Weather checking
+! -module_weather=n
+! +module_weather=y
+!  
+!  #
+!  # Below are some icon themes, one default and others, made by third
+  @@ -136,8 +136,8 @@
+   icons_default=y
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000115.html">[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.3,1.4 kadu-modules-cvs.pw.patch,1.4,1.5
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#116">[ date ]</a>
+              <a href="thread.html#116">[ thread ]</a>
+              <a href="subject.html#116">[ subject ]</a>
+              <a href="author.html#116">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

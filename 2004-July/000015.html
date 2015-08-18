@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/src/usr/bin pwbuilder,NONE,1.1 pwtext,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/bin%20pwbuilder%2CNONE%2C1.1%20pwtext%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6s621785%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000024.html">
+   <LINK REL="Next"  HREF="000020.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/src/usr/bin pwbuilder,NONE,1.1 pwtext,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/bin%20pwbuilder%2CNONE%2C1.1%20pwtext%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6s621785%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/src/usr/bin pwbuilder,NONE,1.1 pwtext,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 00:06:54 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000024.html">[Packware-cvs] pwbuilder/po pl.po,NONE,1.1 pwbuilder.pot,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000020.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder default.conf,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/src/usr/bin
+In directory sheep:/tmp/cvs-serv15405/src/usr/bin
+
+Added Files:
+	pwbuilder pwtext 
+Log Message:
+- Initial commit.
+
+
+--- NEW FILE: pwbuilder ---
+#!/bin/sh
+
+source /usr/lib/pwbuilder/include/version
+
+pwtext &quot;pwbuilder %s - Slackware packages building system&quot; ${pwbuilder_version}
+echo &quot;Copyright (c) 2002-2003 The Packware Project&quot;
+echo
+
+if [ ! -x /usr/lib/libfakeroot.so.0.0.1 -o ! -x /usr/bin/fakeroot -o ! -x /usr/bin/faked ]; then
+
+	pwtext &quot;fakeroot not found.&quot;
+	exit 1
+
+fi
+
+for conf in /etc/pwbuilder.conf ~/.pwbuilderrc; do
+
+	if [ -r ${conf} ]; then
+
+		source ${conf}
+
+	fi
+
+done
+
+source /usr/lib/pwbuilder/include/mainfunc
+
+while [ $# -gt 0 ]; do
+
+	case &quot;$1&quot; in
+
+		--debug|-d) debug=yes ;;
+		--no-strip|-s) nostrip=yes ;;
+		--target|-t) shift; target=&quot;$1&quot; ;;
+		--help|-h) usage ; exit 0 ;;
+		--allow-root|-r) allowroot=yes ;;
+		*) argument=&quot;$1&quot; ;;
+
+	esac
+
+	shift
+
+done
+
+source /usr/lib/pwbuilder/include/slackver
+
+source /usr/lib/pwbuilder/default.conf
+
+if [ ! &quot;${allowroot}&quot; = &quot;yes&quot; -a `id -u` = 0 ]; then
+
+	pwtext &quot;Refusing to run as root.&quot;
+	exit 1
+
+fi
+
+if [ -f &quot;${argument}&quot; ]; then
+
+	if echo &quot;${argument}&quot; | grep '[.]pwbuild$' &gt; /dev/null 2&gt;&amp;1; then
+
+		buildscript=&quot;${argument}&quot;
+
+	else
+
+		buildscript=&quot;`findscript \&quot;${argument}\&quot;`&quot;
+
+	fi
+
+else
+
+	buildscript=&quot;`findscript \&quot;${argument}\&quot;`&quot;
+
+fi
+
+if [ &quot;${buildscript}&quot; = &quot;&quot; ]; then
+
+	pwtext &quot;Nothing to build.&quot;
+	exit 1
+
+fi
+
+pwtext &quot;Executing %s...&quot; &quot;${buildscript}&quot;
+
+source /usr/lib/pwbuilder/include/createenv
+
+PATH=&quot;/usr/lib/pwbuilder/bin:${PATH}&quot; \
+sh /usr/lib/pwbuilder/include/runbuild &quot;${buildscript}&quot;
+
+if [ $? = 0 ]; then
+
+	pwtext &quot;Creating packages...&quot;
+	source /usr/lib/pwbuilder/include/createpkg
+
+fi
+
+if [ ! &quot;${pw_debug}&quot; = &quot;yes&quot; ]; then
+
+	pwtext &quot;Cleaning up...&quot;
+	rm -rf ${tmp}
+
+fi
+
+--- NEW FILE: pwtext ---
+#!/bin/sh
+
+if [ &quot;$1&quot; = &quot;-n&quot; ]; then
+	newline=no
+	shift
+fi
+
+message=&quot;$1&quot;
+shift
+
+translated=&quot;`gettext -d pwbuilder -e \&quot;${message}\&quot;`&quot;
+
+printf &quot;${translated}&quot; &quot;$@&quot;
+
+if [ ! &quot;${newline}&quot; = &quot;no&quot; ]; then
+	echo
+fi
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000024.html">[Packware-cvs] pwbuilder/po pl.po,NONE,1.1 pwbuilder.pot,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000020.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder default.conf,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

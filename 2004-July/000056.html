@@ -1,0 +1,590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwutils Makefile,NONE,1.1 VERSION,NONE,1.1 clearpath.c,NONE,1.1 desc.c,NONE,1.1 getsfmirror.c,NONE,1.1 sltd.c,NONE,1.1 sltm.c,NONE,1.1 spn.c,NONE,1.1 tod.c,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwutils%20Makefile%2CNONE%2C1.1%20VERSION%2CNONE%2C1.1%20clearpath.c%2CNONE%2C1.1%20desc.c%2CNONE%2C1.1%20getsfmirror.c%2CNONE%2C1.1%20sltd.c%2CNONE%2C1.1%20sltm.c%2CNONE%2C1.1%20spn.c%2CNONE%2C1.1%20tod.c%2CNONE%2C1.1&In-Reply-To=%3C200407311214.i6VCEg611755%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000055.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwutils Makefile,NONE,1.1 VERSION,NONE,1.1 clearpath.c,NONE,1.1 desc.c,NONE,1.1 getsfmirror.c,NONE,1.1 sltd.c,NONE,1.1 sltm.c,NONE,1.1 spn.c,NONE,1.1 tod.c,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwutils%20Makefile%2CNONE%2C1.1%20VERSION%2CNONE%2C1.1%20clearpath.c%2CNONE%2C1.1%20desc.c%2CNONE%2C1.1%20getsfmirror.c%2CNONE%2C1.1%20sltd.c%2CNONE%2C1.1%20sltm.c%2CNONE%2C1.1%20spn.c%2CNONE%2C1.1%20tod.c%2CNONE%2C1.1&In-Reply-To=%3C200407311214.i6VCEg611755%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwutils Makefile,NONE,1.1 VERSION,NONE,1.1 clearpath.c,NONE,1.1 desc.c,NONE,1.1 getsfmirror.c,NONE,1.1 sltd.c,NONE,1.1 sltm.c,NONE,1.1 spn.c,NONE,1.1 tod.c,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sat Jul 31 14:14:42 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000055.html">[Packware-cvs] pwutils - New directory
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwutils
+In directory sheep:/tmp/cvs-serv5376
+
+Added Files:
+	Makefile VERSION clearpath.c desc.c getsfmirror.c sltd.c 
+	sltm.c spn.c tod.c 
+Log Message:
+- Initial commit.
+- Version 0.7.
+
+
+--- NEW FILE: Makefile ---
+CC = gcc
+STRIP = strip
+RM = rm -f
+
+CFLAGS = -Wall -O2 -g -fomit-frame-pointer
+LDFLAGS = 
+
+TARGET = clearpath desc getsfmirror sltd sltm spn tod
+
+all: $(TARGET)
+
+$(TARGET):
+	$(CC) $(CFLAGS) $(LDFLAGS) $@.c -o $@
+
+strip: $(TARGET)
+	$(STRIP) $(TARGET)
+
+clean:
+	$(RM) $(TARGET)
+
+--- NEW FILE: VERSION ---
+0.7
+
+--- NEW FILE: clearpath.c ---
+/*
+ * clearpath - clear path from doubled slashes
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+#define CLEARPATH &quot;0.1&quot;
+
+int main(int argc, char *argv[])
+{
+	int i = 0, j = 0, c, slash = 0;
+	char *path, *temp;
+
+	if (argc != 2)
+	{
+		fprintf(stderr, &quot;clearpath %s: usage: %s path\n&quot;, CLEARPATH, argv[0]);
+		return 1;
+	}
+
+	path = (char *) malloc(strlen (argv[1]) + 1);
+	strcpy(path, argv[1]);
+	temp = (char *) malloc(strlen (path) + 1);
+	strcpy(temp, path);
+
+	while ((c = path[i++]) != '\0')
+	{
+		if (c == '/')
+		{
+			if (slash)
+				continue;
+			else
+				slash = 1;
+		}
+		else
+			slash = 0;
+		temp[j++] = c;
+	}
+	if (temp[j - 1] == '/' &amp;&amp; j - 1 &gt; 0)
+		temp[j - 1] = '\0';
+	else
+		temp[j] = '\0';
+	printf(&quot;%s\n&quot;, temp);
+	free(path);
+	free(temp);
+
+	return 0;
+
+}
+
+--- NEW FILE: desc.c ---
+/*
+ * desc - format text in style of slack-desc files
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+#define DESC &quot;0.1&quot;
+
+#define LINEL 70
+#define BUFL 80
+#define LINES 9
+
+int main(int argc, char *argv[])
+{
+	char buf[BUFL];
+	char word[LINEL];
+	int s, n, i, l, w, f, e;
+	size_t r;
+
+	if (argc &lt; 2)
+	{
+		fprintf(stderr, &quot;desc %s: usage: %s package\n&quot;, DESC, argv[0]);
+		return 1;
+	}
+
+	s = sizeof(*buf);
+	n = sizeof(buf);
+	l = w = e = 0;
+	f = 1;
+
+	while ((r = fread(buf, s, n, stdin)))
+		for (i = 0; i &lt; r; ++i)
+		{
+			if (buf[i] == '\n')
+			{
+				word[w] = '\0';
+				if (l + 1 + w &gt; LINEL)
+					printf(&quot;\n%s: %s\n&quot;, argv[1], word);
+				else
+					if (f)
+						printf(&quot;%s: &quot;, argv[1]);
+					else
+						fputc(' ', stdout);
+					printf(&quot;%s\n&quot;, word);
+				l = w = 0;
+				f = 1;
+				e += 1;
+				continue;
+			}
+			if (buf[i] == ' ')
+			{
+				word[w] = '\0';
+				if (l + 1 + w &gt; LINEL)
+				{
+					printf(&quot;\n%s: %s&quot;, argv[1], word);
+					l = w;
+					e += 1;
+				}
+				else
+				{
+					if (f)
+						printf(&quot;%s: &quot;, argv[1]);
+					else
+						fputc(' ', stdout);
+					printf (&quot;%s&quot;, word);
+					l += 1 + w;
+				}
+				w = f = 0;
+				continue;
+			}
+			word[w++] = buf[i];
+		}
+	for (i = e; i &lt; LINES; ++i)
+		printf(&quot;%s:\n&quot;, argv[1]);
+
+	return 0;
+}
+
+--- NEW FILE: getsfmirror.c ---
+/*
+ * getsfmirror 0.2 - Get best dl.sourceforge.net mirror
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;netdb.h&gt; 
+#include &lt;stdio.h&gt;
+
+#define DLSFNET		&quot;dl.sourceforge.net&quot;
+
+#define ALERON		0xe5039dcc /* 204.157.3.22	*/
+#define BELNET		0x61c6bec1 /* 193.190.198.97	*/
+#define CESNET		0x58a171c3 /* 195.113.161.88	*/
+#define EASYNEWS	0x1e66638c /* 140.99.102.30	*/
+#define FLOW		0xae5f81ca /* 202.129.95.174	*/
+#define HEANET		0x57db01c1 /* 193.1.219.87	*/
+#define KEIHANNA	0x044092d2 /* 210.146.64.4	*/
+#define OPTUSNET	0x11018ec6 /* 198.142.1.17	*/
+#define OVH		0x5b21bad5 /* 213.186.33.91	*/
+#define PUZZLE		0xdd658dc3 /* 195.141.101.221	*/
+#define TWTELECOM	0x0c04facf /* 207.250.4.12	*/
+#define UMN		0x82506580 /* 128.101.80.130	*/
+#define UNC		0x79d20298 /* 152.2.210.121	*/
+#define VOXEL		0x02a40945 /* 69.9.164.2	*/
+
+inline const char *a2s(const unsigned long int a)
+{
+	switch (a)
+	{
+		case ALERON:
+			return &quot;aleron&quot;;
+		case BELNET:
+			return &quot;belnet&quot;;
+		case CESNET:
+			return &quot;cesnet&quot;;
+		case EASYNEWS:
+			return &quot;easynews&quot;;
+		case FLOW:
+			return &quot;flow&quot;;
+		case HEANET:
+			return &quot;heanet&quot;;
+		case KEIHANNA:
+			return &quot;keihanna&quot;;
+		case OPTUSNET:
+			return &quot;optusnet&quot;;
+		case OVH:
+			return &quot;ovh&quot;;
+		case PUZZLE:
+			return &quot;puzzle&quot;;
+		case TWTELECOM:
+			return &quot;twtelecom&quot;;
+		case UMN:
+			return &quot;umn&quot;;
+		case VOXEL:
+			return &quot;voxel&quot;;
+		case UNC:
+		default:
+			return &quot;unc&quot;;
+	}
+}
+
+int main()
+{
+	extern int h_errno;
+	struct hostent *hostptr;
+	struct in_addr *ptr;
+
+	hostptr = gethostbyname(DLSFNET);
+	if (!hostptr)
+	{
+		switch (h_errno)
+		{
+			case HOST_NOT_FOUND:
+				fprintf(stderr, &quot;Host not found\n&quot;);
+				break;
+			case TRY_AGAIN:
+				fprintf(stderr, &quot;Try again\n&quot;);
+				break;
+			case NO_RECOVERY:
+				fprintf(stderr, &quot;No recovery\n&quot;);
+				break;
+			case NO_ADDRESS:
+				fprintf(stderr, &quot;No address\n&quot;);
+				break;
+			default:
+				fprintf(stderr, &quot;Unknown error %d\n&quot;, h_errno);
+				break;
+		}
+		return 1;
+	}
+
+	switch (hostptr-&gt;h_addrtype)
+	{
+		case AF_INET:
+			ptr = (struct in_addr *) *hostptr-&gt;h_addr_list;
+			printf (&quot;%s\n&quot;, a2s(ptr-&gt;s_addr));
+			break;
+		default:
+			fprintf(stderr, &quot;Unknown address type %d\n&quot;, hostptr-&gt;h_addrtype);
+			return 2;
+	}
+
+	return 0;
+}
+
+--- NEW FILE: sltd.c ---
+/*
+ * sltd - convert symbolic link to Slackware's doinst.sh script entry
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;libgen.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define SLTD &quot;0.1&quot;
+
+#define BUFL 80
+
+int main(int argc, char *argv[])
+{
+	char target[BUFL];
+	char *lname, *dprep, *bprep, *dname, *bname;
+	int len;
+
+	if (argc &lt; 2)
+	{
+		fprintf(stderr, &quot;sltd %s: usage: %s symlink\n&quot;, SLTD, argv[0]);
+		return 1;
+	}
+
+	if (strncmp(argv[1], &quot;./&quot;, 2))
+		lname = strdup(argv[1]);
+	else
+		lname = strdup(argv[1] + 2);
+	len = readlink(lname, target, BUFL);
+	if (len == -1)
+	{
+		perror(&quot;sltd&quot;);
+		return 2;
+	}
+	target[len] = '\0';
+
+	dprep = strdup(lname);
+	bprep = strdup(lname);
+	dname = dirname(dprep);
+	bname = basename(bprep);
+	printf(&quot;( cd %s ; rm -rf %s )\n&quot;, dname, bname);
+	printf(&quot;( cd %s ; ln -sf %s %s )\n&quot;, dname, target, bname);
+
+	free(dprep);
+	free(bprep);
+	free(lname);
+
+	return 0;
+}
+
+--- NEW FILE: sltm.c ---
+/*
+ * sltm - convert symbolic link to manual page reference
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;string.h&gt;
+#include &lt;libgen.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define SLTM &quot;0.1&quot;
+
+#define BUFL 80
+
+#define free_all() free(tmp1); free(tmp2); free(tmp4);
+
+int main(int argc, char *argv[])
+{
+	char target[BUFL];
+	char *tmp1, *tmp2, *tmp3, *tmp4, *tmp5, *page, *sect;
+	int len;
+
+	if (argc &lt; 2)
+	{
+		fprintf(stderr, &quot;sltm %s: usage: %s symlink\n&quot;, SLTM, argv[0]);
+		return 1;
+	}
+
+	len = readlink(argv[1], target, BUFL);
+	if (len == -1)
+	{
+		perror(&quot;sltm&quot;);
+		return 2;
+	}
+	target[len] = '\0';
+
+	tmp1 = strdup(target);
+	page = basename(tmp1);
+	tmp2 = strdup(target);
+	tmp3 = dirname(tmp2);
+	if (strcmp(tmp3, &quot;.&quot;))
+	{
+		tmp4 = strdup(tmp3);
+		sect = basename(tmp4);
+	}
+	else
+	{
+		tmp5 = strdup(argv[1]);
+		tmp3 = dirname(tmp5);
+		tmp4 = strdup(tmp3);
+		sect = basename(tmp4);
+		free(tmp5);
+	}
+
+	if (!unlink(argv[1]))
+	{
+		FILE *f;
+
+		f = fopen(argv[1], &quot;w&quot;);
+		if (!f)
+		{
+			perror(&quot;sltm&quot;);
+			free_all();
+			return 3;
+		}
+		fprintf(f, &quot;.so %s/%s\n&quot;, sect, page);
+		fclose(f);
+	}
+	else
+	{
+		perror(&quot;sltm&quot;);
+		free_all();
+		return 4;
+	}
+	free_all();
+
+	return 0;
+
+}
+
+--- NEW FILE: spn.c ---
+/*
+ * spn - Slackware package name resolver
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+#include &lt;libgen.h&gt;
+#include &lt;stdlib.h&gt;
+
+#define SPN &quot;0.1&quot;
+
+#define C_NAM 0
+#define C_VER 1
+#define C_ARC 2
+#define C_BLD 3
+
+#define spn_exit(n) { free(raw); return n; }
+
+int main(int argc, char *argv[])
+{
+	char *exec, *prog, *raw, *tab[4];
+	int compon = -1, len;
+
+	if (argc &lt; 2)
+	{
+		fprintf(stderr, &quot;spn %s: usage: %s name\n&quot;, SPN, argv[0]);
+		return 1;
+	}
+
+	exec = strdup(argv[0]);
+	prog = basename(exec);
+
+	if (!strcmp(prog, &quot;spn-name&quot; )) compon = C_NAM; else
+	if (!strcmp(prog, &quot;spn-ver&quot;  )) compon = C_VER; else
+	if (!strcmp(prog, &quot;spn-arch&quot; )) compon = C_ARC; else
+	if (!strcmp(prog, &quot;spn-build&quot;)) compon = C_BLD;
+
+	raw = strdup(argv[1]);
+	tab[C_NAM] = basename(raw);
+	len = strlen(tab[C_NAM]);
+
+	if (len &gt; 3 &amp;&amp; !strcmp(tab[C_NAM] + len - 4, &quot;.tgz&quot;))
+		(tab[C_NAM])[len -= 4] = 0;
+	if (len == 0)
+		spn_exit(2);
+
+	if ((tab[C_BLD] = strrchr(tab[C_NAM], '-'))) *(tab[C_BLD]++) = 0;
+	if ((tab[C_ARC] = strrchr(tab[C_NAM], '-'))) *(tab[C_ARC]++) = 0;
+	if ((tab[C_VER] = strrchr(tab[C_NAM], '-'))) *(tab[C_VER]++) = 0;
+
+	if (!(tab[C_VER] &amp;&amp; tab[C_ARC] &amp;&amp; tab[C_BLD]))
+	{
+		if (tab[C_VER]) *(tab[C_VER] - 1) = '-';
+		if (tab[C_ARC]) *(tab[C_ARC] - 1) = '-';
+		if (tab[C_BLD]) *(tab[C_BLD] - 1) = '-';
+
+		if (compon == -1)
+			printf(&quot;p_name=\&quot;%s\&quot;; p_ver=\&quot;\&quot;; p_arch=\&quot;\&quot;; p_build=\&quot;\&quot;;\n&quot;, tab[C_NAM]);
+		else
+			if (compon == 0)
+				printf(&quot;%s\n&quot;, tab[C_NAM]);
+		spn_exit(0);
+	}
+
+	if (compon == -1)
+		printf(&quot;p_name=\&quot;%s\&quot;; p_ver=\&quot;%s\&quot;; p_arch=\&quot;%s\&quot;; p_build=\&quot;%s\&quot;;\n&quot;, tab[C_NAM], tab[C_VER], tab[C_ARC], tab[C_BLD]);
+	else
+		printf(&quot;%s\n&quot;, tab[compon]);
+
+	spn_exit(0);
+}
+
+--- NEW FILE: tod.c ---
+/*
+ * tod - convert Unix text file do DOS format
+ * Copyright (c) 2003 Jaroslaw Swierczynski &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">swiergot at intersec.pl</A>&gt;
+ * Distributed under the terms of GNU GPL version 2 or any later version.
+ */
+
+#include &lt;stdio.h&gt;
+
+#define TOD &quot;0.2&quot;
+
+int main(int argc, char *argv[])
+{
+	FILE *f;
+	int c;
+
+	if (argc &lt; 2)
+	{
+		fprintf(stderr, &quot;tod %s: usage: %s unix-file\n&quot;, TOD, argv[0]);
+		return 1;
+	}
+
+	if ((f = fopen(argv[1], &quot;r&quot;)) == NULL)
+	{
+		fprintf(stderr, &quot;tod %s: cannot open file\n&quot;, TOD);
+		return 2;
+	}
+
+	while ((c = fgetc(f)) != EOF)
+	{
+		if (c == 10)
+			putchar(13);
+		putchar(c);
+	}
+
+	fclose(f);
+
+	return 0;
+}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000055.html">[Packware-cvs] pwutils - New directory
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#56">[ date ]</a>
+              <a href="thread.html#56">[ thread ]</a>
+              <a href="subject.html#56">[ subject ]</a>
+              <a href="author.html#56">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

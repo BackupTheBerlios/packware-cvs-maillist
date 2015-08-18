@@ -1,0 +1,3316 @@
+From nobody at sheep.berlios.de  Sun Aug  1 13:40:34 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 13:40:34 +0200
+Subject: [Packware-cvs] ./pwbuild/l/pygtk - New directory
+Message-ID: <200408011140.i71BeY624943@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/l/pygtk
+In directory sheep:/tmp/cvs-serv6136/pygtk
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/l/pygtk added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 13:40:47 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 13:40:47 +0200
+Subject: [Packware-cvs] ./pwbuild/l/pyorbit - New directory
+Message-ID: <200408011140.i71Bel624947@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/l/pyorbit
+In directory sheep:/tmp/cvs-serv7402/pyorbit
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/l/pyorbit added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 13:48:05 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 13:48:05 +0200
+Subject: [Packware-cvs] ./pwbuild/l/pygtk pygtk.pwbuild,NONE,1.1 pygtk.pwinfo,NONE,1.1
+Message-ID: <200408011148.i71Bm5625144@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/l/pygtk
+In directory sheep:/tmp/cvs-serv2353
+
+Added Files:
+	pygtk.pwbuild pygtk.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.2.0
+
+
+--- NEW FILE: pygtk.pwbuild ---
+#!/bin/sh
+
+name="pygtk"
+xversion="2.2"
+version="${xversion}.0"
+build="1"
+
+_pwbuilder 0.6.1
+
+_doc -d PKG-INFO
+
+_source -m 992122f8a61c266aeb1b7b35be9c4be1 -s 553761 ftp://ftp.gnome.org/pub/GNOME/sources/${name}/${xversion}/
+
+_c_opt --prefix=/usr
+_c_opt --enable-threads
+
+_cmi
+
+# $Log: pygtk.pwbuild,v $
+# Revision 1.1  2004/08/01 11:48:02  stoodi
+# - Initial commit.
+# - Version 2.2.0
+#
+
+--- NEW FILE: pygtk.pwinfo ---
+info="A set of bindings for the GTK widget set."
+desc="PyGTK is a set of bindings for the GTK widget set. It provides an object oriented interface that is slightly higher level than the C one. It automatically does all the type casting and reference counting that you would have to do normally with the C API."
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 13:52:39 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 13:52:39 +0200
+Subject: [Packware-cvs] ./pwbuild/l/pyorbit pyorbit.pwbuild,NONE,1.1 pyorbit.pwinfo,NONE,1.1
+Message-ID: <200408011152.i71Bqd625226@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/l/pyorbit
+In directory sheep:/tmp/cvs-serv12930
+
+Added Files:
+	pyorbit.pwbuild pyorbit.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.0
+
+
+--- NEW FILE: pyorbit.pwbuild ---
+#!/bin/sh
+
+name="pyorbit"
+xversion="2.0"
+version="${xversion}.0"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d PKG-INFO
+
+_source -m 084d4c51a6778eaceb5dc52e4c91b98a -s 246324 ftp://ftp.gnome.org/pub/GNOME/sources/${name}/${xversion}/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: pyorbit.pwbuild,v $
+# Revision 1.1  2004/08/01 11:52:36  stoodi
+# - Initial commit.
+# - Version 2.0.0
+#
+
+--- NEW FILE: pyorbit.pwinfo ---
+info="Python/ORBit (CORBA) Bindings."
+desc="PyORBit is a Python binding for the ORBit2 CORBA ORB. It was developped to suit the needs of the bonobo bindings in GNOME-Python, but is usable for other purposes as well. It aims to follow the standard Python language mapping for CORBA. It can generate stubs at runtime from typelibs, IDL files, or by introspecting remote objects using ORBit2's IModule typelib capabilities."
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 14:55:07 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 14:55:07 +0200
+Subject: [Packware-cvs] ./pwbuild/gnome - New directory
+Message-ID: <200408011255.i71Ct7626711@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/gnome
+In directory sheep:/tmp/cvs-serv26763/gnome
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/gnome added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 14:56:30 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 14:56:30 +0200
+Subject: [Packware-cvs] ./pwbuild/gnome/gnome-python - New directory
+Message-ID: <200408011256.i71CuU626738@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/gnome/gnome-python
+In directory sheep:/tmp/cvs-serv26988/gnome-python
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/gnome/gnome-python added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 14:57:24 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 1 Aug 2004 14:57:24 +0200
+Subject: [Packware-cvs] ./pwbuild/gnome/gnome-python gnome-python.pwbuild,NONE,1.1 gnome-python.pwinfo,NONE,1.1
+Message-ID: <200408011257.i71CvO626780@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/gnome/gnome-python
+In directory sheep:/tmp/cvs-serv27098
+
+Added Files:
+	gnome-python.pwbuild gnome-python.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.2
+
+
+--- NEW FILE: gnome-python.pwbuild ---
+#!/bin/sh
+
+name="gnome-python"
+xversion="2.0"
+version="${xversion}.2"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d -x NEWS -x README ChangeLog PKG-INFO
+
+_source -m 6a8108fce2e50afece82640707569dc7 -s 348277 ftp://ftp.gnome.org/pub/GNOME/sources/${name}/${xversion}/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: gnome-python.pwbuild,v $
+# Revision 1.1  2004/08/01 12:57:22  stoodi
+# - Initial commit.
+# - Version 2.0.2
+#
+
+--- NEW FILE: gnome-python.pwinfo ---
+info="Python interfaces to gnome-libs."
+desc="gnome-python is a set of interfaces to gnome-libs. It also contains a copy of PyGTK, so you don't have to worry about gnome-python getting out of sync with your copy of PyGTK. The bindings cover almost all of the APIs in gnome-libs."
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 15:51:40 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 1 Aug 2004 15:51:40 +0200
+Subject: [Packware-cvs] pwbuild/ap/clamav - New directory
+Message-ID: <200408011351.i71Dpe627831@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/clamav
+In directory sheep:/tmp/cvs-serv31009/clamav
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/ap/clamav added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  1 15:52:14 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 1 Aug 2004 15:52:14 +0200
+Subject: [Packware-cvs] pwbuild/ap/clamav clamav-config.pw.patch,NONE,1.1 clamav.cron,NONE,1.1 clamav.logrotate,NONE,1.1 clamav.pw-postinst,NONE,1.1 clamav.pwbuild,NONE,1.1 clamav.pwinfo,NONE,1.1 rc.clamd,NONE,1.1 rc.clamd-db,NONE,1.1
+Message-ID: <200408011352.i71DqE627869@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/clamav
+In directory sheep:/tmp/cvs-serv31078
+
+Added Files:
+	clamav-config.pw.patch clamav.cron clamav.logrotate 
+	clamav.pw-postinst clamav.pwbuild clamav.pwinfo rc.clamd 
+	rc.clamd-db 
+Log Message:
+- Initial commit.
+- Version 0.75.1.
+
+
+--- NEW FILE: clamav-config.pw.patch ---
+diff -ruN clamav-0.75.1.orig/etc/clamav.conf clamav-0.75.1/etc/clamav.conf
+--- clamav-0.75.1.orig/etc/clamav.conf	2004-05-13 01:59:21.000000000 +0200
++++ clamav-0.75.1/etc/clamav.conf	2004-08-01 15:47:29.000000000 +0200
+@@ -5,12 +5,12 @@
+ 
+ 
+ # Comment or remove the line below.
+-Example
++#Example
+ 
+ # Uncomment this option to enable logging.
+ # LogFile must be writable for the user running the daemon.
+ # Full path is required.
+-#LogFile /tmp/clamd.log
++LogFile /var/log/clamav
+ 
+ # By default the log file is locked for writing - the lock protects against
+ # running clamd multiple times (if want to run another clamd, please
+@@ -24,17 +24,17 @@
+ # You may use 'M' or 'm' for megabytes (1M = 1m = 1048576 bytes)
+ # and 'K' or 'k' for kilobytes (1K = 1k = 1024 bytes). To specify the size
+ # in bytes just don't use modifiers.
+-#LogFileMaxSize 2M
++LogFileMaxSize 10M
+ 
+ # Log time with an each message.
+-#LogTime
++LogTime
+ 
+ # Log also clean files. May be useful in debugging but will drastically
+ # increase the log size.
+ #LogClean
+ 
+ # Use system logger (can work together with LogFile).
+-#LogSyslog
++LogSyslog
+ 
+ # Specify the type of syslog messages - please refer to 'man syslog'
+ # for facility names. Default is LOG_LOCAL6.
+@@ -45,7 +45,7 @@
+ 
+ # This option allows you to save the process identifier of the listening
+ # daemon (main thread).
+-#PidFile /var/run/clamd.pid
++PidFile /var/run/clamd.pid
+ 
+ # Optional path to the global temporary directory.
+ # Default is system specific - usually /var/tmp or /tmp.
+@@ -54,7 +54,7 @@
+ # Path to the database directory.
+ # Default is the hardcoded directory (mostly /usr/local/share/clamav,
+ # but it depends on installation options).
+-#DatabaseDirectory /var/lib/clamav
++DatabaseDirectory /usr/share/clamav
+ 
+ # The daemon works in local or network mode. Currently the local mode is
+ # recommended for security reasons.
+@@ -65,7 +65,7 @@
+ LocalSocket /tmp/clamd
+ 
+ # Remove stale socket after unclean shutdown.
+-#FixStaleSocket
++FixStaleSocket
+ 
+ # TCP port address.
+ #TCPSocket 3310
+@@ -74,7 +74,7 @@
+ # By default we bind to INADDR_ANY, probably not wise.
+ # Enable the following to provide some degree of protection
+ # from the outside world.
+-#TCPAddr 127.0.0.1
++TCPAddr 127.0.0.1
+ 
+ # Maximum length the queue of pending connections may grow to.
+ # Default is 15.
+@@ -85,12 +85,12 @@
+ #StreamSaveToDisk
+ 
+ # Close the connection if this limit is exceeded.
+-#StreamMaxLength 10M
++StreamMaxLength 10M
+ 
+ # Maximal number of a threads running at the same time.
+ # Default is 5, and it should be sufficient for a typical workstation.
+ # You may need to increase threads number for a server machine.
+-#MaxThreads 10
++MaxThreads 20
+ 
+ # Waiting for data from a client socket will timeout after this time (seconds).
+ # Default is 120. Value of 0 disables the timeout.
+@@ -109,7 +109,7 @@
+ 
+ # Do internal checks (eg. check the integrity of the database structures)
+ # By default clamd checks itself every 3600 seconds (1 hour).
+-#SelfCheck 600
++SelfCheck 600
+ 
+ # Execute a command when a virus is found. In the command string %v will
+ # be replaced by the virus name.
+@@ -118,7 +118,7 @@
+ 
+ # Run as selected user (clamd must be started by root).
+ # By default it doesn't drop privileges.
+-#User clamav
++User clamav
+ 
+ # Initialize the supplementary group access (for all groups in /etc/group
+ # user is added in. clamd must be started by root).
+@@ -145,7 +145,7 @@
+ ##
+ 
+ # Uncomment this option if you are planning to scan mail files.
+-#ScanMail
++ScanMail
+ 
+ ##
+ ## Archive support
+diff -ruN clamav-0.75.1.orig/etc/freshclam.conf clamav-0.75.1/etc/freshclam.conf
+--- clamav-0.75.1.orig/etc/freshclam.conf	2004-05-11 01:19:48.000000000 +0200
++++ clamav-0.75.1/etc/freshclam.conf	2004-08-01 15:47:50.000000000 +0200
+@@ -6,7 +6,7 @@
+ 
+ # It should match clamav.conf's directive ! (in most cases you shouldn't
+ # change it)
+-#DatabaseDirectory /var/lib/clamav
++DatabaseDirectory /usr/share/clamav
+ 
+ # Path to the log file (make sure it has proper permissions)
+ #UpdateLogFile /var/log/freshclam.log
+@@ -44,7 +44,7 @@
+ #HTTPProxyPassword mypass
+ 
+ # Send the RELOAD command to clamd.
+-#NotifyClamd [/optional/config/file/path]
++NotifyClamd
+ 
+ # Run command after database update.
+ #OnUpdateExecute command
+
+--- NEW FILE: clamav.cron ---
+#!/bin/sh
+
+/usr/bin/freshclam --datadir /usr/share/clamav
+
+--- NEW FILE: clamav.logrotate ---
+/var/log/clamav {
+    weekly
+    missingok
+    compress
+    create 640 clamav clamav
+    postrotate
+	/etc/rc.d/rc.clamd restart
+    endscript
+}
+
+--- NEW FILE: clamav.pw-postinst ---
+grep ^clamav: etc/group > /dev/null 2>&1 || \
+    groupadd -g 200 clamav
+
+grep ^clamav: etc/passwd > /dev/null 2>&1 || \
+    useradd -u 200 -d /dev/null -s /dev/null -g clamav clamav
+
+chown clamav.clamav /var/log/clamav
+chown -R clamav.clamav /usr/share/clamav
+
+--- NEW FILE: clamav.pwbuild ---
+#!/bin/sh
+
+name="clamav"
+version="0.75.1"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -m 2c85b7957eba9fd9e9ff8c2537ae006f -s 2777319 -g -f
+
+_patch config
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+_c_opt --disable-clamav
+
+_cmi
+
+mkdir ${pkg}/etc/logrotate.d
+cp ${src}/clamav.logrotate ${pkg}/etc/logrotate.d/clamav
+
+mkdir ${pkg}/etc/rc.d
+cp ${src}/rc.clamd ${pkg}/etc/rc.d
+chmod 755 ${pkg}/etc/rc.d/rc.clamd
+cp ${src}/rc.clamd-db ${pkg}/etc/rc.d
+chmod 755 ${pkg}/etc/rc.d/rc.clamd-db
+
+mkdir ${pkg}/etc/cron.daily
+cp ${src}/clamav.cron ${pkg}/etc/cron.daily/clamav
+
+mkdir ${pkg}/var/log
+touch ${pkg}/var/log/clamav
+
+# $Log: clamav.pwbuild,v $
+# Revision 1.1  2004/08/01 13:52:11  swiergot
+# - Initial commit.
+# - Version 0.75.1.
+#
+
+--- NEW FILE: clamav.pwinfo ---
+info="An anti-virus utility for Unix."
+desc="Clam AntiVirus is an anti-virus toolkit for Unix. The main purpose of this software is the integration with mail servers (attachment scanning). The package provides a flexible and scalable multi-threaded daemon, a commandline scanner, and a tool for automatic updating via Internet. The programs are based on a shared library distributed with the Clam AntiVirus package, which you can use in your own software."
+
+--- NEW FILE: rc.clamd ---
+#!/bin/sh
+#
+# /etc/rc.d/rc.clamd
+#
+# Start/stop/restart the Clam AntiVirus' clamd daemon.
+#
+
+clamd_start() {
+  if [ -x /usr/sbin/clamd ]; then
+    echo "Starting clamd..."
+    /usr/sbin/clamd
+  fi
+}
+
+clamd_stop() {
+    echo "Stopping clamd..."
+    killall clamd
+}
+
+clamd_restart() {
+    clamd_stop
+    sleep 3
+    clamd_start
+}
+
+case "$1" in
+'start')
+  clamd_start
+  ;;
+'stop')
+  clamd_stop
+  ;;
+'restart')
+  clamd_restart
+  ;;
+*)
+  echo "Usage: $0 start|stop|restart"
+  ;;
+esac
+
+--- NEW FILE: rc.clamd-db ---
+#!/bin/sh
+#
+# /etc/rc.d/rc.clamd-db
+#
+# Start/stop/restart the Clam AntiVirus' freshclam daemon
+#
+
+clamddb_start() {
+  if [ -x /usr/bin/freshclam ]; then
+    echo "Starting freshclam..."
+    /usr/bin/freshclam -d --datadir /usr/share/clamav
+  fi
+}
+
+clamddb_stop() {
+    echo "Stopping freshclam..."
+    killall freshclam
+}
+
+clamddb_restart() {
+    clamddb_stop
+    sleep 3
+    clamddb_start
+}
+
+case "$1" in
+'start')
+  clamddb_start
+  ;;
+'stop')
+  clamddb_stop
+  ;;
+'restart')
+  clamddb_restart
+  ;;
+*)
+  echo "Usage: $0 start|stop|restart"
+  ;;
+esac
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 11:41:28 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 11:41:28 +0200
+Subject: [Packware-cvs] ./pwbuild/n/dctc - New directory
+Message-ID: <200408080941.i789fS618324@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/n/dctc
+In directory sheep:/tmp/cvs-serv30642/dctc
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/n/dctc added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 11:43:57 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 11:43:57 +0200
+Subject: [Packware-cvs] ./pwbuild/n/dctc dctc.pwbuild,NONE,1.1 dctc.pwinfo,NONE,1.1
+Message-ID: <200408080943.i789hv618360@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/n/dctc
+In directory sheep:/tmp/cvs-serv30997
+
+Added Files:
+	dctc.pwbuild dctc.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.85.9
+
+
+--- NEW FILE: dctc.pwbuild ---
+#!/bin/sh
+
+name="dctc"
+version="0.85.9"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -g -m 3e2772cbbc36fac47fd31d01a7520a2e -s 2426880 http://ac2i.homelinux.com/dctc/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: dctc.pwbuild,v $
+# Revision 1.1  2004/08/08 09:43:54  stoodi
+# - Initial commit.
+# - Version 0.85.9
+#
+
+--- NEW FILE: dctc.pwinfo ---
+info="A Direct Connect Text Client."
+desc="DCTC (Direct Connect Text Client) is a library that gives access to the direct connect world, like IRC but more file-sharing oriented. "
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 11:44:18 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 11:44:18 +0200
+Subject: [Packware-cvs] ./pwbuild/xap/dc_gui2 - New directory
+Message-ID: <200408080944.i789iI618379@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/xap/dc_gui2
+In directory sheep:/tmp/cvs-serv31296/dc_gui2
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/xap/dc_gui2 added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 11:45:55 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 11:45:55 +0200
+Subject: [Packware-cvs] ./pwbuild/xap/dc_gui2 dc_gui2.pwbuild,NONE,1.1 dc_gui2.pwinfo,NONE,1.1
+Message-ID: <200408080945.i789jt618469@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/xap/dc_gui2
+In directory sheep:/tmp/cvs-serv31470
+
+Added Files:
+	dc_gui2.pwbuild dc_gui2.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.80.
+- Warning (to build this you need a lot of memory, 512-650mb)
+
+
+--- NEW FILE: dc_gui2.pwbuild ---
+#!/bin/sh
+
+name="dc_gui2"
+version="0.80"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -g http://ac2i.homelinux.com/dctc/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: dc_gui2.pwbuild,v $
+# Revision 1.1  2004/08/08 09:45:53  stoodi
+# - Initial commit.
+# - Version 0.80.
+# - Warning (to build this you need a lot of memory, 512-650mb)
+#
+
+--- NEW FILE: dc_gui2.pwinfo ---
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 12:02:05 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 12:02:05 +0200
+Subject: [Packware-cvs] ./pwbuild/xap/afterstep - New directory
+Message-ID: <200408081002.i78A25618919@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/xap/afterstep
+In directory sheep:/tmp/cvs-serv2469/afterstep
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/xap/afterstep added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 12:02:56 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 12:02:56 +0200
+Subject: [Packware-cvs] ./pwbuild/xap/afterstep afterstep.pwbuild,NONE,1.1 afterstep.pwinfo,NONE,1.1
+Message-ID: <200408081002.i78A2u618935@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/xap/afterstep
+In directory sheep:/tmp/cvs-serv2588
+
+Added Files:
+	afterstep.pwbuild afterstep.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.00.beta4b (development version)
+
+
+--- NEW FILE: afterstep.pwbuild ---
+#!/bin/sh
+
+name="afterstep"
+version="2.00.beta4b"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -n AfterStep ftp://ftp.afterstep.org/devel/  
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: afterstep.pwbuild,v $
+# Revision 1.1  2004/08/08 10:02:54  stoodi
+# - Initial commit.
+# - Version 2.00.beta4b (development version)
+#
+
+--- NEW FILE: afterstep.pwinfo ---
+info="A Window manager for X based on the NeXT look and feel."
+desc="AfterStep is a Window Manager for X which started by emulating the NeXTSTEP look and feel, but which has been significantly altered according to the requests of various users. Many adepts will tell you that NeXTSTEP is not only the most visually pleasant interface, but also one of the most functional and intuitive out there. AfterStep aims to incorporate the advantages of the NeXTSTEP interface, and add additional useful features."
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 12:03:18 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 12:03:18 +0200
+Subject: [Packware-cvs] ./pwbuild/xap/k3b - New directory
+Message-ID: <200408081003.i78A3H618968@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/xap/k3b
+In directory sheep:/tmp/cvs-serv2797/k3b
+
+Log Message:
+Directory /cvsroot/packware/./pwbuild/xap/k3b added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug  8 12:11:15 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 8 Aug 2004 12:11:15 +0200
+Subject: [Packware-cvs] ./pwbuild/xap/k3b k3b.pwbuild,NONE,1.1 k3b.pwinfo,NONE,1.1
+Message-ID: <200408081011.i78ABF619118@bat.berlios.de>
+
+Update of /cvsroot/packware/./pwbuild/xap/k3b
+In directory sheep:/tmp/cvs-serv4982
+
+Added Files:
+	k3b.pwbuild k3b.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.11.13 with monkeyaudio plugin.
+
+
+--- NEW FILE: k3b.pwbuild ---
+#!/bin/sh
+
+name="k3b"
+version="0.11.13"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog k3b.lsm
+
+_source -m 334a0545e42b77846f1eab1b67ef6c28 -f -s 3189214
+_source -m 80d1ac1766ad8a8cdadca5f4273f2d95 -f -s 2738463 -n ${name}-i18n -v 0.11
+_source -m 6a2f9f531cd63a50bf600fc8044ef7f1 -s 439377 http://umn.dl.sourceforge.net/sourceforge/k3b/k3bmonkeyaudioplugin.tar.bz2
+ 
+_c_opt --prefix=/opt/kde
+
+_cmi
+_cmi -s 2
+_cmi -s 3
+
+# $Log: k3b.pwbuild,v $
+# Revision 1.1  2004/08/08 10:11:12  stoodi
+# - Initial commit.
+# - Version 0.11.13 with monkeyaudio plugin.
+#
+
+--- NEW FILE: k3b.pwinfo ---
+info="CD-Burning software built using KDE."
+desc="K3b is a CD-burning program designed for people who are used to using Windows to burn CDs. It has a user interface similar to Ahead's Nero. It currently allows you to create filesystem trees via drag'n'drop, and to burn audio CDs from WAV and MP3 files."
+
+
+
+From nobody at sheep.berlios.de  Sat Aug 14 17:28:11 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sat, 14 Aug 2004 17:28:11 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.1,1.2 kadu-modules-cvs.pw.patch,1.1,1.2
+Message-ID: <200408141528.i7EFSB609459@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv18673
+
+Modified Files:
+	kadu-cvs.pwbuild kadu-modules-cvs.pw.patch 
+Log Message:
+- Version 20040814.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** kadu-cvs.pwbuild	30 Jul 2004 17:28:42 -0000	1.1
+--- kadu-cvs.pwbuild	14 Aug 2004 15:28:08 -0000	1.2
+***************
+*** 2,6 ****
+  
+  name="kadu"
+! version="20040730"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="kadu"
+! version="20040814"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -m aa05d9b21e9dea76e65bf5ef96478bbf -s 953811 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+***************
+*** 34,37 ****
+--- 34,40 ----
+  
+  # $Log$
++ # Revision 1.2  2004/08/14 15:28:08  swiergot
++ # - Version 20040814.
++ #
+  # Revision 1.1  2004/07/30 17:28:42  swiergot
+  # - Initial commit.
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** kadu-modules-cvs.pw.patch	30 Jul 2004 17:28:42 -0000	1.1
+--- kadu-modules-cvs.pw.patch	14 Aug 2004 15:28:08 -0000	1.2
+***************
+*** 1,6 ****
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-07-20 23:18:35.000000000 +0200
+! +++ kadu/.config	2004-07-30 18:55:39.000000000 +0200
+! @@ -7,61 +7,61 @@
+   #
+   
+--- 1,6 ----
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-01 05:57:15.000000000 +0200
+! +++ kadu/.config	2004-08-14 17:05:37.000000000 +0200
+! @@ -7,70 +7,70 @@
+   #
+   
+***************
+*** 71,74 ****
+--- 71,86 ----
+  +module_account_management=m
+   
++  # General notification module (needed by sound, speech, hints, window_notify)
++ -module_notify=y
++ +module_notify=m
++  
++  # Notification by window module
++ -module_window_notify=y
++ +module_window_notify=m
++  
++  # Notification by hints module
++ -module_hints=y
++ +module_hints=m
++  
+   # Autoresponder module
+   module_autoresponder=m
+***************
+*** 80,84 ****
+   #
+   # Below are some external modules, made by third parties, but
+! @@ -72,22 +72,22 @@
+   #
+   
+--- 92,96 ----
+   #
+   # Below are some external modules, made by third parties, but
+! @@ -81,22 +81,22 @@
+   #
+   
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 15 15:43:52 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 15 Aug 2004 15:43:52 +0200
+Subject: [Packware-cvs] pwbuild/xap/psi psi-cvs.pwbuild,1.1,1.2
+Message-ID: <200408151343.i7FDhq606483@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/psi
+In directory sheep:/tmp/cvs-serv15206
+
+Modified Files:
+	psi-cvs.pwbuild 
+Log Message:
+- Version 20040815.
+
+
+Index: psi-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/psi/psi-cvs.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** psi-cvs.pwbuild	30 Jul 2004 20:34:54 -0000	1.1
+--- psi-cvs.pwbuild	15 Aug 2004 13:43:50 -0000	1.2
+***************
+*** 2,6 ****
+  
+  name="psi"
+! version="20040730"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="psi"
+! version="20040815"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d ChangeLog -x CVS
+  
+! _source -m f0abfdb90e302070cf861ec46848c98c -s 1816833 -t ${name}/${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch -p 0 translations
+--- 9,13 ----
+  _doc -d ChangeLog -x CVS
+  
+! _source -m d433d2334a96bf731609e2f82257eb26 -s 1828660 -t ${name}/${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch -p 0 translations
+***************
+*** 68,71 ****
+--- 68,74 ----
+  
+  # $Log$
++ # Revision 1.2  2004/08/15 13:43:50  swiergot
++ # - Version 20040815.
++ #
+  # Revision 1.1  2004/07/30 20:34:54  swiergot
+  # - Initial commit.
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 15 16:38:34 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 15 Aug 2004 16:38:34 +0200
+Subject: [Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.1,1.2
+Message-ID: <200408151438.i7FEcY607613@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/sylpheed-claws
+In directory sheep:/tmp/cvs-serv19123
+
+Modified Files:
+	sylpheed-claws-cvs.pwbuild 
+Log Message:
+- Version 20040815.
+
+
+Index: sylpheed-claws-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/sylpheed-claws/sylpheed-claws-cvs.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** sylpheed-claws-cvs.pwbuild	30 Jul 2004 19:27:51 -0000	1.1
+--- sylpheed-claws-cvs.pwbuild	15 Aug 2004 14:38:32 -0000	1.2
+***************
+*** 2,6 ****
+  
+  name="sylpheed-claws"
+! version="0.9.12-39"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="sylpheed-claws"
+! version="0.9.12-61"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m ad4f6beef232c8e2b8fbb98813328bdd -s 2290857 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+--- 9,13 ----
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m 7bbd069adf60697742def621836a89ac -s 2317218 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+***************
+*** 37,40 ****
+--- 37,43 ----
+  
+  # $Log$
++ # Revision 1.2  2004/08/15 14:38:32  swiergot
++ # - Version 20040815.
++ #
+  # Revision 1.1  2004/07/30 19:27:51  swiergot
+  # - Initial commit.
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 15 18:22:15 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 15 Aug 2004 18:22:15 +0200
+Subject: [Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs-gtk2.pwbuild,1.1,1.2 sylpheed-claws-cvs.pwbuild,1.2,1.3
+Message-ID: <200408151622.i7FGMF611639@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/sylpheed-claws
+In directory sheep:/tmp/cvs-serv29646
+
+Modified Files:
+	sylpheed-claws-cvs-gtk2.pwbuild sylpheed-claws-cvs.pwbuild 
+Log Message:
+- Version 0.9.12-60.3.
+
+
+Index: sylpheed-claws-cvs-gtk2.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/sylpheed-claws/sylpheed-claws-cvs-gtk2.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** sylpheed-claws-cvs-gtk2.pwbuild	30 Jul 2004 19:27:51 -0000	1.1
+--- sylpheed-claws-cvs-gtk2.pwbuild	15 Aug 2004 16:22:13 -0000	1.2
+***************
+*** 2,6 ****
+  
+  name="sylpheed-claws"
+! version="0.9.12-39.7-gtk2"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="sylpheed-claws"
+! version="0.9.12-60.3-gtk2"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m 2cde18a2a9f471685b4a3200a1093345 -s 2275036 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+--- 9,13 ----
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m 701e146e5e5d644d7907136ec5797895 -s 2288734 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+***************
+*** 37,40 ****
+--- 37,43 ----
+  
+  # $Log$
++ # Revision 1.2  2004/08/15 16:22:13  swiergot
++ # - Version 0.9.12-60.3.
++ #
+  # Revision 1.1  2004/07/30 19:27:51  swiergot
+  # - Initial commit.
+
+Index: sylpheed-claws-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/sylpheed-claws/sylpheed-claws-cvs.pwbuild,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** sylpheed-claws-cvs.pwbuild	15 Aug 2004 14:38:32 -0000	1.2
+--- sylpheed-claws-cvs.pwbuild	15 Aug 2004 16:22:13 -0000	1.3
+***************
+*** 37,42 ****
+  
+  # $Log$
+  # Revision 1.2  2004/08/15 14:38:32  swiergot
+! # - Version 20040815.
+  #
+  # Revision 1.1  2004/07/30 19:27:51  swiergot
+--- 37,45 ----
+  
+  # $Log$
++ # Revision 1.3  2004/08/15 16:22:13  swiergot
++ # - Version 0.9.12-60.3.
++ #
+  # Revision 1.2  2004/08/15 14:38:32  swiergot
+! # - Version 0.9.12-61.
+  #
+  # Revision 1.1  2004/07/30 19:27:51  swiergot
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 15 18:34:09 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 15 Aug 2004 18:34:09 +0200
+Subject: [Packware-cvs] tools/freshmeat - New directory
+Message-ID: <200408151634.i7FGXa612741@bat.berlios.de>
+
+Update of /cvsroot/packware/tools/freshmeat
+In directory sheep:/tmp/cvs-serv11023/freshmeat
+
+Log Message:
+Directory /cvsroot/packware/tools/freshmeat added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 15 18:35:51 2004
+From: nobody at sheep.berlios.de (stoodi)
+Date: Sun, 15 Aug 2004 18:35:51 +0200
+Subject: [Packware-cvs] tools/freshmeat freshmeat.py,NONE,1.1
+Message-ID: <200408151635.i7FGZp612950@bat.berlios.de>
+
+Update of /cvsroot/packware/tools/freshmeat
+In directory sheep:/tmp/cvs-serv17590
+
+Added Files:
+	freshmeat.py 
+Log Message:
+- Initial commit.
+- Version 0.0.1
+
+
+--- NEW FILE: freshmeat.py ---
+#!/usr/bin/env python
+"""Simple script for taking info from freshmeat.net"""
+#
+# Created by StOOdi - stoodi at gazeta.pl
+#
+# I hope this script will be usefull for people who want to
+# keep packages up to date. It is more universal version of my
+# script freshinfo.
+# 
+version = "0.0.1"
+# 
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation version 2 of the License.
+#
+#
+import re, sys, urllib2, string
+from xml.dom import minidom
+
+class FreshmeatInfo:
+    """ Class for getting info about packages from freshmeat """
+     
+    # Here initiation variables
+    
+    def __init__(self):
+        self.xmldoc = ""        # here is stored XML source 
+        
+    def openXML(self, name):
+        """opens adress and puts XML source to self.xmldoc"""
+        url = 'http://freshmeat.net/projects-xml/' + name + '/' + name + '.xml'
+        usock = urllib2.urlopen(url)
+        self.xmldoc = minidom.parse(usock)
+    
+    def getText(self, tag):
+        """gets only text from XML tag"""
+        names = self.xmldoc.getElementsByTagName(tag)
+        element = names[0].toxml()
+        start_tag = '<' + tag + '>'
+        end_tag = '</' + tag + '>'
+        result = element.replace(start_tag,"").replace(end_tag,"").replace("\n"," ")
+        return result
+       
+   
+# The main ugly script.
+
+inf = FreshmeatInfo()
+usage = """
+Project not found, or argument not given.
+
+usage: project_name tag
+
+Some usefull tags below:
+ 
+project_id, date_added, date_updated, projectname_short
+projectname_full, desc_short, desc_full, vitality_score,
+vitality_percent, vitality_rank, rating, url_project_page
+url_homepage, url_tgz, url_bz2, latest_release_version
+
+
+"""
+try:
+    inf.openXML(sys.argv[1])
+    info = inf.getText(sys.argv[2])
+    print info
+    
+except:
+    print __doc__
+    print "Version ", version
+    print usage
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:04:14 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:04:14 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer - New directory
+Message-ID: <200408161104.i7GB4E607766@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer
+In directory sheep:/tmp/cvs-serv26346/mplayer
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:05:02 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:05:02 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-all - New directory
+Message-ID: <200408161105.i7GB52607794@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-all
+In directory sheep:/tmp/cvs-serv26397/mplayer-codecs-all
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer-codecs-all added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:05:02 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:05:02 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-essential - New directory
+Message-ID: <200408161105.i7GB52607804@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-essential
+In directory sheep:/tmp/cvs-serv26397/mplayer-codecs-essential
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer-codecs-essential added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:05:03 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:05:03 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-windows-all - New directory
+Message-ID: <200408161105.i7GB53607807@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-all
+In directory sheep:/tmp/cvs-serv26397/mplayer-codecs-windows-all
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-all added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:05:03 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:05:03 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-skins - New directory
+Message-ID: <200408161105.i7GB53607820@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-skins
+In directory sheep:/tmp/cvs-serv26397/mplayer-skins
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer-skins added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:05:03 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:05:03 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-fonts - New directory
+Message-ID: <200408161105.i7GB53607816@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-fonts
+In directory sheep:/tmp/cvs-serv26397/mplayer-fonts
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer-fonts added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:05:03 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:05:03 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-windows-essential - New directory
+Message-ID: <200408161105.i7GB53607812@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-essential
+In directory sheep:/tmp/cvs-serv26397/mplayer-codecs-windows-essential
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-essential added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:06:13 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:06:13 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer mplayer.pwbuild,NONE,1.1 mplayer.pwinfo,NONE,1.1
+Message-ID: <200408161106.i7GB6D607904@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer
+In directory sheep:/tmp/cvs-serv26478
+
+Added Files:
+	mplayer.pwbuild mplayer.pwinfo 
+Log Message:
+- Initial commit.
+- Version 1.0pre5.
+
+
+--- NEW FILE: mplayer.pwbuild ---
+#!/bin/sh
+
+name="mplayer"
+version="1.0pre5"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -m fbe6919eb025526e8ed129cd61a49969 -s 5072836 -n MPlayer ftp://ftp1.mplayerhq.hu/MPlayer/releases/
+
+_c_opt --prefix=/usr
+_c_opt --confdir=/etc/mplayer
+_c_opt --enable-gui
+_c_opt --enable-largefiles
+_c_opt --enable-joystick
+_c_opt --enable-menu
+_c_opt --enable-xmms
+_c_opt --enable-runtime-cpudetection
+_c_opt --language=all
+_c_opt --enable-dynamic-plugins
+_c_opt --with-codecsdir=/usr/lib/mplayer
+
+_cmi
+
+rmdir ${pkg}/usr/share/mplayer/Skin ${pkg}/usr/share/mplayer/font
+
+# $Log: mplayer.pwbuild,v $
+# Revision 1.1  2004/08/16 11:06:10  swiergot
+# - Initial commit.
+# - Version 1.0pre5.
+#
+
+--- NEW FILE: mplayer.pwinfo ---
+info="A movie player."
+desc="MPlayer is a movie and animation player that supports a wide range of codecs and file formats, including MPEG 1/2/4, DivX 3/4/5, Windows Media 7/8/9, RealAudio/Video up to 9, Quicktime 5/6, and Vivo 1/2. It has many MMX/SSE(2)/3Dnow(Ex) optimized native audio and video codecs, but allows using XAnim's and RealPlayer's binary codec plugins, and Win32 codec DLLs. It has basic VCD/DVD playback functionality, including DVD subtitles, but supports many text-based subtitle formats too. For video output, nearly every existing interface is supported. It's also able to convert any supported files to raw/divx/mpeg4 AVI (pcm/mp3 audio), and even video grabbing from V4L devices."
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:07:27 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:07:27 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-all mplayer-codecs-all.pwbuild,NONE,1.1 mplayer-codecs-all.pwinfo,NONE,1.1
+Message-ID: <200408161107.i7GB7R607935@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-all
+In directory sheep:/tmp/cvs-serv26593
+
+Added Files:
+	mplayer-codecs-all.pwbuild mplayer-codecs-all.pwinfo 
+Log Message:
+- Initial commit.
+- Version 20040809.
+
+
+--- NEW FILE: mplayer-codecs-all.pwbuild ---
+#!/bin/sh
+
+name="mplayer-codecs-all"
+version="20040809"
+build="1"
+
+_pwbuilder 0.6.3
+
+_source -m 030bbd0e1e10a930ccc769140b79fe2b -s 11266573 -n all http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+
+mkdir ${pkg}/usr/lib/mplayer
+cp ${src1}/* ${pkg}/usr/lib/mplayer
+
+# $Log: mplayer-codecs-all.pwbuild,v $
+# Revision 1.1  2004/08/16 11:07:25  swiergot
+# - Initial commit.
+# - Version 20040809.
+#
+
+--- NEW FILE: mplayer-codecs-all.pwinfo ---
+info="A complete codecs set for MPlayer."
+desc="This package contains all codecs available for MPlayer."
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:08:13 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:08:13 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-essential mplayer-codecs-essential.pwbuild,NONE,1.1 mplayer-codecs-essential.pwinfo,NONE,1.1
+Message-ID: <200408161108.i7GB8D607987@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-essential
+In directory sheep:/tmp/cvs-serv26706
+
+Added Files:
+	mplayer-codecs-essential.pwbuild 
+	mplayer-codecs-essential.pwinfo 
+Log Message:
+- Initial commit.
+- Version 20040809.
+
+
+--- NEW FILE: mplayer-codecs-essential.pwbuild ---
+#!/bin/sh
+
+name="mplayer-codecs-essential"
+version="20040809"
+build="1"
+
+_pwbuilder 0.6.3
+
+_source -m e9ce132b3b60528a83b90fc2eee91eef -s 7906407 -n essential http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+
+mkdir ${pkg}/usr/lib/mplayer
+cp ${src1}/* ${pkg}/usr/lib/mplayer
+
+# $Log: mplayer-codecs-essential.pwbuild,v $
+# Revision 1.1  2004/08/16 11:08:11  swiergot
+# - Initial commit.
+# - Version 20040809.
+#
+
+--- NEW FILE: mplayer-codecs-essential.pwinfo ---
+info="Essential codecs for MPlayer."
+desc="This package contains essential codecs for MPlayer."
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:09:36 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:09:36 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-windows-all mplayer-codecs-windows-all.pwbuild,NONE,1.1 mplayer-codecs-windows-all.pwinfo,NONE,1.1
+Message-ID: <200408161109.i7GB9a608015@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-all
+In directory sheep:/tmp/cvs-serv26799
+
+Added Files:
+	mplayer-codecs-windows-all.pwbuild 
+	mplayer-codecs-windows-all.pwinfo 
+Log Message:
+- Initial commit.
+- Version 20040809.
+
+
+--- NEW FILE: mplayer-codecs-windows-all.pwbuild ---
+#!/bin/sh
+
+name="mplayer-codecs-windows-all"
+version="20040809"
+build="1"
+
+_pwbuilder 0.6.3
+
+_source -m af9393af607120f6df84b972b9c61159 -s 10659400 -n windows-all -Z http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+
+mkdir ${pkg}/usr/lib/mplayer
+cp ${src1}/* ${pkg}/usr/lib/mplayer
+
+# $Log: mplayer-codecs-windows-all.pwbuild,v $
+# Revision 1.1  2004/08/16 11:09:34  swiergot
+# - Initial commit.
+# - Version 20040809.
+#
+
+--- NEW FILE: mplayer-codecs-windows-all.pwinfo ---
+info="A complete Windows codecs set for MPlayer."
+desc="This package contains all Windows codecs available for MPlayer."
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:10:38 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:10:38 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-windows-essential mplayer-codecs-windows-essential.pwbuild,NONE,1.1 mplayer-codecs-windows-essential.pwinfo,NONE,1.1
+Message-ID: <200408161110.i7GBAc608040@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-essential
+In directory sheep:/tmp/cvs-serv27040
+
+Added Files:
+	mplayer-codecs-windows-essential.pwbuild 
+	mplayer-codecs-windows-essential.pwinfo 
+Log Message:
+- Initial commit.
+- Version 20040809.
+
+
+--- NEW FILE: mplayer-codecs-windows-essential.pwbuild ---
+#!/bin/sh
+
+name="mplayer-codecs-windows-essential"
+version="20040809"
+build="1"
+
+_pwbuilder 0.6.3
+
+_source -m 03a086217cb24e4041da1ed7f39a16a7 -s 84765270 -n windows-essential -Z http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+
+mkdir ${pkg}/usr/lib/mplayer
+cp ${src1}/* ${pkg}/usr/lib/mplayer
+
+# $Log: mplayer-codecs-windows-essential.pwbuild,v $
+# Revision 1.1  2004/08/16 11:10:35  swiergot
+# - Initial commit.
+# - Version 20040809.
+#
+
+--- NEW FILE: mplayer-codecs-windows-essential.pwinfo ---
+info="Essential Windows codecs for MPlayer."
+desc="This package contains essential Windows codecs for MPlayer."
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:12:13 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:12:13 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-fonts mplayer-fonts.pw-postinst,NONE,1.1 mplayer-fonts.pwbuild,NONE,1.1 mplayer-fonts.pwinfo,NONE,1.1 mplayerfontconfig,NONE,1.1
+Message-ID: <200408161112.i7GBCD608076@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-fonts
+In directory sheep:/tmp/cvs-serv27143
+
+Added Files:
+	mplayer-fonts.pw-postinst mplayer-fonts.pwbuild 
+	mplayer-fonts.pwinfo mplayerfontconfig 
+Log Message:
+- Initial commit.
+- Version 20030714.
+
+
+--- NEW FILE: mplayer-fonts.pw-postinst ---
+#!/bin/sh
+
+if [ ! -e usr/share/mplayer/font ]; then
+
+    echo
+    echo "Setting up arial-24-iso-8859-1 as your default font. Use mplayerfontconfig to"
+    echo "select another one."
+    ln -s fonts/font-arial-24-iso-8859-1 usr/share/mplayer/font
+
+fi
+
+--- NEW FILE: mplayer-fonts.pwbuild ---
+#!/bin/sh
+
+name="mplayer-fonts"
+version="20030714"
+build="1"
+
+_doc -s 1 README-*
+_doc -s 2 README-*
+_doc -s 3 README-*
+_doc -s 4 README-*
+
+_pwbuilder 0.6.3
+
+_source -m d0afd83cd04c29a714a62b427aace5c5 -s 249705 ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-cp1250.tar.bz2
+_source -m 1ecd31d17b51f16332b1fcc7da36b312 -s 234242 ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-1.tar.bz2
+_source -m 7b47904a925cf58ea546ca15f3df160c -s 222208 ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-2.tar.bz2
+_source -m 956a9d9ea51970e057f0deb7b2e25889 -s 198950 ftp://ftp2.mplayerhq.hu/MPlayer/releases/fonts/font-arial-iso-8859-7.tar.bz2
+
+mkdir ${pkg}/usr/share/mplayer/fonts ${pkg}/usr/bin
+cp ${src}/mplayerfontconfig ${pkg}/usr/bin
+chmod 755 ${pkg}/usr/bin/mplayerfontconfig
+mv ${src1}/font-* ${pkg}/usr/share/mplayer/fonts
+mv ${src2}/font-* ${pkg}/usr/share/mplayer/fonts
+mv ${src3}/font-* ${pkg}/usr/share/mplayer/fonts
+mv ${src4}/font-* ${pkg}/usr/share/mplayer/fonts
+
+# $Log: mplayer-fonts.pwbuild,v $
+# Revision 1.1  2004/08/16 11:12:10  swiergot
+# - Initial commit.
+# - Version 20030714.
+#
+
+--- NEW FILE: mplayer-fonts.pwinfo ---
+info="Fonts for MPlayer."
+desc="This package contains fonts used by MPlayer to display OSD menu and subtitles."
+
+--- NEW FILE: mplayerfontconfig ---
+#!/bin/sh
+
+# mplayerfontconfig - sets up a font for MPlayer
+# Copyright (c) 2003 Jaroslaw Swierczynski <swiergot at intersec.pl>
+# Released under the terms of the GNU General Public License 2 or later
+
+if [ ! -d /usr/share/mplayer/fonts ]; then
+  exit
+fi
+
+if [ "$USER" = "root" ]; then
+  MPLAYERDIR=/usr/share/mplayer
+else
+  MPLAYERDIR=~/.mplayer
+fi
+
+if [ ! -d $MPLAYERDIR ]; then
+  mkdir -p ~/.mplayer
+fi
+
+if [ -d $MPLAYERDIR/font ]; then
+  if [ ! -L $MPLAYERDIR/font ]; then
+    dialog --backtitle "MPlayer font setup" --title "WARNING" --msgbox "$MPLAYERDIR/font is a real directory, not
+a symlink. If you choose a new font, this directory will be removed with all its content." 7 64
+  fi
+fi
+
+FONTS="`ls -1d /usr/share/mplayer/fonts/font-* | cut -f 2 -d - | sort | uniq`"
+
+if [ "$FONTS" = "" ]; then
+  dialog --backtitle "MPlayer font setup" --title "ERROR" --msgbox "The /usr/share/mplayer/fonts directory is empty. Hit Enter to exit." 5 71
+  exit
+fi
+
+COUNT=1
+
+for i in $FONTS; do
+  FONTMENU="$FONTMENU $COUNT $i"
+  FONTLIST="$FONTLIST $i"
+  COUNT=`expr $COUNT + 1`
+done
+
+TMP="`mktemp /tmp/mplayerconfig-XXXXXX`"
+rm -rf $TMP
+touch $TMP
+
+dialog --backtitle "MPlayer font setup" --title "CHOOSE FONT FAMILY" --menu "Please select font family." `expr 6 + $COUNT` 30 `expr $COUNT - 1` $FONTMENU 2> $TMP
+
+RESULT=`cat $TMP`
+
+if [ "$RESULT" = "" ]; then
+
+    rm -f $TMP
+    clear
+    exit
+
+fi
+
+FONTFAMILY="`echo $FONTLIST | awk \"{ print \\$$RESULT }\"`"
+
+FONTS="`ls -1d /usr/share/mplayer/fonts/font-$FONTFAMILY-* | cut -f 3 -d - | sort | uniq`"
+
+COUNT=1
+FONTMENU=""
+FONTLIST=""
+
+for i in $FONTS; do
+  FONTMENU="$FONTMENU $COUNT $i"
+  FONTLIST="$FONTLIST $i"
+  COUNT=`expr $COUNT + 1`
+done
+
+dialog --backtitle "MPlayer font setup" --title "CHOOSE FONT SIZE" --menu "Please select font size." `expr 6 + $COUNT` 28 `expr $COUNT - 1` $FONTMENU 2> $TMP
+
+RESULT=`cat $TMP`
+
+if [ "$RESULT" = "" ]; then
+
+    rm -f $TMP
+    clear
+    exit
+
+fi
+
+FONTSIZE="`echo $FONTLIST | awk \"{ print \\$$RESULT }\"`"
+
+FONTS="`ls -1d /usr/share/mplayer/fonts/font-$FONTFAMILY-$FONTSIZE-* | cut -f 4- -d - | sort | uniq`"
+
+COUNT=1
+FONTMENU=""
+FONTLIST=""
+
+for i in $FONTS; do
+  FONTMENU="$FONTMENU $COUNT $i"
+  FONTLIST="$FONTLIST $i"
+  COUNT=`expr $COUNT + 1`
+done
+
+dialog --backtitle "MPlayer font setup" --title "CHOOSE FONT CHARSET" --menu "Please select font charset." `expr 6 + $COUNT` 31 `expr $COUNT - 1` $FONTMENU 2> $TMP
+
+RESULT=`cat $TMP`
+
+if [ "$RESULT" = "" ]; then
+
+    rm -f $TMP
+    clear
+    exit
+
+fi
+
+FONTCHARSET="`echo $FONTLIST | awk \"{ print \\$$RESULT }\"`"
+
+dialog --backtitle "MPlayer font setup" --title "SELECTED FONT" --yesno "You have just selected the following font:
+$FONTFAMILY-$FONTSIZE-$FONTCHARSET
+Do you want to apply this font to be used by MPlayer?" 7 57
+
+if [ "$?" = "0" ]; then
+
+    rm -rf $MPLAYERDIR/font
+    ln -s /usr/share/mplayer/fonts/font-$FONTFAMILY-$FONTSIZE-$FONTCHARSET $MPLAYERDIR/font
+
+fi
+
+rm -f $TMP
+clear
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 13:13:23 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 13:13:23 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-skins mplayer-skins.pwbuild,NONE,1.1 mplayer-skins.pwinfo,NONE,1.1
+Message-ID: <200408161113.i7GBDN608155@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-skins
+In directory sheep:/tmp/cvs-serv27432
+
+Added Files:
+	mplayer-skins.pwbuild mplayer-skins.pwinfo 
+Log Message:
+- Initial commit.
+- Version 20040702.
+
+
+--- NEW FILE: mplayer-skins.pwbuild ---
+#!/bin/sh
+
+name="mplayer-skins"
+version="20040702"
+build="1"
+
+_pwbuilder 0.6.3
+
+_source -m c21faa384816529532d5f0de2c513a77 -s 314214 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Abyss-1.1.tar.bz2
+_source -m 3fa7d3f317d148af5ce1dcc596404381 -s 131315 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/AlienMind-1.2.tar.bz2
+_source -m 8461daefbcf31ca64446c39d16b3851f -s 42446 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/avifile-1.6.tar.bz2
+_source -m 03e500e97f6d1fe4168f935775b7f7a2 -s 219144 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Blue-1.2.tar.bz2
+_source -m 234ff4c625a534425b3f10ceede40c82 -s 29461 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/bluecurve-1.0.tar.bz2
+_source -m d968298e7e596a6097f42941aecc7508 -s 281091 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/BlueHeart-1.5.tar.bz2
+_source -m 0a9f8cd49e785db6a25c9fca44924efe -s 157212 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Blue-small-1.2.tar.bz2
+_source -m 677a4988e0e0cb3df0115a2ea59125e5 -s 104055 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Canary-1.2.tar.bz2
+_source -m a8aada02a9675c865abdf545a0acdd8a -s 284485 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Corelian-1.1.tar.bz2
+_source -m 65b01bd4f297e3c3e481a041a1a516df -s 237264 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/CornerMP-1.1.tar.bz2
+_source -m 8368c4e004e5d87a6f65c621c6149583 -s 247755 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/CornerMP-aqua-1.3.tar.bz2
+_source -m 33c9f70b1a609b90b786e88ba4e71bdc -s 228490 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Cyrus-1.2.tar.bz2
+_source -m 9b2cae8ad3fa63db3cd0ee201759d708 -s 173481 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/default-1.8.tar.bz2
+_source -m 5e3a3418f59e0bf4a09b7591f667a10a -s 55653 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/disappearer-1.1.tar.bz2
+_source -m e49f88f7be11da5c78ab5531fe396608 -s 91745 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/divxplayer-1.2.tar.bz2
+_source -m 565c14ec24e2b307eabb5625d7826635 -s 520509 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Dushku-1.2.tar.bz2
+_source -m 33b8d20c9e913a7df1e1cdeb663dd205 -s 114585 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/DVDPlayer-1.1.tar.bz2
+_source -m e7dbfbb2f433e82c91f4e2245c7114c3 -s 368720 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/gnome-1.1.tar.bz2
+_source -m ba847b02925b7e38bd5259a1259ec8ab -s 815844 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/handheld-1.0.tar.bz2
+_source -m 1dcfa8830ebd967db0cc24a5cc7748a4 -s 77628 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/hayraphon-1.0.tar.bz2
+_source -m 3020159664fdfd534fbb0a41343a1134 -s 20375 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/hwswskin-1.1.tar.bz2
+_source -m c7925a255fcc6c1c8e4fed4811623f97 -s 53090 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Industrial-1.0.tar.bz2
+_source -m 3bed43d6250b6b6e7b63ba24856d78d9 -s 63510 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/iTunes-1.1.tar.bz2
+_source -m 38a7b2f13a323d919ce53a61a245d09a -s 42927 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/iTunes-mini-1.1.tar.bz2
+_source -m ecf32caf6dbc06f0116069452ea6f0e0 -s 100487 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/JiMPlayer-1.1.tar.bz2
+_source -m 12a735df6c73070d8fde1b4a37c4a99d -s 130560 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/KDE-0.3.tar.bz2
+_source -m d0b5bfa2d4fbf92b290e35976ff6500e -s 257511 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/krystal-1.1.tar.bz2
+_source -m 608ee25f7f2b3715542ceca65409fbdd -s 166617 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/mentalic-1.2.tar.bz2
+_source -m 45ef90da3cd0d11f6620e98cd5a9be9d -s 539649 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/MidnightLove-1.6.tar.bz2
+_source -m b52546be79223a1162252c4752a1904d -s 4971 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/mini-0.1.tar.bz2
+_source -m 873c3cf94873c55bbe90d08559f9ecf9 -s 28430 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/moonphase-1.0.tar.bz2
+_source -m c6122e284a094d87a061505759562951 -s 1325166 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/mplayer_red-1.0.tar.bz2
+_source -m faccbe3a5812ab4207d209e3c4101f2d -s 369313 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/neutron-1.5.tar.bz2
+_source -m 9b127ddfb9771b6a561b00b3bfe762e3 -s 118058 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/new-age-1.0.tar.bz2
+_source -m 952ae8a55d7d3ab09d6338a63c739cb4 -s 300448 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Orange-1.3.tar.bz2
+_source -m fe6245b43fa4b35381fb5c0588b759fe -s 76232 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/OSX-Brushed-2.3.tar.bz2
+_source -m 171f8b662af5f16c58a60a625cb2d433 -s 277404 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/OSX-Mod-1.1.tar.bz2
+_source -m e4d3bc7c82c822afe725b2f27a350d01 -s 386409 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/phony-1.1.tar.bz2
+_source -m 92a8c17fd85216ad382858babc9b508b -s 454151 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/plastic-1.2.tar.bz2
+_source -m ab3920e829c726a040847381396f17b8 -s 365778 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/PowerPlayer-1.1.tar.bz2
+_source -m 54bc0241be0579792e439317d6fe853e -s 322654 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/proton-1.2.tar.bz2
+_source -m f1cb227b8e74a2fb849cc91a2c1e6659 -s 213035 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/QPlayer-1.2.tar.bz2
+_source -m 0cfa8368342a3ae968221d5b5acb1248 -s 409378 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/sessene-1.0.tar.bz2
+_source -m 3f26abdd1d18d5890113209f905eccde -s 399000 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/slim-1.2.tar.bz2
+_source -m 3464b2ca0f4a08ebe933778ca09b3b55 -s 306874 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/softgrip-1.1.tar.bz2
+_source -m cc9ef8906822f0218dcaea461753f634 -s 511518 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/Terminator3-1.1.tar.bz2
+_source -m 7b1321b6f2cba850a3ed9d9a47127d9b -s 274622 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/trium-1.3.tar.bz2
+_source -m 7af90ab2966627bfbf22b677b431e900 -s 56082 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/tvisor-1.1.tar.bz2
+_source -m 5ed024697794290050de3f566c349f64 -s 174328 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/ultrafina-1.1.tar.bz2
+_source -m 17792c2feebb615d4ffd3c175d362c5a -s 39105 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/WindowsMediaPlayer6-2.0.tar.bz2
+_source -m d734bea8c2894040997420b285862885 -s 39086 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/WMP6-2.0.tar.bz2
+_source -m 7523c0bdf6f59d26316e6cb5da4d3fb2 -s 94567 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/xanim-1.6.tar.bz2
+_source -m 64f6d3ee6d0667b8d6870eb378cb30a2 -s 66199 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/XFce4-1.0.tar.bz2
+_source -m 8cd553b5650c82f99f554e1bb15df1e7 -s 172340 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/xine-lcd-1.2.tar.bz2
+_source -m 693f37780470197195533e9dc84d9419 -s 74198 ftp://ftp1.mplayerhq.hu/MPlayer/Skin/xmmplayer-1.1.tar.bz2
+
+mkdir ${pkg}/usr/share/mplayer/Skin
+
+for i in `seq 55`; do
+
+    eval skindir=\${src$i}
+    skin=`basename ${skindir}/* 2> /dev/null`
+    mv ${skindir}/* ${pkg}/usr/share/mplayer/Skin
+    [ -s ${pkg}/usr/share/mplayer/Skin/${skin}/README ] && \
+	fromdos < ${pkg}/usr/share/mplayer/Skin/${skin}/README > ${doc}/README.${skin}
+    [ -s ${pkg}/usr/share/mplayer/Skin/${skin}/VERSION ] && \
+	fromdos < ${pkg}/usr/share/mplayer/Skin/${skin}/VERSION > ${doc}/VERSION.${skin}
+    rm ${pkg}/usr/share/mplayer/Skin/${skin}/README
+    rm ${pkg}/usr/share/mplayer/Skin/${skin}/VERSION
+
+done
+
+# $Log: mplayer-skins.pwbuild,v $
+# Revision 1.1  2004/08/16 11:13:21  swiergot
+# - Initial commit.
+# - Version 20040702.
+#
+
+--- NEW FILE: mplayer-skins.pwinfo ---
+info="Skins for MPlayer."
+desc="This package contains skins used by MPlayer when running in GUI mode."
+
+
+
+From nobody at sheep.berlios.de  Mon Aug 16 17:43:05 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 16 Aug 2004 17:43:05 +0200
+Subject: [Packware-cvs] pwbuild/xap/k3b k3b.pwbuild,1.1,1.2
+Message-ID: <200408161543.i7GFh5614866@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/k3b
+In directory sheep:/tmp/cvs-serv22156
+
+Modified Files:
+	k3b.pwbuild 
+Log Message:
+- Version 0.11.4.
+
+
+Index: k3b.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/k3b/k3b.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** k3b.pwbuild	8 Aug 2004 10:11:12 -0000	1.1
+--- k3b.pwbuild	16 Aug 2004 15:43:02 -0000	1.2
+***************
+*** 2,6 ****
+  
+  name="k3b"
+! version="0.11.13"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="k3b"
+! version="0.11.14"
+  build="1"
+  
+***************
+*** 9,14 ****
+  _doc -d ChangeLog k3b.lsm
+  
+! _source -m 334a0545e42b77846f1eab1b67ef6c28 -f -s 3189214
+! _source -m 80d1ac1766ad8a8cdadca5f4273f2d95 -f -s 2738463 -n ${name}-i18n -v 0.11
+  _source -m 6a2f9f531cd63a50bf600fc8044ef7f1 -s 439377 http://umn.dl.sourceforge.net/sourceforge/k3b/k3bmonkeyaudioplugin.tar.bz2
+   
+--- 9,14 ----
+  _doc -d ChangeLog k3b.lsm
+  
+! _source -m c990df553515c8a5107df796afa4d091 -s 3189709 -f
+! _source -m 80d1ac1766ad8a8cdadca5f4273f2d95 -s 2738463 -f -n ${name}-i18n -v 0.11
+  _source -m 6a2f9f531cd63a50bf600fc8044ef7f1 -s 439377 http://umn.dl.sourceforge.net/sourceforge/k3b/k3bmonkeyaudioplugin.tar.bz2
+   
+***************
+*** 20,23 ****
+--- 20,26 ----
+  
+  # $Log$
++ # Revision 1.2  2004/08/16 15:43:02  swiergot
++ # - Version 0.11.4.
++ #
+  # Revision 1.1  2004/08/08 10:11:12  stoodi
+  # - Initial commit.
+
+
+
+From nobody at sheep.berlios.de  Tue Aug 17 22:20:09 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Tue, 17 Aug 2004 22:20:09 +0200
+Subject: [Packware-cvs] pwbuild/xap/aterm - New directory
+Message-ID: <200408172020.i7HKK8622285@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/aterm
+In directory sheep:/tmp/cvs-serv21607/aterm
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/aterm added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Tue Aug 17 22:22:00 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Tue, 17 Aug 2004 22:22:00 +0200
+Subject: [Packware-cvs] pwbuild/xap/aterm aterm.pwbuild,NONE,1.1
+Message-ID: <200408172022.i7HKM0622336@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/aterm
+In directory sheep:/tmp/cvs-serv21679
+
+Added Files:
+	aterm.pwbuild 
+Log Message:
+
+
+--- NEW FILE: aterm.pwbuild ---
+#!/bin/sh
+
+name="aterm"
+version="0.4.2"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -s 253054 -f 
+ 
+_cmi
+
+# $Log: aterm.pwbuild,v $
+# Revision 1.1  2004/08/17 20:21:58  vrok
+# *** empty log message ***
+#
+
+
+
+From nobody at sheep.berlios.de  Tue Aug 17 22:32:29 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Tue, 17 Aug 2004 22:32:29 +0200
+Subject: [Packware-cvs] pwbuild/xap/aterm aterm.pwinfo,NONE,1.1
+Message-ID: <200408172032.i7HKWT622484@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/aterm
+In directory sheep:/tmp/cvs-serv22422
+
+Added Files:
+	aterm.pwinfo 
+Log Message:
+
+
+--- NEW FILE: aterm.pwinfo ---
+info="Aterm - X11 terminal"
+desc="aterm is the X Terminal Emulator. Originated from rxvt 2.4.8 it strives to provide user with complete control over its look. Features include fast transparency with shading and tinting, NeXTish scrollbar, fading when unfocused and more."
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 12:00:41 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Wed, 18 Aug 2004 12:00:41 +0200
+Subject: [Packware-cvs] pwbuild/ap/mp3blaster - New directory
+Message-ID: <200408181000.i7IA0f607967@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/mp3blaster
+In directory sheep:/tmp/cvs-serv27549/mp3blaster
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/ap/mp3blaster added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 12:01:19 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Wed, 18 Aug 2004 12:01:19 +0200
+Subject: [Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,NONE,1.1 mp3blaster.pwinfo,NONE,1.1
+Message-ID: <200408181001.i7IA1J607987@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/mp3blaster
+In directory sheep:/tmp/cvs-serv27613
+
+Added Files:
+	mp3blaster.pwbuild mp3blaster.pwinfo 
+Log Message:
+
+
+--- NEW FILE: mp3blaster.pwbuild ---
+#!/bin/sh
+
+name="mp3blaster"
+version="3.2.0"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -m d01a36de2ebb5b4f7c407ae6cc7668b1 -s 312 http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz
+
+#_patch config
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+#_c_opt --disable-clamav
+
+_cmi
+
+# $Log: mp3blaster.pwbuild,v $
+# Revision 1.1  2004/08/18 10:01:17  vrok
+# *** empty log message ***
+#
+
+--- NEW FILE: mp3blaster.pwinfo ---
+info="a non-graphical mp3 player for UNIX"
+desc="Mp3blaster is an mp3 player for computers running a UNIX-like operating system, e.g. Linux, Free/Net/OpenBSD, etc. Its interface is entirely text based, thereby eliminating the need for a graphical environment like X-Windows. This does not limit the way you can control the player whilst playing though; just like any graphical mp3 player, there are cd-style buttons like play, stop, pause, next track, etc."
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 12:09:32 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Wed, 18 Aug 2004 12:09:32 +0200
+Subject: [Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,1.1,1.2
+Message-ID: <200408181009.i7IA9W608346@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/mp3blaster
+In directory sheep:/tmp/cvs-serv27899
+
+Modified Files:
+	mp3blaster.pwbuild 
+Log Message:
+mp3blaster.pwbuild was a bit messed up. Sorry for that.
+
+
+Index: mp3blaster.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/ap/mp3blaster/mp3blaster.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** mp3blaster.pwbuild	18 Aug 2004 10:01:17 -0000	1.1
+--- mp3blaster.pwbuild	18 Aug 2004 10:09:30 -0000	1.2
+***************
+*** 11,23 ****
+  _source -m d01a36de2ebb5b4f7c407ae6cc7668b1 -s 312 http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz
+  
+- #_patch config
+- 
+  _c_opt --prefix=/usr
+  _c_opt --sysconfdir=/etc
+- #_c_opt --disable-clamav
+  
+  _cmi
+  
+  # $Log$
+  # Revision 1.1  2004/08/18 10:01:17  vrok
+  # *** empty log message ***
+--- 11,23 ----
+  _source -m d01a36de2ebb5b4f7c407ae6cc7668b1 -s 312 http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz
+  
+  _c_opt --prefix=/usr
+  _c_opt --sysconfdir=/etc
+  
+  _cmi
+  
+  # $Log$
++ # Revision 1.2  2004/08/18 10:09:30  vrok
++ # mp3blaster.pwbuild was a bit messed up. Sorry for that.
++ #
+  # Revision 1.1  2004/08/18 10:01:17  vrok
+  # *** empty log message ***
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 14:58:09 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Wed, 18 Aug 2004 14:58:09 +0200
+Subject: [Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,1.2,1.3
+Message-ID: <200408181258.i7ICw9612314@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/mp3blaster
+In directory sheep:/tmp/cvs-serv12317
+
+Modified Files:
+	mp3blaster.pwbuild 
+Log Message:
+Fixed up file size.
+
+
+Index: mp3blaster.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/ap/mp3blaster/mp3blaster.pwbuild,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** mp3blaster.pwbuild	18 Aug 2004 10:09:30 -0000	1.2
+--- mp3blaster.pwbuild	18 Aug 2004 12:58:06 -0000	1.3
+***************
+*** 9,13 ****
+  _doc -d ChangeLog
+  
+! _source -m d01a36de2ebb5b4f7c407ae6cc7668b1 -s 312 http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz
+  
+  _c_opt --prefix=/usr
+--- 9,13 ----
+  _doc -d ChangeLog
+  
+! _source -m d01a36de2ebb5b4f7c407ae6cc7668b1 -s 312991 http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz
+  
+  _c_opt --prefix=/usr
+***************
+*** 17,20 ****
+--- 17,23 ----
+  
+  # $Log$
++ # Revision 1.3  2004/08/18 12:58:06  vrok
++ # Fixed up file size.
++ #
+  # Revision 1.2  2004/08/18 10:09:30  vrok
+  # mp3blaster.pwbuild was a bit messed up. Sorry for that.
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 15:58:10 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Wed, 18 Aug 2004 15:58:10 +0200
+Subject: [Packware-cvs] pwbuild/n/elmo - New directory
+Message-ID: <200408181358.i7IDwA613636@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/elmo
+In directory sheep:/tmp/cvs-serv14649/elmo
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/n/elmo added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 16:00:29 2004
+From: nobody at sheep.berlios.de (vrok)
+Date: Wed, 18 Aug 2004 16:00:29 +0200
+Subject: [Packware-cvs] pwbuild/n/elmo elmo.pwbuild,NONE,1.1 elmo.pwinfo,NONE,1.1
+Message-ID: <200408181400.i7IE0T613722@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/elmo
+In directory sheep:/tmp/cvs-serv14747
+
+Added Files:
+	elmo.pwbuild elmo.pwinfo 
+Log Message:
+- Initial commit.
+- Version 1.3.2.
+
+
+--- NEW FILE: elmo.pwbuild ---
+#!/bin/sh
+
+name="elmo"
+version="1.3.2"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -s 536768 -m bc3836a276b092fde8555e42532d4bc8 -f -g
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: elmo.pwbuild,v $
+# Revision 1.1  2004/08/18 14:00:26  vrok
+# - Initial commit.
+# - Version 1.3.2.
+#
+
+--- NEW FILE: elmo.pwinfo ---
+info="the ELectronic Mail Operator"
+desc="Elmo is a feature-rich, highly configurable and fast mail client for UNIX console. You could call it a Mail User Agent, but it offers much more than traditional MUA's."
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 18 23:18:31 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Wed, 18 Aug 2004 23:18:31 +0200
+Subject: [Packware-cvs] pwbuild/xap/aterm aterm.pwbuild,1.1,1.2 aterm.pwinfo,1.1,1.2
+Message-ID: <200408182118.i7ILIV625170@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/aterm
+In directory sheep:/tmp/cvs-serv13763
+
+Modified Files:
+	aterm.pwbuild aterm.pwinfo 
+Log Message:
+- Added -m to _source.
+- Corrected -s in _source.
+- Little correction in pwinfo file.
+
+
+Index: aterm.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/aterm/aterm.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** aterm.pwbuild	17 Aug 2004 20:21:58 -0000	1.1
+--- aterm.pwbuild	18 Aug 2004 21:18:29 -0000	1.2
+***************
+*** 9,18 ****
+  _doc -d
+  
+! _source -s 253054 -f 
+   
+  _cmi
+  
+  # $Log$
+  # Revision 1.1  2004/08/17 20:21:58  vrok
+! # *** empty log message ***
+  #
+--- 9,24 ----
+  _doc -d
+  
+! _source -m 5c29d0cde4225bdbd63ccb6a4dd94c56 -s 243419 -f 
+   
+  _cmi
+  
+  # $Log$
++ # Revision 1.2  2004/08/18 21:18:29  swiergot
++ # - Added -m to _source.
++ # - Corrected -s in _source.
++ # - Little correction in pwinfo file.
++ #
+  # Revision 1.1  2004/08/17 20:21:58  vrok
+! # - Initial commit.
+! # - Version 0.4.2.
+  #
+
+Index: aterm.pwinfo
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/aterm/aterm.pwinfo,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** aterm.pwinfo	17 Aug 2004 20:32:26 -0000	1.1
+--- aterm.pwinfo	18 Aug 2004 21:18:29 -0000	1.2
+***************
+*** 1,2 ****
+! info="Aterm - X11 terminal"
+  desc="aterm is the X Terminal Emulator. Originated from rxvt 2.4.8 it strives to provide user with complete control over its look. Features include fast transparency with shading and tinting, NeXTish scrollbar, fading when unfocused and more."
+--- 1,2 ----
+! info="A X11 terminal."
+  desc="aterm is the X Terminal Emulator. Originated from rxvt 2.4.8 it strives to provide user with complete control over its look. Features include fast transparency with shading and tinting, NeXTish scrollbar, fading when unfocused and more."
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 19 10:10:51 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Thu, 19 Aug 2004 10:10:51 +0200
+Subject: [Packware-cvs] pwbuild/xap/psi psi-cvs.pwbuild,1.2,1.3
+Message-ID: <200408190810.i7J8Ap608760@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/psi
+In directory sheep:/tmp/cvs-serv18796
+
+Modified Files:
+	psi-cvs.pwbuild 
+Log Message:
+- Version 20040819.
+- Disabled status-indicator patch for now.
+
+
+Index: psi-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/psi/psi-cvs.pwbuild,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** psi-cvs.pwbuild	15 Aug 2004 13:43:50 -0000	1.2
+--- psi-cvs.pwbuild	19 Aug 2004 08:10:48 -0000	1.3
+***************
+*** 2,6 ****
+  
+  name="psi"
+! version="20040815"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="psi"
+! version="20040819"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d ChangeLog -x CVS
+  
+! _source -m d433d2334a96bf731609e2f82257eb26 -s 1828660 -t ${name}/${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch -p 0 translations
+--- 9,13 ----
+  _doc -d ChangeLog -x CVS
+  
+! _source -m bb2b879b12fed18c4301543d6d58ee96 -s 1845166 -t ${name}/${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch -p 0 translations
+***************
+*** 15,19 ****
+  _patch no_default_status_text
+  _patch status_history
+! _patch status_indicator-cvs
+  
+  _have_libmng && _patch enable-mng
+--- 15,19 ----
+  _patch no_default_status_text
+  _patch status_history
+! #_patch status_indicator-cvs
+  
+  _have_libmng && _patch enable-mng
+***************
+*** 68,71 ****
+--- 68,75 ----
+  
+  # $Log$
++ # Revision 1.3  2004/08/19 08:10:48  swiergot
++ # - Version 20040819.
++ # - Disabled status-indicator patch for now.
++ #
+  # Revision 1.2  2004/08/15 13:43:50  swiergot
+  # - Version 20040815.
+
+
+
+From nobody at sheep.berlios.de  Fri Aug 20 11:00:25 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Fri, 20 Aug 2004 11:00:25 +0200
+Subject: [Packware-cvs] pwbuild/x - New directory
+Message-ID: <200408200900.i7K90P612259@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/x
+In directory sheep:/tmp/cvs-serv28947/x
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/x added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Fri Aug 20 11:01:03 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Fri, 20 Aug 2004 11:01:03 +0200
+Subject: [Packware-cvs] pwbuild/x/nvidia - New directory
+Message-ID: <200408200901.i7K913612287@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/x/nvidia
+In directory sheep:/tmp/cvs-serv28991/nvidia
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/x/nvidia added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Fri Aug 20 11:01:42 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Fri, 20 Aug 2004 11:01:42 +0200
+Subject: [Packware-cvs] pwbuild/x/nvidia ktest.c,NONE,1.1 nvidia.pwbuild,NONE,1.1 nvidia.pwinfo,NONE,1.1
+Message-ID: <200408200901.i7K91g612303@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/x/nvidia
+In directory sheep:/tmp/cvs-serv29038
+
+Added Files:
+	ktest.c nvidia.pwbuild nvidia.pwinfo 
+Log Message:
+- Initial commit.
+- Version 1.0-6111.
+
+
+--- NEW FILE: ktest.c ---
+#include "linux/version.h"
+
+int main()
+{
+	if (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,0))
+		return 0;
+	else
+		return 1;
+}
+
+--- NEW FILE: nvidia.pwbuild ---
+#!/bin/sh
+
+name="nvidia"
+version="1.0-6111"
+build="1"
+dso=`echo ${version} | tr - '.'`
+
+_pwbuilder 0.6.3
+
+_config -s
+
+_source -m 51e83be46f83c52102ccb8995b54f4e2 -s 8167999 -u http://download.nvidia.com/XFree86/Linux-x86/${version}/NVIDIA-Linux-x86-${version}-pkg1.run
+
+cd ${tmp}
+sh ${src1} -x
+cd `basename ${src1} .run`
+
+cd usr/src/nv
+gcc ${src}/ktest.c -o ktest -nostdinc -I/lib/modules/`uname -r`/build/include
+if [ ! -x ktest ]; then
+	echo "Cannot compile ktest." 1>&2
+	return 1
+fi
+if ./ktest; then
+	ln -s Makefile.kbuild Makefile
+else
+	ln -s Makefile.nvidia Makefile
+	echo "Kernel 2.4.x not supported yet." 1>&2
+	return 1
+fi
+make CC=gcc -C /lib/modules/`uname -r`/build SUBDIRS=`pwd` modules
+mkdir ${pkg}/lib/modules/`uname -r`/kernel/drivers/video
+cp nvidia.ko ${pkg}/lib/modules/`uname -r`/kernel/drivers/video
+
+cd ../../..
+mkdir ${pkg}/usr/X11R6/bin
+cp usr/bin/nvidia-* ${pkg}/usr/X11R6/bin
+cp -r usr/X11R6 ${pkg}/usr
+chmod 644 ${pkg}/usr/X11R6/lib/modules/drivers/nvidia_drv.o
+cp usr/lib/lib* ${pkg}/usr/X11R6/lib
+cp -r usr/include ${doc}
+cp usr/share/doc/* ${doc}
+ln -s libGL.so.${dso} ${pkg}/usr/X11R6/lib/libGL.so
+ln -s libGL.so.${dso} ${pkg}/usr/X11R6/lib/libGL.so.1
+ln -s libglx.so.${dso} ${pkg}/usr/X11R6/lib/modules/extensions/libglx.so
+
+# $Log: nvidia.pwbuild,v $
+# Revision 1.1  2004/08/20 09:01:39  swiergot
+# - Initial commit.
+# - Version 1.0-6111.
+#
+
+--- NEW FILE: nvidia.pwinfo ---
+info="Original drivers for NVidia graphic cards."
+desc="This package contains X11 drivers and Linux kernel module provided by NVidia for their graphic cards."
+
+
+
+From nobody at sheep.berlios.de  Wed Aug 25 09:36:10 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Wed, 25 Aug 2004 09:36:10 +0200
+Subject: [Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.3,1.4
+Message-ID: <200408250736.i7P7aA626599@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/sylpheed-claws
+In directory sheep:/tmp/cvs-serv12326
+
+Modified Files:
+	sylpheed-claws-cvs.pwbuild 
+Log Message:
+- Version 0.9.12-80.
+
+
+Index: sylpheed-claws-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/sylpheed-claws/sylpheed-claws-cvs.pwbuild,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** sylpheed-claws-cvs.pwbuild	15 Aug 2004 16:22:13 -0000	1.3
+--- sylpheed-claws-cvs.pwbuild	25 Aug 2004 07:36:07 -0000	1.4
+***************
+*** 2,6 ****
+  
+  name="sylpheed-claws"
+! version="0.9.12-61"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="sylpheed-claws"
+! version="0.9.12-80"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m 7bbd069adf60697742def621836a89ac -s 2317218 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+--- 9,13 ----
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m c44dbf60ef9531b238ab26e08add57f2 -s 2330358 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+***************
+*** 37,40 ****
+--- 37,43 ----
+  
+  # $Log$
++ # Revision 1.4  2004/08/25 07:36:07  swiergot
++ # - Version 0.9.12-80.
++ #
+  # Revision 1.3  2004/08/15 16:22:13  swiergot
+  # - Version 0.9.12-60.3.
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 26 21:36:02 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Thu, 26 Aug 2004 21:36:02 +0200
+Subject: [Packware-cvs] pwbuild/ap/lame - New directory
+Message-ID: <200408261936.i7QJa2618676@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/lame
+In directory sheep:/tmp/cvs-serv13821/lame
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/ap/lame added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 26 21:38:29 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Thu, 26 Aug 2004 21:38:29 +0200
+Subject: [Packware-cvs] pwbuild/ap/lame lame-nostatic.pw.patch,NONE,1.1 lame.pwbuild,NONE,1.1 lame.pwinfo,NONE,1.1
+Message-ID: <200408261938.i7QJcT618743@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/lame
+In directory sheep:/tmp/cvs-serv13940
+
+Added Files:
+	lame-nostatic.pw.patch lame.pwbuild lame.pwinfo 
+Log Message:
+- Initial commit.
+- Version 3.96.1.
+
+
+--- NEW FILE: lame-nostatic.pw.patch ---
+diff -ruN lame-3.96.1.orig/frontend/Makefile.in lame-3.96.1/frontend/Makefile.in
+--- lame-3.96.1.orig/frontend/Makefile.in	2004-01-21 14:50:29.000000000 +0100
++++ lame-3.96.1/frontend/Makefile.in	2004-08-26 21:28:51.000000000 +0200
+@@ -91,7 +91,7 @@
+ 	$(top_builddir)/libmp3lame/libmp3lame.la \
+ 	@FRONTEND_LDADD@
+ 
+-LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@ -static
++LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+
+--- NEW FILE: lame.pwbuild ---
+#!/bin/sh
+
+name="lame"
+version="3.96.1"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d INSTALL.configure
+
+_source -m e1206c46a5e276feca11a7149e2fc6ac -s 1255629 -f -g
+
+_patch nostatic
+
+_c_opt --prefix=/usr
+_c_opt --enable-nasm
+_c_opt --enable-mp3x
+_c_opt --enable-mp3rtp
+
+_cmi
+
+mv ${pkg}/usr/share/doc/lame/html ${doc}
+
+# $Log: lame.pwbuild,v $
+# Revision 1.1  2004/08/26 19:38:27  swiergot
+# - Initial commit.
+# - Version 3.96.1.
+#
+
+--- NEW FILE: lame.pwinfo ---
+info="An MP3 encoder and graphical frame analyzer."
+desc="LAME (LAME Ain't an MP3 Encoder) is a research project for learning about and improving MP3 encoding technoligy. LAME includes an mp3 encoding library, simple front end application, a much-improved psycho-acoustic model (GPSYCHO), and a graphical frame analyzer (MP3x). Please note that any commercial use (including distributing the LAME encoding engine in a free encoder) may require a patent license from Thomson Multimedia."
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 26 22:05:21 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Thu, 26 Aug 2004 22:05:21 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.2,1.3 kadu-modules-cvs.pw.patch,1.2,1.3
+Message-ID: <200408262005.i7QK5L619409@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv14752
+
+Modified Files:
+	kadu-cvs.pwbuild kadu-modules-cvs.pw.patch 
+Log Message:
+- Version 20040826.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** kadu-cvs.pwbuild	14 Aug 2004 15:28:08 -0000	1.2
+--- kadu-cvs.pwbuild	26 Aug 2004 20:05:19 -0000	1.3
+***************
+*** 2,6 ****
+  
+  name="kadu"
+! version="20040814"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="kadu"
+! version="20040826"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -m 8e7161bc60d7168887701c755df1ef66 -s 1028237 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+***************
+*** 34,37 ****
+--- 34,40 ----
+  
+  # $Log$
++ # Revision 1.3  2004/08/26 20:05:19  swiergot
++ # - Version 20040826.
++ #
+  # Revision 1.2  2004/08/14 15:28:08  swiergot
+  # - Version 20040814.
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** kadu-modules-cvs.pw.patch	14 Aug 2004 15:28:08 -0000	1.2
+--- kadu-modules-cvs.pw.patch	26 Aug 2004 20:05:19 -0000	1.3
+***************
+*** 1,6 ****
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-01 05:57:15.000000000 +0200
+! +++ kadu/.config	2004-08-14 17:05:37.000000000 +0200
+! @@ -7,70 +7,70 @@
+   #
+   
+--- 1,6 ----
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-22 02:40:31.000000000 +0200
+! +++ kadu/.config	2004-08-26 21:11:42.000000000 +0200
+! @@ -13,73 +13,73 @@
+   #
+   
+***************
+*** 9,17 ****
+  +module_docking=m
+   
+!  # XLib tray docking techniques module
+  -module_x11_docking=y
+  +module_x11_docking=m
+   
+!  # WindowMaker docking module
+  -module_wmaker_docking=n
+  +module_wmaker_docking=m
+--- 9,17 ----
+  +module_docking=m
+   
+!  # XLib tray docking techniques module (depends: docking)
+  -module_x11_docking=y
+  +module_x11_docking=m
+   
+!  # WindowMaker docking module (depends: docking)
+  -module_wmaker_docking=n
+  +module_wmaker_docking=m
+***************
+*** 21,52 ****
+  +module_encryption=m
+   
+!  # Speech synthesis support
+  -module_speech=n
+  +module_speech=m
+   
+!  # Voice chat support
+  -module_voice=y
+  +module_voice=m
+   
+!  # General sound support
+  -module_sound=y
+  +module_sound=m
+   
+!  # External application sound support
+  -module_ext_sound=y
+  +module_ext_sound=m
+   
+!  # Direct /dev/dsp sound support
+   module_dsp_sound=m
+   
+!  # Arts sound server support
+  -module_arts_sound=n
+  +module_arts_sound=m
+   
+!  # ESD sound server support
+  -module_esd_sound=n
+  +module_esd_sound=m
+   
+!  # Network Audio System support
+   module_nas_sound=n
+   
+--- 21,52 ----
+  +module_encryption=m
+   
+!  # Speech synthesis support (depends: notify)
+  -module_speech=n
+  +module_speech=m
+   
+!  # Voice chat support (depends: dcc)
+  -module_voice=y
+  +module_voice=m
+   
+!  # General sound support (depends: notify)
+  -module_sound=y
+  +module_sound=m
+   
+!  # External application sound support (depends: sound)
+  -module_ext_sound=y
+  +module_ext_sound=m
+   
+!  # Direct /dev/dsp sound support (depends: sound)
+   module_dsp_sound=m
+   
+!  # aRts sound server support (depends: sound)
+  -module_arts_sound=n
+  +module_arts_sound=m
+   
+!  # ESD sound server support (depends: sound)
+  -module_esd_sound=n
+  +module_esd_sound=m
+   
+!  # Network Audio System support (depends: sound)
+   module_nas_sound=n
+   
+***************
+*** 55,59 ****
+  +module_sms=m
+   
+!  # default gateways for SMS module
+  -module_default_sms=y
+  +module_default_sms=m
+--- 55,59 ----
+  +module_sms=m
+   
+!  # default gateways for SMS module (depends: sms)
+  -module_default_sms=y
+  +module_default_sms=m
+***************
+*** 71,86 ****
+  +module_account_management=m
+   
+!  # General notification module (needed by sound, speech, hints, window_notify)
+  -module_notify=y
+  +module_notify=m
+   
+!  # Notification by window module
+  -module_window_notify=y
+  +module_window_notify=m
+   
+!  # Notification by hints module
+  -module_hints=y
+  +module_hints=m
+   
+   # Autoresponder module
+   module_autoresponder=m
+--- 71,90 ----
+  +module_account_management=m
+   
+!  # General notification module
+  -module_notify=y
+  +module_notify=m
+   
+!  # Notification by window module (depends: notify)
+  -module_window_notify=y
+  +module_window_notify=m
+   
+!  # Notification by hints module (depends: notify)
+  -module_hints=y
+  +module_hints=m
+   
++  # Always on top window docking module (depends: docking)
++ -module_desktop_docking=n
++ +module_desktop_docking=m
++  
+   # Autoresponder module
+   module_autoresponder=m
+***************
+*** 90,96 ****
+  +module_echo=m
+   
+   #
+!  # Below are some external modules, made by third parties, but
+! @@ -81,22 +81,22 @@
+   #
+   
+--- 94,100 ----
+  +module_echo=m
+   
++  
+   #
+! @@ -95,28 +95,28 @@
+   #
+   
+***************
+*** 99,103 ****
+  +module_tcl_scripting=n
+   
+!  # Xmms player support
+  -module_xmms=n
+  +module_xmms=m
+--- 103,107 ----
+  +module_tcl_scripting=n
+   
+!  # XMMS player support
+  -module_xmms=n
+  +module_xmms=m
+***************
+*** 115,119 ****
+  +module_mail=m
+   
+!  # Spellchecker module (Aspell support)
+  -module_spellchecker=n
+  +module_spellchecker=m
+--- 119,123 ----
+  +module_mail=m
+   
+!  # Spellchecker module (aspell support)
+  -module_spellchecker=n
+  +module_spellchecker=m
+***************
+*** 122,123 ****
+--- 126,149 ----
+  -module_pcspeaker=n
+  +module_pcspeaker=m
++  
++  # Notification by XOSD (depends: notify)
++ -module_xosd_notify=n
++ +module_xosd_notify=n
++  
++  #
++  # Below are some icon themes, one default and others, made by third
++ @@ -130,11 +130,11 @@
++  #
++  
++  # Default icon theme shipped with sources
++ -icons_default=y
++ +icons_default=m
++  
++  # Crystal 16x16 icons made by Arcisz
++ -icons_crystal16=n
++ +icons_crystal16=m
++  
++  # Crystal 22x22 icons made by Arcisz
++ -icons_crystal22=n
++ +icons_crystal22=m
++  
+
+
+
+From nobody at sheep.berlios.de  Thu Aug 26 22:22:58 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Thu, 26 Aug 2004 22:22:58 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.3,1.4
+Message-ID: <200408262022.i7QKMw619851@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv15106
+
+Modified Files:
+	kadu-modules-cvs.pw.patch 
+Log Message:
+- Compile iconsets statically. I haven't noticed a message saying they
+  can't be compiled as modules.
+
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** kadu-modules-cvs.pw.patch	26 Aug 2004 20:05:19 -0000	1.3
+--- kadu-modules-cvs.pw.patch	26 Aug 2004 20:22:56 -0000	1.4
+***************
+*** 138,149 ****
+   # Default icon theme shipped with sources
+  -icons_default=y
+! +icons_default=m
+   
+   # Crystal 16x16 icons made by Arcisz
+  -icons_crystal16=n
+! +icons_crystal16=m
+   
+   # Crystal 22x22 icons made by Arcisz
+  -icons_crystal22=n
+! +icons_crystal22=m
+   
+--- 138,149 ----
+   # Default icon theme shipped with sources
+  -icons_default=y
+! +icons_default=y
+   
+   # Crystal 16x16 icons made by Arcisz
+  -icons_crystal16=n
+! +icons_crystal16=y
+   
+   # Crystal 22x22 icons made by Arcisz
+  -icons_crystal22=n
+! +icons_crystal22=y
+   
+
+
+
+From nobody at sheep.berlios.de  Sat Aug 28 10:24:01 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sat, 28 Aug 2004 10:24:01 +0200
+Subject: [Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.4,1.5
+Message-ID: <200408280824.i7S8O1607519@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/sylpheed-claws
+In directory sheep:/tmp/cvs-serv20984
+
+Modified Files:
+	sylpheed-claws-cvs.pwbuild 
+Log Message:
+- Version 0.9.12-83.
+
+
+Index: sylpheed-claws-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/sylpheed-claws/sylpheed-claws-cvs.pwbuild,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** sylpheed-claws-cvs.pwbuild	25 Aug 2004 07:36:07 -0000	1.4
+--- sylpheed-claws-cvs.pwbuild	28 Aug 2004 08:23:59 -0000	1.5
+***************
+*** 2,6 ****
+  
+  name="sylpheed-claws"
+! version="0.9.12-80"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="sylpheed-claws"
+! version="0.9.12-83"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m c44dbf60ef9531b238ab26e08add57f2 -s 2330358 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+--- 9,13 ----
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m 9bd0dd961a33671b4c9a400386a701e1 -s 2334594 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+***************
+*** 37,40 ****
+--- 37,43 ----
+  
+  # $Log$
++ # Revision 1.5  2004/08/28 08:23:59  swiergot
++ # - Version 0.9.12-83.
++ #
+  # Revision 1.4  2004/08/25 07:36:07  swiergot
+  # - Version 0.9.12-80.
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 29 16:35:14 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 29 Aug 2004 16:35:14 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.3,1.4 kadu-modules-cvs.pw.patch,1.4,1.5
+Message-ID: <200408291435.i7TEZE616032@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv22424
+
+Modified Files:
+	kadu-cvs.pwbuild kadu-modules-cvs.pw.patch 
+Log Message:
+- Version 20040829.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** kadu-cvs.pwbuild	26 Aug 2004 20:05:19 -0000	1.3
+--- kadu-cvs.pwbuild	29 Aug 2004 14:35:12 -0000	1.4
+***************
+*** 2,6 ****
+  
+  name="kadu"
+! version="20040826"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="kadu"
+! version="20040829"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -m 8e7161bc60d7168887701c755df1ef66 -s 1028237 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -m 17218f24adcd848220ee6428e29d4f14 -s 1030104 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+***************
+*** 34,37 ****
+--- 34,40 ----
+  
+  # $Log$
++ # Revision 1.4  2004/08/29 14:35:12  swiergot
++ # - Version 20040829.
++ #
+  # Revision 1.3  2004/08/26 20:05:19  swiergot
+  # - Version 20040826.
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** kadu-modules-cvs.pw.patch	26 Aug 2004 20:22:56 -0000	1.4
+--- kadu-modules-cvs.pw.patch	29 Aug 2004 14:35:12 -0000	1.5
+***************
+*** 1,6 ****
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-22 02:40:31.000000000 +0200
+! +++ kadu/.config	2004-08-26 21:11:42.000000000 +0200
+! @@ -13,73 +13,73 @@
+   #
+   
+--- 1,6 ----
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 16:17:02.000000000 +0200
+! @@ -13,25 +13,25 @@
+   #
+   
+***************
+*** 10,15 ****
+   
+   # XLib tray docking techniques module (depends: docking)
+! -module_x11_docking=y
+! +module_x11_docking=m
+   
+   # WindowMaker docking module (depends: docking)
+--- 10,14 ----
+   
+   # XLib tray docking techniques module (depends: docking)
+!  module_x11_docking=m
+   
+   # WindowMaker docking module (depends: docking)
+***************
+*** 18,23 ****
+   
+   # OpenSSL encrypted chat support
+! -module_encryption=y
+! +module_encryption=m
+   
+   # Speech synthesis support (depends: notify)
+--- 17,21 ----
+   
+   # OpenSSL encrypted chat support
+!  module_encryption=m
+   
+   # Speech synthesis support (depends: notify)
+***************
+*** 26,31 ****
+   
+   # Voice chat support (depends: dcc)
+! -module_voice=y
+! +module_voice=m
+   
+   # General sound support (depends: notify)
+--- 24,28 ----
+   
+   # Voice chat support (depends: dcc)
+!  module_voice=m
+   
+   # General sound support (depends: notify)
+***************
+*** 34,41 ****
+   
+   # External application sound support (depends: sound)
+! -module_ext_sound=y
+! +module_ext_sound=m
+!  
+!  # Direct /dev/dsp sound support (depends: sound)
+   module_dsp_sound=m
+   
+--- 31,36 ----
+   
+   # External application sound support (depends: sound)
+!  module_ext_sound=m
+! @@ -40,10 +40,10 @@
+   module_dsp_sound=m
+   
+***************
+*** 50,73 ****
+   # Network Audio System support (depends: sound)
+   module_nas_sound=n
+!  
+!  # SMS module
+! -module_sms=y
+! +module_sms=m
+!  
+!  # default gateways for SMS module (depends: sms)
+! -module_default_sms=y
+! +module_default_sms=m
+!  
+!  # dcc module with file transfer support
+! -module_dcc=y
+! +module_dcc=m
+!  
+!  # Auto away module
+! -module_autoaway=y
+! +module_autoaway=m
+!  
+!  # Register/unregister account, remind/change password support
+! -module_account_management=y
+! +module_account_management=m
+   
+   # General notification module
+--- 45,50 ----
+   # Network Audio System support (depends: sound)
+   module_nas_sound=n
+! @@ -64,7 +64,7 @@
+!  module_account_management=m
+   
+   # General notification module
+***************
+*** 76,85 ****
+   
+   # Notification by window module (depends: notify)
+! -module_window_notify=y
+! +module_window_notify=m
+!  
+!  # Notification by hints module (depends: notify)
+! -module_hints=y
+! +module_hints=m
+   
+   # Always on top window docking module (depends: docking)
+--- 53,59 ----
+   
+   # Notification by window module (depends: notify)
+!  module_window_notify=m
+! @@ -73,13 +73,13 @@
+!  module_hints=m
+   
+   # Always on top window docking module (depends: docking)
+***************
+*** 131,142 ****
+  +module_xosd_notify=n
+   
+!  #
+!  # Below are some icon themes, one default and others, made by third
+! @@ -130,11 +130,11 @@
+!  #
+!  
+!  # Default icon theme shipped with sources
+! -icons_default=y
+! +icons_default=y
+   
+   # Crystal 16x16 icons made by Arcisz
+--- 105,112 ----
+  +module_xosd_notify=n
+   
+!  # Weather checking
+!  module_weather=n
+! @@ -136,8 +136,8 @@
+!  icons_default=y
+   
+   # Crystal 16x16 icons made by Arcisz
+
+
+
+From nobody at sheep.berlios.de  Sun Aug 29 19:27:19 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 29 Aug 2004 19:27:19 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.5,1.6
+Message-ID: <200408291727.i7THRJ621679@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv29628
+
+Modified Files:
+	kadu-modules-cvs.pw.patch 
+Log Message:
+- Enabled weather module.
+
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** kadu-modules-cvs.pw.patch	29 Aug 2004 14:35:12 -0000	1.5
+--- kadu-modules-cvs.pw.patch	29 Aug 2004 17:27:17 -0000	1.6
+***************
+*** 1,5 ****
+  diff -ruN kadu.orig/.config kadu/.config
+  --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 16:17:02.000000000 +0200
+  @@ -13,25 +13,25 @@
+   #
+--- 1,5 ----
+  diff -ruN kadu.orig/.config kadu/.config
+  --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 18:11:59.000000000 +0200
+  @@ -13,25 +13,25 @@
+   #
+***************
+*** 70,74 ****
+   
+   #
+! @@ -95,28 +95,28 @@
+   #
+   
+--- 70,74 ----
+   
+   #
+! @@ -95,31 +95,31 @@
+   #
+   
+***************
+*** 106,110 ****
+   
+   # Weather checking
+!  module_weather=n
+  @@ -136,8 +136,8 @@
+   icons_default=y
+--- 106,114 ----
+   
+   # Weather checking
+! -module_weather=n
+! +module_weather=y
+!  
+!  #
+!  # Below are some icon themes, one default and others, made by third
+  @@ -136,8 +136,8 @@
+   icons_default=y
+
+
+

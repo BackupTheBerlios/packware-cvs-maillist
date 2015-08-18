@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] ./pwbuild/l/pyorbit pyorbit.pwbuild,NONE,1.1 pyorbit.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20./pwbuild/l/pyorbit%20pyorbit.pwbuild%2CNONE%2C1.1%20pyorbit.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408011152.i71Bqd625226%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000059.html">
+   <LINK REL="Next"  HREF="000061.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] ./pwbuild/l/pyorbit pyorbit.pwbuild,NONE,1.1 pyorbit.pwinfo,NONE,1.1</H1>
+    <B>stoodi</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20./pwbuild/l/pyorbit%20pyorbit.pwbuild%2CNONE%2C1.1%20pyorbit.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408011152.i71Bqd625226%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] ./pwbuild/l/pyorbit pyorbit.pwbuild,NONE,1.1 pyorbit.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug  1 13:52:39 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000059.html">[Packware-cvs] ./pwbuild/l/pygtk pygtk.pwbuild,NONE,1.1 pygtk.pwinfo,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000061.html">[Packware-cvs] ./pwbuild/gnome - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/./pwbuild/l/pyorbit
+In directory sheep:/tmp/cvs-serv12930
+
+Added Files:
+	pyorbit.pwbuild pyorbit.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.0
+
+
+--- NEW FILE: pyorbit.pwbuild ---
+#!/bin/sh
+
+name=&quot;pyorbit&quot;
+xversion=&quot;2.0&quot;
+version=&quot;${xversion}.0&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d PKG-INFO
+
+_source -m 084d4c51a6778eaceb5dc52e4c91b98a -s 246324 <A HREF="ftp://ftp.gnome.org/pub/GNOME/sources/${name">ftp://ftp.gnome.org/pub/GNOME/sources/${name</A>}/${xversion}/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: pyorbit.pwbuild,v $
+# Revision 1.1  2004/08/01 11:52:36  stoodi
+# - Initial commit.
+# - Version 2.0.0
+#
+
+--- NEW FILE: pyorbit.pwinfo ---
+info=&quot;Python/ORBit (CORBA) Bindings.&quot;
+desc=&quot;PyORBit is a Python binding for the ORBit2 CORBA ORB. It was developped to suit the needs of the bonobo bindings in GNOME-Python, but is usable for other purposes as well. It aims to follow the standard Python language mapping for CORBA. It can generate stubs at runtime from typelibs, IDL files, or by introspecting remote objects using ORBit2's IModule typelib capabilities.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000059.html">[Packware-cvs] ./pwbuild/l/pygtk pygtk.pwbuild,NONE,1.1 pygtk.pwinfo,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000061.html">[Packware-cvs] ./pwbuild/gnome - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

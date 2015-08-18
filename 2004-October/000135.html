@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/n/icecast icecast-conf.pw.patch,NONE,1.1 icecast.pw-postinst,NONE,1.1 icecast.pwbuild,NONE,1.1 icecast.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/n/icecast%20icecast-conf.pw.patch%2CNONE%2C1.1%20icecast.pw-postinst%2CNONE%2C1.1%20icecast.pwbuild%2CNONE%2C1.1%20icecast.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410041811.i94IBiB12313%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000134.html">
+   <LINK REL="Next"  HREF="000136.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/n/icecast icecast-conf.pw.patch,NONE,1.1 icecast.pw-postinst,NONE,1.1 icecast.pwbuild,NONE,1.1 icecast.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/n/icecast%20icecast-conf.pw.patch%2CNONE%2C1.1%20icecast.pw-postinst%2CNONE%2C1.1%20icecast.pwbuild%2CNONE%2C1.1%20icecast.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410041811.i94IBiB12313%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/n/icecast icecast-conf.pw.patch,NONE,1.1 icecast.pw-postinst,NONE,1.1 icecast.pwbuild,NONE,1.1 icecast.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Oct  4 20:11:44 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000134.html">[Packware-cvs] pwbuild/n/icecast - New directory
+</A></li>
+        <LI>Next message: <A HREF="000136.html">[Packware-cvs] pwbuild/d/wxgtk - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#135">[ date ]</a>
+              <a href="thread.html#135">[ thread ]</a>
+              <a href="subject.html#135">[ subject ]</a>
+              <a href="author.html#135">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/n/icecast
+In directory sheep:/tmp/cvs-serv25104
+
+Added Files:
+	icecast-conf.pw.patch icecast.pw-postinst icecast.pwbuild 
+	icecast.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.2.
+
+
+--- NEW FILE: icecast-conf.pw.patch ---
+diff -ruN icecast-2.0.0.orig/conf/icecast.xml.in icecast-2.0.0/conf/icecast.xml.in
+--- icecast-2.0.0.orig/conf/icecast.xml.in	2004-01-08 15:13:43.000000000 +0100
++++ icecast-2.0.0/conf/icecast.xml.in	2004-01-09 21:42:49.000000000 +0100
+@@ -108,11 +108,9 @@
+ 
+     &lt;security&gt;
+         &lt;chroot&gt;0&lt;/chroot&gt;
+-        &lt;!--
+         &lt;changeowner&gt;
+             &lt;user&gt;nobody&lt;/user&gt;
+             &lt;group&gt;nogroup&lt;/group&gt;
+         &lt;/changeowner&gt;
+-        --&gt;
+     &lt;/security&gt;
+ &lt;/icecast&gt;
+
+--- NEW FILE: icecast.pw-postinst ---
+#!/bin/sh
+
+if [ ! -f etc/icecast.xml ]; then
+    mv -f etc/icecast.xml.new etc/icecast.xml
+fi
+
+--- NEW FILE: icecast.pwbuild ---
+#!/bin/sh
+
+name=&quot;icecast&quot;
+version=&quot;2.0.2&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -m 92d7a814db7c64075c3d4c1e480fbf25 -s 750391 -g <A HREF="http://svn.xiph.org/releases/${name">http://svn.xiph.org/releases/${name</A>}/
+
+_patch conf
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+_c_opt --localstatedir=/var
+
+_cmi
+
+mkdir ${doc}/html
+cp ${pkg}/usr/share/doc/icecast/*.html ${doc}/html
+rm -r ${pkg}/usr/share/doc
+
+mv ${pkg}/etc/icecast.xml ${pkg}/etc/icecast.xml.new
+_chmod 600 /etc/icecast.xml.new
+_chown nobody.nogroup /etc/icecast.xml.new
+
+mkdir ${pkg}/var/log/icecast
+_chmod 700 /var/log/icecast
+_chown nobody.nogroup /var/log/icecast
+
+# $Log: icecast.pwbuild,v $
+# Revision 1.1  2004/10/04 18:11:42  swiergot
+# - Initial commit.
+# - Version 2.0.2.
+#
+
+--- NEW FILE: icecast.pwinfo ---
+info=&quot;A streaming media broadcasting system.&quot;
+desc=&quot;Icecast is a streaming media server which currently supports Ogg Vorbis and MP3 audio streams. It can be used to create an Internet radio station or a privately running jukebox and many things in between. It is very versatile in that new formats can be added relatively easily, and it supports open standards for communication and interaction.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000134.html">[Packware-cvs] pwbuild/n/icecast - New directory
+</A></li>
+	<LI>Next message: <A HREF="000136.html">[Packware-cvs] pwbuild/d/wxgtk - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#135">[ date ]</a>
+              <a href="thread.html#135">[ thread ]</a>
+              <a href="subject.html#135">[ subject ]</a>
+              <a href="author.html#135">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

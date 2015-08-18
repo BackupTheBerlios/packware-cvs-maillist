@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] tools/freshinfo freshinfo.py,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20tools/freshinfo%20freshinfo.py%2CNONE%2C1.1&In-Reply-To=%3C200407301845.i6UIjL620491%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000046.html">
+   <LINK REL="Next"  HREF="000048.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] tools/freshinfo freshinfo.py,NONE,1.1</H1>
+    <B>stoodi</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20tools/freshinfo%20freshinfo.py%2CNONE%2C1.1&In-Reply-To=%3C200407301845.i6UIjL620491%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] tools/freshinfo freshinfo.py,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 20:45:21 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000046.html">[Packware-cvs] tools/freshinfo - New directory
+</A></li>
+        <LI>Next message: <A HREF="000048.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-autogen.pw.patch,NONE,1.1 sylpheed-claws-cvs-gtk2.pwbuild,NONE,1.1 sylpheed-claws-cvs.pwbuild,NONE,1.1 sylpheed-claws.pwbuild,NONE,1.1 sylpheed-claws.pwinfo,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/tools/freshinfo
+In directory sheep:/tmp/cvs-serv30654
+
+Added Files:
+	freshinfo.py 
+Log Message:
+- Initial commit.
+- Version 0.0.6
+
+
+--- NEW FILE: freshinfo.py ---
+#!/usr/bin/env python
+&quot;&quot;&quot;Simple script for making .pwinfo files from freshmeat&quot;&quot;&quot;
+#
+# Created by StOOdi - <A HREF="https://lists.berlios.de/mailman/listinfo/packware-cvs">stoodi at gazeta.pl</A>
+version = &quot;0.0.6&quot;
+# 
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation version 2 of the License.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Library General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+import re, sys, urllib2, string
+from xml.dom import minidom
+
+class FreshmeatInfo:
+    &quot;&quot;&quot; Class for getting info about packages from freshmeat &quot;&quot;&quot;
+     
+    # Here initiation variables
+    
+    def __init__(self):
+        self.xmldoc = &quot;&quot;        # here is stored XML source 
+        
+    def openXML(self, name):
+        &quot;&quot;&quot;opens adress and puts XML source to self.xmldoc&quot;&quot;&quot;
+        url = '<A HREF="http://freshmeat.net/projects-xml/">http://freshmeat.net/projects-xml/</A>' + name + '/' + name + '.xml'
+        usock = urllib2.urlopen(url)
+        self.xmldoc = minidom.parse(usock)
+    
+    def getText(self, tag):
+        &quot;&quot;&quot;gets only text from XML tag&quot;&quot;&quot;
+        names = self.xmldoc.getElementsByTagName(tag)
+        element = names[0].toxml()
+        start_tag = '&lt;' + tag + '&gt;'
+        end_tag = '&lt;/' + tag + '&gt;'
+        result = element.replace(start_tag,&quot;&quot;).replace(end_tag,&quot;&quot;).replace(&quot;\n&quot;,&quot; &quot;)
+        return result
+         
+    def writePwinfo(self):
+        &quot;&quot;&quot;Writes description to name.pwinfo&quot;&quot;&quot;
+        filename = sys.argv[1] + '.pwinfo'
+        pwinfo = open(filename, 'w')
+        info = self.getText('desc_short')
+        desc = self.getText('desc_full')
+                
+        pwinfo.write(&quot;info=&quot; + '&quot;' + info + '&quot;' + &quot;\n&quot;)
+        pwinfo.write(&quot;desc=&quot; + '&quot;' + desc + '&quot;' + &quot;\n&quot;)
+
+# The main ugly script.
+
+inf = FreshmeatInfo()
+usage = &quot;&quot;&quot;
+Project not found, or argument not given.
+
+usage:
+
+freshinfo projectname
+&quot;&quot;&quot;
+try:
+    inf.openXML(sys.argv[1])
+    inf.writePwinfo()
+except:
+    print __doc__
+    print &quot;Version &quot;, version
+    print usage
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000046.html">[Packware-cvs] tools/freshinfo - New directory
+</A></li>
+	<LI>Next message: <A HREF="000048.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-autogen.pw.patch,NONE,1.1 sylpheed-claws-cvs-gtk2.pwbuild,NONE,1.1 sylpheed-claws-cvs.pwbuild,NONE,1.1 sylpheed-claws.pwbuild,NONE,1.1 sylpheed-claws.pwinfo,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#47">[ date ]</a>
+              <a href="thread.html#47">[ thread ]</a>
+              <a href="subject.html#47">[ subject ]</a>
+              <a href="author.html#47">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

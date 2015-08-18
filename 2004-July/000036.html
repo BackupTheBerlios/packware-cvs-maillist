@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/n/ekg ekg-cvs.pwbuild,NONE,1.1 ekg-varstxt.pw.patch,NONE,1.1 ekg.pwbuild,NONE,1.1 ekg.pwinfo,NONE,1.1 libgadu.pwinfo,NONE,1.1 libgadu.pwsub,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/n/ekg%20ekg-cvs.pwbuild%2CNONE%2C1.1%20ekg-varstxt.pw.patch%2CNONE%2C1.1%20ekg.pwbuild%2CNONE%2C1.1%20ekg.pwinfo%2CNONE%2C1.1%20libgadu.pwinfo%2CNONE%2C1.1%20libgadu.pwsub%2CNONE%2C1.1&In-Reply-To=%3C200407301646.i6UGkC618038%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000035.html">
+   <LINK REL="Next"  HREF="000037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/n/ekg ekg-cvs.pwbuild,NONE,1.1 ekg-varstxt.pw.patch,NONE,1.1 ekg.pwbuild,NONE,1.1 ekg.pwinfo,NONE,1.1 libgadu.pwinfo,NONE,1.1 libgadu.pwsub,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/n/ekg%20ekg-cvs.pwbuild%2CNONE%2C1.1%20ekg-varstxt.pw.patch%2CNONE%2C1.1%20ekg.pwbuild%2CNONE%2C1.1%20ekg.pwinfo%2CNONE%2C1.1%20libgadu.pwinfo%2CNONE%2C1.1%20libgadu.pwsub%2CNONE%2C1.1&In-Reply-To=%3C200407301646.i6UGkC618038%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/n/ekg ekg-cvs.pwbuild,NONE,1.1 ekg-varstxt.pw.patch,NONE,1.1 ekg.pwbuild,NONE,1.1 ekg.pwinfo,NONE,1.1 libgadu.pwinfo,NONE,1.1 libgadu.pwsub,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 18:46:12 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000035.html">[Packware-cvs] pwbuild/n/ekg - New directory
+</A></li>
+        <LI>Next message: <A HREF="000037.html">[Packware-cvs] pwbuild/n/ekg ekg.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/n/ekg
+In directory sheep:/tmp/cvs-serv23891
+
+Added Files:
+	ekg-cvs.pwbuild ekg-varstxt.pw.patch ekg.pwbuild ekg.pwinfo 
+	libgadu.pwinfo libgadu.pwsub 
+Log Message:
+- Initial commit.
+- Version 20040729.
+
+
+--- NEW FILE: ekg-cvs.pwbuild ---
+#!/bin/sh
+
+name=&quot;ekg&quot;
+version=&quot;20040729&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d -b docs ../ChangeLog IDEAS-2.0 *.txt protocol.html emoticons.* api/functions.txt -x CVS
+
+_source -m bfe59b48b11880f26df245cf442740d1 -s 483721 -g <A HREF="http://dev.null.pl/${name">http://dev.null.pl/${name</A>}/
+
+_patch varstxt
+
+_c_opt --prefix=/usr
+_c_opt --mandir=/usr/man
+_c_opt --enable-shared
+_c_opt --enable-dynamic
+_c_opt --with-pthread
+_have_python &amp;&amp; _c_opt --with-python
+
+_cmi
+
+rm ${pkg}/usr/share/ekg/vars.txt
+
+cp ${src1}/contrib/ekl2.sh ${pkg}/usr/bin/ekl2
+cp ${src1}/docs/ekl2.man.en ${pkg}/usr/man/man1/ekl2.1
+cp ${src1}/docs/ekl2.man.pl ${pkg}/usr/man/pl/man1/ekl2.1
+
+_sub libgadu
+
+# $Log: ekg-cvs.pwbuild,v $
+# Revision 1.1  2004/07/30 16:46:09  swiergot
+# - Initial commit.
+# - Version 20040729.
+#
+
+--- NEW FILE: ekg-varstxt.pw.patch ---
+diff -ruN ekg-20030709.orig/src/vars.c ekg-20030709/src/vars.c
+--- ekg-20030709.orig/src/vars.c	2003-05-30 17:44:05.000000000 +0200
++++ ekg-20030709/src/vars.c	2003-07-10 13:43:14.000000000 +0200
+@@ -38,6 +38,7 @@
+ #include &quot;stuff.h&quot;
+ #include &quot;themes.h&quot;
+ #include &quot;ui.h&quot;
++#include &quot;version.h&quot;
+ #include &quot;vars.h&quot;
+ #include &quot;xmalloc.h&quot;
+ 
+@@ -716,7 +717,7 @@
+  */
+ void variable_help(const char *name)
+ {
+-	FILE *f = fopen(DATADIR &quot;/vars.txt&quot;, &quot;r&quot;);
++	FILE *f = fopen(&quot;/usr/doc/ekg-&quot; VERSION &quot;/vars.txt&quot;, &quot;r&quot;);
+ 	char *line, *type = NULL, *def = NULL, *tmp;
+ 	string_t s = string_init(NULL);
+ 	int found = 0;
+
+--- NEW FILE: ekg.pwbuild ---
+#!/bin/sh
+
+name=&quot;ekg&quot;
+version=&quot;1.4&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d -b docs ../ChangeLog IDEAS-2.0 *.txt protocol.html emoticons.* api/functions.txt -x CVS
+
+_source -m 8f35030c05e62c30ce9068e26bd365a2 -s 465347 -g <A HREF="http://dev.null.pl/${name">http://dev.null.pl/${name</A>}/
+
+_patch varstxt
+
+_c_opt --prefix=/usr
+_c_opt --mandir=/usr/man
+_c_opt --enable-shared
+_c_opt --enable-dynamic
+_c_opt --with-pthread
+_have_python &amp;&amp; _c_opt --with-python
+
+_cmi
+
+rm ${pkg}/usr/share/ekg/vars.txt
+
+cp ${src1}/contrib/ekl2.sh ${pkg}/usr/bin/ekl2
+cp ${src1}/docs/ekl2.man.en ${pkg}/usr/man/man1/ekl2.1
+cp ${src1}/docs/ekl2.man.pl ${pkg}/usr/man/pl/man1/ekl2.1
+
+_sub libgadu
+
+# $Log: ekg.pwbuild,v $
+# Revision 1.1  2004/07/30 16:46:09  swiergot
+# - Initial commit.
+# - Version 20040729.
+#
+# Revision 1.22  2004/05/12 16:22:43  swiergot
+# - Fixed md5 and size (?!).
+#
+# Revision 1.21  2004/01/13 15:18:11  swiergot
+# - Version 20040112.
+#
+# Revision 1.20  2003/11/18 16:19:11  swiergot
+# - Version 1.4.
+#
+# Revision 1.19  2003/10/10 19:48:37  swiergot
+# - Adapted to pwbuilder 0.6.2.
+#
+# Revision 1.18  2003/09/24 20:33:29  swiergot
+# - Switched to the stable branch.
+# - Version 1.3.
+#
+# Revision 1.17  2003/09/23 07:50:01  swiergot
+# - Version 20030922.
+#
+# Revision 1.16  2003/09/16 13:02:58  swiergot
+# - Version 20030915.
+#
+# Revision 1.15  2003/09/13 07:08:30  swiergot
+# - Version 20030912.
+#
+# Revision 1.14  2003/09/10 21:01:45  swiergot
+# - Version 20030910.
+#
+# Revision 1.13  2003/09/09 20:42:15  swiergot
+# - Merged the two _doc commands to only one.
+#
+# Revision 1.12  2003/09/09 20:38:07  swiergot
+# - Version 20030909.
+# - Rewritten _doc.
+#
+
+--- NEW FILE: ekg.pwinfo ---
+info=&quot;A console Gadu-Gadu client.&quot;
+desc=&quot;ekg stands for 'Eksperymentalny Klient Gadu-Gadu', that means 'Experimental Gadu-Gadu Client'.
+
+Gadu-Gadu is an IM (Instant Messaging) system developed in Poland. It is commonly used by Polish Internet users.&quot;
+
+--- NEW FILE: libgadu.pwinfo ---
+info=&quot;A client-side library for Gadu-Gadu.&quot;
+desc=&quot;libgadu library is responsible for Gadu-Gadu protocol implementation in open source Gadu-Gadu clients, like ekg or Kadu, or even in a Jabber transport to Gadu-Gadu network, named jggtrans.
+
+libgadu has been developed by Wojtek Kaniewski, along with ekg - a console Gadu-Gadu client.&quot;
+
+--- NEW FILE: libgadu.pwsub ---
+/usr/include
+/usr/lib
+/usr/doc/ekg-${version}/api.txt
+/usr/doc/ekg-${version}/protocol.html
+/usr/doc/ekg-${version}/functions.txt
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000035.html">[Packware-cvs] pwbuild/n/ekg - New directory
+</A></li>
+	<LI>Next message: <A HREF="000037.html">[Packware-cvs] pwbuild/n/ekg ekg.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#36">[ date ]</a>
+              <a href="thread.html#36">[ thread ]</a>
+              <a href="subject.html#36">[ subject ]</a>
+              <a href="author.html#36">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

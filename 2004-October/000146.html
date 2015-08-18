@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs cmi,1.1,1.2 configure,1.1,1.2 execindir,1.1,1.2 install,1.1,1.2 make,1.1,1.2 py_build,1.1,1.2 py_install,1.1,1.2
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/funcs%20cmi%2C1.1%2C1.2%20configure%2C1.1%2C1.2%20execindir%2C1.1%2C1.2%20install%2C1.1%2C1.2%20make%2C1.1%2C1.2%20py_build%2C1.1%2C1.2%20py_install%2C1.1%2C1.2&In-Reply-To=%3C200410181137.i9IBbeB15390%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000148.html">
+   <LINK REL="Next"  HREF="000149.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs cmi,1.1,1.2 configure,1.1,1.2 execindir,1.1,1.2 install,1.1,1.2 make,1.1,1.2 py_build,1.1,1.2 py_install,1.1,1.2</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/funcs%20cmi%2C1.1%2C1.2%20configure%2C1.1%2C1.2%20execindir%2C1.1%2C1.2%20install%2C1.1%2C1.2%20make%2C1.1%2C1.2%20py_build%2C1.1%2C1.2%20py_install%2C1.1%2C1.2&In-Reply-To=%3C200410181137.i9IBbeB15390%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs cmi,1.1,1.2 configure,1.1,1.2 execindir,1.1,1.2 install,1.1,1.2 make,1.1,1.2 py_build,1.1,1.2 py_install,1.1,1.2">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Oct 18 13:37:40 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000148.html">[Packware-cvs] pwbuilder/doc/guide PWBUILD,1.1,1.2 SUBPACKAGES,1.1,1.2 VARIABLES,1.1,1.2
+</A></li>
+        <LI>Next message: <A HREF="000149.html">[Packware-cvs] pwbuilder/doc/guide-pl - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs
+In directory sheep:/tmp/cvs-serv23088/src/usr/lib/pwbuilder/include/funcs
+
+Modified Files:
+	cmi configure execindir install make py_build py_install 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: cmi
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/cmi,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** cmi	29 Jul 2004 22:06:53 -0000	1.1
+--- cmi	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	undefine=&quot;&quot;
+  	subdir=&quot;&quot;
++ 	otherdir=&quot;&quot;
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 14,17 ****
+--- 15,19 ----
+  			-u) undefine=&quot;-u&quot; ;;
+  			-b) shift ; subdir=&quot;-b $1&quot; ;;
++ 			-d) shift ; otherdir=&quot;-d $1&quot; ;;
+  
+  		esac
+***************
+*** 21,27 ****
+  	done
+  
+! 	_configure -s ${srcnum} ${subdir}
+! 	_make -s ${srcnum} ${subdir}
+! 	_install -s ${srcnum} ${subdir} ${undefine}
+  
+  }
+--- 23,29 ----
+  	done
+  
+! 	_configure -s ${srcnum} ${otherdir} ${subdir}
+! 	_make -s ${srcnum} ${otherdir} ${subdir}
+! 	_install -s ${srcnum} ${otherdir} ${subdir} ${undefine}
+  
+  }
+
+Index: configure
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/configure,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** configure	29 Jul 2004 22:06:53 -0000	1.1
+--- configure	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	subdir=&quot;&quot;
+  	opts=&quot;&quot;
++ 	otherdir=&quot;&quot;
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 13,16 ****
+--- 14,18 ----
+  			-s) shift ; srcnum=&quot;$1&quot; ;;
+  			-b) shift ; subdir=&quot;$1&quot; ;;
++ 			-d) shift ; otherdir=&quot;$1&quot; ;;
+  			*) opts=&quot;${opts} $1&quot; ;;
+  
+***************
+*** 21,24 ****
+--- 23,33 ----
+  	done
+  
++ 	if [ &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
++ 
++ 		pwtext &quot;_configure: must not be invoked with _execindir; use -d instead&quot;
++ 		exit 2
++ 
++ 	fi
++ 
+  	if [ ! -f ${tmp}/altconfigure_${srcnum} ]; then
+  
+***************
+*** 31,38 ****
+  	(
+  
+! 		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 40,51 ----
+  	(
+  
+! 		if [ &quot;${otherdir}&quot; = &quot;&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd &quot;${otherdir}&quot;
++ 
+  		fi
+  
+***************
+*** 52,56 ****
+  
+  			echo &quot;+ Configure #${srcnum} (&quot;`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/confres
+  
+--- 65,69 ----
+  
+  			echo &quot;+ Configure #${srcnum} (&quot;`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			_exec `cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/confres
+  
+***************
+*** 58,62 ****
+  
+  			echo &quot;+ Configure #${srcnum}&quot;
+! 			`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/confres
+  
+--- 71,75 ----
+  
+  			echo &quot;+ Configure #${srcnum}&quot;
+! 			_exec `cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/confres
+  
+
+Index: execindir
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/execindir,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** execindir	29 Jul 2004 22:06:53 -0000	1.1
+--- execindir	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 16,20 ****
+      fi
+  
+!     inotherdir=yes &quot;$@&quot;
+      cd &quot;${prevdir}&quot;
+  
+--- 16,20 ----
+      fi
+  
+!     env -i USER=$USER HOME=$HOME inotherdir=yes sh -l /usr/lib/pwbuilder/bin/xexec &quot;$@&quot;
+      cd &quot;${prevdir}&quot;
+  
+
+Index: install
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/install,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** install	29 Jul 2004 22:06:53 -0000	1.1
+--- install	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 7,10 ****
+--- 7,11 ----
+  	undefine=&quot;&quot;
+  	opts=&quot;&quot;
++ 	otherdir=&quot;&quot;
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 14,17 ****
+--- 15,19 ----
+  			-s) shift ; srcnum=&quot;$1&quot; ;;
+  			-b) shift ; subdir=&quot;$1&quot; ;;
++ 			-d) shift ; otherdir=&quot;$1&quot; ;;
+  			-u) undefine=&quot;yes&quot; ;;
+  			*) opts=&quot;${opts} $1&quot; ;;
+***************
+*** 23,26 ****
+--- 25,35 ----
+  	done
+  
++ 	if [ &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
++ 
++ 		pwtext &quot;_install: must not be invoked with _execindir; use -d instead&quot;
++ 		exit 2
++ 
++ 	fi
++ 
+  	if [ ! -f ${tmp}/altinstall_${srcnum} ]; then
+  
+***************
+*** 33,40 ****
+  	(
+  
+! 		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 42,53 ----
+  	(
+  
+! 		if [ &quot;${otherdir}&quot; = &quot;&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd &quot;${otherdir}&quot;
++ 
+  		fi
+  
+***************
+*** 60,64 ****
+  
+  			echo &quot;+ Install #${srcnum} (&quot;`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/instres
+  
+--- 73,77 ----
+  
+  			echo &quot;+ Install #${srcnum} (&quot;`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			_exec `cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/instres
+  
+***************
+*** 66,70 ****
+  
+  			echo &quot;+ Install #${srcnum}&quot;
+! 			`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/instres
+  
+--- 79,83 ----
+  
+  			echo &quot;+ Install #${srcnum}&quot;
+! 			_exec `cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/instres
+  
+
+Index: make
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/make,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** make	29 Jul 2004 22:06:53 -0000	1.1
+--- make	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	subdir=&quot;&quot;
+  	opts=&quot;&quot;
++ 	otherdir=&quot;&quot;
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 13,16 ****
+--- 14,18 ----
+  			-s) shift ; srcnum=&quot;$1&quot; ;;
+  			-b) shift ; subdir=&quot;$1&quot; ;;
++ 			-d) shift ; otherdir=&quot;$1&quot; ;;
+  			*) opts=&quot;${opts} $1&quot; ;;
+  
+***************
+*** 21,24 ****
+--- 23,33 ----
+  	done
+  
++ 	if [ &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
++ 
++ 		pwtext &quot;_make: must not be invoked with _execindir; use -d instead&quot;
++ 		exit 2
++ 
++ 	fi
++ 
+  	if [ ! -f ${tmp}/altmake_${srcnum} ]; then
+  
+***************
+*** 31,38 ****
+  	(
+  
+! 		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 40,51 ----
+  	(
+  
+! 		if [ &quot;${otherdir}&quot; = &quot;&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd &quot;${otherdir}&quot;
++ 
+  		fi
+  
+***************
+*** 52,56 ****
+  
+  			echo &quot;+ Make #${srcnum} (&quot;`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/makeres
+  
+--- 65,69 ----
+  
+  			echo &quot;+ Make #${srcnum} (&quot;`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			_exec `cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/makeres
+  
+***************
+*** 58,62 ****
+  
+  			echo &quot;+ Make #${srcnum}&quot;
+! 			`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/makeres
+  
+--- 71,75 ----
+  
+  			echo &quot;+ Make #${srcnum}&quot;
+! 			_exec `cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/makeres
+  
+
+Index: py_build
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/py_build,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** py_build	29 Jul 2004 22:06:53 -0000	1.1
+--- py_build	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	subdir=&quot;&quot;
+  	opts=&quot;&quot;
++ 	otherdir=&quot;&quot;
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 13,16 ****
+--- 14,18 ----
+  			-s) shift ; srcnum=&quot;$1&quot; ;;
+  			-b) shift ; subdir=&quot;$1&quot; ;;
++ 			-d) shift ; otherdir=&quot;$1&quot; ;;
+  			*) opts=&quot;${opts} $1&quot; ;;
+  
+***************
+*** 21,32 ****
+  	done
+  
+  	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+  
+  	(
+  
+! 		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 23,45 ----
+  	done
+  
++ 	if [ &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
++ 
++ 		pwtext &quot;_py_build: must not be invoked with _execindir; use -d instead&quot;
++ 		exit 2
++ 
++ 	fi
++ 
+  	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+  
+  	(
+  
+! 		if [ &quot;${otherdir}&quot; = &quot;&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd &quot;${otherdir}&quot;
++ 
+  		fi
+  
+***************
+*** 36,40 ****
+  
+  			echo &quot;+ Python build #${srcnum} (python setup.py build &quot;`cat ${tmp}/py_b_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/pybures
+  
+--- 49,53 ----
+  
+  			echo &quot;+ Python build #${srcnum} (python setup.py build &quot;`cat ${tmp}/py_b_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			_exec python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/pybures
+  
+***************
+*** 42,46 ****
+  
+  			echo &quot;+ Python build #${srcnum}&quot;
+! 			python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/pybures
+  
+--- 55,59 ----
+  
+  			echo &quot;+ Python build #${srcnum}&quot;
+! 			_exec python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/pybures
+  
+
+Index: py_install
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/py_install,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** py_install	29 Jul 2004 22:06:53 -0000	1.1
+--- py_install	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 7,10 ****
+--- 7,11 ----
+  	undefine=&quot;&quot;
+  	opts=&quot;&quot;
++ 	otherdir=&quot;&quot;
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 15,18 ****
+--- 16,20 ----
+  			-b) shift ; subdir=&quot;$1&quot; ;;
+  			-u) undefine=&quot;yes&quot; ;;
++ 			-d) shift ; otherdir=&quot;$1&quot; ;;
+  			*) opts=&quot;${opts} $1&quot; ;;
+  
+***************
+*** 23,34 ****
+  	done
+  
+  	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+  
+  	(
+  
+! 		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 25,47 ----
+  	done
+  
++ 	if [ &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
++ 
++ 		pwtext &quot;_py_install: must not be invoked with _execindir; use -d instead&quot;
++ 		exit 2
++ 
++ 	fi
++ 
+  	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+  
+  	(
+  
+! 		if [ &quot;${otherdir}&quot; = &quot;&quot; ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd &quot;${otherdir}&quot;
++ 
+  		fi
+  
+***************
+*** 44,48 ****
+  
+  			echo &quot;+ Python install #${srcnum} (python setup.py install &quot;${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/pyinres
+  
+--- 57,61 ----
+  
+  			echo &quot;+ Python install #${srcnum} (python setup.py install &quot;${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}&quot;)&quot;
+! 			_exec python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}
+  			echo $? &gt; ${tmp}/pyinres
+  
+***************
+*** 50,54 ****
+  
+  			echo &quot;+ Python install #${srcnum}&quot;
+! 			python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/pyinres
+  
+--- 63,67 ----
+  
+  			echo &quot;+ Python install #${srcnum}&quot;
+! 			_exec python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts} &gt; /dev/null
+  			echo $? &gt; ${tmp}/pyinres
+  
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000148.html">[Packware-cvs] pwbuilder/doc/guide PWBUILD,1.1,1.2 SUBPACKAGES,1.1,1.2 VARIABLES,1.1,1.2
+</A></li>
+	<LI>Next message: <A HREF="000149.html">[Packware-cvs] pwbuilder/doc/guide-pl - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

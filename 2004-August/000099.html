@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,NONE,1.1 mp3blaster.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/mp3blaster%20mp3blaster.pwbuild%2CNONE%2C1.1%20mp3blaster.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408181001.i7IA1J607987%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000098.html">
+   <LINK REL="Next"  HREF="000100.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,NONE,1.1 mp3blaster.pwinfo,NONE,1.1</H1>
+    <B>vrok</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/mp3blaster%20mp3blaster.pwbuild%2CNONE%2C1.1%20mp3blaster.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408181001.i7IA1J607987%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,NONE,1.1 mp3blaster.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Wed Aug 18 12:01:19 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000098.html">[Packware-cvs] pwbuild/ap/mp3blaster - New directory
+</A></li>
+        <LI>Next message: <A HREF="000100.html">[Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/ap/mp3blaster
+In directory sheep:/tmp/cvs-serv27613
+
+Added Files:
+	mp3blaster.pwbuild mp3blaster.pwinfo 
+Log Message:
+
+
+--- NEW FILE: mp3blaster.pwbuild ---
+#!/bin/sh
+
+name=&quot;mp3blaster&quot;
+version=&quot;3.2.0&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -m d01a36de2ebb5b4f7c407ae6cc7668b1 -s 312 <A HREF="http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz">http://www.stack.nl/~brama/mp3blaster/src/mp3blaster-3.2.0.tar.gz</A>
+
+#_patch config
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+#_c_opt --disable-clamav
+
+_cmi
+
+# $Log: mp3blaster.pwbuild,v $
+# Revision 1.1  2004/08/18 10:01:17  vrok
+# *** empty log message ***
+#
+
+--- NEW FILE: mp3blaster.pwinfo ---
+info=&quot;a non-graphical mp3 player for UNIX&quot;
+desc=&quot;Mp3blaster is an mp3 player for computers running a UNIX-like operating system, e.g. Linux, Free/Net/OpenBSD, etc. Its interface is entirely text based, thereby eliminating the need for a graphical environment like X-Windows. This does not limit the way you can control the player whilst playing though; just like any graphical mp3 player, there are cd-style buttons like play, stop, pause, next track, etc.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000098.html">[Packware-cvs] pwbuild/ap/mp3blaster - New directory
+</A></li>
+	<LI>Next message: <A HREF="000100.html">[Packware-cvs] pwbuild/ap/mp3blaster mp3blaster.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

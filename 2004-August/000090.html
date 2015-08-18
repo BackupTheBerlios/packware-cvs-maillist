@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/mplayer-codecs-windows-all mplayer-codecs-windows-all.pwbuild,NONE,1.1 mplayer-codecs-windows-all.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/mplayer-codecs-windows-all%20mplayer-codecs-windows-all.pwbuild%2CNONE%2C1.1%20mplayer-codecs-windows-all.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408161109.i7GB9a608015%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000089.html">
+   <LINK REL="Next"  HREF="000091.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/mplayer-codecs-windows-all mplayer-codecs-windows-all.pwbuild,NONE,1.1 mplayer-codecs-windows-all.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/mplayer-codecs-windows-all%20mplayer-codecs-windows-all.pwbuild%2CNONE%2C1.1%20mplayer-codecs-windows-all.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408161109.i7GB9a608015%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/mplayer-codecs-windows-all mplayer-codecs-windows-all.pwbuild,NONE,1.1 mplayer-codecs-windows-all.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Mon Aug 16 13:09:36 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000089.html">[Packware-cvs] pwbuild/xap/mplayer-codecs-essential mplayer-codecs-essential.pwbuild,NONE,1.1 mplayer-codecs-essential.pwinfo,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000091.html">[Packware-cvs] pwbuild/xap/mplayer-codecs-windows-essential mplayer-codecs-windows-essential.pwbuild,NONE,1.1 mplayer-codecs-windows-essential.pwinfo,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#90">[ date ]</a>
+              <a href="thread.html#90">[ thread ]</a>
+              <a href="subject.html#90">[ subject ]</a>
+              <a href="author.html#90">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-windows-all
+In directory sheep:/tmp/cvs-serv26799
+
+Added Files:
+	mplayer-codecs-windows-all.pwbuild 
+	mplayer-codecs-windows-all.pwinfo 
+Log Message:
+- Initial commit.
+- Version 20040809.
+
+
+--- NEW FILE: mplayer-codecs-windows-all.pwbuild ---
+#!/bin/sh
+
+name=&quot;mplayer-codecs-windows-all&quot;
+version=&quot;20040809&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_source -m af9393af607120f6df84b972b9c61159 -s 10659400 -n windows-all -Z <A HREF="http://www1.mplayerhq.hu/MPlayer/releases/codecs/">http://www1.mplayerhq.hu/MPlayer/releases/codecs/</A>
+
+mkdir ${pkg}/usr/lib/mplayer
+cp ${src1}/* ${pkg}/usr/lib/mplayer
+
+# $Log: mplayer-codecs-windows-all.pwbuild,v $
+# Revision 1.1  2004/08/16 11:09:34  swiergot
+# - Initial commit.
+# - Version 20040809.
+#
+
+--- NEW FILE: mplayer-codecs-windows-all.pwinfo ---
+info=&quot;A complete Windows codecs set for MPlayer.&quot;
+desc=&quot;This package contains all Windows codecs available for MPlayer.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000089.html">[Packware-cvs] pwbuild/xap/mplayer-codecs-essential mplayer-codecs-essential.pwbuild,NONE,1.1 mplayer-codecs-essential.pwinfo,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000091.html">[Packware-cvs] pwbuild/xap/mplayer-codecs-windows-essential mplayer-codecs-windows-essential.pwbuild,NONE,1.1 mplayer-codecs-windows-essential.pwinfo,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#90">[ date ]</a>
+              <a href="thread.html#90">[ thread ]</a>
+              <a href="subject.html#90">[ subject ]</a>
+              <a href="author.html#90">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

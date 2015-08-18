@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/ap/p7zip p7zip-path.pw.patch,NONE,1.1 p7zip.pwbuild,NONE,1.1 p7zip.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-September/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/p7zip%20p7zip-path.pw.patch%2CNONE%2C1.1%20p7zip.pwbuild%2CNONE%2C1.1%20p7zip.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200409280944.i8S9ibB27304%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000127.html">
+   <LINK REL="Next"  HREF="000129.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/ap/p7zip p7zip-path.pw.patch,NONE,1.1 p7zip.pwbuild,NONE,1.1 p7zip.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/p7zip%20p7zip-path.pw.patch%2CNONE%2C1.1%20p7zip.pwbuild%2CNONE%2C1.1%20p7zip.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200409280944.i8S9ibB27304%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/ap/p7zip p7zip-path.pw.patch,NONE,1.1 p7zip.pwbuild,NONE,1.1 p7zip.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Sep 28 11:44:37 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000127.html">[Packware-cvs] pwbuild/ap/p7zip - New directory
+</A></li>
+        <LI>Next message: <A HREF="000129.html">[Packware-cvs] pwbuild/ap/p7zip p7zip.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/ap/p7zip
+In directory sheep:/tmp/cvs-serv23580
+
+Added Files:
+	p7zip-path.pw.patch p7zip.pwbuild p7zip.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.91.
+
+
+--- NEW FILE: p7zip-path.pw.patch ---
+diff -ruN p7zip_0.91.orig/7zip/Archive/Common/CodecsPath.cpp p7zip_0.91/7zip/Archive/Common/CodecsPath.cpp
+--- p7zip_0.91.orig/7zip/Archive/Common/CodecsPath.cpp	2004-07-11 21:14:32.000000000 +0200
++++ p7zip_0.91/7zip/Archive/Common/CodecsPath.cpp	2004-09-28 11:31:03.000000000 +0200
+@@ -30,5 +30,5 @@
+ 
+ CSysString GetCodecsFolderPrefix()
+ {
+-  return GetBaseFolderPrefix() + TEXT(&quot;Codecs\\&quot;);
++  return TEXT(&quot;/usr/lib/7z/Codecs\\&quot;);
+ }
+diff -ruN p7zip_0.91.orig/7zip/UI/Common/ArchiverInfo.cpp p7zip_0.91/7zip/UI/Common/ArchiverInfo.cpp
+--- p7zip_0.91.orig/7zip/UI/Common/ArchiverInfo.cpp	2004-07-11 21:14:20.000000000 +0200
++++ p7zip_0.91/7zip/UI/Common/ArchiverInfo.cpp	2004-09-28 11:22:43.000000000 +0200
+@@ -61,7 +61,7 @@
+   return path.Left(pos + 1);
+ }
+ 
+-static wchar_t *kFormatFolderName = L&quot;Formats&quot;;
++static wchar_t *kFormatFolderName = L&quot;/usr/lib/7z/Formats&quot;;
+ static LPCTSTR kRegistryPath = TEXT(&quot;Software\\7-zip&quot;);
+ static LPCTSTR kProgramPathValue = TEXT(&quot;Path&quot;);
+ 
+
+--- NEW FILE: p7zip.pwbuild ---
+#!/bin/sh
+
+name=&quot;p7zip&quot;
+version=&quot;0.91&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d LGPL.txt ChangeLog
+
+_source -m 8c6a7b49f360917cbdd8391f3a926a19 -s 448147 -f -c
+
+_patch path
+
+_make clean
+_make
+
+mkdir ${pkg}/usr/{bin,lib/7z}
+cp ${src1}/bin/7z ${pkg}/usr/bin
+cp -r ${src1}/bin/{Formats,Codecs} ${pkg}/usr/lib/7z
+
+# $Log: p7zip.pwbuild,v $
+# Revision 1.1  2004/09/28 09:44:35  swiergot
+# - Initial commit.
+# - Version 0.91.
+#
+
+--- NEW FILE: p7zip.pwinfo ---
+info=&quot;A file archiver with the highest ratio.&quot;
+desc=&quot;p7zip is a quick port of 7z.exe and 7za.exe (command line version of 7zip, see www.7-zip.org) for Unix. 7-Zip is a file archiver with highest compression ratio. Currently, p7zip (like 7-zip) supports only little-endian machine.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000127.html">[Packware-cvs] pwbuild/ap/p7zip - New directory
+</A></li>
+	<LI>Next message: <A HREF="000129.html">[Packware-cvs] pwbuild/ap/p7zip p7zip.pwbuild,1.1,1.2
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#128">[ date ]</a>
+              <a href="thread.html#128">[ thread ]</a>
+              <a href="subject.html#128">[ subject ]</a>
+              <a href="author.html#128">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

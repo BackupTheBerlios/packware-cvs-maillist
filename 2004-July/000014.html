@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder fakeroot-libdir.pw.patch,NONE,1.1 pwbuilder.pw-postinst,NONE,1.1 pwbuilder.pwbuild,NONE,1.1 pwbuilder.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder%20fakeroot-libdir.pw.patch%2CNONE%2C1.1%20pwbuilder.pw-postinst%2CNONE%2C1.1%20pwbuilder.pwbuild%2CNONE%2C1.1%20pwbuilder.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6o621765%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder fakeroot-libdir.pw.patch,NONE,1.1 pwbuilder.pw-postinst,NONE,1.1 pwbuilder.pwbuild,NONE,1.1 pwbuilder.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder%20fakeroot-libdir.pw.patch%2CNONE%2C1.1%20pwbuilder.pw-postinst%2CNONE%2C1.1%20pwbuilder.pwbuild%2CNONE%2C1.1%20pwbuilder.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6o621765%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder fakeroot-libdir.pw.patch,NONE,1.1 pwbuilder.pw-postinst,NONE,1.1 pwbuilder.pwbuild,NONE,1.1 pwbuilder.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 00:06:50 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal - New directory
+</A></li>
+        <LI>Next message: <A HREF="000017.html">[Packware-cvs] pwbuilder/doc COPYING,NONE,1.1 ChangeLog,NONE,1.1 README,NONE,1.1 REPO,NONE,1.1 TODO,NONE,1.1 WARNING,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder
+In directory sheep:/tmp/cvs-serv15405
+
+Added Files:
+	fakeroot-libdir.pw.patch pwbuilder.pw-postinst 
+	pwbuilder.pwbuild pwbuilder.pwinfo 
+Log Message:
+- Initial commit.
+
+
+--- NEW FILE: fakeroot-libdir.pw.patch ---
+diff -ruN fakeroot-0.7.3.orig/scripts/fakeroot fakeroot-0.7.3/scripts/fakeroot
+--- fakeroot-0.7.3.orig/scripts/fakeroot	2003-05-10 02:04:30.000000000 +0200
++++ fakeroot-0.7.3/scripts/fakeroot	2003-07-07 14:42:53.000000000 +0200
+@@ -16,7 +16,7 @@
+ PREFIX=`dirname ${BINDIR}`
+     
+ LIB=libfakeroot.so.0
+-PATHS=${PREFIX}/lib/libfakeroot:${PREFIX}/lib64/libfakeroot
++PATHS=${PREFIX}/lib:${PREFIX}/lib/libfakeroot:${PREFIX}/lib64/libfakeroot
+ FAKED=${BINDIR}/faked
+ 
+ FAKED_MODE=&quot;unknown-is-root&quot;
+
+--- NEW FILE: pwbuilder.pw-postinst ---
+function config() {
+    if [ ! -f &quot;$1&quot; ]; then
+	mv -f $1.new $1
+    fi
+}
+
+config etc/pwbuilder.conf
+
+--- NEW FILE: pwbuilder.pwbuild ---
+#!/bin/sh
+
+name=&quot;pwbuilder&quot;
+version=&quot;0.6.4-pre3&quot;
+build=&quot;1&quot;
+
+fakeroot=&quot;0.7.8&quot;
+pwutils=&quot;0.6&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d -r fakeroot-${fakeroot} README.fake
+
+_source -t fakeroot-${fakeroot} -m d9612083d722f49091f54217ce90f9a5 -s 678306 <A HREF="http://packware.intersec.pl/source/fakeroot_${fakeroot">http://packware.intersec.pl/source/fakeroot_${fakeroot</A>}.tar.gz
+_source -n pwutils -v ${pwutils} -m 48d32d94b45774967357c94b7fbb2cb3 -s 3440 <A HREF="http://packware.intersec.pl/">http://packware.intersec.pl/</A>
+
+_patch fakeroot-libdir
+
+_c_opt --prefix=/usr
+
+_i_opt DESTDIR=${pkg}
+
+_cmi
+
+_make -s 2
+
+cp -R ${src}/src/* ${pkg}
+
+for i in desc getsfmirror sltd sltm; do
+    cp ${src2}/${i} ${pkg}/usr/lib/pwbuilder/bin
+done
+
+echo ${version} &gt; ${doc}/VERSION
+cp -R ${src}/doc/* ${doc}
+
+find ${pkg} -type d -name CVS | xargs rm -r
+
+for i in pl; do
+    mkdir ${pkg}/usr/share/locale/${i}/LC_MESSAGES
+    msgfmt ${src}/po/${i}.po -o ${pkg}/usr/share/locale/${i}/LC_MESSAGES/${name}.mo
+done
+
+--- NEW FILE: pwbuilder.pwinfo ---
+info=&quot;A tool for building Slackware packages.&quot;
+desc=&quot;pwbuilder is a powerful tool for creating software packages for Slackware Linux.
+
+pwbuilder aims to be the easiest tool in its category. However, pwbuilder provides an advanced API that allows you to make packages exactly in the way you want.
+
+Look at /usr/doc/${name}-${version}/ for more information.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal - New directory
+</A></li>
+	<LI>Next message: <A HREF="000017.html">[Packware-cvs] pwbuilder/doc COPYING,NONE,1.1 ChangeLog,NONE,1.1 README,NONE,1.1 REPO,NONE,1.1 TODO,NONE,1.1 WARNING,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/muse muse-locale-install.pw.patch,NONE,1.1 muse.pwbuild,NONE,1.1 muse.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/muse%20muse-locale-install.pw.patch%2CNONE%2C1.1%20muse.pwbuild%2CNONE%2C1.1%20muse.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410052141.i95LfIB13688%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000141.html">
+   <LINK REL="Next"  HREF="000143.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/muse muse-locale-install.pw.patch,NONE,1.1 muse.pwbuild,NONE,1.1 muse.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/muse%20muse-locale-install.pw.patch%2CNONE%2C1.1%20muse.pwbuild%2CNONE%2C1.1%20muse.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410052141.i95LfIB13688%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/muse muse-locale-install.pw.patch,NONE,1.1 muse.pwbuild,NONE,1.1 muse.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Tue Oct  5 23:41:18 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000141.html">[Packware-cvs] pwbuild/xap/muse - New directory
+</A></li>
+        <LI>Next message: <A HREF="000143.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-pot-fix.pw.patch,NONE,1.1 sylpheed-claws-cvs.pwbuild,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#142">[ date ]</a>
+              <a href="thread.html#142">[ thread ]</a>
+              <a href="subject.html#142">[ subject ]</a>
+              <a href="author.html#142">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/muse
+In directory sheep:/tmp/cvs-serv15705
+
+Added Files:
+	muse-locale-install.pw.patch muse.pwbuild muse.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.9.
+
+
+--- NEW FILE: muse-locale-install.pw.patch ---
+diff -ruN MuSE-0.9.orig/po/Makefile MuSE-0.9/po/Makefile
+--- MuSE-0.9.orig/po/Makefile	2004-04-15 00:52:44.000000000 +0200
++++ MuSE-0.9/po/Makefile	2004-10-05 23:36:32.000000000 +0200
+@@ -1,5 +1,5 @@
+ INSTALL= /usr/bin/install -c
+-INSTALLNLSDIR=$(BASEDIR)/usr/local/share/locale
++INSTALLNLSDIR=$(DESTDIR)/usr/share/locale
+ 
+ PACKAGE = muse
+ 
+
+--- NEW FILE: muse.pwbuild ---
+#!/bin/sh
+
+name=&quot;muse&quot;
+version=&quot;0.9&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d -x ABOUT-NLS -x CVS ChangeLog KNOWN-BUGS
+
+_source -m 0c2075c9f62ba1d08459f669498b6bcf -s 1363091 -n MuSE -g <A HREF="ftp://ftp.dyne.org/${name">ftp://ftp.dyne.org/${name</A>}/releases/
+
+_patch locale-install
+
+_c_opt --prefix=/usr
+_c_opt --enable-ncurses
+_c_opt --enable-gtk2
+
+_cmi
+
+rm -r ${pkg}/usr/doc/MuSE
+
+# $Log: muse.pwbuild,v $
+# Revision 1.1  2004/10/05 21:41:16  swiergot
+# - Initial commit.
+# - Version 0.9.
+#
+
+--- NEW FILE: muse.pwinfo ---
+info=&quot;Multiple Streaming Engine.&quot;
+desc=&quot;MuSE is a user-friendly tool for network audio streaming, making life easier for independent free speech radio stations. It can mix, encode, and stream sound over the Internet that can be tuned in to by the majority of audio players. It can simultaneously mix up to 6 encoded audio channels plus a sound card input signal, sending the result to an Icecast server. It offers an intuitive GTK2 interface for real-time operation and can also be used from command line.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000141.html">[Packware-cvs] pwbuild/xap/muse - New directory
+</A></li>
+	<LI>Next message: <A HREF="000143.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-pot-fix.pw.patch,NONE,1.1 sylpheed-claws-cvs.pwbuild,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#142">[ date ]</a>
+              <a href="thread.html#142">[ thread ]</a>
+              <a href="subject.html#142">[ subject ]</a>
+              <a href="author.html#142">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

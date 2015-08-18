@@ -1,0 +1,907 @@
+From nobody at sheep.berlios.de  Fri Sep 10 11:05:51 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Fri, 10 Sep 2004 11:05:51 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.4,1.5 kadu-modules-cvs.pw.patch,1.6,1.7
+Message-ID: <200409100905.i8A95p608928@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv10771
+
+Modified Files:
+	kadu-cvs.pwbuild kadu-modules-cvs.pw.patch 
+Log Message:
+- Version 20040910.
+- Disabled pcspeaker and weather modules for now.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** kadu-cvs.pwbuild	29 Aug 2004 14:35:12 -0000	1.4
+--- kadu-cvs.pwbuild	10 Sep 2004 09:05:48 -0000	1.5
+***************
+*** 2,6 ****
+  
+  name="kadu"
+! version="20040829"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="kadu"
+! version="20040910"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -m 17218f24adcd848220ee6428e29d4f14 -s 1030104 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -m b0c7bbe02cb74a75110f6f055d71c5aa -s 1062039 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+***************
+*** 34,37 ****
+--- 34,41 ----
+  
+  # $Log$
++ # Revision 1.5  2004/09/10 09:05:48  swiergot
++ # - Version 20040910.
++ # - Disabled pcspeaker and weather modules for now.
++ #
+  # Revision 1.4  2004/08/29 14:35:12  swiergot
+  # - Version 20040829.
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** kadu-modules-cvs.pw.patch	29 Aug 2004 17:27:17 -0000	1.6
+--- kadu-modules-cvs.pw.patch	10 Sep 2004 09:05:48 -0000	1.7
+***************
+*** 1,5 ****
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 18:11:59.000000000 +0200
+  @@ -13,25 +13,25 @@
+   #
+--- 1,5 ----
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-31 18:55:03.000000000 +0200
+! +++ kadu/.config	2004-09-10 09:37:22.000000000 +0200
+  @@ -13,25 +13,25 @@
+   #
+***************
+*** 67,74 ****
+  -module_echo=n
+  +module_echo=m
+   
+!  
+!  #
+! @@ -95,31 +95,31 @@
+   #
+   
+--- 67,74 ----
+  -module_echo=n
+  +module_echo=m
++  # Configuration wizard module
++  module_config_wizard=m
+   
+! @@ -96,31 +96,31 @@
+   #
+   
+***************
+*** 99,103 ****
+   # PC-Speaker support
+  -module_pcspeaker=n
+! +module_pcspeaker=m
+   
+   # Notification by XOSD (depends: notify)
+--- 99,103 ----
+   # PC-Speaker support
+  -module_pcspeaker=n
+! +module_pcspeaker=n
+   
+   # Notification by XOSD (depends: notify)
+***************
+*** 107,115 ****
+   # Weather checking
+  -module_weather=n
+! +module_weather=y
+   
+   #
+   # Below are some icon themes, one default and others, made by third
+! @@ -136,8 +136,8 @@
+   icons_default=y
+   
+--- 107,115 ----
+   # Weather checking
+  -module_weather=n
+! +module_weather=n
+   
+   #
+   # Below are some icon themes, one default and others, made by third
+! @@ -137,8 +137,8 @@
+   icons_default=y
+   
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 21 09:35:04 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 21 Sep 2004 09:35:04 +0200
+Subject: [Packware-cvs] pwbuild/xap/k3b k3b.pwbuild,1.2,1.3
+Message-ID: <200409210735.i8L7Z4606736@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/k3b
+In directory sheep:/tmp/cvs-serv29209
+
+Modified Files:
+	k3b.pwbuild 
+Log Message:
+- Version 0.11.16.
+
+
+Index: k3b.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/k3b/k3b.pwbuild,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** k3b.pwbuild	16 Aug 2004 15:43:02 -0000	1.2
+--- k3b.pwbuild	21 Sep 2004 07:34:51 -0000	1.3
+***************
+*** 2,6 ****
+  
+  name="k3b"
+! version="0.11.14"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="k3b"
+! version="0.11.16"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d ChangeLog k3b.lsm
+  
+! _source -m c990df553515c8a5107df796afa4d091 -s 3189709 -f
+  _source -m 80d1ac1766ad8a8cdadca5f4273f2d95 -s 2738463 -f -n ${name}-i18n -v 0.11
+  _source -m 6a2f9f531cd63a50bf600fc8044ef7f1 -s 439377 http://umn.dl.sourceforge.net/sourceforge/k3b/k3bmonkeyaudioplugin.tar.bz2
+--- 9,13 ----
+  _doc -d ChangeLog k3b.lsm
+  
+! _source -m e6e605f4ea43fdfeb2148909894ec1f2 -s 3188114 -f
+  _source -m 80d1ac1766ad8a8cdadca5f4273f2d95 -s 2738463 -f -n ${name}-i18n -v 0.11
+  _source -m 6a2f9f531cd63a50bf600fc8044ef7f1 -s 439377 http://umn.dl.sourceforge.net/sourceforge/k3b/k3bmonkeyaudioplugin.tar.bz2
+***************
+*** 20,25 ****
+  
+  # $Log$
+  # Revision 1.2  2004/08/16 15:43:02  swiergot
+! # - Version 0.11.4.
+  #
+  # Revision 1.1  2004/08/08 10:11:12  stoodi
+--- 20,28 ----
+  
+  # $Log$
++ # Revision 1.3  2004/09/21 07:34:51  swiergot
++ # - Version 0.11.16.
++ #
+  # Revision 1.2  2004/08/16 15:43:02  swiergot
+! # - Version 0.11.14.
+  #
+  # Revision 1.1  2004/08/08 10:11:12  stoodi
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 21 09:35:41 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 21 Sep 2004 09:35:41 +0200
+Subject: [Packware-cvs] pwbuild/n/opendchub - New directory
+Message-ID: <200409210735.i8L7Zf606746@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/opendchub
+In directory sheep:/tmp/cvs-serv29250/opendchub
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/n/opendchub added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 21 09:36:38 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 21 Sep 2004 09:36:38 +0200
+Subject: [Packware-cvs] pwbuild/n/opendchub opendchub.pwbuild,NONE,1.1 opendchub.pwinfo,NONE,1.1
+Message-ID: <200409210736.i8L7ab606779@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/opendchub
+In directory sheep:/tmp/cvs-serv29295
+
+Added Files:
+	opendchub.pwbuild opendchub.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.7.14.
+
+
+--- NEW FILE: opendchub.pwbuild ---
+#!/bin/sh
+
+name="opendchub"
+version="0.7.14"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog Documentation Samplescripts -x NEWS -x README
+
+_source -m 6121347154820e2b307a5aecafa86ce8 -s 187739 -f -g
+
+chmod 644 ${src1}/{AUTHORS,COPYING,ChangeLog,INSTALL}
+
+_c_opt --prefix=/usr
+_c_opt --enable-switch_user
+
+_cmi
+
+# $Log: opendchub.pwbuild,v $
+# Revision 1.1  2004/09/21 07:36:35  swiergot
+# - Initial commit.
+# - Version 0.7.14.
+#
+
+--- NEW FILE: opendchub.pwinfo ---
+info="A Direct Connect hub for Unix/Linux."
+desc="Open DC Hub is a version of the hub software for the Direct Connect network that should run on all POSIX-compliant operating systems."
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 21 16:54:46 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 21 Sep 2004 16:54:46 +0200
+Subject: [Packware-cvs] pwbuild/n/ekg ekg-cvs.pwbuild,1.1,1.2
+Message-ID: <200409211454.i8LEsk615288@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/ekg
+In directory sheep:/tmp/cvs-serv20619
+
+Modified Files:
+	ekg-cvs.pwbuild 
+Log Message:
+- Version 20040920.
+
+
+Index: ekg-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/n/ekg/ekg-cvs.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** ekg-cvs.pwbuild	30 Jul 2004 16:46:09 -0000	1.1
+--- ekg-cvs.pwbuild	21 Sep 2004 14:54:44 -0000	1.2
+***************
+*** 2,6 ****
+  
+  name="ekg"
+! version="20040729"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="ekg"
+! version="20040920"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -b docs ../ChangeLog IDEAS-2.0 *.txt protocol.html emoticons.* api/functions.txt -x CVS
+  
+! _source -m bfe59b48b11880f26df245cf442740d1 -s 483721 -g http://dev.null.pl/${name}/
+  
+  _patch varstxt
+--- 9,13 ----
+  _doc -d -b docs ../ChangeLog IDEAS-2.0 *.txt protocol.html emoticons.* api/functions.txt -x CVS
+  
+! _source -m 838e4079fc391e4876e97c03227f2a07 -s 483914 -g http://dev.null.pl/${name}/
+  
+  _patch varstxt
+***************
+*** 31,34 ****
+--- 31,37 ----
+  
+  # $Log$
++ # Revision 1.2  2004/09/21 14:54:44  swiergot
++ # - Version 20040920.
++ #
+  # Revision 1.1  2004/07/30 16:46:09  swiergot
+  # - Initial commit.
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 21 17:11:49 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 21 Sep 2004 17:11:49 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.5,1.6 kadu-modules-cvs.pw.patch,1.7,1.8
+Message-ID: <200409211511.i8LFBn617230@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv21444
+
+Modified Files:
+	kadu-cvs.pwbuild kadu-modules-cvs.pw.patch 
+Log Message:
+- Version 20040921.
+- Build with bundled libgadu.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** kadu-cvs.pwbuild	10 Sep 2004 09:05:48 -0000	1.5
+--- kadu-cvs.pwbuild	21 Sep 2004 15:11:46 -0000	1.6
+***************
+*** 2,6 ****
+  
+  name="kadu"
+! version="20040910"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="kadu"
+! version="20040921"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -m b0c7bbe02cb74a75110f6f055d71c5aa -s 1062039 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -m c5f1797e1442c8e594381bedd9b8e1fc -s 1077818 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+***************
+*** 17,21 ****
+  _c_opt --prefix=/usr
+  _c_opt --enable-modules
+! _c_opt --with-existing-libgadu
+  
+  _cmi
+--- 17,21 ----
+  _c_opt --prefix=/usr
+  _c_opt --enable-modules
+! # _c_opt --with-existing-libgadu
+  
+  _cmi
+***************
+*** 34,37 ****
+--- 34,41 ----
+  
+  # $Log$
++ # Revision 1.6  2004/09/21 15:11:46  swiergot
++ # - Version 20040921.
++ # - Build with bundled libgadu.
++ #
+  # Revision 1.5  2004/09/10 09:05:48  swiergot
+  # - Version 20040910.
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.7
+retrieving revision 1.8
+diff -C2 -d -r1.7 -r1.8
+*** kadu-modules-cvs.pw.patch	10 Sep 2004 09:05:48 -0000	1.7
+--- kadu-modules-cvs.pw.patch	21 Sep 2004 15:11:46 -0000	1.8
+***************
+*** 1,7 ****
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-31 18:55:03.000000000 +0200
+! +++ kadu/.config	2004-09-10 09:37:22.000000000 +0200
+! @@ -13,25 +13,25 @@
+!  #
+   
+   # Tray icon support
+--- 1,7 ----
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-09-15 14:36:23.000000000 +0200
+! +++ kadu/.config	2004-09-21 16:25:42.000000000 +0200
+! @@ -15,21 +15,21 @@
+!  #################### docking #########################################
+   
+   # Tray icon support
+***************
+*** 16,28 ****
+  +module_wmaker_docking=m
+   
+!  # OpenSSL encrypted chat support
+!  module_encryption=m
+!  
+!  # Speech synthesis support (depends: notify)
+! -module_speech=n
+! +module_speech=m
+   
+!  # Voice chat support (depends: dcc)
+!  module_voice=m
+   
+   # General sound support (depends: notify)
+--- 16,24 ----
+  +module_wmaker_docking=m
+   
+!  # Always on top window docking module (depends: docking)
+! -module_desktop_docking=n
+! +module_desktop_docking=m
+   
+!  ##################### sound ##########################################
+   
+   # General sound support (depends: notify)
+***************
+*** 32,36 ****
+   # External application sound support (depends: sound)
+   module_ext_sound=m
+! @@ -40,10 +40,10 @@
+   module_dsp_sound=m
+   
+--- 28,32 ----
+   # External application sound support (depends: sound)
+   module_ext_sound=m
+! @@ -38,10 +38,10 @@
+   module_dsp_sound=m
+   
+***************
+*** 45,50 ****
+   # Network Audio System support (depends: sound)
+   module_nas_sound=n
+! @@ -64,7 +64,7 @@
+!  module_account_management=m
+   
+   # General notification module
+--- 41,46 ----
+   # Network Audio System support (depends: sound)
+   module_nas_sound=n
+! @@ -49,7 +49,7 @@
+!  ###################### notifications #################################
+   
+   # General notification module
+***************
+*** 54,81 ****
+   # Notification by window module (depends: notify)
+   module_window_notify=m
+! @@ -73,13 +73,13 @@
+   module_hints=m
+   
+!  # Always on top window docking module (depends: docking)
+! -module_desktop_docking=n
+! +module_desktop_docking=m
+   
+!  # Autoresponder module
+   module_autoresponder=m
+   
+!  # Echo sample module
+  -module_echo=n
+  +module_echo=m
+-  # Configuration wizard module
+-  module_config_wizard=m
+   
+! @@ -96,31 +96,31 @@
+   #
+   
+!  # TCL scripting support and KaduPro extensions
+  -module_tcl_scripting=n
+  +module_tcl_scripting=n
+   
+!  # XMMS player support
+  -module_xmms=n
+  +module_xmms=m
+--- 50,79 ----
+   # Notification by window module (depends: notify)
+   module_window_notify=m
+! @@ -58,7 +58,7 @@
+   module_hints=m
+   
+!  # Speech synthesis support (depends: notify)
+! -module_speech=n
+! +module_speech=m
+   
+!  ###################### p2p ###########################################
+!  
+! @@ -94,7 +94,7 @@
+   module_autoresponder=m
+   
+!  # Echo module (testing module!)
+  -module_echo=n
+  +module_echo=m
+   
+!  ############################################# EXTERNAL ###########################################################################
+!  
+! @@ -111,34 +111,34 @@
+   #
+   
+!  # TCL scripting support and KaduPro extensions (depends: notify, docking)
+  -module_tcl_scripting=n
+  +module_tcl_scripting=n
+   
+!  # XMMS player support (depends: notify)
+  -module_xmms=n
+  +module_xmms=m
+***************
+*** 89,93 ****
+  +module_filedesc=m
+   
+!  # Mail checker module
+  -module_mail=n
+  +module_mail=m
+--- 87,91 ----
+  +module_filedesc=m
+   
+!  # Mail checker module (depends: hints)
+  -module_mail=n
+  +module_mail=m
+***************
+*** 109,115 ****
+  +module_weather=n
+   
+!  #
+!  # Below are some icon themes, one default and others, made by third
+! @@ -137,8 +137,8 @@
+   icons_default=y
+   
+--- 107,117 ----
+  +module_weather=n
+   
+!  # ao library sound module (alsa, oss, esd, aix, irix, nas, sun, netbsd, openbsd) (depends: sound)
+! -module_ao_sound=n
+! +module_ao_sound=m
+!  
+!  ############################################# ICONS ###########################################################################
+!  
+! @@ -157,8 +157,8 @@
+   icons_default=y
+   
+
+
+
+From nobody at sheep.berlios.de  Sun Sep 26 00:23:20 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 26 Sep 2004 00:23:20 +0200
+Subject: [Packware-cvs] pwbuild/xap/mplayer-codecs-all mplayer-codecs-all.pwbuild,1.1,1.2
+Message-ID: <200409252223.i8PMNKB10771@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/mplayer-codecs-all
+In directory sheep:/tmp/cvs-serv8919
+
+Modified Files:
+	mplayer-codecs-all.pwbuild 
+Log Message:
+- Version 20040916.
+
+
+Index: mplayer-codecs-all.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/mplayer-codecs-all/mplayer-codecs-all.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** mplayer-codecs-all.pwbuild	16 Aug 2004 11:07:25 -0000	1.1
+--- mplayer-codecs-all.pwbuild	25 Sep 2004 22:23:17 -0000	1.2
+***************
+*** 2,11 ****
+  
+  name="mplayer-codecs-all"
+! version="20040809"
+  build="1"
+  
+  _pwbuilder 0.6.3
+  
+! _source -m 030bbd0e1e10a930ccc769140b79fe2b -s 11266573 -n all http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+  
+  mkdir ${pkg}/usr/lib/mplayer
+--- 2,11 ----
+  
+  name="mplayer-codecs-all"
+! version="20040916"
+  build="1"
+  
+  _pwbuilder 0.6.3
+  
+! _source -m a03b4af330e7dfc3a22c32eb04be5f07 -s 11268600 -n all http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+  
+  mkdir ${pkg}/usr/lib/mplayer
+***************
+*** 13,16 ****
+--- 13,19 ----
+  
+  # $Log$
++ # Revision 1.2  2004/09/25 22:23:17  swiergot
++ # - Version 20040916.
++ #
+  # Revision 1.1  2004/08/16 11:07:25  swiergot
+  # - Initial commit.
+
+
+
+From nobody at sheep.berlios.de  Sun Sep 26 12:56:39 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 26 Sep 2004 12:56:39 +0200
+Subject: [Packware-cvs] pwbuild/xap/dillo - New directory
+Message-ID: <200409261056.i8QAudB25079@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/dillo
+In directory sheep:/tmp/cvs-serv21832/dillo
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/dillo added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Sep 26 12:57:16 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 26 Sep 2004 12:57:16 +0200
+Subject: [Packware-cvs] pwbuild/xap/dillo dillo.pwbuild,NONE,1.1 dillo.pwinfo,NONE,1.1
+Message-ID: <200409261057.i8QAvGB25113@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/dillo
+In directory sheep:/tmp/cvs-serv21893
+
+Added Files:
+	dillo.pwbuild dillo.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.8.2.
+
+
+--- NEW FILE: dillo.pwbuild ---
+#!/bin/sh
+
+name="dillo"
+version="0.8.2"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog doc
+
+_source -m 4322f339aa4a4a2a4ba9a11444df9c67 -s 409961 http://www.dillo.org/download/
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc/dillo
+_c_opt --enable-ipv6
+_c_opt --enable-rtfl
+
+_cmi
+
+# $Log: dillo.pwbuild,v $
+# Revision 1.1  2004/09/26 10:57:13  swiergot
+# - Initial commit.
+# - Version 0.8.2.
+#
+
+--- NEW FILE: dillo.pwinfo ---
+info="A web browser."
+desc="Dillo Web browser is a very fast, extremely small Web browser that's completely written in C. The source and binary are less than 400 kilobytes each. It is a graphical browser built upon GTK+, and it renders a good subset of HTML, excluding frames, JavaScript, and JVM support."
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 28 11:01:03 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 28 Sep 2004 11:01:03 +0200
+Subject: [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.6,1.7
+Message-ID: <200409280901.i8S913B26515@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv22239
+
+Modified Files:
+	kadu-cvs.pwbuild 
+Log Message:
+- Version 20040928.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.6
+retrieving revision 1.7
+diff -C2 -d -r1.6 -r1.7
+*** kadu-cvs.pwbuild	21 Sep 2004 15:11:46 -0000	1.6
+--- kadu-cvs.pwbuild	28 Sep 2004 09:01:00 -0000	1.7
+***************
+*** 2,6 ****
+  
+  name="kadu"
+! version="20040921"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="kadu"
+! version="20040928"
+  build="1"
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -m c5f1797e1442c8e594381bedd9b8e1fc -s 1077818 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -m adb15fd0b09fde6d5c2b8db3f38492ac -s 1084871 -t ${name} http://kadu.net/download/snapshots/
+  
+  _patch lpthread
+***************
+*** 34,37 ****
+--- 34,40 ----
+  
+  # $Log$
++ # Revision 1.7  2004/09/28 09:01:00  swiergot
++ # - Version 20040928.
++ #
+  # Revision 1.6  2004/09/21 15:11:46  swiergot
+  # - Version 20040921.
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 28 11:44:10 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 28 Sep 2004 11:44:10 +0200
+Subject: [Packware-cvs] pwbuild/ap/p7zip - New directory
+Message-ID: <200409280944.i8S9iAB27298@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/p7zip
+In directory sheep:/tmp/cvs-serv23536/p7zip
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/ap/p7zip added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 28 11:44:37 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 28 Sep 2004 11:44:37 +0200
+Subject: [Packware-cvs] pwbuild/ap/p7zip p7zip-path.pw.patch,NONE,1.1 p7zip.pwbuild,NONE,1.1 p7zip.pwinfo,NONE,1.1
+Message-ID: <200409280944.i8S9ibB27304@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/p7zip
+In directory sheep:/tmp/cvs-serv23580
+
+Added Files:
+	p7zip-path.pw.patch p7zip.pwbuild p7zip.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.91.
+
+
+--- NEW FILE: p7zip-path.pw.patch ---
+diff -ruN p7zip_0.91.orig/7zip/Archive/Common/CodecsPath.cpp p7zip_0.91/7zip/Archive/Common/CodecsPath.cpp
+--- p7zip_0.91.orig/7zip/Archive/Common/CodecsPath.cpp	2004-07-11 21:14:32.000000000 +0200
++++ p7zip_0.91/7zip/Archive/Common/CodecsPath.cpp	2004-09-28 11:31:03.000000000 +0200
+@@ -30,5 +30,5 @@
+ 
+ CSysString GetCodecsFolderPrefix()
+ {
+-  return GetBaseFolderPrefix() + TEXT("Codecs\\");
++  return TEXT("/usr/lib/7z/Codecs\\");
+ }
+diff -ruN p7zip_0.91.orig/7zip/UI/Common/ArchiverInfo.cpp p7zip_0.91/7zip/UI/Common/ArchiverInfo.cpp
+--- p7zip_0.91.orig/7zip/UI/Common/ArchiverInfo.cpp	2004-07-11 21:14:20.000000000 +0200
++++ p7zip_0.91/7zip/UI/Common/ArchiverInfo.cpp	2004-09-28 11:22:43.000000000 +0200
+@@ -61,7 +61,7 @@
+   return path.Left(pos + 1);
+ }
+ 
+-static wchar_t *kFormatFolderName = L"Formats";
++static wchar_t *kFormatFolderName = L"/usr/lib/7z/Formats";
+ static LPCTSTR kRegistryPath = TEXT("Software\\7-zip");
+ static LPCTSTR kProgramPathValue = TEXT("Path");
+ 
+
+--- NEW FILE: p7zip.pwbuild ---
+#!/bin/sh
+
+name="p7zip"
+version="0.91"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d LGPL.txt ChangeLog
+
+_source -m 8c6a7b49f360917cbdd8391f3a926a19 -s 448147 -f -c
+
+_patch path
+
+_make clean
+_make
+
+mkdir ${pkg}/usr/{bin,lib/7z}
+cp ${src1}/bin/7z ${pkg}/usr/bin
+cp -r ${src1}/bin/{Formats,Codecs} ${pkg}/usr/lib/7z
+
+# $Log: p7zip.pwbuild,v $
+# Revision 1.1  2004/09/28 09:44:35  swiergot
+# - Initial commit.
+# - Version 0.91.
+#
+
+--- NEW FILE: p7zip.pwinfo ---
+info="A file archiver with the highest ratio."
+desc="p7zip is a quick port of 7z.exe and 7za.exe (command line version of 7zip, see www.7-zip.org) for Unix. 7-Zip is a file archiver with highest compression ratio. Currently, p7zip (like 7-zip) supports only little-endian machine."
+
+
+
+From nobody at sheep.berlios.de  Tue Sep 28 11:48:23 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 28 Sep 2004 11:48:23 +0200
+Subject: [Packware-cvs] pwbuild/ap/p7zip p7zip.pwbuild,1.1,1.2
+Message-ID: <200409280948.i8S9mNB27433@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/p7zip
+In directory sheep:/tmp/cvs-serv23790
+
+Modified Files:
+	p7zip.pwbuild 
+Log Message:
+- Added html directory to _doc.
+
+
+Index: p7zip.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/ap/p7zip/p7zip.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** p7zip.pwbuild	28 Sep 2004 09:44:35 -0000	1.1
+--- p7zip.pwbuild	28 Sep 2004 09:48:21 -0000	1.2
+***************
+*** 7,11 ****
+  _pwbuilder 0.6.3
+  
+! _doc -d LGPL.txt ChangeLog
+  
+  _source -m 8c6a7b49f360917cbdd8391f3a926a19 -s 448147 -f -c
+--- 7,11 ----
+  _pwbuilder 0.6.3
+  
+! _doc -d LGPL.txt ChangeLog html
+  
+  _source -m 8c6a7b49f360917cbdd8391f3a926a19 -s 448147 -f -c
+***************
+*** 21,24 ****
+--- 21,27 ----
+  
+  # $Log$
++ # Revision 1.2  2004/09/28 09:48:21  swiergot
++ # - Added html directory to _doc.
++ #
+  # Revision 1.1  2004/09/28 09:44:35  swiergot
+  # - Initial commit.
+
+
+

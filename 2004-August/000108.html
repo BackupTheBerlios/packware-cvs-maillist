@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/x/nvidia ktest.c,NONE,1.1 nvidia.pwbuild,NONE,1.1 nvidia.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/x/nvidia%20ktest.c%2CNONE%2C1.1%20nvidia.pwbuild%2CNONE%2C1.1%20nvidia.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408200901.i7K91g612303%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000107.html">
+   <LINK REL="Next"  HREF="000109.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/x/nvidia ktest.c,NONE,1.1 nvidia.pwbuild,NONE,1.1 nvidia.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/x/nvidia%20ktest.c%2CNONE%2C1.1%20nvidia.pwbuild%2CNONE%2C1.1%20nvidia.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408200901.i7K91g612303%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/x/nvidia ktest.c,NONE,1.1 nvidia.pwbuild,NONE,1.1 nvidia.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Aug 20 11:01:42 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000107.html">[Packware-cvs] pwbuild/x/nvidia - New directory
+</A></li>
+        <LI>Next message: <A HREF="000109.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/x/nvidia
+In directory sheep:/tmp/cvs-serv29038
+
+Added Files:
+	ktest.c nvidia.pwbuild nvidia.pwinfo 
+Log Message:
+- Initial commit.
+- Version 1.0-6111.
+
+
+--- NEW FILE: ktest.c ---
+#include &quot;linux/version.h&quot;
+
+int main()
+{
+	if (LINUX_VERSION_CODE &gt;= KERNEL_VERSION(2,6,0))
+		return 0;
+	else
+		return 1;
+}
+
+--- NEW FILE: nvidia.pwbuild ---
+#!/bin/sh
+
+name=&quot;nvidia&quot;
+version=&quot;1.0-6111&quot;
+build=&quot;1&quot;
+dso=`echo ${version} | tr - '.'`
+
+_pwbuilder 0.6.3
+
+_config -s
+
+_source -m 51e83be46f83c52102ccb8995b54f4e2 -s 8167999 -u <A HREF="http://download.nvidia.com/XFree86/Linux-x86/${version">http://download.nvidia.com/XFree86/Linux-x86/${version</A>}/NVIDIA-Linux-x86-${version}-pkg1.run
+
+cd ${tmp}
+sh ${src1} -x
+cd `basename ${src1} .run`
+
+cd usr/src/nv
+gcc ${src}/ktest.c -o ktest -nostdinc -I/lib/modules/`uname -r`/build/include
+if [ ! -x ktest ]; then
+	echo &quot;Cannot compile ktest.&quot; 1&gt;&amp;2
+	return 1
+fi
+if ./ktest; then
+	ln -s Makefile.kbuild Makefile
+else
+	ln -s Makefile.nvidia Makefile
+	echo &quot;Kernel 2.4.x not supported yet.&quot; 1&gt;&amp;2
+	return 1
+fi
+make CC=gcc -C /lib/modules/`uname -r`/build SUBDIRS=`pwd` modules
+mkdir ${pkg}/lib/modules/`uname -r`/kernel/drivers/video
+cp nvidia.ko ${pkg}/lib/modules/`uname -r`/kernel/drivers/video
+
+cd ../../..
+mkdir ${pkg}/usr/X11R6/bin
+cp usr/bin/nvidia-* ${pkg}/usr/X11R6/bin
+cp -r usr/X11R6 ${pkg}/usr
+chmod 644 ${pkg}/usr/X11R6/lib/modules/drivers/nvidia_drv.o
+cp usr/lib/lib* ${pkg}/usr/X11R6/lib
+cp -r usr/include ${doc}
+cp usr/share/doc/* ${doc}
+ln -s libGL.so.${dso} ${pkg}/usr/X11R6/lib/libGL.so
+ln -s libGL.so.${dso} ${pkg}/usr/X11R6/lib/libGL.so.1
+ln -s libglx.so.${dso} ${pkg}/usr/X11R6/lib/modules/extensions/libglx.so
+
+# $Log: nvidia.pwbuild,v $
+# Revision 1.1  2004/08/20 09:01:39  swiergot
+# - Initial commit.
+# - Version 1.0-6111.
+#
+
+--- NEW FILE: nvidia.pwinfo ---
+info=&quot;Original drivers for NVidia graphic cards.&quot;
+desc=&quot;This package contains X11 drivers and Linux kernel module provided by NVidia for their graphic cards.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000107.html">[Packware-cvs] pwbuild/x/nvidia - New directory
+</A></li>
+	<LI>Next message: <A HREF="000109.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.3,1.4
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#108">[ date ]</a>
+              <a href="thread.html#108">[ thread ]</a>
+              <a href="subject.html#108">[ subject ]</a>
+              <a href="author.html#108">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

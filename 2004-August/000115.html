@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.3,1.4 kadu-modules-cvs.pw.patch,1.4,1.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/kadu%20kadu-cvs.pwbuild%2C1.3%2C1.4%20kadu-modules-cvs.pw.patch%2C1.4%2C1.5&In-Reply-To=%3C200408291435.i7TEZE616032%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000114.html">
+   <LINK REL="Next"  HREF="000116.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.3,1.4 kadu-modules-cvs.pw.patch,1.4,1.5</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/kadu%20kadu-cvs.pwbuild%2C1.3%2C1.4%20kadu-modules-cvs.pw.patch%2C1.4%2C1.5&In-Reply-To=%3C200408291435.i7TEZE616032%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.3,1.4 kadu-modules-cvs.pw.patch,1.4,1.5">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Aug 29 16:35:14 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000114.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.4,1.5
+</A></li>
+        <LI>Next message: <A HREF="000116.html">[Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv22424
+
+Modified Files:
+	kadu-cvs.pwbuild kadu-modules-cvs.pw.patch 
+Log Message:
+- Version 20040829.
+
+
+Index: kadu-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-cvs.pwbuild,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** kadu-cvs.pwbuild	26 Aug 2004 20:05:19 -0000	1.3
+--- kadu-cvs.pwbuild	29 Aug 2004 14:35:12 -0000	1.4
+***************
+*** 2,6 ****
+  
+  name=&quot;kadu&quot;
+! version=&quot;20040826&quot;
+  build=&quot;1&quot;
+  
+--- 2,6 ----
+  
+  name=&quot;kadu&quot;
+! version=&quot;20040829&quot;
+  build=&quot;1&quot;
+  
+***************
+*** 9,13 ****
+  _doc -d -x CVS ChangeLog
+  
+! _source -m 8e7161bc60d7168887701c755df1ef66 -s 1028237 -t ${name} <A HREF="http://kadu.net/download/snapshots/">http://kadu.net/download/snapshots/</A>
+  
+  _patch lpthread
+--- 9,13 ----
+  _doc -d -x CVS ChangeLog
+  
+! _source -m 17218f24adcd848220ee6428e29d4f14 -s 1030104 -t ${name} <A HREF="http://kadu.net/download/snapshots/">http://kadu.net/download/snapshots/</A>
+  
+  _patch lpthread
+***************
+*** 34,37 ****
+--- 34,40 ----
+  
+  # $Log$
++ # Revision 1.4  2004/08/29 14:35:12  swiergot
++ # - Version 20040829.
++ #
+  # Revision 1.3  2004/08/26 20:05:19  swiergot
+  # - Version 20040826.
+
+Index: kadu-modules-cvs.pw.patch
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/kadu/kadu-modules-cvs.pw.patch,v
+retrieving revision 1.4
+retrieving revision 1.5
+diff -C2 -d -r1.4 -r1.5
+*** kadu-modules-cvs.pw.patch	26 Aug 2004 20:22:56 -0000	1.4
+--- kadu-modules-cvs.pw.patch	29 Aug 2004 14:35:12 -0000	1.5
+***************
+*** 1,6 ****
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-22 02:40:31.000000000 +0200
+! +++ kadu/.config	2004-08-26 21:11:42.000000000 +0200
+! @@ -13,73 +13,73 @@
+   #
+   
+--- 1,6 ----
+  diff -ruN kadu.orig/.config kadu/.config
+! --- kadu.orig/.config	2004-08-28 16:16:09.000000000 +0200
+! +++ kadu/.config	2004-08-29 16:17:02.000000000 +0200
+! @@ -13,25 +13,25 @@
+   #
+   
+***************
+*** 10,15 ****
+   
+   # XLib tray docking techniques module (depends: docking)
+! -module_x11_docking=y
+! +module_x11_docking=m
+   
+   # WindowMaker docking module (depends: docking)
+--- 10,14 ----
+   
+   # XLib tray docking techniques module (depends: docking)
+!  module_x11_docking=m
+   
+   # WindowMaker docking module (depends: docking)
+***************
+*** 18,23 ****
+   
+   # OpenSSL encrypted chat support
+! -module_encryption=y
+! +module_encryption=m
+   
+   # Speech synthesis support (depends: notify)
+--- 17,21 ----
+   
+   # OpenSSL encrypted chat support
+!  module_encryption=m
+   
+   # Speech synthesis support (depends: notify)
+***************
+*** 26,31 ****
+   
+   # Voice chat support (depends: dcc)
+! -module_voice=y
+! +module_voice=m
+   
+   # General sound support (depends: notify)
+--- 24,28 ----
+   
+   # Voice chat support (depends: dcc)
+!  module_voice=m
+   
+   # General sound support (depends: notify)
+***************
+*** 34,41 ****
+   
+   # External application sound support (depends: sound)
+! -module_ext_sound=y
+! +module_ext_sound=m
+!  
+!  # Direct /dev/dsp sound support (depends: sound)
+   module_dsp_sound=m
+   
+--- 31,36 ----
+   
+   # External application sound support (depends: sound)
+!  module_ext_sound=m
+! @@ -40,10 +40,10 @@
+   module_dsp_sound=m
+   
+***************
+*** 50,73 ****
+   # Network Audio System support (depends: sound)
+   module_nas_sound=n
+!  
+!  # SMS module
+! -module_sms=y
+! +module_sms=m
+!  
+!  # default gateways for SMS module (depends: sms)
+! -module_default_sms=y
+! +module_default_sms=m
+!  
+!  # dcc module with file transfer support
+! -module_dcc=y
+! +module_dcc=m
+!  
+!  # Auto away module
+! -module_autoaway=y
+! +module_autoaway=m
+!  
+!  # Register/unregister account, remind/change password support
+! -module_account_management=y
+! +module_account_management=m
+   
+   # General notification module
+--- 45,50 ----
+   # Network Audio System support (depends: sound)
+   module_nas_sound=n
+! @@ -64,7 +64,7 @@
+!  module_account_management=m
+   
+   # General notification module
+***************
+*** 76,85 ****
+   
+   # Notification by window module (depends: notify)
+! -module_window_notify=y
+! +module_window_notify=m
+!  
+!  # Notification by hints module (depends: notify)
+! -module_hints=y
+! +module_hints=m
+   
+   # Always on top window docking module (depends: docking)
+--- 53,59 ----
+   
+   # Notification by window module (depends: notify)
+!  module_window_notify=m
+! @@ -73,13 +73,13 @@
+!  module_hints=m
+   
+   # Always on top window docking module (depends: docking)
+***************
+*** 131,142 ****
+  +module_xosd_notify=n
+   
+!  #
+!  # Below are some icon themes, one default and others, made by third
+! @@ -130,11 +130,11 @@
+!  #
+!  
+!  # Default icon theme shipped with sources
+! -icons_default=y
+! +icons_default=y
+   
+   # Crystal 16x16 icons made by Arcisz
+--- 105,112 ----
+  +module_xosd_notify=n
+   
+!  # Weather checking
+!  module_weather=n
+! @@ -136,8 +136,8 @@
+!  icons_default=y
+   
+   # Crystal 16x16 icons made by Arcisz
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000114.html">[Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-cvs.pwbuild,1.4,1.5
+</A></li>
+	<LI>Next message: <A HREF="000116.html">[Packware-cvs] pwbuild/xap/kadu kadu-modules-cvs.pw.patch,1.5,1.6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#115">[ date ]</a>
+              <a href="thread.html#115">[ thread ]</a>
+              <a href="subject.html#115">[ subject ]</a>
+              <a href="author.html#115">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

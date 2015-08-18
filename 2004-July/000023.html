@@ -1,0 +1,626 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/doc/guide DESTDIR,NONE,1.1 FILES,NONE,1.1 HAVE,NONE,1.1 PWBUILD,NONE,1.1 PWINFO,NONE,1.1 SUBPACKAGES,NONE,1.1 VARIABLES,NONE,1.1 janosik.pwinfo,NONE,1.1 slack-desc,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/doc/guide%20DESTDIR%2CNONE%2C1.1%20FILES%2CNONE%2C1.1%20HAVE%2CNONE%2C1.1%20PWBUILD%2CNONE%2C1.1%20PWINFO%2CNONE%2C1.1%20SUBPACKAGES%2CNONE%2C1.1%20VARIABLES%2CNONE%2C1.1%20janosik.pwinfo%2CNONE%2C1.1%20slack-desc%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6r621773%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000016.html">
+   <LINK REL="Next"  HREF="000024.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/doc/guide DESTDIR,NONE,1.1 FILES,NONE,1.1 HAVE,NONE,1.1 PWBUILD,NONE,1.1 PWINFO,NONE,1.1 SUBPACKAGES,NONE,1.1 VARIABLES,NONE,1.1 janosik.pwinfo,NONE,1.1 slack-desc,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/doc/guide%20DESTDIR%2CNONE%2C1.1%20FILES%2CNONE%2C1.1%20HAVE%2CNONE%2C1.1%20PWBUILD%2CNONE%2C1.1%20PWINFO%2CNONE%2C1.1%20SUBPACKAGES%2CNONE%2C1.1%20VARIABLES%2CNONE%2C1.1%20janosik.pwinfo%2CNONE%2C1.1%20slack-desc%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6r621773%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/doc/guide DESTDIR,NONE,1.1 FILES,NONE,1.1 HAVE,NONE,1.1 PWBUILD,NONE,1.1 PWINFO,NONE,1.1 SUBPACKAGES,NONE,1.1 VARIABLES,NONE,1.1 janosik.pwinfo,NONE,1.1 slack-desc,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 00:06:53 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000016.html">[Packware-cvs] pwbuilder/src/etc pwbuilder.conf.new,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000024.html">[Packware-cvs] pwbuilder/po pl.po,NONE,1.1 pwbuilder.pot,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/doc/guide
+In directory sheep:/tmp/cvs-serv15405/doc/guide
+
+Added Files:
+	DESTDIR FILES HAVE PWBUILD PWINFO SUBPACKAGES VARIABLES 
+	janosik.pwinfo slack-desc 
+Log Message:
+- Initial commit.
+
+
+--- NEW FILE: DESTDIR ---
+pwbuilder automatically sets some variables for make install called by
+_install. Those variables include:
+
+DESTDIR=${pkg}
+INSTALLROOT=${pkg}
+INSTALL_ROOT=${pkg}
+PERL_INSTALL_ROOT=${pkg}
+INSTALL_PREFIX=${pkg}
+
+Thus it's not required to put in .pwbuilds commands like:
+
+_i_opt DESTDIR=${pkg}
+
+If for some reason these definitions break make install, you can turn them off
+by passing -u option to _install.
+
+--- NEW FILE: FILES ---
+*.pwbuild
+
+Main building script. The file doesn't need (though it might, better not) to
+be executable. Name of this file doesn't need to be related to package name
+in any way. Available commands has been described in PWBUILD file.
+
+*.pwinfo
+
+A file with informations about package (description etc.) Name of this file
+should be the same as package name. Details in PWINFO file.
+
+*.pwsub
+
+A list of files and directories belonging to a subpackage. Name of this file
+should be the same as subpackage name. If there is &quot;_sub NAME&quot; command in
+.pwbuild script, there must be NAME.pwsub file (additionally there might be
+NAME.pwinfo, too).
+
+*.pw-postinst
+
+A script that will be included in package as install/doinst.sh file and
+executed when installing the package. Name of this file should be the same as
+name of package or subpackage.
+
+--- NEW FILE: HAVE ---
+There are commands available for .pwbuild script that allow to check installed
+software. Examples include:
+
+_have_openssl &amp;&amp; _c_opt --with-openssl
+_have_mysql &amp;&amp; _c_opt --with-mysql
+
+_have_* commands return 0 if software exists, or 1 if it doesn't. To know what
+_have_* commands are available, look into /usr/lib/pwbuilder/include/have
+directory.
+
+_have_* commands have been used ie. in php or sylpheed-claws packages.
+
+--- NEW FILE: PWBUILD ---
+_doc [-d] [-b subdirectory] [-r directory] [-s N] [-x file] [files]
+
+Points to files that will be put as documentation in
+/usr/doc/${name}-${version} directory. Files are separated with space. Their
+location is relative to source directory. This command can be used many times.
+
+-d - automatically select files whose names have all letters upper-case.
+ABOUT-NLS file will be copied, too. With this option you can still define
+addtional files in a normal way.
+
+-b subdirectory - look for -d files in given subdirectory rather that top
+level directory of sources.
+
+-s N - the default source if the first one. This option allows to change the
+source number.
+
+-x file - exclude file from automatically selected files. This option can be
+used many times.
+
+-r directory - defines a directory that the files will be put in. It will be
+/usr/doc/${directory} instead of /usr/doc/${name}-${version}.
+
+_doc command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_source [-f] [-p proj] [-t dir] [-g] [-z] [-u] [-m md5] [-n name] [-v ver] [-i] [url]
+
+Adds new source. File location can be given as URL address that begins with
+<A HREF="http://">http://</A> or <A HREF="ftp://.">ftp://.</A> If URL ends with '/', file name is set automatically this
+way: '${name}-${version}.tar.bz2'.
+
+-g - use '.tar.gz' rather than '.tar.bz2' when setting file name automatically.
+
+-z - use '.tgz' rather than '.tar.bz2' when setting file name automatically.
+
+-Z - use '.zip' rather than '.tar.bz2' when setting file name automatically.
+
+-n string - use ${string} instead of ${name} when setting file name
+automatically.
+
+-v string - use ${string} instead of ${version} when setting file name
+automatically.
+
+-m md5 - sets md5 checksum for file. This checksum is used to verify file
+before unpacking.
+
+-t dir - changes top directory of source. Default is file name without
+extension.
+
+-u - causes source not to be unpacked, even if there is such possibility.
+
+-f - tells pwbuilder that a source can be obtained for SourceForge. URL is not
+needed then and is formed automatically in this way:
+<A HREF="http://unc.dl.sourceforge.net/sourceforge/${name">http://unc.dl.sourceforge.net/sourceforge/${name</A>}/${name}-${version}.tar.bz2.
+If -g option is used, .tar.gz version will be fetched instead of .tar.bz2 one.
+
+-p proj - if -f option is used, and a source is in other directory than ${name}
+(a directory after /sourceforge/ is different), this option will let you
+overwrite name of this directory.
+
+-s size - size of source. It will be displayed after &quot;+ Source &quot; label.
+
+-c - when autocompleting source location, use an underscore instead of a dash
+to join ${name} and ${version}.
+
+-i - when source will not be found, don't stop building.
+
+_source command is available since version 0.6.0 of pwbuilder.
+-s option is available since version 0.6.1 of pwbuilder.
+-c option is available since version 0.6.2 of pwbuilder.
+-i option is available since version 0.6.2 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_c_opt [-s N] options
+
+Passes options to configure script that is executed by _configure command.
+
+-s N - use options for source number N instead of 1.
+
+_c_opt command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_m_opt [-s N] options
+
+Passes options to make that is executed by _make command.
+
+-s N - use options for source number N instead of 1.
+
+_m_opt command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_i_opt [-s N] options
+
+Passes options to make install that is executed by _install command.
+
+-s N - use options for source number N instead of 1.
+
+_i_opt command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_configure [-s N] [-b subdirectory] [options]
+
+Executes configure script and gives it additional options.
+
+-s N - execute configure for source number N instead of 1.
+
+-b subdirectory - execute configure in a subdirectory of source tree. Instead
+of using -b option, _configure command may be preceded by _execindir command.
+
+_configure command is available since version 0.6.0 of pwbuilder.
+-b option is available since version 0.6.1 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_make [-s N] [-b subdirectory] [options]
+
+Executes make and gives it additional options.
+
+-s N - execute make for source number N instead of 1.
+
+-b subdirectory - execute make in a subdirectory of source tree. Instead
+of using -b option, _make command may be preceded by _execindir command.
+
+_make command is available since version 0.6.0 of pwbuilder.
+-b option is available since version 0.6.1 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_install [-s N] [-u] [-b subdirectory] [options]
+
+Executes make install and gives it additional options.
+
+-s N - execute make install for source number N instead of 1.
+
+-b subdirectory - execute make install in a subdirectory of source tree.
+Instead of using -b option, _install command may be preceded by _execindir
+command.
+
+-u - don't set DESTDIR, INSTALLROOT, INSTALL_ROOT, PERL_ISNTALL_ROOT and
+INSTALL_PREFIX variables for make install.
+
+_install command is available since version 0.6.0 of pwbuilder.
+-b option is availabe since version 0.6.1 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_cmi [-s N] [-u] [-b subdirectory]
+
+Executes _configure, _make and _install.
+
+-s N - execute these commands for source number N instead of 1.
+
+-b subdirectory - execute these commands in a subdirectory of source tree.
+Instead of using -b option, _cmi command may be preceded by _execindir command.
+
+-u - don't set DESTDIR, INSTALLROOT, INSTALL_ROOT, PERL_ISNTALL_ROOT and
+INSTALL_PREFIX variables for make install.
+
+_cmi command is available since version 0.6.0 of pwbuilder.
+-b option is available since version 0.6.1 of pwbuilder.
+-u option is available since version 0.6.1 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_py_b_opt options
+
+Passes options to python setup.py build that is called by _py_build.
+
+_py_b_opt command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_py_i_opt options
+
+Passes options to python setup.py install that is called by _py_install.
+
+_py_i_opt command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_py_build [-b subdirectory] [options]
+
+Executes python setup.py build and gives it additional options.
+
+-b subdirectory - execute in a subdirectory of source tree. Instead of using
+-b option, _py_build command may be preceded by _execindir command.
+
+_py_build command is available since version 0.6.0 of pwbuilder.
+-b option is available since version 0.6.1 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_py_install [-u] [-b subdirectory] [options]
+
+Executes python setup.py install and gives it additional options.
+
+-u - don't pass --root=${pkg} to python setup.py install.
+
+-b subdirectory - execute in a subdirectory of source tree. Instead of using
+-b option, _py_install command may be preceded by _execindir command.
+
+_py_install command is available since version 0.6.0 of pwbuilder.
+-u option is available since version 0.6.1 of pwbuilder.
+-b option is available since version 0.6.1 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_patch [-s N] [-p N] [-i] file
+
+Applies patch from given file. File can be defined directly or indirectly -
+pwbuilder will try this then: ${name}-${plik}.pw.patch,
+${name}-${plik}.pw.diff, ${name}-${plik}.patch, ${name}-${plik}.diff,
+${plik}.patch, ${plik}.diff. If file begins with '/', it is used as absolute
+path to particular file.
+
+-s N - applies patch for source number N instead of 1.
+
+-p N - applies patch with level N instead of 1.
+
+-i - don't stop building if patch failed.
+
+_patch command is available since version 0.6.0 of pwbuilder.
+-i option is available since version 0.6.2 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_chmod [-R] perms files
+
+Sets non-standard file permisions. Just before saving package, permisions of
+all files are being reset to 644, and directories to 755. This command allows
+to override this settings.
+
+-R - the same as -R in chmod(1).
+
+_chmod command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_chown [-R] [-d] owning files
+
+Sets non-standard file owning. Just before saving package, ownings of all files
+and directories to root.root. This command allows to override this settings.
+
+-R - the same as -R in chown(1).
+
+-d - the same as --dereference in chown(1).
+
+_chown command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_sub name
+
+Defines a subpackage with given name.
+
+_sub command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_pwbuilder required
+
+Defines the oldest pwbuilder version that is able to build a package. This
+command is intended to use at the beginning of .pwbuild script, before basic
+variables (name, versio, build etc.) or just after them. This command checks
+whether existing pwbuilder version is greater than or equal to required
+version. If not, it stops pwbuilder.
+
+_pwbuilder command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_remove [file/dir...]
+
+This command removes given files/directories from main package. It's helpful
+if we define more than one subpackage and there are needless files or
+directories left in main package.
+
+_remove command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_alt_configure [-s N] command
+
+Changes command that will be executed by _configure instead of ./configure.
+
+-s N - changes command for source number N instead of 1.
+
+_alt_configure command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_alt_make [-s N] command
+
+Changes command that will be executed by _make instead of make.
+
+-s N - changes command for source number N instead of 1.
+
+_alt_make command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_alt_install [-s N] command
+
+Changes command that will be executed by _install instead of make install.
+
+-s N - changes command for source number N instead of 1.
+
+_alt_install command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_next_configure [-s N] command
+
+Like _alt_configure but sets the command only for the next _configure call.
+
+_next_configure command is available since version 0.6.3 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_next_make [-s N] command
+
+Like _alt_make but sets the command only for the next _make call.
+
+_next_make command is available since version 0.6.3 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_next_install [-s N] command
+
+Like _alt_install but sets the command only for the next _install call.
+
+_next_install command is available since version 0.6.3 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_config [-s]
+
+Allows to override /etc/pwbuilder.conf or ~/.pwbuilderrc or commandline
+settings.
+
+-s - don't strip binaries.
+
+_config command is available since version 0.6.0 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_require package [[-eq|-gt|-lt|-ge|-le] version[-build]] [-p subpackage]
+
+Tell pwbuilder what requirements built package has. pwbuilder will create
+install/slack-required file from this data.
+
+-p subpackage - requirement applies to a subpackage, not main package.
+
+  -----------------------------------------------
+ | Relation | Meaning | Comment                  |
+ |----------|---------|--------------------------|
+ | -eq      | =       | equal to                 |
+ | -gt      | &gt;       | greater than             |
+ | -lt      | &lt;       | lower than               |
+ | -ge      | &gt;=      | greater than or equal to |
+ | -le      | &lt;=      | lower than or equal to   |
+  -----------------------------------------------
+
+Examples:
+
+_require openssl
+_require openssl -ge 0.9.7
+_require openssl -eq 0.9.7-2
+_require openssl -gt 0.9.7-i386-2
+
+_require command is available since version 0.6.3 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_execindir directory command
+
+Executes the command in the directory. If _setexecdir was used, then directory
+must not be given.
+
+_execindir command is available since version 0.6.3 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_setexecdir directory
+
+Sets directory for _execindir.
+
+_setexecdir command is available since version 0.6.4 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_unsetexecdir
+
+Unsets directory for _execindir.
+
+_unsetexecdir command is available since version 0.6.4 of pwbuilder.
+
+-------------------------------------------------------------------------------
+
+_qconf_fix file
+
+Fixes a problem with Makefiles generated by qconf with ../ bug.
+
+file - buggy Makefile
+
+--- NEW FILE: PWINFO ---
+In a directory that contains .pwbuild script, one can put ${name}.pwinfo file,
+where ${name} is a value of name variable in .pwbuild script.
+
+In .pwinfo file, some variables should be defined. They include:
+
+info - short description of package, half line long.
+
+desc - longer description.
+
+desc field is automatically formated during building package. A way of
+formatting is illustrated by attached files. File janosik.pwinfo is an example
+of such file. File slack-desc is an output file, generated from janosik.pwinfo.
+slack-desc can't have more than eleven lines. One paragraph should be written
+in one line, without breaking a line.
+
+--- NEW FILE: SUBPACKAGES ---
+pwbuilder has an ability to create subpackages. First, in .pwbuil script there
+should be _sub command to define a subpackage, ie.:
+
+_sub libgadu
+
+and the subpackage will be named ${subpackage}, not ${name}-${subpackage}.
+Second is to define a list of files and directories that will get into the
+subpackage. It is done by creating ${subpackage}.pwsub file. Example content:
+
+/usr/include
+/usr/lib
+/usr/doc/ekg-${version}/api.txt
+/usr/doc/ekg-${version}/protocol.html
+/usr/doc/ekg-${version}/functions.txt
+
+As you can see, we can use variables defined in .pwbuild. And they are not only
+name, version and build variables, but any variables declared in .pwbuild
+script. Warning: names of variables must be enclosed in {} brackets, we can't
+write just $version.
+Optionally, we can create .pwinfo files for subpackages, named
+${subpackage}.pwinfo.
+
+Full ekg package source that makes use of subpackages feature can be found
+in out CVS.
+
+--- NEW FILE: VARIABLES ---
+tmp - temporary directory unique for every pwbuilder process.
+
+pkg - directory that will be used as install root for a package. Content of
+this directory will become package content.
+
+doc - directory ${pkg}/usr/doc/${name}-${version} with package documentation.
+
+docdir - equals to /usr/doc/${name}-${version}.
+
+src - directory that contains .pwbuild script.
+
+srcN - directories with sources that was added by _source command (N = 1...).
+
+srcx - recently defined srcN.
+
+slackver - version of existing Slackware (8.0, 8.1, 9.0, etc.).
+
+slackver_a - first part of full version (7, 8, 9, etc.).
+
+slackver_b - second part of full version (0, 1 etc.).
+
+slackver_c - third part of full version (0, 01 etc.).
+
+slackver_max - full version, equals to
+${slackver_a}.${slackver_b}.${slackver_c} (np 8.0.0, 8.1.0, 9.0.0 etc.).
+
+--- NEW FILE: janosik.pwinfo ---
+info=&quot;An open source alternative for Platnik.&quot;
+desc=&quot;Janosik is a free and open implementation of Platnik, a program that is required for electronic transfer of papers to ZUS (a Polish national insurance office).
+
+Platnik is available only for MS Windows. Janosik has been written in Python, and thus it runs on all platforms Python and PyGTK2 are ported to.&quot;
+
+--- NEW FILE: slack-desc ---
+janosik: janosik (An open source alternative for Platnik.)
+janosik:
+janosik: Janosik is a free and open implementation of Platnik, a program that
+janosik: is required for electronic transfer of papers to ZUS (a Polish
+janosik: national insurance office).
+janosik: 
+janosik: Platnik is available only for MS Windows. Janosik has been written in
+janosik: Python, and thus it runs on all platforms Python and PyGTK2 are ported
+janosik: to.
+janosik:
+janosik:
+janosik:
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000016.html">[Packware-cvs] pwbuilder/src/etc pwbuilder.conf.new,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000024.html">[Packware-cvs] pwbuilder/po pl.po,NONE,1.1 pwbuilder.pot,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#23">[ date ]</a>
+              <a href="thread.html#23">[ thread ]</a>
+              <a href="subject.html#23">[ subject ]</a>
+              <a href="author.html#23">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

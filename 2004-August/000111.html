@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/ap/lame lame-nostatic.pw.patch,NONE,1.1 lame.pwbuild,NONE,1.1 lame.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-August/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/lame%20lame-nostatic.pw.patch%2CNONE%2C1.1%20lame.pwbuild%2CNONE%2C1.1%20lame.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408261938.i7QJcT618743%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000110.html">
+   <LINK REL="Next"  HREF="000112.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/ap/lame lame-nostatic.pw.patch,NONE,1.1 lame.pwbuild,NONE,1.1 lame.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/ap/lame%20lame-nostatic.pw.patch%2CNONE%2C1.1%20lame.pwbuild%2CNONE%2C1.1%20lame.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200408261938.i7QJcT618743%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/ap/lame lame-nostatic.pw.patch,NONE,1.1 lame.pwbuild,NONE,1.1 lame.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Thu Aug 26 21:38:29 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000110.html">[Packware-cvs] pwbuild/ap/lame - New directory
+</A></li>
+        <LI>Next message: <A HREF="000112.html">[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.2,1.3 kadu-modules-cvs.pw.patch,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/ap/lame
+In directory sheep:/tmp/cvs-serv13940
+
+Added Files:
+	lame-nostatic.pw.patch lame.pwbuild lame.pwinfo 
+Log Message:
+- Initial commit.
+- Version 3.96.1.
+
+
+--- NEW FILE: lame-nostatic.pw.patch ---
+diff -ruN lame-3.96.1.orig/frontend/Makefile.in lame-3.96.1/frontend/Makefile.in
+--- lame-3.96.1.orig/frontend/Makefile.in	2004-01-21 14:50:29.000000000 +0100
++++ lame-3.96.1/frontend/Makefile.in	2004-08-26 21:28:51.000000000 +0200
+@@ -91,7 +91,7 @@
+ 	$(top_builddir)/libmp3lame/libmp3lame.la \
+ 	@FRONTEND_LDADD@
+ 
+-LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@ -static
++LDFLAGS = @LDFLAGS@ @FRONTEND_LDFLAGS@
+ LIBOBJS = @LIBOBJS@
+ LIBS = @LIBS@
+ LIBTOOL = @LIBTOOL@
+
+--- NEW FILE: lame.pwbuild ---
+#!/bin/sh
+
+name=&quot;lame&quot;
+version=&quot;3.96.1&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d INSTALL.configure
+
+_source -m e1206c46a5e276feca11a7149e2fc6ac -s 1255629 -f -g
+
+_patch nostatic
+
+_c_opt --prefix=/usr
+_c_opt --enable-nasm
+_c_opt --enable-mp3x
+_c_opt --enable-mp3rtp
+
+_cmi
+
+mv ${pkg}/usr/share/doc/lame/html ${doc}
+
+# $Log: lame.pwbuild,v $
+# Revision 1.1  2004/08/26 19:38:27  swiergot
+# - Initial commit.
+# - Version 3.96.1.
+#
+
+--- NEW FILE: lame.pwinfo ---
+info=&quot;An MP3 encoder and graphical frame analyzer.&quot;
+desc=&quot;LAME (LAME Ain't an MP3 Encoder) is a research project for learning about and improving MP3 encoding technoligy. LAME includes an mp3 encoding library, simple front end application, a much-improved psycho-acoustic model (GPSYCHO), and a graphical frame analyzer (MP3x). Please note that any commercial use (including distributing the LAME encoding engine in a free encoder) may require a patent license from Thomson Multimedia.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000110.html">[Packware-cvs] pwbuild/ap/lame - New directory
+</A></li>
+	<LI>Next message: <A HREF="000112.html">[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,1.2,1.3 kadu-modules-cvs.pw.patch,1.2,1.3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#111">[ date ]</a>
+              <a href="thread.html#111">[ thread ]</a>
+              <a href="subject.html#111">[ subject ]</a>
+              <a href="author.html#111">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

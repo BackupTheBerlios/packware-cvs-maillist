@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/l/libshout libshout.pwbuild,NONE,1.1 libshout.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-October/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/l/libshout%20libshout.pwbuild%2CNONE%2C1.1%20libshout.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410031932.i93JWkB16252%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000130.html">
+   <LINK REL="Next"  HREF="000132.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/l/libshout libshout.pwbuild,NONE,1.1 libshout.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/l/libshout%20libshout.pwbuild%2CNONE%2C1.1%20libshout.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200410031932.i93JWkB16252%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/l/libshout libshout.pwbuild,NONE,1.1 libshout.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Sun Oct  3 21:32:46 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000130.html">[Packware-cvs] pwbuild/l/libshout - New directory
+</A></li>
+        <LI>Next message: <A HREF="000132.html">[Packware-cvs] pwbuild/ap/ices - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#131">[ date ]</a>
+              <a href="thread.html#131">[ thread ]</a>
+              <a href="subject.html#131">[ subject ]</a>
+              <a href="author.html#131">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/l/libshout
+In directory sheep:/tmp/cvs-serv7165
+
+Added Files:
+	libshout.pwbuild libshout.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.0.
+
+
+--- NEW FILE: libshout.pwbuild ---
+#!/bin/sh
+
+name=&quot;libshout&quot;
+version=&quot;2.0&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d examples/example.c
+
+_source -m 627f3eede05b2237bee1369e4a95143c -s 326556 -g <A HREF="http://svn.xiph.org/releases/${name">http://svn.xiph.org/releases/${name</A>}/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+rm -r ${pkg}/usr/share/doc
+rmdir ${pkg}/usr/bin
+
+# $Log: libshout.pwbuild,v $
+# Revision 1.1  2004/10/03 19:32:44  swiergot
+# - Initial commit.
+# - Version 2.0.0.
+#
+
+--- NEW FILE: libshout.pwinfo ---
+info=&quot;A library for streaming to icecast.&quot;
+desc=&quot;Libshout allows applications to easily communicate and broadcast to an Icecast streaming media server. It handles the socket connections, metadata communication, and data streaming for the calling application, and lets developers focus on feature sets instead of implementation details.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000130.html">[Packware-cvs] pwbuild/l/libshout - New directory
+</A></li>
+	<LI>Next message: <A HREF="000132.html">[Packware-cvs] pwbuild/ap/ices - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#131">[ date ]</a>
+              <a href="thread.html#131">[ thread ]</a>
+              <a href="subject.html#131">[ subject ]</a>
+              <a href="author.html#131">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

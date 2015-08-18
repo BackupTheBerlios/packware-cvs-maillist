@@ -1,0 +1,1654 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/funcs%20alt_configure%2CNONE%2C1.1%20alt_install%2CNONE%2C1.1%20alt_make%2CNONE%2C1.1%20c_opt%2CNONE%2C1.1%20chmod%2CNONE%2C1.1%20chown%2CNONE%2C1.1%20cmi%2CNONE%2C1.1%20config%2CNONE%2C1.1%20configure%2CNONE%2C1.1%20doc%2CNONE%2C1.1%20execindir%2CNONE%2C1.1%20i_opt%2CNONE%2C1.1%20install%2CNONE%2C1.1%20m_opt%2CNONE%2C1.1%20make%2CNONE%2C1.1%20next_configure%2CNONE%2C1.1%20next_install%2CNONE%2C1.1%20next_make%2CNONE%2C1.1%20patch%2CNONE%2C1.1%20pwbuilder%2CNONE%2C1.1%20py_b_opt%2CNONE%2C1.1%20py_build%2CNONE%2C1.1%20py_i_opt%2CNONE%2C1.1%20py_install%2CNONE%2C1.1%20qconf_fix%2CNONE%2C1.1%20remove%2CNONE%2C1.1%20require%2CNONE%2C1.1%20set%2CNONE%2C1.1%20setexecdir%2CNONE%2C1.1%20source%2CNONE%2C1.1%20sub%2CNONE%2C1.1%20unsetexecdir%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6t621803%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000022.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuilder/src/usr/lib/pwbuilder/include/funcs%20alt_configure%2CNONE%2C1.1%20alt_install%2CNONE%2C1.1%20alt_make%2CNONE%2C1.1%20c_opt%2CNONE%2C1.1%20chmod%2CNONE%2C1.1%20chown%2CNONE%2C1.1%20cmi%2CNONE%2C1.1%20config%2CNONE%2C1.1%20configure%2CNONE%2C1.1%20doc%2CNONE%2C1.1%20execindir%2CNONE%2C1.1%20i_opt%2CNONE%2C1.1%20install%2CNONE%2C1.1%20m_opt%2CNONE%2C1.1%20make%2CNONE%2C1.1%20next_configure%2CNONE%2C1.1%20next_install%2CNONE%2C1.1%20next_make%2CNONE%2C1.1%20patch%2CNONE%2C1.1%20pwbuilder%2CNONE%2C1.1%20py_b_opt%2CNONE%2C1.1%20py_build%2CNONE%2C1.1%20py_i_opt%2CNONE%2C1.1%20py_install%2CNONE%2C1.1%20qconf_fix%2CNONE%2C1.1%20remove%2CNONE%2C1.1%20require%2CNONE%2C1.1%20set%2CNONE%2C1.1%20setexecdir%2CNONE%2C1.1%20source%2CNONE%2C1.1%20sub%2CNONE%2C1.1%20unsetexecdir%2CNONE%2C1.1&In-Reply-To=%3C200407292206.i6TM6t621803%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs alt_configure,NONE,1.1 alt_install,NONE,1.1 alt_make,NONE,1.1 c_opt,NONE,1.1 chmod,NONE,1.1 chown,NONE,1.1 cmi,NONE,1.1 config,NONE,1.1 configure,NONE,1.1 doc,NONE,1.1 execindir,NONE,1.1 i_opt,NONE,1.1 install,NONE,1.1 m_opt,NONE,1.1 make,NONE,1.1 next_configure,NONE,1.1 next_install,NONE,1.1 next_make,NONE,1.1 patch,NONE,1.1 pwbuilder,NONE,1.1 py_b_opt,NONE,1.1 py_build,NONE,1.1 py_i_opt,NONE,1.1 py_install,NONE,1.1 qconf_fix,NONE,1.1 remove,NONE,1.1 require,NONE,1.1 set,NONE,1.1 setexecdir,NONE,1.1 source,NONE,1.1 sub,NONE,1.1 unsetexecdir,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 00:06:55 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000019.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/have alsa,NONE,1.1 apache1,NONE,1.1 apache2,NONE,1.1 aspell,NONE,1.1 c_client,NONE,1.1 cyrus,NONE,1.1 glib,NONE,1.1 glib2,NONE,1.1 gpg,NONE,1.1 gpgme,NONE,1.1 gtk,NONE,1.1 gtk2,NONE,1.1 imlib,NONE,1.1 ldap,NONE,1.1 libmng,NONE,1.1 mm,NONE,1.1 mysql,NONE,1.1 ncurses,NONE,1.1 openssl,NONE,1.1 perl,NONE,1.1 pgsql,NONE,1.1 python,NONE,1.1 qt,NONE,1.1 recode,NONE,1.1 sasl,NONE,1.1 sasl2,NONE,1.1 sdl,NONE,1.1 slang,NONE,1.1 tcl,NONE,1.1 tclx,NONE,1.1 tk,NONE,1.1
+</A></li>
+        <LI>Next message: <A HREF="000022.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal arch,NONE,1.1 doc,NONE,1.1 var,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs
+In directory sheep:/tmp/cvs-serv15405/src/usr/lib/pwbuilder/include/funcs
+
+Added Files:
+	alt_configure alt_install alt_make c_opt chmod chown cmi 
+	config configure doc execindir i_opt install m_opt make 
+	next_configure next_install next_make patch pwbuilder py_b_opt 
+	py_build py_i_opt py_install qconf_fix remove require set 
+	setexecdir source sub unsetexecdir 
+Log Message:
+- Initial commit.
+
+
+--- NEW FILE: alt_configure ---
+#!/bin/sh
+
+function _alt_configure() {
+
+	srcnum=&quot;1&quot;
+	altconfigure=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) altconfigure=&quot;${altconfigure} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${altconfigure}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_alt_configure: no command specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${altconfigure} &quot; &gt;&gt; ${tmp}/altconfigure_${srcnum}
+
+}
+
+--- NEW FILE: alt_install ---
+#!/bin/sh
+
+function _alt_install() {
+
+	srcnum=&quot;1&quot;
+	altinstall=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) altinstall=&quot;${altinstall} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${altinstall}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_alt_install: no command specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${altinstall} &quot; &gt;&gt; ${tmp}/altinstall_${srcnum}
+
+}
+
+--- NEW FILE: alt_make ---
+#!/bin/sh
+
+function _alt_make() {
+
+	srcnum=&quot;1&quot;
+	altmake=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) altmake=&quot;${altmake} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${altmake}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_alt_make: no command specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${altmake} &quot; &gt;&gt; ${tmp}/altmake_${srcnum}
+
+}
+
+--- NEW FILE: c_opt ---
+#!/bin/sh
+
+function _c_opt() {
+
+	srcnum=&quot;1&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${opts}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_c_opt: no option specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${opts} &quot; &gt;&gt; ${tmp}/c_opts_${srcnum}
+
+}
+
+--- NEW FILE: chmod ---
+#!/bin/sh
+
+function _chmod() {
+
+	recursive=&quot;&quot;
+	hasmode=&quot;&quot;
+	mode=&quot;&quot;
+	files=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-R) recursive=&quot;-R&quot; ;;
+			*)
+
+			    if [ ! &quot;${hasmode}&quot; = &quot;y&quot; ]; then
+
+				    mode=&quot;$1&quot;
+				    hasmode=&quot;y&quot;
+
+			    else
+
+				    if echo &quot;$1&quot; | grep &quot;^${pkg}/&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+					    files=&quot;${files} $1&quot;
+
+				    else
+
+					    files=&quot;${files} ./$1&quot;
+
+				    fi
+
+			    fi ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${mode}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_chmod: mode not specified&quot;
+		exit 2
+
+	fi
+
+	if [ &quot;${files}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_chmod: no files specified&quot;
+		exit 2
+
+	fi
+
+	echo &quot;chmod ${recursive} ${mode} ${files}&quot; &gt;&gt; ${scripts}/chmod
+
+}
+
+--- NEW FILE: chown ---
+#!/bin/sh
+
+function _chown() {
+
+	recursive=&quot;&quot;
+	dereference=&quot;&quot;
+	hasown=&quot;&quot;
+	own=&quot;&quot;
+	files=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-d) dereference=&quot;--dereference&quot; ;;
+			-R) recursive=&quot;-R&quot; ;;
+			*)
+
+			    if [ ! &quot;${hasown}&quot; = &quot;y&quot; ]; then
+
+				    own=&quot;$1&quot;
+				    hasown=&quot;y&quot;
+
+			    else
+
+				    if echo &quot;$1&quot; | grep &quot;^${pkg}/&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+					    files=&quot;${files} $1&quot;
+
+				    else
+
+					    files=&quot;${files} ./$1&quot;
+
+				    fi
+
+			    fi ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${own}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_chown: owning not specified&quot;
+		exit 2
+
+	fi
+
+	if [ &quot;${files}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_chown: no files specified&quot;
+		exit 2
+
+	fi
+
+	echo &quot;chown ${recursive} ${dereference} ${own} ${files}&quot; &gt;&gt; ${scripts}/chown
+
+}
+
+--- NEW FILE: cmi ---
+#!/bin/sh
+
+function _cmi() {
+
+	srcnum=&quot;1&quot;
+	undefine=&quot;&quot;
+	subdir=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-u) undefine=&quot;-u&quot; ;;
+			-b) shift ; subdir=&quot;-b $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	_configure -s ${srcnum} ${subdir}
+	_make -s ${srcnum} ${subdir}
+	_install -s ${srcnum} ${subdir} ${undefine}
+
+}
+
+--- NEW FILE: config ---
+#!/bin/sh
+
+function _config() {
+
+	if [ $# = 0 ]; then
+
+		pwtext &quot;_config: no option specified&quot;
+		exit 2
+
+	fi
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s|--no-strip) echo &quot;nostrip=yes&quot; &gt;&gt; ${tmp}/config ;;
+			*) pwtext &quot;_config: invalid option - %s&quot; $1 ; exit 2 ;;
+
+		esac
+
+		shift
+
+	done
+
+}
+
+--- NEW FILE: configure ---
+#!/bin/sh
+
+function _configure() {
+
+	srcnum=&quot;1&quot;
+	subdir=&quot;&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-b) shift ; subdir=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ ! -f ${tmp}/altconfigure_${srcnum} ]; then
+
+		echo -n &quot;./configure&quot; &gt; ${tmp}/altconfigure_${srcnum}
+
+	fi
+
+	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+
+	(
+
+		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+
+			cd ${srcd}/${subdir}
+
+		fi
+
+		touch ${tmp}/c_opts_${srcnum}
+
+		if [ -f ${tmp}/nextconfigure_${srcnum} ]; then
+
+			mv -f ${tmp}/nextconfigure_${srcnum} ${tmp}/actconfigure_${srcnum}
+
+		else
+
+			cp -f ${tmp}/altconfigure_${srcnum} ${tmp}/actconfigure_${srcnum}
+
+		fi
+
+		if [ &quot;${pw_debug}&quot; = &quot;yes&quot; ]; then
+
+			echo &quot;+ Configure #${srcnum} (&quot;`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}&quot;)&quot;
+			`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}
+			echo $? &gt; ${tmp}/confres
+
+		else
+
+			echo &quot;+ Configure #${srcnum}&quot;
+			`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts} &gt; /dev/null
+			echo $? &gt; ${tmp}/confres
+
+		fi
+
+	)
+
+	if [ ! `cat ${tmp}/confres` = 0 ]; then
+
+		pwtext &quot;! Error: configure failed&quot;
+		exit 3
+
+	fi
+
+}
+
+--- NEW FILE: doc ---
+#!/bin/sh
+
+function _doc() {
+
+	defnum=&quot;&quot;
+	defdoc=&quot;&quot;
+	srcnum=&quot;1&quot;
+	docs=&quot;&quot;
+	exdocs=&quot;&quot;
+	subdir=&quot;&quot;
+	altdir=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-d) defdoc=yes ;;
+			-b) shift ; subdir=&quot;$1&quot; ;;
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-x) shift ; exdocs=&quot;${exdocs} $1&quot; ;;
+			-r) shift ; altdir=&quot;$1&quot; ;;
+			*) docs=&quot;${docs} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${defdoc}&quot; = &quot;yes&quot; ]; then
+
+		echo &quot;copy_defdoc ${srcnum} x${altdir} ${subdir}&quot; &gt;&gt; ${scripts}/doc
+
+	fi
+
+	if [ ! &quot;${docs}&quot; = &quot;&quot; ]; then
+
+		echo &quot;copy_doc ${srcnum} x${altdir} \&quot;${subdir}\&quot; ${docs}&quot; &gt;&gt; ${scripts}/doc
+
+	fi
+
+	if [ ! &quot;${exdocs}&quot; = &quot;&quot; ]; then
+
+		echo &quot;exclude_doc ${srcnum} x${altdir} \&quot;${subdir}\&quot; ${exdocs}&quot; &gt;&gt; ${scripts}/doc
+
+	fi
+
+}
+
+--- NEW FILE: execindir ---
+#!/bin/sh
+
+function _execindir() {
+
+    prevdir=&quot;`pwd`&quot;
+
+    if [ -f ${tmp}/setexecdir ]; then
+
+	    cd &quot;`cat ${tmp}/setexecdir`&quot;
+
+    else
+
+	    cd &quot;$1&quot;
+	    shift
+
+    fi
+
+    inotherdir=yes &quot;$@&quot;
+    cd &quot;${prevdir}&quot;
+
+}
+
+--- NEW FILE: i_opt ---
+#!/bin/sh
+
+function _i_opt() {
+
+	srcnum=&quot;1&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${opts}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_i_opt: no option specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${opts} &quot; &gt;&gt; ${tmp}/i_opts_${srcnum}
+
+}
+
+--- NEW FILE: install ---
+#!/bin/sh
+
+function _install() {
+
+	srcnum=&quot;1&quot;
+	subdir=&quot;&quot;
+	undefine=&quot;&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-b) shift ; subdir=&quot;$1&quot; ;;
+			-u) undefine=&quot;yes&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ ! -f ${tmp}/altinstall_${srcnum} ]; then
+
+		echo -n &quot;make install&quot; &gt; ${tmp}/altinstall_${srcnum}
+
+	fi
+
+	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+
+	(
+
+		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+
+			cd ${srcd}/${subdir}
+
+		fi
+
+		touch ${tmp}/i_opts_${srcnum}
+
+		if [ -f ${tmp}/nextinstall_${srcnum} ]; then
+
+			mv -f ${tmp}/nextinstall_${srcnum} ${tmp}/actinstall_${srcnum}
+
+		else
+
+			cp -f ${tmp}/altinstall_${srcnum} ${tmp}/actinstall_${srcnum}
+
+		fi
+
+		if [ ! &quot;${undefine}&quot; = &quot;yes&quot; ]; then
+
+			destvars=&quot;DESTDIR=${pkg} INSTALLROOT=${pkg} INSTALL_ROOT=${pkg} PERL_INSTALL_ROOT=${pkg} INSTALL_PREFIX=${pkg}&quot;
+
+		fi
+
+		if [ &quot;${pw_debug}&quot; = &quot;yes&quot; ]; then
+
+			echo &quot;+ Install #${srcnum} (&quot;`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}&quot;)&quot;
+			`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}
+			echo $? &gt; ${tmp}/instres
+
+		else
+
+			echo &quot;+ Install #${srcnum}&quot;
+			`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts} &gt; /dev/null
+			echo $? &gt; ${tmp}/instres
+
+		fi
+
+	)
+
+	if [ ! `cat ${tmp}/instres` = 0 ]; then
+
+		pwtext &quot;! Error: make install failed&quot;
+		exit 3
+
+	fi
+
+}
+
+--- NEW FILE: m_opt ---
+#!/bin/sh
+
+function _m_opt() {
+
+	srcnum=&quot;1&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${opts}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_m_opt: no option specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${opts} &quot; &gt;&gt; ${tmp}/m_opts_${srcnum}
+
+}
+
+--- NEW FILE: make ---
+#!/bin/sh
+
+function _make() {
+
+	srcnum=&quot;1&quot;
+	subdir=&quot;&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-b) shift ; subdir=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ ! -f ${tmp}/altmake_${srcnum} ]; then
+
+		echo -n &quot;make&quot; &gt; ${tmp}/altmake_${srcnum}
+
+	fi
+
+	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+
+	(
+
+		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+
+			cd ${srcd}/${subdir}
+
+		fi
+
+		touch ${tmp}/m_opts_${srcnum}
+
+		if [ -f ${tmp}/nextmake_${srcnum} ]; then
+
+			mv -f ${tmp}/nextmake_${srcnum} ${tmp}/actmake_${srcnum}
+
+		else
+
+			cp -f ${tmp}/altmake_${srcnum} ${tmp}/actmake_${srcnum}
+
+		fi
+
+		if [ &quot;${pw_debug}&quot; = &quot;yes&quot; ]; then
+
+			echo &quot;+ Make #${srcnum} (&quot;`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}&quot;)&quot;
+			`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}
+			echo $? &gt; ${tmp}/makeres
+
+		else
+
+			echo &quot;+ Make #${srcnum}&quot;
+			`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts} &gt; /dev/null
+			echo $? &gt; ${tmp}/makeres
+
+		fi
+
+	)
+
+	if [ ! `cat ${tmp}/makeres` = 0 ]; then
+
+		pwtext &quot;! Error: make failed&quot;
+		exit 3
+
+	fi
+
+}
+
+--- NEW FILE: next_configure ---
+#!/bin/sh
+
+function _next_configure() {
+
+	srcnum=&quot;1&quot;
+	nextconfigure=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) nextconfigure=&quot;${nextconfigure} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${nextconfigure}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_next_configure: no command specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${nextconfigure} &quot; &gt;&gt; ${tmp}/nextconfigure_${srcnum}
+
+}
+
+--- NEW FILE: next_install ---
+#!/bin/sh
+
+function _next_install() {
+
+	srcnum=&quot;1&quot;
+	nextinstall=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) nextinstall=&quot;${nextinstall} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${nextinstall}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_next_install: no command specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${nextinstall} &quot; &gt;&gt; ${tmp}/nextinstall_${srcnum}
+
+}
+
+--- NEW FILE: next_make ---
+#!/bin/sh
+
+function _next_make() {
+
+	srcnum=&quot;1&quot;
+	nextmake=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) nextmake=&quot;${nextmake} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${nextmake}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_next_make: no command specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${nextmake} &quot; &gt;&gt; ${tmp}/nextmake_${srcnum}
+
+}
+
+--- NEW FILE: patch ---
+#!/bin/sh
+
+function _patch() {
+
+	level=&quot;1&quot;
+	patches=&quot;&quot;
+	srcnum=&quot;1&quot;
+	failig=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-p) shift ; level=&quot;$1&quot; ;;
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-i) failig=&quot;yes&quot; ;;
+			*) patches=&quot;${patches} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${patches}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_patch: no patch specified&quot;
+		exit 2
+
+	fi
+
+	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+
+	echo 0 &gt; ${tmp}/patch-exit
+
+	(
+
+	cd ${srcd}
+
+	for i in ${patches}; do
+
+		pfile=&quot;&quot;
+
+		pwtext &quot;+ Patch %s&quot; ${i}
+
+		if echo &quot;${i}&quot; | grep &quot;^/&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+			if [ -f &quot;${i}&quot; ]; then
+
+				pfile=&quot;${i}&quot;
+
+			else
+
+				pwtext &quot;! Error: file not found&quot;
+				echo 3 &gt; ${tmp}/patch-exit
+				exit 3
+
+			fi
+
+		else
+
+			for j in ${i} ${i}.bz2 ${i}.gz \
+				    ${name}-${i}.pw.patch \
+				    ${name}-${i}.pw.patch.bz2 \
+				    ${name}-${i}.pw.patch.gz \
+				    ${name}-${i}.pw.diff \
+				    ${name}-${i}.pw.diff.bz2 \
+				    ${name}-${i}.pw.diff.gz \
+				    ${name}-${i}.patch \
+				    ${name}-${i}.patch.bz2 \
+				    ${name}-${i}.patch.gz \
+				    ${name}-${i}.diff \
+				    ${name}-${i}.diff.bz2 \
+				    ${name}-${i}.diff.gz \
+				    ${i}.pw.patch \
+				    ${i}.pw.patch.bz2 \
+				    ${i}.pw.patch.gz \
+				    ${i}.pw.diff \
+				    ${i}.pw.diff.bz2 \
+				    ${i}.pw.diff.gz \
+				    ${i}.patch \
+				    ${i}.patch.bz2 \
+				    ${i}.patch.gz \
+				    ${i}.diff \
+				    ${i}.diff.bz2 \
+				    ${i}.diff.gz ; do
+
+				if [ -f &quot;${src}&quot;/${j} ]; then
+
+					pfile=&quot;${src}&quot;/${j}
+					break
+
+				fi
+
+			done
+
+		fi
+
+		if [ &quot;${pfile}&quot; = &quot;&quot; ]; then
+
+			pwtext &quot;! Error: no matching file&quot;
+			echo 3 &gt; ${tmp}/patch-exit
+			exit 3
+
+		fi
+
+		if echo &quot;${pfile}&quot; | grep &quot;[.]bz2$&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+			xcat=&quot;bzcat&quot;
+
+		elif echo &quot;${pfile}&quot; | grep &quot;[.]gz$&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+			xcat=&quot;zcat&quot;
+
+		else
+
+			xcat=&quot;cat&quot;
+
+		fi
+
+		${xcat} &quot;${pfile}&quot; | patch -p${level} &gt; /dev/null 2&gt;&amp;1
+
+		if [ ! $? = 0 ]; then
+
+			pwtext &quot;! Error: applying failed&quot;
+			echo 3 &gt; ${tmp}/patch-exit
+			exit 3
+
+		fi
+
+	done
+
+	)
+
+	if [ ! &quot;${failig}&quot; = &quot;yes&quot; ]; then
+
+		if [ ! `cat ${tmp}/patch-exit` = 0 ]; then
+
+			exit `cat ${tmp}/patch-exit`
+
+		fi
+
+	fi
+
+	return `cat ${tmp}/patch-exit`
+
+}
+
+--- NEW FILE: pwbuilder ---
+#!/bin/sh
+
+function _pwbuilder_make_version() {
+
+	ver_1=`echo $1 | cut -d '.' -f 1`
+	ver_2=`echo $1 | cut -d '.' -f 2`
+	ver_3=`echo $1 | cut -d '.' -f 3`
+
+	echo `expr ${ver_1} \* 65536 + ${ver_2} \* 256 + ${ver_3} \* 1`
+
+}
+
+function _pwbuilder() {
+
+	if [ &quot;$1&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_pwbuilder: missing argument&quot;
+		exit 2
+
+	fi
+
+	if ! echo &quot;$1&quot; | egrep '^[0-9]+[.][0-9]+[.][0-9]+$' &gt; /dev/null 2&gt;&amp;1; then
+
+		pwtext &quot;_pwbuilder: invalid version&quot;
+		exit 2
+
+	fi
+
+	required_version=`_pwbuilder_make_version $1`
+	current_version=`_pwbuilder_make_version ${pwbuilder_version}`
+
+	if [ &quot;${required_version}&quot; -gt &quot;${current_version}&quot; ]; then
+
+		pwtext &quot;! Error: your pwbuilder %s is too old (at least %s needed)&quot; ${pwbuilder_version} $1
+		exit 3
+
+	fi
+
+}
+
+--- NEW FILE: py_b_opt ---
+#!/bin/sh
+
+function _py_b_opt() {
+
+	srcnum=&quot;1&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${opts}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_py_b_opt: no option specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${opts} &quot; &gt;&gt; ${tmp}/py_b_opts_${srcnum}
+
+}
+
+--- NEW FILE: py_build ---
+#!/bin/sh
+
+function _py_build() {
+
+	srcnum=&quot;1&quot;
+	subdir=&quot;&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-b) shift ; subdir=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+
+	(
+
+		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+
+			cd ${srcd}/${subdir}
+
+		fi
+
+		touch ${tmp}/py_b_opts_${srcnum}
+
+		if [ &quot;${pw_debug}&quot; = &quot;yes&quot; ]; then
+
+			echo &quot;+ Python build #${srcnum} (python setup.py build &quot;`cat ${tmp}/py_b_opts_${srcnum}` ${opts}&quot;)&quot;
+			python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts}
+			echo $? &gt; ${tmp}/pybures
+
+		else
+
+			echo &quot;+ Python build #${srcnum}&quot;
+			python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts} &gt; /dev/null
+			echo $? &gt; ${tmp}/pybures
+
+		fi
+
+	)
+
+	if [ ! `cat ${tmp}/pybures` = 0 ]; then
+
+		pwtext &quot;! Error: python build failed&quot;
+		exit 3
+
+	fi
+
+}
+
+--- NEW FILE: py_i_opt ---
+#!/bin/sh
+
+function _py_i_opt() {
+
+	srcnum=&quot;1&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${opts}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_py_i_opt: no option specified&quot;
+		exit 2
+
+	fi
+
+	echo -n &quot; ${opts} &quot; &gt;&gt; ${tmp}/py_i_opts_${srcnum}
+
+}
+
+--- NEW FILE: py_install ---
+#!/bin/sh
+
+function _py_install() {
+
+	srcnum=&quot;1&quot;
+	subdir=&quot;&quot;
+	undefine=&quot;&quot;
+	opts=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-s) shift ; srcnum=&quot;$1&quot; ;;
+			-b) shift ; subdir=&quot;$1&quot; ;;
+			-u) undefine=&quot;yes&quot; ;;
+			*) opts=&quot;${opts} $1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	eval &quot;srcd=\&quot;\${src${srcnum}}\&quot;&quot;
+
+	(
+
+		if [ ! &quot;${inotherdir}&quot; = &quot;yes&quot; ]; then
+
+			cd ${srcd}/${subdir}
+
+		fi
+
+		touch ${tmp}/py_i_opts_${srcnum}
+
+		if [ ! &quot;${undefine}&quot; = &quot;yes&quot; ]; then
+
+			destvars=&quot;--root=${pkg}&quot;
+
+		fi
+
+		if [ &quot;${pw_debug}&quot; = &quot;yes&quot; ]; then
+
+			echo &quot;+ Python install #${srcnum} (python setup.py install &quot;${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}&quot;)&quot;
+			python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}
+			echo $? &gt; ${tmp}/pyinres
+
+		else
+
+			echo &quot;+ Python install #${srcnum}&quot;
+			python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts} &gt; /dev/null
+			echo $? &gt; ${tmp}/pyinres
+
+		fi
+
+	)
+
+	if [ ! `cat ${tmp}/pyinres` = 0 ]; then
+
+		pwtext &quot;! Error: python install failed&quot;
+		exit 3
+
+	fi
+
+}
+
+--- NEW FILE: qconf_fix ---
+#!/bin/sh
+
+function _qconf_fix()
+{
+    mf=`basename $1`
+    sed 's}(INSTALL_ROOT)\(../\)*}(INSTALL_ROOT)}g' $1 &gt; ${tmp}/${mf}.qconf-fix
+    cat ${tmp}/${mf}.qconf-fix &gt; $1
+    rm -f ${tmp}/${mf}.qconf-fix
+}
+
+--- NEW FILE: remove ---
+#!/bin/sh
+
+function _remove() {
+
+	if [ &quot;$1&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_remove: no file or directory supplied&quot;
+		exit 2
+
+	fi
+
+	echo &quot;$@&quot; &gt;&gt; ${tmp}/toremove
+
+}
+
+--- NEW FILE: require ---
+#!/bin/sh
+
+function _require() {
+
+	cond=&quot;&quot;
+	pver=&quot;&quot;
+	subp=&quot;&quot;
+	pname=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-eq) cond=&quot;=&quot; ; shift ; pver=&quot;$1&quot; ;;
+			-lt) cond=&quot;&lt;&quot; ; shift ; pver=&quot;$1&quot; ;;
+			-gt) cond=&quot;&gt;&quot; ; shift ; pver=&quot;$1&quot; ;;
+			-le) cond=&quot;&lt;=&quot; ; shift ; pver=&quot;$1&quot; ;;
+			-ge) cond=&quot;&gt;=&quot; ; shift ; pver=&quot;$1&quot; ;;
+			-p) shift ; subp=&quot;$1&quot; ;;
+			*) pname=&quot;$1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${pname}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_require: no package specified&quot;
+		exit 2
+
+	fi
+
+	if [ ! &quot;${cond}&quot; = &quot;&quot; -a &quot;${pver}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_require: condition used but no version specified&quot;
+		exit 2
+
+	fi
+
+	if [ &quot;${subp}&quot; = &quot;&quot; ]; then
+
+		subp=&quot;${name}&quot;
+
+	fi
+
+	pver1=`echo ${pver}- | cut -d - -f 1`
+	pver2=`echo ${pver}- | cut -d - -f 2`
+	pver3=`echo ${pver}- | cut -d - -f 3`
+
+	if [ ! &quot;${pver3}&quot; = &quot;&quot; ]; then
+
+		pvers=&quot;${pver}&quot;
+
+	elif [ &quot;${pver2}&quot; = &quot;&quot; ]; then
+
+		pvers=&quot;${pver1}-i386-1&quot;
+
+	else
+
+		pvers=&quot;${pver1}-i386-${pver2}&quot;
+
+	fi
+
+	if [ &quot;${cond}&quot; = &quot;&quot; ]; then
+
+		echo &quot;${pname}&quot; &gt; ${tmp}/req-${subp}
+
+	else
+
+		echo &quot;${pname} ${cond} ${pvers}&quot; &gt; ${tmp}/req-${subp}
+
+	fi
+
+}
+
+--- NEW FILE: set ---
+#!/bin/sh
+
+function _set() {
+
+	if [ &quot;$2&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_set: not enough parameters.&quot;
+		exit 2
+
+	fi
+
+	echo &quot;$2&quot; &gt; ${var}/$1
+
+}
+
+--- NEW FILE: setexecdir ---
+#!/bin/sh
+
+function _setexecdir() {
+
+	if [ &quot;$1&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_setexecdir: no directory supplied&quot;
+		exit 2
+
+	fi
+
+	echo &quot;$1&quot; &gt; ${tmp}/setexecdir
+
+}
+
+--- NEW FILE: source ---
+#!/bin/sh
+
+function _source() {
+
+	sf=&quot;&quot;
+	project=&quot;&quot;
+	topdir=&quot;&quot;
+	compext=&quot;tar.bz2&quot;
+	leavepacked=&quot;&quot;
+	md5=&quot;&quot;
+	fname=&quot;&quot;
+	fver=&quot;&quot;
+	url=&quot;&quot;
+	remote=&quot;&quot;
+	fok=&quot;&quot;
+	xtop=&quot;&quot;
+	singf=&quot;&quot;
+	size=&quot;&quot;
+	sep=&quot;-&quot;
+	passftp=&quot;&quot;
+	failig=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-f) sf=yes ;;
+			-p) shift ; project=&quot;$1&quot; ;;
+			-t) shift ; topdir=&quot;$1&quot; ;;
+			-g) compext=tar.gz ;;
+			-z) compext=tgz ;;
+			-Z) compext=zip ;;
+			-u) leavepacked=yes ;;
+			-i) failig=yes ;;
+			-m) shift ; md5=&quot;$1&quot; ;;
+			-n) shift ; fname=&quot;$1&quot; ;;
+			-v) shift ; fver=&quot;$1&quot; ;;
+			-s) shift ; size=&quot;$1&quot; ;;
+			-c) sep=_ ;;
+			*) url=&quot;$1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${fname}&quot; = &quot;&quot; ]; then
+
+		fname=&quot;${name}&quot;
+
+	fi
+
+	if [ &quot;${fver}&quot; = &quot;&quot; ]; then
+
+		fver=&quot;${version}&quot;
+
+	fi
+
+	if [ &quot;${url}&quot; = &quot;&quot; ]; then
+
+		url=&quot;/&quot;
+
+	fi
+
+	if [ &quot;${passiveftp}&quot; = &quot;yes&quot; ]; then
+
+		passftp=&quot;--passive-ftp&quot;
+
+	fi
+
+	autourl=&quot;${fname}${sep}${fver}.${compext}&quot;
+
+	if [ &quot;${sf}&quot; = &quot;yes&quot; ]; then
+
+		if [ &quot;${project}&quot; = &quot;&quot; ]; then
+
+			project=&quot;${name}&quot;
+
+		fi
+
+		url=&quot;<A HREF="http://${sfmirror">http://${sfmirror</A>}.dl.sourceforge.net/sourceforge/${project}/${autourl}&quot;
+
+	elif echo &quot;${url}&quot; | grep &quot;/$&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+		url=&quot;${url}${autourl}&quot;
+
+	fi
+
+	ffile=&quot;`basename \&quot;${url}\&quot;`&quot;
+
+	pwtext -n &quot;+ Source %s&quot; ${ffile}
+
+	if [ &quot;${size}&quot; = &quot;&quot; ]; then
+
+		echo
+
+	else
+
+		echo &quot; (`expr ${size} / 1024` kB)&quot;
+
+	fi
+
+	if echo &quot;${url}&quot; | egrep &quot;^<A HREF="http://|^ftp://">http://|^ftp://</A>&quot; &gt; /dev/null 2&gt;&amp;1; then
+
+		remote=yes
+
+	fi
+
+	try=0
+
+	while [ &quot;${try}&quot; -lt 3 ]; do
+
+		if [ -f &quot;${srcspool}&quot;/&quot;${ffile}&quot; ]; then
+
+			fok=yes
+
+		elif [ &quot;${remote}&quot; = &quot;yes&quot; ]; then
+
+			wget -t 3 -c -P &quot;${srcspool}&quot; ${passftp} &quot;${url}&quot; &gt; /dev/null 2&gt;&amp;1
+
+			if [ $? = 0 ]; then
+
+				fok=yes
+
+			fi
+
+		fi
+
+		if [ &quot;${fok}&quot; = &quot;yes&quot; -a ! &quot;${md5}&quot; = &quot;&quot; ]; then
+
+			fmd5=`md5sum &quot;${srcspool}&quot;/&quot;${ffile}&quot; | cut -d ' ' -f 1`
+
+			if [ ! &quot;${fmd5}&quot; = &quot;${md5}&quot; ]; then
+
+				fok=no
+				rm -f &quot;${srcspool}&quot;/&quot;${ffile}&quot;
+
+			fi
+
+		fi
+
+		if [ &quot;${fok}&quot; = &quot;yes&quot; ]; then
+
+			break
+
+		fi
+
+		try=`expr ${try} + 1`
+
+	done
+
+	if [ ! &quot;${fok}&quot; = &quot;yes&quot; ]; then
+
+		pwtext &quot;! Error: none valid found&quot;
+
+		if [ ! &quot;${failig}&quot; = &quot;yes&quot; ]; then
+
+			exit 4
+
+		else
+
+			return 4
+
+		fi
+
+	fi
+
+	srccnt=`expr ${srccnt} + 1`
+
+	if [ &quot;${leavepacked}&quot; = &quot;yes&quot; ]; then
+
+		eval &quot;src${srccnt}=\&quot;${srcspool}\&quot;/\&quot;${ffile}\&quot;&quot;
+		echo &quot;src${srccnt}=\&quot;${srcspool}\&quot;/\&quot;${ffile}\&quot;&quot; &gt;&gt; ${scripts}/save
+		eval &quot;srcx=\&quot;${srcspool}\&quot;/\&quot;${ffile}\&quot;&quot;
+		return
+
+	fi
+
+	srcnum=&quot;${RANDOM}${RANDOM}${RANDOM}&quot;
+	mkdir -p ${xsrcdir}/${srcnum}
+
+	( cd ${xsrcdir}/${srcnum}
+
+	case &quot;${ffile}&quot; in
+
+		*.tar.bz2) tar jxf &quot;${srcspool}/${ffile}&quot; &gt; /dev/null 2&gt;&amp;1 ; echo $? &gt; ${tmp}/extres ;;
+		*.tar.gz) tar zxf &quot;${srcspool}/${ffile}&quot; &gt; /dev/null 2&gt;&amp;1 ; echo $? &gt; ${tmp}/extres ;;
+		*.tgz) tar zxf &quot;${srcspool}/${ffile}&quot; &gt; /dev/null 2&gt;&amp;1 ; echo $? &gt; ${tmp}/extres ;;
+		*.tar.Z) tar zxf &quot;${srcspool}/${ffile}&quot; &gt; /dev/null 2&gt;&amp;1 ; echo $? &gt; ${tmp}/extres ;;
+		*.zip) unzip &quot;${srcspool}/${ffile}&quot; &gt; /dev/null 2&gt;&amp;1 ; echo $? &gt; ${tmp}/extres ;;
+		*.bz2) bzcat &quot;${srcspool}/${ffile}&quot; 1&gt; &quot;`basename ${ffile} .bz2`&quot; 2&gt; /dev/null ; echo $? &gt; ${tmp}/extres ;;
+		*.gz) zcat &quot;${srcspool}/${ffile}&quot; 1&gt; &quot;`basename ${ffile} .gz`&quot; 2&gt; /dev/null ; echo $? &gt; ${tmp}/extres ;;
+		*) pwtext &quot;_source: unsupported format&quot; ; echo &quot;unsupported&quot; &gt; ${tmp}/extres ;;
+
+	esac )
+
+	if [ ! `cat ${tmp}/extres` = 0 ]; then
+
+		pwtext &quot;! Error: extracting failed&quot;
+		exit 3
+
+	elif [ &quot;`cat ${tmp}/extres`&quot; = &quot;unsupported&quot; ]; then
+
+		exit 4
+
+	fi
+
+	case &quot;${ffile}&quot; in
+
+		*.tar.bz2) xtop=&quot;`basename \&quot;${ffile}\&quot; .tar.bz2`&quot; ;;
+		*.tar.gz) xtop=&quot;`basename \&quot;${ffile}\&quot; .tar.gz`&quot; ;;
+		*.tgz) xtop=&quot;`basename \&quot;${ffile}\&quot; .tgz`&quot; ;;
+		*.tar.Z) xtop=&quot;`basename \&quot;${ffile}\&quot; .tar.Z`&quot; ;;
+		*.zip) xtop=&quot;`basename \&quot;${ffile}\&quot; .zip`&quot; ;;
+		*.bz2) singf=&quot;`basename \&quot;${ffile}\&quot; .bz2`&quot; ;;
+		*.gz) singf=&quot;`basename \&quot;${ffile}\&quot; .gz`&quot; ;;
+
+	esac
+
+	if [ &quot;${topdir}&quot; = &quot;&quot; -a ! &quot;${xtop}&quot; = &quot;&quot; ]; then
+
+		topdir=&quot;${xtop}&quot;
+
+	fi
+
+	if [ ! -d ${xsrcdir}/${srcnum}/&quot;${topdir}&quot; ]; then
+
+		topdir=&quot;&quot;
+
+	fi
+
+	if [ ! &quot;${singf}&quot; = &quot;&quot; ]; then
+
+		topdir=&quot;${singf}&quot;
+
+	fi
+
+	eval &quot;src${srccnt}=${xsrcdir}/${srcnum}/\&quot;${topdir}\&quot;&quot;
+	echo &quot;src${srccnt}=${xsrcdir}/${srcnum}/\&quot;${topdir}\&quot;&quot; &gt;&gt; ${scripts}/save
+	eval &quot;srcx=${xsrcdir}/${srcnum}/\&quot;${topdir}\&quot;&quot;
+
+}
+
+--- NEW FILE: sub ---
+#!/bin/sh
+
+function _sub() {
+
+	buildnum=&quot;&quot;
+	subname=&quot;&quot;
+
+	while [ $# -gt 0 ]; do
+
+		case &quot;$1&quot; in
+
+			-b) shift ; buildnum=&quot;$1&quot; ;;
+			*) subname=&quot;$1&quot; ;;
+
+		esac
+
+		shift
+
+	done
+
+	if [ &quot;${subname}&quot; = &quot;&quot; ]; then
+
+		pwtext &quot;_sub: subpackage name not supplied&quot;
+		exit 2
+
+	fi
+
+	echo &quot;${subname}=${buildnum}&quot; &gt;&gt; ${tmp}/sub
+
+}
+
+--- NEW FILE: unsetexecdir ---
+#!/bin/sh
+
+function _unsetexecdir() {
+
+	rm -f ${tmp}/setexecdir
+
+}
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000019.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/have alsa,NONE,1.1 apache1,NONE,1.1 apache2,NONE,1.1 aspell,NONE,1.1 c_client,NONE,1.1 cyrus,NONE,1.1 glib,NONE,1.1 glib2,NONE,1.1 gpg,NONE,1.1 gpgme,NONE,1.1 gtk,NONE,1.1 gtk2,NONE,1.1 imlib,NONE,1.1 ldap,NONE,1.1 libmng,NONE,1.1 mm,NONE,1.1 mysql,NONE,1.1 ncurses,NONE,1.1 openssl,NONE,1.1 perl,NONE,1.1 pgsql,NONE,1.1 python,NONE,1.1 qt,NONE,1.1 recode,NONE,1.1 sasl,NONE,1.1 sasl2,NONE,1.1 sdl,NONE,1.1 slang,NONE,1.1 tcl,NONE,1.1 tclx,NONE,1.1 tk,NONE,1.1
+</A></li>
+	<LI>Next message: <A HREF="000022.html">[Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/internal arch,NONE,1.1 doc,NONE,1.1 var,NONE,1.1
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#25">[ date ]</a>
+              <a href="thread.html#25">[ thread ]</a>
+              <a href="subject.html#25">[ subject ]</a>
+              <a href="author.html#25">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

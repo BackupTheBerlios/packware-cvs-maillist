@@ -1,0 +1,489 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,NONE,1.1 kadu-libgsm-install.pw.patch,NONE,1.1 kadu-lpthread.pw.patch,NONE,1.1 kadu-modules-cvs.pw.patch,NONE,1.1 kadu-modules.pw.patch,NONE,1.1 kadu.desktop,NONE,1.1 kadu.pwbuild,NONE,1.1 kadu.pwinfo,NONE,1.1
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/packware-cvs/2004-July/index.html" >
+   <LINK REL="made" HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/kadu%20kadu-cvs.pwbuild%2CNONE%2C1.1%20kadu-libgsm-install.pw.patch%2CNONE%2C1.1%20kadu-lpthread.pw.patch%2CNONE%2C1.1%20kadu-modules-cvs.pw.patch%2CNONE%2C1.1%20kadu-modules.pw.patch%2CNONE%2C1.1%20kadu.desktop%2CNONE%2C1.1%20kadu.pwbuild%2CNONE%2C1.1%20kadu.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200407301728.i6UHSi618774%40bat.berlios.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000040.html">
+   <LINK REL="Next"  HREF="000042.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,NONE,1.1 kadu-libgsm-install.pw.patch,NONE,1.1 kadu-lpthread.pw.patch,NONE,1.1 kadu-modules-cvs.pw.patch,NONE,1.1 kadu-modules.pw.patch,NONE,1.1 kadu.desktop,NONE,1.1 kadu.pwbuild,NONE,1.1 kadu.pwinfo,NONE,1.1</H1>
+    <B>swiergot</B> 
+    <A HREF="mailto:packware-cvs%40lists.berlios.de?Subject=Re%3A%20%5BPackware-cvs%5D%20pwbuild/xap/kadu%20kadu-cvs.pwbuild%2CNONE%2C1.1%20kadu-libgsm-install.pw.patch%2CNONE%2C1.1%20kadu-lpthread.pw.patch%2CNONE%2C1.1%20kadu-modules-cvs.pw.patch%2CNONE%2C1.1%20kadu-modules.pw.patch%2CNONE%2C1.1%20kadu.desktop%2CNONE%2C1.1%20kadu.pwbuild%2CNONE%2C1.1%20kadu.pwinfo%2CNONE%2C1.1&In-Reply-To=%3C200407301728.i6UHSi618774%40bat.berlios.de%3E"
+       TITLE="[Packware-cvs] pwbuild/xap/kadu kadu-cvs.pwbuild,NONE,1.1 kadu-libgsm-install.pw.patch,NONE,1.1 kadu-lpthread.pw.patch,NONE,1.1 kadu-modules-cvs.pw.patch,NONE,1.1 kadu-modules.pw.patch,NONE,1.1 kadu.desktop,NONE,1.1 kadu.pwbuild,NONE,1.1 kadu.pwinfo,NONE,1.1">nobody at sheep.berlios.de
+       </A><BR>
+    <I>Fri Jul 30 19:28:44 CEST 2004</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000040.html">[Packware-cvs] pwbuild/xap/kadu - New directory
+</A></li>
+        <LI>Next message: <A HREF="000042.html">[Packware-cvs] tools - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Update of /cvsroot/packware/pwbuild/xap/kadu
+In directory sheep:/tmp/cvs-serv26868
+
+Added Files:
+	kadu-cvs.pwbuild kadu-libgsm-install.pw.patch 
+	kadu-lpthread.pw.patch kadu-modules-cvs.pw.patch 
+	kadu-modules.pw.patch kadu.desktop kadu.pwbuild kadu.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.3.9/20040930.
+
+
+--- NEW FILE: kadu-cvs.pwbuild ---
+#!/bin/sh
+
+name=&quot;kadu&quot;
+version=&quot;20040730&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d -x CVS ChangeLog
+
+_source -m aa05d9b21e9dea76e65bf5ef96478bbf -s 953811 -t ${name} <A HREF="http://kadu.net/download/snapshots/">http://kadu.net/download/snapshots/</A>
+
+_patch lpthread
+_patch libgsm-install
+_patch modules-cvs
+
+_c_opt --prefix=/usr
+_c_opt --enable-modules
+_c_opt --with-existing-libgadu
+
+_cmi
+
+for i in AUTHORS ChangeLog COPYING HISTORY README THANKS; do
+    rm ${pkg}/usr/share/kadu/${i}
+    ln -s ../../doc/${name}-${version}/${i} ${pkg}/usr/share/kadu
+done
+
+mkdir ${pkg}/opt/kde/share/applnk/Internet
+cp ${src}/kadu.desktop ${pkg}/opt/kde/share/applnk/Internet
+mkdir ${pkg}/opt/kde/share/icons/hicolor/{16x16/apps,32x32/apps,48x48/apps}
+cp ${src1}/kadu/hi16-app-kadu.png ${pkg}/opt/kde/share/icons/hicolor/16x16/apps/kadu.png
+cp ${src1}/kadu/hi32-app-kadu.png ${pkg}/opt/kde/share/icons/hicolor/32x32/apps/kadu.png
+cp ${src1}/kadu/hi48-app-kadu.png ${pkg}/opt/kde/share/icons/hicolor/48x48/apps/kadu.png
+
+# $Log: kadu-cvs.pwbuild,v $
+# Revision 1.1  2004/07/30 17:28:42  swiergot
+# - Initial commit.
+# - Version 0.3.9/20040930.
+#
+
+--- NEW FILE: kadu-libgsm-install.pw.patch ---
+diff -ruN kadu.orig/modules/voice/libgsm/Makefile kadu/modules/voice/libgsm/Makefile
+--- kadu.orig/modules/voice/libgsm/Makefile	2003-10-15 16:09:01.000000000 +0200
++++ kadu/modules/voice/libgsm/Makefile	2004-04-12 16:20:12.000000000 +0200
+@@ -78,9 +78,9 @@
+ # Leave GSM_INSTALL_ROOT empty to not install the GSM library outside of
+ # this directory.
+ 
+-GSM_INSTALL_ROOT = $(INSTALL_ROOT)
++GSM_INSTALL_ROOT = $(INSTALL_ROOT)/usr
+ GSM_INSTALL_LIB = $(GSM_INSTALL_ROOT)/lib
+-GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/inc
++GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/include
+ GSM_INSTALL_MAN = $(GSM_INSTALL_ROOT)/man/man3
+ 
+ 
+@@ -89,7 +89,7 @@
+ # Leave TOAST_INSTALL_ROOT empty to not install the toast binaries outside
+ # of this directory.
+ 
+-TOAST_INSTALL_ROOT	  = $(INSTALL_ROOT)
++TOAST_INSTALL_ROOT	  = $(INSTALL_ROOT)/usr
+ TOAST_INSTALL_BIN = $(TOAST_INSTALL_ROOT)/bin
+ TOAST_INSTALL_MAN = $(TOAST_INSTALL_ROOT)/man/man1
+ 
+@@ -352,49 +352,59 @@
+ 
+ $(TOAST_INSTALL_BIN)/toast:	$(TOAST)
+ 		-rm $@
++		mkdir -p $(TOAST_INSTALL_BIN)
+ 		cp $(TOAST) $@
+ 		chmod 755 $@
+ 
+ $(TOAST_INSTALL_BIN)/untoast:	$(TOAST_INSTALL_BIN)/toast
+ 		-rm $@
++		mkdir -p $(TOAST_INSTALL_BIN)
+ 		ln $? $@
+ 
+ $(TOAST_INSTALL_BIN)/tcat:	$(TOAST_INSTALL_BIN)/toast
+ 		-rm $@
++		mkdir -p $(TOAST_INSTALL_BIN)
+ 		ln $? $@
+ 
+ $(TOAST_INSTALL_MAN)/toast.1:	$(MAN)/toast.1
+ 		-rm $@
++		mkdir -p $(TOAST_INSTALL_MAN)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+ $(GSM_INSTALL_MAN)/gsm.3:	$(MAN)/gsm.3
+ 		-rm $@
++		mkdir -p $(GSM_INSTALL_MAN)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+ $(GSM_INSTALL_MAN)/gsm_option.3:	$(MAN)/gsm_option.3
+ 		-rm $@
++		mkdir -p $(GSM_INSTALL_MAN)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+ $(GSM_INSTALL_MAN)/gsm_explode.3:	$(MAN)/gsm_explode.3
+ 		-rm $@
++		mkdir -p $(GSM_INSTALL_MAN)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+ $(GSM_INSTALL_MAN)/gsm_print.3:	$(MAN)/gsm_print.3
+ 		-rm $@
++		mkdir -p $(GSM_INSTALL_MAN)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+ $(GSM_INSTALL_INC)/gsm.h:	$(INC)/gsm.h
+ 		-rm $@
++		mkdir -p $(GSM_INSTALL_INC)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+ $(GSM_INSTALL_LIB)/libgsm.a:	$(LIBGSM)
+ 		-rm $@
++		mkdir -p $(GSM_INSTALL_LIB)
+ 		cp $? $@
+ 		chmod 444 $@
+ 
+
+--- NEW FILE: kadu-lpthread.pw.patch ---
+diff -ruN kadu.orig/configure kadu/configure
+--- kadu.orig/configure	2004-04-10 17:28:47.000000000 +0200
++++ kadu/configure	2004-04-20 14:51:54.000000000 +0200
+@@ -5889,7 +5889,7 @@
+ 	echo &quot;$as_me:$LINENO: checking if libgadu.so/dylib library is in system directories&quot; &gt;&amp;5
+ echo $ECHO_N &quot;checking if libgadu.so/dylib library is in system directories... $ECHO_C&quot; &gt;&amp;6
+ 	save_CFLAGS=&quot;$CFLAGS&quot;
+-	CFLAGS=&quot;$CFLAGS  -lgadu&quot;
++	CFLAGS=&quot;$CFLAGS  -lpthread -lgadu&quot;
+ 	cat &gt;conftest.$ac_ext &lt;&lt;_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+
+--- NEW FILE: kadu-modules-cvs.pw.patch ---
+diff -ruN kadu.orig/.config kadu/.config
+--- kadu.orig/.config	2004-07-20 23:18:35.000000000 +0200
++++ kadu/.config	2004-07-30 18:55:39.000000000 +0200
+@@ -7,61 +7,61 @@
+ #
+ 
+ # Tray icon support
+-module_docking=y
++module_docking=m
+ 
+ # XLib tray docking techniques module
+-module_x11_docking=y
++module_x11_docking=m
+ 
+ # WindowMaker docking module
+-module_wmaker_docking=n
++module_wmaker_docking=m
+ 
+ # OpenSSL encrypted chat support
+-module_encryption=y
++module_encryption=m
+ 
+ # Speech synthesis support
+-module_speech=n
++module_speech=m
+ 
+ # Voice chat support
+-module_voice=y
++module_voice=m
+ 
+ # General sound support
+-module_sound=y
++module_sound=m
+ 
+ # External application sound support
+-module_ext_sound=y
++module_ext_sound=m
+ 
+ # Direct /dev/dsp sound support
+ module_dsp_sound=m
+ 
+ # Arts sound server support
+-module_arts_sound=n
++module_arts_sound=m
+ 
+ # ESD sound server support
+-module_esd_sound=n
++module_esd_sound=m
+ 
+ # Network Audio System support
+ module_nas_sound=n
+ 
+ # SMS module
+-module_sms=y
++module_sms=m
+ 
+ # default gateways for SMS module
+-module_default_sms=y
++module_default_sms=m
+ 
+ # dcc module with file transfer support
+-module_dcc=y
++module_dcc=m
+ 
+ # Auto away module
+-module_autoaway=y
++module_autoaway=m
+ 
+ # Register/unregister account, remind/change password support
+-module_account_management=y
++module_account_management=m
+ 
+ # Autoresponder module
+ module_autoresponder=m
+ 
+ # Echo sample module
+-module_echo=n
++module_echo=m
+ 
+ #
+ # Below are some external modules, made by third parties, but
+@@ -72,22 +72,22 @@
+ #
+ 
+ # TCL scripting support and KaduPro extensions
+-module_tcl_scripting=n
++module_tcl_scripting=n
+ 
+ # Xmms player support
+-module_xmms=n
++module_xmms=m
+ 
+ # AmaroK player support
+-module_amarok=n
++module_amarok=m
+ 
+ # Description from file module
+-module_filedesc=n
++module_filedesc=m
+ 
+ # Mail checker module
+-module_mail=n
++module_mail=m
+ 
+ # Spellchecker module (Aspell support)
+-module_spellchecker=n
++module_spellchecker=m
+ 
+ # PC-Speaker support
+-module_pcspeaker=n
++module_pcspeaker=m
+
+--- NEW FILE: kadu-modules.pw.patch ---
+diff -ruN kadu.orig/.config kadu/.config
+--- kadu.orig/.config	2004-06-20 17:02:43.000000000 +0200
++++ kadu/.config	2004-07-30 19:15:16.000000000 +0200
+@@ -7,55 +7,55 @@
+ #
+ 
+ # Tray icon support
+-module_docking=y
++module_docking=m
+ 
+ # XLib tray docking techniques module
+-module_x11_docking=y
++module_x11_docking=m
+ 
+ # WindowMaker docking module
+-module_wmaker_docking=n
++module_wmaker_docking=m
+ 
+ # OpenSSL encrypted chat support
+-module_encryption=y
++module_encryption=m
+ 
+ # Speech synthesis support
+-module_speech=n
++module_speech=m
+ 
+ # Voice chat support
+-module_voice=y
++module_voice=m
+ 
+ # General sound support
+-module_sound=y
++module_sound=m
+ 
+ # External application sound support
+-module_ext_sound=y
++module_ext_sound=m
+ 
+ # Direct /dev/dsp sound support
+ module_dsp_sound=m
+ 
+ # Arts sound server support
+-module_arts_sound=n
++module_arts_sound=m
+ 
+ # ESD sound server support
+-module_esd_sound=n
++module_esd_sound=m
+ 
+ # Network Audio System support
+ module_nas_sound=n
+ 
+ # SMS module
+-module_sms=y
++module_sms=m
+ 
+ # default gateways for SMS module
+-module_default_sms=y
++module_default_sms=m
+ 
+ # Auto away module
+-module_autoaway=y
++module_autoaway=m
+ 
+ # Autoresponder module
+ module_autoresponder=m
+ 
+ # Echo sample module
+-module_echo=n
++module_echo=m
+ 
+ #
+ # Below are some external modules, made by third parties, but
+@@ -66,22 +66,22 @@
+ #
+ 
+ # TCL scripting support and KaduPro extensions
+-module_tcl_scripting=n
++module_tcl_scripting=n
+ 
+ # Xmms player support
+-module_xmms=n
++module_xmms=m
+ 
+ # AmaroK player support
+-module_amarok=n
++module_amarok=m
+ 
+ # Description from file module
+-module_filedesc=n
++module_filedesc=m
+ 
+ # Mail checker module
+-module_mail=n
++module_mail=m
+ 
+ # Spellchecker module (Aspell support)
+-module_spellchecker=n
++module_spellchecker=m
+ 
+ # PC-Speaker support
+-module_pcspeaker=n
++module_pcspeaker=m
+
+--- NEW FILE: kadu.desktop ---
+[Desktop Entry]
+Type=Application
+Exec=/usr/bin/kadu
+Icon=kadu.png
+MiniIcon=kadu.png
+Terminal=0
+Name=Kadu
+GenericName[pl]=Klient Gadu-Gadu
+
+--- NEW FILE: kadu.pwbuild ---
+#!/bin/sh
+
+name=&quot;kadu&quot;
+version=&quot;0.3.9&quot;
+build=&quot;1&quot;
+
+_pwbuilder 0.6.3
+
+_doc -d ChangeLog
+
+_source -m d461c4b19670920e2ba1425d12e23f6b -s 942895 -t ${name} <A HREF="http://kadu.net/download/stable/">http://kadu.net/download/stable/</A>
+
+_patch lpthread
+_patch libgsm-install
+_patch modules
+
+_c_opt --prefix=/usr
+_c_opt --enable-modules
+_c_opt --with-existing-libgadu
+
+_cmi
+
+for i in AUTHORS ChangeLog COPYING HISTORY README THANKS; do
+    rm ${pkg}/usr/share/kadu/${i}
+    ln -s ../../doc/${name}-${version}/${i} ${pkg}/usr/share/kadu
+done
+
+mkdir ${pkg}/opt/kde/share/applnk/Internet
+cp ${src}/kadu.desktop ${pkg}/opt/kde/share/applnk/Internet
+mkdir ${pkg}/opt/kde/share/icons/hicolor/{16x16/apps,32x32/apps,48x48/apps}
+cp ${src1}/kadu/hi16-app-kadu.png ${pkg}/opt/kde/share/icons/hicolor/16x16/apps/kadu.png
+cp ${src1}/kadu/hi32-app-kadu.png ${pkg}/opt/kde/share/icons/hicolor/32x32/apps/kadu.png
+cp ${src1}/kadu/hi48-app-kadu.png ${pkg}/opt/kde/share/icons/hicolor/48x48/apps/kadu.png
+
+# $Log: kadu.pwbuild,v $
+# Revision 1.1  2004/07/30 17:28:42  swiergot
+# - Initial commit.
+# - Version 0.3.9/20040930.
+#
+
+--- NEW FILE: kadu.pwinfo ---
+info=&quot;A Gadu-Gadu client for KDE.&quot;
+desc=&quot;Kadu is a KDE client for Gadu-Gadu, a Polish messenger application similar to AIM or ICQ.
+
+It's based on libgadu, a reverse-engineered Unix API for Gadu-Gadu, and implements most features of the original.&quot;
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000040.html">[Packware-cvs] pwbuild/xap/kadu - New directory
+</A></li>
+	<LI>Next message: <A HREF="000042.html">[Packware-cvs] tools - New directory
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#41">[ date ]</a>
+              <a href="thread.html#41">[ thread ]</a>
+              <a href="subject.html#41">[ subject ]</a>
+              <a href="author.html#41">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/packware-cvs">More information about the Packware-cvs
+mailing list</a><br>
+</body></html>

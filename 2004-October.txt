@@ -1,0 +1,4427 @@
+From nobody at sheep.berlios.de  Sun Oct  3 21:32:26 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 3 Oct 2004 21:32:26 +0200
+Subject: [Packware-cvs] pwbuild/l/libshout - New directory
+Message-ID: <200410031932.i93JWQB16247@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/l/libshout
+In directory sheep:/tmp/cvs-serv7120/libshout
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/l/libshout added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Oct  3 21:32:46 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 3 Oct 2004 21:32:46 +0200
+Subject: [Packware-cvs] pwbuild/l/libshout libshout.pwbuild,NONE,1.1 libshout.pwinfo,NONE,1.1
+Message-ID: <200410031932.i93JWkB16252@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/l/libshout
+In directory sheep:/tmp/cvs-serv7165
+
+Added Files:
+	libshout.pwbuild libshout.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.0.
+
+
+--- NEW FILE: libshout.pwbuild ---
+#!/bin/sh
+
+name="libshout"
+version="2.0"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d examples/example.c
+
+_source -m 627f3eede05b2237bee1369e4a95143c -s 326556 -g http://svn.xiph.org/releases/${name}/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+rm -r ${pkg}/usr/share/doc
+rmdir ${pkg}/usr/bin
+
+# $Log: libshout.pwbuild,v $
+# Revision 1.1  2004/10/03 19:32:44  swiergot
+# - Initial commit.
+# - Version 2.0.0.
+#
+
+--- NEW FILE: libshout.pwinfo ---
+info="A library for streaming to icecast."
+desc="Libshout allows applications to easily communicate and broadcast to an Icecast streaming media server. It handles the socket connections, metadata communication, and data streaming for the calling application, and lets developers focus on feature sets instead of implementation details."
+
+
+
+From nobody at sheep.berlios.de  Sun Oct  3 21:33:17 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 3 Oct 2004 21:33:17 +0200
+Subject: [Packware-cvs] pwbuild/ap/ices - New directory
+Message-ID: <200410031933.i93JXHB16282@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/ices
+In directory sheep:/tmp/cvs-serv7223/ices
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/ap/ices added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Sun Oct  3 21:33:34 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sun, 3 Oct 2004 21:33:34 +0200
+Subject: [Packware-cvs] pwbuild/ap/ices ices.pwbuild,NONE,1.1 ices.pwinfo,NONE,1.1
+Message-ID: <200410031933.i93JXYB16287@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/ap/ices
+In directory sheep:/tmp/cvs-serv7268
+
+Added Files:
+	ices.pwbuild ices.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.4.
+
+
+--- NEW FILE: ices.pwbuild ---
+#!/bin/sh
+
+name="ices"
+version="0.4"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d README.playlist
+
+_source -m d31450c4011561dae0229f071cb41cb6 -s 372837 -g http://svn.xiph.org/releases/${name}/
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc/ices
+
+_cmi
+
+mv ${pkg}/usr/doc/ices/icesmanual.html ${doc}
+rm -r ${pkg}/usr/doc/ices
+
+# $Log: ices.pwbuild,v $
+# Revision 1.1  2004/10/03 19:33:32  swiergot
+# - Initial commit.
+# - Version 0.4.
+#
+
+--- NEW FILE: ices.pwinfo ---
+info="MP3 streamer for the IceCast system."
+desc="Ices is an MP3 streamer for the IceCast system, and is developed by the IceCast team. It is a replacement for Shout, and its features include embedded Perl and Python scripting, reencoding, and XML config files."
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 20:11:15 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 20:11:15 +0200
+Subject: [Packware-cvs] pwbuild/n/icecast - New directory
+Message-ID: <200410041811.i94IBFB12309@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/icecast
+In directory sheep:/tmp/cvs-serv25039/icecast
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/n/icecast added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 20:11:44 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 20:11:44 +0200
+Subject: [Packware-cvs] pwbuild/n/icecast icecast-conf.pw.patch,NONE,1.1 icecast.pw-postinst,NONE,1.1 icecast.pwbuild,NONE,1.1 icecast.pwinfo,NONE,1.1
+Message-ID: <200410041811.i94IBiB12313@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/n/icecast
+In directory sheep:/tmp/cvs-serv25104
+
+Added Files:
+	icecast-conf.pw.patch icecast.pw-postinst icecast.pwbuild 
+	icecast.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.2.
+
+
+--- NEW FILE: icecast-conf.pw.patch ---
+diff -ruN icecast-2.0.0.orig/conf/icecast.xml.in icecast-2.0.0/conf/icecast.xml.in
+--- icecast-2.0.0.orig/conf/icecast.xml.in	2004-01-08 15:13:43.000000000 +0100
++++ icecast-2.0.0/conf/icecast.xml.in	2004-01-09 21:42:49.000000000 +0100
+@@ -108,11 +108,9 @@
+ 
+     <security>
+         <chroot>0</chroot>
+-        <!--
+         <changeowner>
+             <user>nobody</user>
+             <group>nogroup</group>
+         </changeowner>
+-        -->
+     </security>
+ </icecast>
+
+--- NEW FILE: icecast.pw-postinst ---
+#!/bin/sh
+
+if [ ! -f etc/icecast.xml ]; then
+    mv -f etc/icecast.xml.new etc/icecast.xml
+fi
+
+--- NEW FILE: icecast.pwbuild ---
+#!/bin/sh
+
+name="icecast"
+version="2.0.2"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -m 92d7a814db7c64075c3d4c1e480fbf25 -s 750391 -g http://svn.xiph.org/releases/${name}/
+
+_patch conf
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+_c_opt --localstatedir=/var
+
+_cmi
+
+mkdir ${doc}/html
+cp ${pkg}/usr/share/doc/icecast/*.html ${doc}/html
+rm -r ${pkg}/usr/share/doc
+
+mv ${pkg}/etc/icecast.xml ${pkg}/etc/icecast.xml.new
+_chmod 600 /etc/icecast.xml.new
+_chown nobody.nogroup /etc/icecast.xml.new
+
+mkdir ${pkg}/var/log/icecast
+_chmod 700 /var/log/icecast
+_chown nobody.nogroup /var/log/icecast
+
+# $Log: icecast.pwbuild,v $
+# Revision 1.1  2004/10/04 18:11:42  swiergot
+# - Initial commit.
+# - Version 2.0.2.
+#
+
+--- NEW FILE: icecast.pwinfo ---
+info="A streaming media broadcasting system."
+desc="Icecast is a streaming media server which currently supports Ogg Vorbis and MP3 audio streams. It can be used to create an Internet radio station or a privately running jukebox and many things in between. It is very versatile in that new formats can be added relatively easily, and it supports open standards for communication and interaction."
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 22:13:13 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 22:13:13 +0200
+Subject: [Packware-cvs] pwbuild/d/wxgtk - New directory
+Message-ID: <200410042013.i94KDDB14387@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/d/wxgtk
+In directory sheep:/tmp/cvs-serv6950/wxgtk
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/d/wxgtk added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 22:13:46 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 22:13:46 +0200
+Subject: [Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,NONE,1.1 wxgtk.pwinfo,NONE,1.1
+Message-ID: <200410042013.i94KDkB14391@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/d/wxgtk
+In directory sheep:/tmp/cvs-serv6994
+
+Added Files:
+	wxgtk.pwbuild wxgtk.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.4.2.
+
+
+--- NEW FILE: wxgtk.pwbuild ---
+#!/bin/sh
+
+name="wxgtk"
+version="2.4.2"
+build="1"
+
+_pwbuilder 0.6.3
+
+_source -m cdadfe82fc93f8a65a2ae18a95b0b0e3 -s 5381935 -p wxwindows -n wxGTK -f
+
+_doc -d *.txt
+
+_c_opt --prefix=/usr
+_c_opt --sysconfdir=/etc
+_c_opt --enable-gui
+_c_opt --with-gtk
+_c_opt --enable-gtk2
+_c_opt --with-libpng
+_c_opt --with-libjpeg
+_c_opt --with-libtiff
+_c_opt --with-opengl
+_c_opt --with-regex
+_c_opt --with-zlib
+_c_opt --enable-shared
+_c_opt --enable-optimise
+_c_opt --enable-intl
+_c_opt --enable-config
+_c_opt --enable-protocols
+_c_opt --enable-ftp
+_c_opt --enable-http
+_c_opt --enable-fileproto
+_c_opt --enable-sockets
+_c_opt --enable-ole
+_c_opt --enable-dataobj
+_c_opt --enable-ipc
+_c_opt --enable-cmdline
+_c_opt --enable-datetime
+_c_opt --enable-timedate
+_c_opt --enable-stopwatch
+_c_opt --enable-dialupman
+_c_opt --enable-apple_ieee
+_c_opt --enable-timer
+_c_opt --enable-wave
+_c_opt --enable-fraction
+_c_opt --enable-dynlib
+_c_opt --enable-dynamicloader
+_c_opt --enable-longlong
+_c_opt --enable-geometry
+_c_opt --enable-log
+_c_opt --enable-streamses
+_c_opt --enable-file
+_c_opt --enable-ffile
+_c_opt --enable-textbuf
+_c_opt --enable-textfile
+_c_opt --enable-fontmap
+_c_opt --enable-wxprintfv
+_c_opt --enable-std_iostreams
+_c_opt --enable-filesystem
+_c_opt --enable-fs_inet
+_c_opt --enable-fs_zip
+_c_opt --enable-zipstream
+_c_opt --enable-catch_segvs
+_c_opt --enable-snglinst
+_c_opt --enable-mimetype
+_c_opt --enable-sysoptions
+_c_opt --enable-url
+_c_opt --enable-protocol
+_c_opt --enable-protocol-http
+_c_opt --enable-protocol-ftp
+_c_opt --enable-protocol-file
+_c_opt --enable-threads
+_c_opt --enable-docview
+_c_opt --enable-help
+_c_opt --enable-html
+_c_opt --enable-htmlhelp
+_c_opt --enable-constraints
+_c_opt --enable-printarch
+_c_opt --enable-mdi
+_c_opt --enable-loggui
+_c_opt --enable-logwin
+_c_opt --enable-logdialog
+_c_opt --enable-postscript
+_c_opt --enable-prologio
+_c_opt --enable-resources
+_c_opt --enable-xresources
+_c_opt --enable-clipboard
+_c_opt --enable-dnd
+_c_opt --enable-metafile
+_c_opt --enable-treelayout
+_c_opt --enable-controls
+_c_opt --enable-accel
+_c_opt --enable-button
+_c_opt --enable-bmpbutton
+_c_opt --enable-calendar
+_c_opt --enable-caret
+_c_opt --enable-checkbox
+_c_opt --enable-checklst
+_c_opt --enable-choice
+_c_opt --enable-combobox
+_c_opt --enable-gauge
+_c_opt --enable-grid
+_c_opt --enable-newgrid
+_c_opt --enable-imaglist
+_c_opt --enable-listbox
+_c_opt --enable-listctrl
+_c_opt --enable-notebook
+_c_opt --enable-propsheet
+_c_opt --enable-radiobox
+_c_opt --enable-radiobtn
+_c_opt --enable-sash
+_c_opt --enable-scrollbar
+_c_opt --enable-slider
+_c_opt --enable-spinbtn
+_c_opt --enable-spinctrl
+_c_opt --enable-splitter
+_c_opt --enable-statbmp
+_c_opt --enable-statbox
+_c_opt --enable-statline
+_c_opt --enable-stattext
+_c_opt --enable-statusbar
+_c_opt --enable-tabdialog
+_c_opt --enable-textctrl
+_c_opt --enable-togglebtn
+_c_opt --enable-toolbar
+_c_opt --enable-tbarnative
+_c_opt --enable-tbarsmpl
+_c_opt --enable-treectrl
+_c_opt --enable-tipwindow
+_c_opt --enable-popupwin
+_c_opt --enable-commondlgs
+_c_opt --enable-choicedlg
+_c_opt --enable-coldlg
+_c_opt --enable-filedlg
+_c_opt --enable-finddlg
+_c_opt --enable-fontdlg
+_c_opt --enable-dirdlg
+_c_opt --enable-msgdlg
+_c_opt --enable-numberdlg
+_c_opt --enable-splash
+_c_opt --enable-textdlg
+_c_opt --enable-tipdlg
+_c_opt --enable-progressdlg
+_c_opt --enable-wizarddlg
+_c_opt --enable-menus
+_c_opt --enable-miniframe
+_c_opt --enable-tooltips
+_c_opt --enable-splines
+_c_opt --enable-validators
+_c_opt --enable-busyinfo
+_c_opt --enable-joystick
+_c_opt --enable-dragimage
+_c_opt --enable-palette
+_c_opt --enable-image
+_c_opt --enable-gif
+_c_opt --enable-pcx
+_c_opt --enable-iff
+_c_opt --enable-pnm
+_c_opt --enable-xpm
+_c_opt --enable-icocur
+
+_i_opt prefix=${pkg}/usr
+
+_cmi
+
+rm -r ${pkg}/usr/lib/wx
+
+cp -R ${src1}/utils ${pkg}/usr/share/wx/
+cp -R ${src1}/samples ${pkg}/usr/share/wx/
+cp -R ${src1}/contrib ${pkg}/usr/share/wx/
+cp -R ${src1}/demos ${pkg}/usr/share/wx/
+
+# $Log: wxgtk.pwbuild,v $
+# Revision 1.1  2004/10/04 20:13:44  swiergot
+# - Initial commit.
+# - Version 2.4.2.
+#
+
+--- NEW FILE: wxgtk.pwinfo ---
+info="GTK port of the cross-platform wxWindows C++application framework class library"
+desc="wxWindows/GTK is the GTK+ port of the C++ cross-platform wxWindows GUI library, offering classes for all common GUI controls as well as a comprehensive set of helper classes for most common application tasks, ranging from networking to HTML display and image manipulation. There are also Python and Perl bindings available for the GTK and the MSW port, and documentation available for practically all classes."
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 23:10:25 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 23:10:25 +0200
+Subject: [Packware-cvs] pwbuild/d/wxgtk wxgtk.pwbuild,1.1,1.2
+Message-ID: <200410042110.i94LAPB15593@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/d/wxgtk
+In directory sheep:/tmp/cvs-serv9651
+
+Modified Files:
+	wxgtk.pwbuild 
+Log Message:
+- Don't remove usr/lib/wx.
+- Build against GTK+1.2.
+
+
+Index: wxgtk.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/d/wxgtk/wxgtk.pwbuild,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** wxgtk.pwbuild	4 Oct 2004 20:13:44 -0000	1.1
+--- wxgtk.pwbuild	4 Oct 2004 21:10:23 -0000	1.2
+***************
+*** 15,19 ****
+  _c_opt --enable-gui
+  _c_opt --with-gtk
+- _c_opt --enable-gtk2
+  _c_opt --with-libpng
+  _c_opt --with-libjpeg
+--- 15,18 ----
+***************
+*** 163,168 ****
+  _cmi
+  
+- rm -r ${pkg}/usr/lib/wx
+- 
+  cp -R ${src1}/utils ${pkg}/usr/share/wx/
+  cp -R ${src1}/samples ${pkg}/usr/share/wx/
+--- 162,165 ----
+***************
+*** 171,174 ****
+--- 168,175 ----
+  
+  # $Log$
++ # Revision 1.2  2004/10/04 21:10:23  swiergot
++ # - Don't remove usr/lib/wx.
++ # - Build against GTK+1.2.
++ #
+  # Revision 1.1  2004/10/04 20:13:44  swiergot
+  # - Initial commit.
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 23:13:06 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 23:13:06 +0200
+Subject: [Packware-cvs] pwbuild/xap/oddcastv2-xmms - New directory
+Message-ID: <200410042113.i94LD5B15683@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/oddcastv2-xmms
+In directory sheep:/tmp/cvs-serv9769/oddcastv2-xmms
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/oddcastv2-xmms added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Oct  4 23:14:08 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 4 Oct 2004 23:14:08 +0200
+Subject: [Packware-cvs] pwbuild/xap/oddcastv2-xmms oddcastv2-xmms.pwbuild,NONE,1.1 oddcastv2-xmms.pwinfo,NONE,1.1
+Message-ID: <200410042114.i94LE8B15742@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/oddcastv2-xmms
+In directory sheep:/tmp/cvs-serv9815
+
+Added Files:
+	oddcastv2-xmms.pwbuild oddcastv2-xmms.pwinfo 
+Log Message:
+- Initial commit.
+- Version 2.0.14.
+
+
+--- NEW FILE: oddcastv2-xmms.pwbuild ---
+#!/bin/sh
+
+name="oddcastv2-xmms"
+version="2.0.14"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d -x README -x TODO
+
+_source -m 01a36cd6b547ac2354f7170b1db0de28 -s 721597 -n `echo ${name} | tr - _` -g http://www.oddsock.org/tools/`echo ${name} | tr - _`/
+
+_c_opt --prefix=/usr
+
+_cmi
+
+# $Log: oddcastv2-xmms.pwbuild,v $
+# Revision 1.1  2004/10/04 21:14:06  swiergot
+# - Initial commit.
+# - Version 2.0.14.
+#
+
+--- NEW FILE: oddcastv2-xmms.pwinfo ---
+info="Internet radio broadcasting plugin for XMMS."
+desc="OddcastV2 XMMS is a plugin for the X MultiMedia System. It allows to broadcast streams to Icecast/Icecast2/Shoutcast servers."
+
+
+
+From nobody at sheep.berlios.de  Tue Oct  5 23:40:49 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 5 Oct 2004 23:40:49 +0200
+Subject: [Packware-cvs] pwbuild/xap/muse - New directory
+Message-ID: <200410052140.i95LenB13662@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/muse
+In directory sheep:/tmp/cvs-serv15661/muse
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/xap/muse added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Tue Oct  5 23:41:18 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 5 Oct 2004 23:41:18 +0200
+Subject: [Packware-cvs] pwbuild/xap/muse muse-locale-install.pw.patch,NONE,1.1 muse.pwbuild,NONE,1.1 muse.pwinfo,NONE,1.1
+Message-ID: <200410052141.i95LfIB13688@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/muse
+In directory sheep:/tmp/cvs-serv15705
+
+Added Files:
+	muse-locale-install.pw.patch muse.pwbuild muse.pwinfo 
+Log Message:
+- Initial commit.
+- Version 0.9.
+
+
+--- NEW FILE: muse-locale-install.pw.patch ---
+diff -ruN MuSE-0.9.orig/po/Makefile MuSE-0.9/po/Makefile
+--- MuSE-0.9.orig/po/Makefile	2004-04-15 00:52:44.000000000 +0200
++++ MuSE-0.9/po/Makefile	2004-10-05 23:36:32.000000000 +0200
+@@ -1,5 +1,5 @@
+ INSTALL= /usr/bin/install -c
+-INSTALLNLSDIR=$(BASEDIR)/usr/local/share/locale
++INSTALLNLSDIR=$(DESTDIR)/usr/share/locale
+ 
+ PACKAGE = muse
+ 
+
+--- NEW FILE: muse.pwbuild ---
+#!/bin/sh
+
+name="muse"
+version="0.9"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d -x ABOUT-NLS -x CVS ChangeLog KNOWN-BUGS
+
+_source -m 0c2075c9f62ba1d08459f669498b6bcf -s 1363091 -n MuSE -g ftp://ftp.dyne.org/${name}/releases/
+
+_patch locale-install
+
+_c_opt --prefix=/usr
+_c_opt --enable-ncurses
+_c_opt --enable-gtk2
+
+_cmi
+
+rm -r ${pkg}/usr/doc/MuSE
+
+# $Log: muse.pwbuild,v $
+# Revision 1.1  2004/10/05 21:41:16  swiergot
+# - Initial commit.
+# - Version 0.9.
+#
+
+--- NEW FILE: muse.pwinfo ---
+info="Multiple Streaming Engine."
+desc="MuSE is a user-friendly tool for network audio streaming, making life easier for independent free speech radio stations. It can mix, encode, and stream sound over the Internet that can be tuned in to by the majority of audio players. It can simultaneously mix up to 6 encoded audio channels plus a sound card input signal, sending the result to an Icecast server. It offers an intuitive GTK2 interface for real-time operation and can also be used from command line."
+
+
+
+From nobody at sheep.berlios.de  Sat Oct  9 16:48:48 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Sat, 9 Oct 2004 16:48:48 +0200
+Subject: [Packware-cvs] pwbuild/xap/sylpheed-claws sylpheed-claws-pot-fix.pw.patch,NONE,1.1 sylpheed-claws-cvs.pwbuild,1.5,1.6
+Message-ID: <200410091448.i99EmmB26522@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/sylpheed-claws
+In directory sheep:/tmp/cvs-serv27077
+
+Modified Files:
+	sylpheed-claws-cvs.pwbuild 
+Added Files:
+	sylpheed-claws-pot-fix.pw.patch 
+Log Message:
+- Version 0.9.12-124.
+
+
+--- NEW FILE: sylpheed-claws-pot-fix.pw.patch ---
+diff -ruN sylpheed-claws.orig/po/POTFILES.in sylpheed-claws/po/POTFILES.in
+--- sylpheed-claws.orig/po/POTFILES.in	2004-08-13 16:46:10.000000000 +0200
++++ sylpheed-claws/po/POTFILES.in	2004-10-09 16:20:18.000000000 +0200
+@@ -64,7 +64,6 @@
+ src/mimeview.c
+ src/news.c
+ src/news_gtk.c
+-src/passphrase.c
+ src/plugins/clamav/clamav_plugin.c
+ src/plugins/clamav/clamav_plugin_gtk.c
+ src/plugins/demo/demo.c
+@@ -76,6 +75,8 @@
+ src/plugins/mathml_viewer/mathml_viewer.c
+ src/plugins/pgpmime/plugin.c
+ src/plugins/pgpmime/sgpgme.c
++src/plugins/pgpmime/passphrase.c
++src/plugins/pgpmime/select-keys.c
+ src/plugins/spamassassin/spamassassin.c
+ src/plugins/spamassassin/spamassassin_gtk.c
+ src/plugins/trayicon/trayicon.c
+@@ -102,7 +103,6 @@
+ src/privacy.c
+ src/procmsg.c
+ src/quote_fmt.c
+-src/select-keys.c
+ src/send_message.c
+ src/setup.c
+ src/sourcewindow.c
+
+Index: sylpheed-claws-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/sylpheed-claws/sylpheed-claws-cvs.pwbuild,v
+retrieving revision 1.5
+retrieving revision 1.6
+diff -C2 -d -r1.5 -r1.6
+*** sylpheed-claws-cvs.pwbuild	28 Aug 2004 08:23:59 -0000	1.5
+--- sylpheed-claws-cvs.pwbuild	9 Oct 2004 14:48:46 -0000	1.6
+***************
+*** 2,6 ****
+  
+  name="sylpheed-claws"
+! version="0.9.12-83"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="sylpheed-claws"
+! version="0.9.12-124"
+  build="1"
+  
+***************
+*** 9,15 ****
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m 9bd0dd961a33671b4c9a400386a701e1 -s 2334594 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
+  
+  ( cd ${src1} ; ./autogen.sh )
+--- 9,16 ----
+  _doc -d README.claws TODO.claws -x CVS
+  
+! _source -m d70dee27a178942a860d9cc583ec207a -s 2337748 -t ${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch autogen
++ _patch pot-fix
+  
+  ( cd ${src1} ; ./autogen.sh )
+***************
+*** 37,40 ****
+--- 38,44 ----
+  
+  # $Log$
++ # Revision 1.6  2004/10/09 14:48:46  swiergot
++ # - Version 0.9.12-124.
++ #
+  # Revision 1.5  2004/08/28 08:23:59  swiergot
+  # - Version 0.9.12-83.
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:37:39 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:37:39 +0200
+Subject: [Packware-cvs] pwbuilder pwbuilder.pwbuild,1.2,1.3
+Message-ID: <200410181137.i9IBbdB15374@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder
+In directory sheep:/tmp/cvs-serv23088
+
+Modified Files:
+	pwbuilder.pwbuild 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: pwbuilder.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/pwbuilder.pwbuild,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** pwbuilder.pwbuild	30 Jul 2004 13:05:44 -0000	1.2
+--- pwbuilder.pwbuild	18 Oct 2004 11:37:36 -0000	1.3
+***************
+*** 2,6 ****
+  
+  name="pwbuilder"
+! version="0.6.4-pre4"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="pwbuilder"
+! version="0.6.4-pre5"
+  build="1"
+  
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:37:39 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:37:39 +0200
+Subject: [Packware-cvs] pwbuilder/po pl.po,1.1,1.2 pwbuilder.pot,1.1,1.2
+Message-ID: <200410181137.i9IBbdB15386@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/po
+In directory sheep:/tmp/cvs-serv23088/po
+
+Modified Files:
+	pl.po pwbuilder.pot 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: pl.po
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/po/pl.po,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** pl.po	29 Jul 2004 22:06:51 -0000	1.1
+--- pl.po	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 49,52 ****
+--- 49,56 ----
+  msgstr "_sub: nie podano nazwy podpakietu"
+  
++ #: /usr/lib/pwbuilder/include/funcs/make:27
++ msgid "_make: must not be invoked with _execindir; use -d instead"
++ msgstr "_make: nie mo?na wywo?a? z _execindir; u?yj -d"
++ 
+  #: /usr/lib/pwbuilder/include/funcs/make:65
+  msgid "! Error: make failed"
+***************
+*** 117,120 ****
+--- 121,128 ----
+  msgstr "! B??d: na?o?enie nie powiod?o si?"
+  
++ #: /usr/lib/pwbuilder/include/funcs/configure:27
++ msgid "_configure: must not be invoked with _execindir; use -d instead"
++ msgstr "_configure: nie mo?na wywo?a? z _execindir; u?yj -d"
++ 
+  #: /usr/lib/pwbuilder/include/funcs/configure:65
+  msgid "! Error: configure failed"
+***************
+*** 172,175 ****
+--- 180,187 ----
+  msgid "_alt_install: no command specified"
+  msgstr "_alt_install: nie podano polecenia"
++ 
++ #: /usr/lib/pwbuilder/include/funcs/install:29
++ msgid "_install: must not be invoked with _execindir; use -d instead"
++ msgstr "_install: nie mo?na wywo?a? z _execindir; u?yj -d"
+  
+  #: /usr/lib/pwbuilder/include/funcs/install:73
+
+Index: pwbuilder.pot
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/po/pwbuilder.pot,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** pwbuilder.pot	29 Jul 2004 22:06:51 -0000	1.1
+--- pwbuilder.pot	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 52,55 ****
+--- 52,59 ----
+  msgstr ""
+  
++ #: /usr/lib/pwbuilder/include/funcs/make:27
++ msgid "_make: must not be invoked with _execindir; use -d instead"
++ msgstr ""
++ 
+  #: /usr/lib/pwbuilder/include/funcs/make:65
+  msgid "! Error: make failed"
+***************
+*** 120,123 ****
+--- 124,131 ----
+  msgstr ""
+  
++ #: /usr/lib/pwbuilder/include/funcs/configure:27
++ msgid "_configure: must not be invoked with _execindir; use -d instead"
++ msgstr ""
++ 
+  #: /usr/lib/pwbuilder/include/funcs/configure:65
+  msgid "! Error: configure failed"
+***************
+*** 174,177 ****
+--- 182,189 ----
+  #: /usr/lib/pwbuilder/include/funcs/alt_install:23
+  msgid "_alt_install: no command specified"
++ msgstr ""
++ 
++ #: /usr/lib/pwbuilder/include/funcs/install:29
++ msgid "_install: must not be invoked with _execindir; use -d instead"
+  msgstr ""
+  
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:37:40 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:37:40 +0200
+Subject: [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs cmi,1.1,1.2 configure,1.1,1.2 execindir,1.1,1.2 install,1.1,1.2 make,1.1,1.2 py_build,1.1,1.2 py_install,1.1,1.2
+Message-ID: <200410181137.i9IBbeB15390@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs
+In directory sheep:/tmp/cvs-serv23088/src/usr/lib/pwbuilder/include/funcs
+
+Modified Files:
+	cmi configure execindir install make py_build py_install 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: cmi
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/cmi,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** cmi	29 Jul 2004 22:06:53 -0000	1.1
+--- cmi	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	undefine=""
+  	subdir=""
++ 	otherdir=""
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 14,17 ****
+--- 15,19 ----
+  			-u) undefine="-u" ;;
+  			-b) shift ; subdir="-b $1" ;;
++ 			-d) shift ; otherdir="-d $1" ;;
+  
+  		esac
+***************
+*** 21,27 ****
+  	done
+  
+! 	_configure -s ${srcnum} ${subdir}
+! 	_make -s ${srcnum} ${subdir}
+! 	_install -s ${srcnum} ${subdir} ${undefine}
+  
+  }
+--- 23,29 ----
+  	done
+  
+! 	_configure -s ${srcnum} ${otherdir} ${subdir}
+! 	_make -s ${srcnum} ${otherdir} ${subdir}
+! 	_install -s ${srcnum} ${otherdir} ${subdir} ${undefine}
+  
+  }
+
+Index: configure
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/configure,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** configure	29 Jul 2004 22:06:53 -0000	1.1
+--- configure	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	subdir=""
+  	opts=""
++ 	otherdir=""
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 13,16 ****
+--- 14,18 ----
+  			-s) shift ; srcnum="$1" ;;
+  			-b) shift ; subdir="$1" ;;
++ 			-d) shift ; otherdir="$1" ;;
+  			*) opts="${opts} $1" ;;
+  
+***************
+*** 21,24 ****
+--- 23,33 ----
+  	done
+  
++ 	if [ "${inotherdir}" = "yes" ]; then
++ 
++ 		pwtext "_configure: must not be invoked with _execindir; use -d instead"
++ 		exit 2
++ 
++ 	fi
++ 
+  	if [ ! -f ${tmp}/altconfigure_${srcnum} ]; then
+  
+***************
+*** 31,38 ****
+  	(
+  
+! 		if [ ! "${inotherdir}" = "yes" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 40,51 ----
+  	(
+  
+! 		if [ "${otherdir}" = "" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd "${otherdir}"
++ 
+  		fi
+  
+***************
+*** 52,56 ****
+  
+  			echo "+ Configure #${srcnum} ("`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}")"
+! 			`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/confres
+  
+--- 65,69 ----
+  
+  			echo "+ Configure #${srcnum} ("`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}")"
+! 			_exec `cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/confres
+  
+***************
+*** 58,62 ****
+  
+  			echo "+ Configure #${srcnum}"
+! 			`cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/confres
+  
+--- 71,75 ----
+  
+  			echo "+ Configure #${srcnum}"
+! 			_exec `cat ${tmp}/actconfigure_${srcnum}` `cat ${tmp}/c_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/confres
+  
+
+Index: execindir
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/execindir,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** execindir	29 Jul 2004 22:06:53 -0000	1.1
+--- execindir	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 16,20 ****
+      fi
+  
+!     inotherdir=yes "$@"
+      cd "${prevdir}"
+  
+--- 16,20 ----
+      fi
+  
+!     env -i USER=$USER HOME=$HOME inotherdir=yes sh -l /usr/lib/pwbuilder/bin/xexec "$@"
+      cd "${prevdir}"
+  
+
+Index: install
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/install,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** install	29 Jul 2004 22:06:53 -0000	1.1
+--- install	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 7,10 ****
+--- 7,11 ----
+  	undefine=""
+  	opts=""
++ 	otherdir=""
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 14,17 ****
+--- 15,19 ----
+  			-s) shift ; srcnum="$1" ;;
+  			-b) shift ; subdir="$1" ;;
++ 			-d) shift ; otherdir="$1" ;;
+  			-u) undefine="yes" ;;
+  			*) opts="${opts} $1" ;;
+***************
+*** 23,26 ****
+--- 25,35 ----
+  	done
+  
++ 	if [ "${inotherdir}" = "yes" ]; then
++ 
++ 		pwtext "_install: must not be invoked with _execindir; use -d instead"
++ 		exit 2
++ 
++ 	fi
++ 
+  	if [ ! -f ${tmp}/altinstall_${srcnum} ]; then
+  
+***************
+*** 33,40 ****
+  	(
+  
+! 		if [ ! "${inotherdir}" = "yes" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 42,53 ----
+  	(
+  
+! 		if [ "${otherdir}" = "" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd "${otherdir}"
++ 
+  		fi
+  
+***************
+*** 60,64 ****
+  
+  			echo "+ Install #${srcnum} ("`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}")"
+! 			`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/instres
+  
+--- 73,77 ----
+  
+  			echo "+ Install #${srcnum} ("`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}")"
+! 			_exec `cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/instres
+  
+***************
+*** 66,70 ****
+  
+  			echo "+ Install #${srcnum}"
+! 			`cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/instres
+  
+--- 79,83 ----
+  
+  			echo "+ Install #${srcnum}"
+! 			_exec `cat ${tmp}/actinstall_${srcnum}` ${destvars} `cat ${tmp}/i_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/instres
+  
+
+Index: make
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/make,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** make	29 Jul 2004 22:06:53 -0000	1.1
+--- make	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	subdir=""
+  	opts=""
++ 	otherdir=""
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 13,16 ****
+--- 14,18 ----
+  			-s) shift ; srcnum="$1" ;;
+  			-b) shift ; subdir="$1" ;;
++ 			-d) shift ; otherdir="$1" ;;
+  			*) opts="${opts} $1" ;;
+  
+***************
+*** 21,24 ****
+--- 23,33 ----
+  	done
+  
++ 	if [ "${inotherdir}" = "yes" ]; then
++ 
++ 		pwtext "_make: must not be invoked with _execindir; use -d instead"
++ 		exit 2
++ 
++ 	fi
++ 
+  	if [ ! -f ${tmp}/altmake_${srcnum} ]; then
+  
+***************
+*** 31,38 ****
+  	(
+  
+! 		if [ ! "${inotherdir}" = "yes" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 40,51 ----
+  	(
+  
+! 		if [ "${otherdir}" = "" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd "${otherdir}"
++ 
+  		fi
+  
+***************
+*** 52,56 ****
+  
+  			echo "+ Make #${srcnum} ("`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}")"
+! 			`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/makeres
+  
+--- 65,69 ----
+  
+  			echo "+ Make #${srcnum} ("`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}")"
+! 			_exec `cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/makeres
+  
+***************
+*** 58,62 ****
+  
+  			echo "+ Make #${srcnum}"
+! 			`cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/makeres
+  
+--- 71,75 ----
+  
+  			echo "+ Make #${srcnum}"
+! 			_exec `cat ${tmp}/actmake_${srcnum}` `cat ${tmp}/m_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/makeres
+  
+
+Index: py_build
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/py_build,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** py_build	29 Jul 2004 22:06:53 -0000	1.1
+--- py_build	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 6,9 ****
+--- 6,10 ----
+  	subdir=""
+  	opts=""
++ 	otherdir=""
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 13,16 ****
+--- 14,18 ----
+  			-s) shift ; srcnum="$1" ;;
+  			-b) shift ; subdir="$1" ;;
++ 			-d) shift ; otherdir="$1" ;;
+  			*) opts="${opts} $1" ;;
+  
+***************
+*** 21,32 ****
+  	done
+  
+  	eval "srcd=\"\${src${srcnum}}\""
+  
+  	(
+  
+! 		if [ ! "${inotherdir}" = "yes" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 23,45 ----
+  	done
+  
++ 	if [ "${inotherdir}" = "yes" ]; then
++ 
++ 		pwtext "_py_build: must not be invoked with _execindir; use -d instead"
++ 		exit 2
++ 
++ 	fi
++ 
+  	eval "srcd=\"\${src${srcnum}}\""
+  
+  	(
+  
+! 		if [ "${otherdir}" = "" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd "${otherdir}"
++ 
+  		fi
+  
+***************
+*** 36,40 ****
+  
+  			echo "+ Python build #${srcnum} (python setup.py build "`cat ${tmp}/py_b_opts_${srcnum}` ${opts}")"
+! 			python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/pybures
+  
+--- 49,53 ----
+  
+  			echo "+ Python build #${srcnum} (python setup.py build "`cat ${tmp}/py_b_opts_${srcnum}` ${opts}")"
+! 			_exec python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/pybures
+  
+***************
+*** 42,46 ****
+  
+  			echo "+ Python build #${srcnum}"
+! 			python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/pybures
+  
+--- 55,59 ----
+  
+  			echo "+ Python build #${srcnum}"
+! 			_exec python setup.py build `cat ${tmp}/py_b_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/pybures
+  
+
+Index: py_install
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs/py_install,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** py_install	29 Jul 2004 22:06:53 -0000	1.1
+--- py_install	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 7,10 ****
+--- 7,11 ----
+  	undefine=""
+  	opts=""
++ 	otherdir=""
+  
+  	while [ $# -gt 0 ]; do
+***************
+*** 15,18 ****
+--- 16,20 ----
+  			-b) shift ; subdir="$1" ;;
+  			-u) undefine="yes" ;;
++ 			-d) shift ; otherdir="$1" ;;
+  			*) opts="${opts} $1" ;;
+  
+***************
+*** 23,34 ****
+  	done
+  
+  	eval "srcd=\"\${src${srcnum}}\""
+  
+  	(
+  
+! 		if [ ! "${inotherdir}" = "yes" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
+  		fi
+  
+--- 25,47 ----
+  	done
+  
++ 	if [ "${inotherdir}" = "yes" ]; then
++ 
++ 		pwtext "_py_install: must not be invoked with _execindir; use -d instead"
++ 		exit 2
++ 
++ 	fi
++ 
+  	eval "srcd=\"\${src${srcnum}}\""
+  
+  	(
+  
+! 		if [ "${otherdir}" = "" ]; then
+  
+  			cd ${srcd}/${subdir}
+  
++ 		else
++ 
++ 			cd "${otherdir}"
++ 
+  		fi
+  
+***************
+*** 44,48 ****
+  
+  			echo "+ Python install #${srcnum} (python setup.py install "${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}")"
+! 			python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/pyinres
+  
+--- 57,61 ----
+  
+  			echo "+ Python install #${srcnum} (python setup.py install "${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}")"
+! 			_exec python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts}
+  			echo $? > ${tmp}/pyinres
+  
+***************
+*** 50,54 ****
+  
+  			echo "+ Python install #${srcnum}"
+! 			python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/pyinres
+  
+--- 63,67 ----
+  
+  			echo "+ Python install #${srcnum}"
+! 			_exec python setup.py install ${destvars} `cat ${tmp}/py_i_opts_${srcnum}` ${opts} > /dev/null
+  			echo $? > ${tmp}/pyinres
+  
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:37:39 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:37:39 +0200
+Subject: [Packware-cvs] pwbuilder/doc ChangeLog,1.2,1.3 README,1.1,1.2 REPO,1.1,1.2
+Message-ID: <200410181137.i9IBbdB15378@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/doc
+In directory sheep:/tmp/cvs-serv23088/doc
+
+Modified Files:
+	ChangeLog README REPO 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: ChangeLog
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/ChangeLog,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** ChangeLog	30 Jul 2004 13:05:45 -0000	1.2
+--- ChangeLog	18 Oct 2004 11:37:37 -0000	1.3
+***************
+*** 5,9 ****
+    in slack-desc file.
+  - Reimplemented _execindir function. execindir script is no longer available.
+! - _execindir changes _configure, _make, _install, _cmi, _py_build and
+    _py_install working directories.
+  - Added _setexecdir and _unsetexecdir to set and unset directory for
+--- 5,9 ----
+    in slack-desc file.
+  - Reimplemented _execindir function. execindir script is no longer available.
+! - _execindir can't change _configure, _make, _install, _cmi, _py_build and
+    _py_install working directories.
+  - Added _setexecdir and _unsetexecdir to set and unset directory for
+***************
+*** 12,15 ****
+--- 12,24 ----
+    ../ bug.
+  - Upgraded fakeroot to 1.0.5.
++ - Added -d option to _configure, _make, _install, _cmi, _py_build, and
++   _py_install. Use it instead of _execindir.
++ - Added _exec function that executes commands with clear environment.
++ - Make _execindir execute commands with clear environment.
++ - _configure, _make, _install, _py_build, _py install executes commands with
++   clear environment.
++ - Updated documentation.
++ - Updated messages translation.
++ - Added Polish documentation.
+  
+  pwbuilder 0.6.3 - 30-Dec-2003
+
+Index: README
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/README,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** README	29 Jul 2004 22:06:50 -0000	1.1
+--- README	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 25,32 ****
+  See doc subdirectory for details on using pwbuilder.
+  
+! Look at http://cvs.intersec.pl/ for .pwbuild examples.
+  
+! Visit our website at http://packware.intersec.pl/ and
+! http://freshmeat.net/projects/pwbuilder/.
+  
+  -- 
+--- 25,33 ----
+  See doc subdirectory for details on using pwbuilder.
+  
+! You can find the project on the web:
+  
+! http://packware.berlios.de/
+! http://developer.berlios.de/projects/pwbuilder/
+! http://freshmeat.net/projects/pwbuilder/
+  
+  -- 
+
+Index: REPO
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/REPO,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** REPO	29 Jul 2004 22:06:50 -0000	1.1
+--- REPO	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 2,9 ****
+  access the repository anonymously:
+  
+! cvs -d:pserver:anonymous at cvs.intersec.pl:/cvs login
+! Logging in to :pserver:anonymous at cvs.intersec.pl:2401/cvs
+  CVS password: [just press Enter]
+  cvs -z3 co pwbuilder
+  
+! Alternatively, you can use a web interface at http://cvs.intersec.pl/.
+--- 2,9 ----
+  access the repository anonymously:
+  
+! cvs -d:pserver:anonymous at cvs.berlios.de:/cvsroot/packware login
+! Logging in to :pserver:anonymous at cvs.berlios.de:2401/cvsroot/packware
+  CVS password: [just press Enter]
+  cvs -z3 co pwbuilder
+  
+! Alternatively, you can use a web interface at http://cvs.berlios.de/packware/.
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:37:39 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:37:39 +0200
+Subject: [Packware-cvs] pwbuilder/doc/guide PWBUILD,1.1,1.2 SUBPACKAGES,1.1,1.2 VARIABLES,1.1,1.2
+Message-ID: <200410181137.i9IBbdB15381@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/doc/guide
+In directory sheep:/tmp/cvs-serv23088/doc/guide
+
+Modified Files:
+	PWBUILD SUBPACKAGES VARIABLES 
+Log Message:
+- Many changes so pwbuilder now executes external commands in clear,
+  untouched environment.
+
+
+Index: PWBUILD
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/guide/PWBUILD,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** PWBUILD	29 Jul 2004 22:06:50 -0000	1.1
+--- PWBUILD	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 54,58 ****
+  needed then and is formed automatically in this way:
+  http://unc.dl.sourceforge.net/sourceforge/${name}/${name}-${version}.tar.bz2.
+! If -g option is used, .tar.gz version will be fetched instead of .tar.bz2 one.
+  
+  -p proj - if -f option is used, and a source is in other directory than ${name}
+--- 54,58 ----
+  needed then and is formed automatically in this way:
+  http://unc.dl.sourceforge.net/sourceforge/${name}/${name}-${version}.tar.bz2.
+! The extension can be changed with options described above.
+  
+  -p proj - if -f option is used, and a source is in other directory than ${name}
+***************
+*** 104,108 ****
+  -------------------------------------------------------------------------------
+  
+! _configure [-s N] [-b subdirectory] [options]
+  
+  Executes configure script and gives it additional options.
+--- 104,108 ----
+  -------------------------------------------------------------------------------
+  
+! _configure [-s N] [-b subdirectory] [-d directory] [options]
+  
+  Executes configure script and gives it additional options.
+***************
+*** 113,122 ****
+  of using -b option, _configure command may be preceded by _execindir command.
+  
+  _configure command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _make [-s N] [-b subdirectory] [options]
+  
+  Executes make and gives it additional options.
+--- 113,125 ----
+  of using -b option, _configure command may be preceded by _execindir command.
+  
++ -d directory - execute configure in other directory.
++ 
+  _configure command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
++ -d option is available since version 0.6.4 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _make [-s N] [-b subdirectory] [-d directory] [options]
+  
+  Executes make and gives it additional options.
+***************
+*** 125,136 ****
+  
+  -b subdirectory - execute make in a subdirectory of source tree. Instead
+! of using -b option, _make command may be preceded by _execindir command.
+  
+  _make command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _install [-s N] [-u] [-b subdirectory] [options]
+  
+  Executes make install and gives it additional options.
+--- 128,142 ----
+  
+  -b subdirectory - execute make in a subdirectory of source tree. Instead
+! of using -b option, _make command may be invoked with -d option.
+! 
+! -d directory - execute make in other directory.
+  
+  _make command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
++ -d option is available since version 0.6.4 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _install [-s N] [-u] [-b subdirectory] [-d directory] [options]
+  
+  Executes make install and gives it additional options.
+***************
+*** 139,154 ****
+  
+  -b subdirectory - execute make install in a subdirectory of source tree.
+! Instead of using -b option, _install command may be preceded by _execindir
+! command.
+  
+! -u - don't set DESTDIR, INSTALLROOT, INSTALL_ROOT, PERL_ISNTALL_ROOT and
+  INSTALL_PREFIX variables for make install.
+  
+  _install command is available since version 0.6.0 of pwbuilder.
+  -b option is availabe since version 0.6.1 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _cmi [-s N] [-u] [-b subdirectory]
+  
+  Executes _configure, _make and _install.
+--- 145,162 ----
+  
+  -b subdirectory - execute make install in a subdirectory of source tree.
+! Instead of using -b option, _install command may be invoked with -d option.
+  
+! -d directory - execute make install in other directory.
+! 
+! -u - don't set DESTDIR, INSTALLROOT, INSTALL_ROOT, PERL_INSTALL_ROOT and
+  INSTALL_PREFIX variables for make install.
+  
+  _install command is available since version 0.6.0 of pwbuilder.
+  -b option is availabe since version 0.6.1 of pwbuilder.
++ -d option is available since version 0.6.4 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _cmi [-s N] [-u] [-b subdirectory] [-d directory]
+  
+  Executes _configure, _make and _install.
+***************
+*** 157,168 ****
+  
+  -b subdirectory - execute these commands in a subdirectory of source tree.
+! Instead of using -b option, _cmi command may be preceded by _execindir command.
+  
+  -u - don't set DESTDIR, INSTALLROOT, INSTALL_ROOT, PERL_ISNTALL_ROOT and
+  INSTALL_PREFIX variables for make install.
+  
+  _cmi command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
+  -u option is available since version 0.6.1 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+--- 165,179 ----
+  
+  -b subdirectory - execute these commands in a subdirectory of source tree.
+! Instead of using -b option, _cmi command may be invoked with -d option.
+  
+  -u - don't set DESTDIR, INSTALLROOT, INSTALL_ROOT, PERL_ISNTALL_ROOT and
+  INSTALL_PREFIX variables for make install.
+  
++ -d directory - execute these commands in other directory.
++ 
+  _cmi command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
+  -u option is available since version 0.6.1 of pwbuilder.
++ -d option is available since version 0.6.4 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+***************
+*** 184,200 ****
+  -------------------------------------------------------------------------------
+  
+! _py_build [-b subdirectory] [options]
+  
+  Executes python setup.py build and gives it additional options.
+  
+  -b subdirectory - execute in a subdirectory of source tree. Instead of using
+! -b option, _py_build command may be preceded by _execindir command.
+  
+  _py_build command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _py_install [-u] [-b subdirectory] [options]
+  
+  Executes python setup.py install and gives it additional options.
+--- 195,214 ----
+  -------------------------------------------------------------------------------
+  
+! _py_build [-b subdirectory] [-d directory] [options]
+  
+  Executes python setup.py build and gives it additional options.
+  
+  -b subdirectory - execute in a subdirectory of source tree. Instead of using
+! -b option, _py_build command may be invoked with -d option.
+! 
+! -d directory - execute python setup.py build in other directory.
+  
+  _py_build command is available since version 0.6.0 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
++ -d option is available since version 0.6.4 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+  
+! _py_install [-u] [-b subdirectory] [-d directory] [options]
+  
+  Executes python setup.py install and gives it additional options.
+***************
+*** 203,211 ****
+  
+  -b subdirectory - execute in a subdirectory of source tree. Instead of using
+! -b option, _py_install command may be preceded by _execindir command.
+  
+  _py_install command is available since version 0.6.0 of pwbuilder.
+  -u option is available since version 0.6.1 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+--- 217,228 ----
+  
+  -b subdirectory - execute in a subdirectory of source tree. Instead of using
+! -b option, _py_install command may be invoked with -d option.
+! 
+! -d directory - execute python setup.py install in other directory.
+  
+  _py_install command is available since version 0.6.0 of pwbuilder.
+  -u option is available since version 0.6.1 of pwbuilder.
+  -b option is available since version 0.6.1 of pwbuilder.
++ -d option is available since version 0.6.4 of pwbuilder.
+  
+  -------------------------------------------------------------------------------
+***************
+*** 214,220 ****
+  
+  Applies patch from given file. File can be defined directly or indirectly -
+! pwbuilder will try this then: ${name}-${plik}.pw.patch,
+! ${name}-${plik}.pw.diff, ${name}-${plik}.patch, ${name}-${plik}.diff,
+! ${plik}.patch, ${plik}.diff. If file begins with '/', it is used as absolute
+  path to particular file.
+  
+--- 231,237 ----
+  
+  Applies patch from given file. File can be defined directly or indirectly -
+! pwbuilder will try this then: ${name}-${file}.pw.patch,
+! ${name}-${file}.pw.diff, ${name}-${file}.patch, ${name}-${file}.diff,
+! ${file}.patch, ${file}.diff. If file begins with '/', it is used as absolute
+  path to particular file.
+  
+***************
+*** 267,271 ****
+  Defines the oldest pwbuilder version that is able to build a package. This
+  command is intended to use at the beginning of .pwbuild script, before basic
+! variables (name, versio, build etc.) or just after them. This command checks
+  whether existing pwbuilder version is greater than or equal to required
+  version. If not, it stops pwbuilder.
+--- 284,288 ----
+  Defines the oldest pwbuilder version that is able to build a package. This
+  command is intended to use at the beginning of .pwbuild script, before basic
+! variables (name, version, build etc.) or just after them. This command checks
+  whether existing pwbuilder version is greater than or equal to required
+  version. If not, it stops pwbuilder.
+***************
+*** 408,409 ****
+--- 425,434 ----
+  
+  file - buggy Makefile
++ 
++ -------------------------------------------------------------------------------
++ 
++ _exec command
++ 
++ Executes the command in clear environment.
++ 
++ _exec command is available since version 0.6.4 of pwbuilder.
+
+Index: SUBPACKAGES
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/guide/SUBPACKAGES,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** SUBPACKAGES	29 Jul 2004 22:06:50 -0000	1.1
+--- SUBPACKAGES	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 1,4 ****
+! pwbuilder has an ability to create subpackages. First, in .pwbuil script there
+! should be _sub command to define a subpackage, ie.:
+  
+  _sub libgadu
+--- 1,4 ----
+! pwbuilder has an ability to create subpackages. First, in .pwbuild script
+! there should be _sub command to define a subpackage, ie.:
+  
+  _sub libgadu
+***************
+*** 22,24 ****
+  
+  Full ekg package source that makes use of subpackages feature can be found
+! in out CVS.
+--- 22,24 ----
+  
+  Full ekg package source that makes use of subpackages feature can be found
+! in our CVS.
+
+Index: VARIABLES
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/guide/VARIABLES,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+*** VARIABLES	29 Jul 2004 22:06:50 -0000	1.1
+--- VARIABLES	18 Oct 2004 11:37:37 -0000	1.2
+***************
+*** 23,25 ****
+  
+  slackver_max - full version, equals to
+! ${slackver_a}.${slackver_b}.${slackver_c} (np 8.0.0, 8.1.0, 9.0.0 etc.).
+--- 23,25 ----
+  
+  slackver_max - full version, equals to
+! ${slackver_a}.${slackver_b}.${slackver_c} (ie. 8.0.0, 8.1.0, 9.0.0 etc.).
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:45:08 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:45:08 +0200
+Subject: [Packware-cvs] pwbuilder/doc/guide-pl - New directory
+Message-ID: <200410181145.i9IBj8B15565@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/doc/guide-pl
+In directory sheep:/tmp/cvs-serv23456/guide-pl
+
+Log Message:
+Directory /cvsroot/packware/pwbuilder/doc/guide-pl added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:45:59 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:45:59 +0200
+Subject: [Packware-cvs] pwbuilder/doc REPO,1.2,1.3
+Message-ID: <200410181145.i9IBjxB15569@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/doc
+In directory sheep:/tmp/cvs-serv23508/doc
+
+Modified Files:
+	REPO 
+Log Message:
+- Added Polish documentation.
+- Fixed cvsweb URL in doc/REPO.
+
+
+Index: REPO
+===================================================================
+RCS file: /cvsroot/packware/pwbuilder/doc/REPO,v
+retrieving revision 1.2
+retrieving revision 1.3
+diff -C2 -d -r1.2 -r1.3
+*** REPO	18 Oct 2004 11:37:37 -0000	1.2
+--- REPO	18 Oct 2004 11:45:56 -0000	1.3
+***************
+*** 7,9 ****
+  cvs -z3 co pwbuilder
+  
+! Alternatively, you can use a web interface at http://cvs.berlios.de/packware/.
+--- 7,10 ----
+  cvs -z3 co pwbuilder
+  
+! Alternatively, you can use a web interface at:
+! http://cvs.berlios.de/cgi-bin/viewcvs.cgi/packware/
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:45:59 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:45:59 +0200
+Subject: [Packware-cvs] pwbuilder/doc/guide-pl DESTDIR,NONE,1.1 FILES,NONE,1.1 HAVE,NONE,1.1 PWBUILD,NONE,1.1 PWINFO,NONE,1.1 SUBPACKAGES,NONE,1.1 VARIABLES,NONE,1.1 janosik.pwinfo,NONE,1.1 slack-desc,NONE,1.1
+Message-ID: <200410181145.i9IBjxB15573@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/doc/guide-pl
+In directory sheep:/tmp/cvs-serv23508/doc/guide-pl
+
+Added Files:
+	DESTDIR FILES HAVE PWBUILD PWINFO SUBPACKAGES VARIABLES 
+	janosik.pwinfo slack-desc 
+Log Message:
+- Added Polish documentation.
+- Fixed cvsweb URL in doc/REPO.
+
+
+--- NEW FILE: DESTDIR ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: FILES ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: HAVE ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: PWBUILD ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: PWINFO ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: SUBPACKAGES ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: VARIABLES ---
+(This appears to be a binary file; contents omitted.)
+
+--- NEW FILE: janosik.pwinfo ---
+info="An open source alternative for Platnik."
+desc="Janosik is a free and open implementation of Platnik, a program that is required for electronic transfer of papers to ZUS (a Polish national insurance office).
+
+Platnik is available only for MS Windows. Janosik has been written in Python, and thus it runs on all platforms Python and PyGTK2 are ported to."
+
+--- NEW FILE: slack-desc ---
+janosik: janosik (An open source alternative for Platnik.)
+janosik:
+janosik: Janosik is a free and open implementation of Platnik, a program that
+janosik: is required for electronic transfer of papers to ZUS (a Polish
+janosik: national insurance office).
+janosik: 
+janosik: Platnik is available only for MS Windows. Janosik has been written in
+janosik: Python, and thus it runs on all platforms Python and PyGTK2 are ported
+janosik: to.
+janosik:
+janosik:
+janosik:
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:50:40 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:50:40 +0200
+Subject: [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/bin xexec,NONE,1.1
+Message-ID: <200410181150.i9IBoeB15647@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/bin
+In directory sheep:/tmp/cvs-serv23803/src/usr/lib/pwbuilder/bin
+
+Added Files:
+	xexec 
+Log Message:
+- Added missing files.
+
+
+--- NEW FILE: xexec ---
+#!/bin/sh
+
+"$@"
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:50:41 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:50:41 +0200
+Subject: [Packware-cvs] pwbuilder/src/usr/lib/pwbuilder/include/funcs exec,NONE,1.1
+Message-ID: <200410181150.i9IBofB15651@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuilder/src/usr/lib/pwbuilder/include/funcs
+In directory sheep:/tmp/cvs-serv23803/src/usr/lib/pwbuilder/include/funcs
+
+Added Files:
+	exec 
+Log Message:
+- Added missing files.
+
+
+--- NEW FILE: exec ---
+#!/bin/sh
+
+function _exec() {
+
+	env -i USER=$USER HOME=$HOME sh -l /usr/lib/pwbuilder/bin/xexec "$@"
+
+}
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 14:02:00 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 14:02:00 +0200
+Subject: [Packware-cvs] pwbuild/xap/psi psi-no_default_status_text.patch,1.1,NONE psi-no_online_status.patch,1.1,NONE psi-offline_status.patch,1.1,NONE psi-status_history.patch,1.1,NONE psi-status_indicator-cvs.patch,1.1,NONE psi-status_indicator.patch,1.1,NONE
+Message-ID: <200410181202.i9IC20B15822@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/psi
+In directory sheep:/tmp/cvs-serv24197
+
+Removed Files:
+	psi-no_default_status_text.patch psi-no_online_status.patch 
+	psi-offline_status.patch psi-status_history.patch 
+	psi-status_indicator-cvs.patch psi-status_indicator.patch 
+Log Message:
+- Removed obsolete patches.
+
+
+--- psi-no_default_status_text.patch DELETED ---
+
+--- psi-no_online_status.patch DELETED ---
+
+--- psi-offline_status.patch DELETED ---
+
+--- psi-status_history.patch DELETED ---
+
+--- psi-status_indicator-cvs.patch DELETED ---
+
+--- psi-status_indicator.patch DELETED ---
+
+
+
+From nobody at sheep.berlios.de  Mon Oct 18 13:58:19 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Mon, 18 Oct 2004 13:58:19 +0200
+Subject: [Packware-cvs] pwbuild/xap/psi psi-client_wrap-mod.diff,NONE,1.1 psi-emots-mod.diff,NONE,1.1 psi-empty_group-fix.diff,NONE,1.1 psi-framechecks-mod.diff,NONE,1.1 psi-gnome_toolwindow-mod.diff,NONE,1.1 psi-group_openclose_single_click-mod.diff,NONE,1.1 psi-headings-mod.diff,NONE,1.1 psi-icon_buttons_big_return-mod.diff,NONE,1.1 psi-iconselect-mod.diff,NONE,1.1 psi-indicator-icon.pw.patch,NONE,1.1 psi-line_in_options-mod.diff,NONE,1.1 psi-linkify-mod-rev-fix.diff,NONE,1.1 psi-nicechats-mod.diff,NONE,1.1 psi-no_online_status-mod.diff,NONE,1.1 psi-options_resize-fix.diff,NONE,1.1 psi-qt_trans-add.diff,NONE,1.1 psi-rich_contactview-0.7-add.diff,NONE,1.1 psi-save_profile-mod.diff,NONE,1.1 psi-settoggles-fix.diff,NONE,1.1 psi-status_history-add.diff,NONE,1.1 psi-status_indicator++-add.diff,NONE,1.1 psi-subs_reason-recv.diff,NONE,1.1 psi-thin_borders-mod.diff,NONE,1.1 psi-tooltips_linkify-rev.diff,NONE,1.1 psi-url_emoticon-mod.diff,NONE,1.1 psi-weather_agent_icons-add.diff,NONE,1.1 richlistview.cpp,NONE,1.1 richlistview.h,NONE,1.1 indicator.png,1.1,1.2 psi-cvs.pwbuild,1.3,1.4
+Message-ID: <200410181158.i9IBwJB15759@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/xap/psi
+In directory sheep:/tmp/cvs-serv23960
+
+Modified Files:
+	indicator.png psi-cvs.pwbuild 
+Added Files:
+	psi-client_wrap-mod.diff psi-emots-mod.diff 
+	psi-empty_group-fix.diff psi-framechecks-mod.diff 
+	psi-gnome_toolwindow-mod.diff 
+	psi-group_openclose_single_click-mod.diff 
+	psi-headings-mod.diff psi-icon_buttons_big_return-mod.diff 
+	psi-iconselect-mod.diff psi-indicator-icon.pw.patch 
+	psi-line_in_options-mod.diff psi-linkify-mod-rev-fix.diff 
+	psi-nicechats-mod.diff psi-no_online_status-mod.diff 
+	psi-options_resize-fix.diff psi-qt_trans-add.diff 
+	psi-rich_contactview-0.7-add.diff psi-save_profile-mod.diff 
+	psi-settoggles-fix.diff psi-status_history-add.diff 
+	psi-status_indicator++-add.diff psi-subs_reason-recv.diff 
+	psi-thin_borders-mod.diff psi-tooltips_linkify-rev.diff 
+	psi-url_emoticon-mod.diff psi-weather_agent_icons-add.diff 
+	richlistview.cpp richlistview.h 
+Log Message:
+- Version 20041018.
+- Added many patches from http://ftp.xiaoka.com/friends/skazi/psi/patches/.
+
+
+--- NEW FILE: psi-client_wrap-mod.diff ---
+diff -ru psi-clean/src/userlist.cpp psi/src/userlist.cpp
+--- psi-clean/src/userlist.cpp	Wed Jul 30 09:38:36 2003
++++ psi/src/userlist.cpp	Wed Jul 30 15:17:12 2003
+@@ -384,7 +384,7 @@
+ 				if(trim)
+ 					ver.truncate(200);
+ 				ver = expandEntities(ver);
+-				str += QString("<br><nobr>") + QObject::tr("Using") + QString(": %1").arg(ver) + "</nobr>";
++				str += QString("<br>") + QObject::tr("Using") + QString(": %1").arg(ver);
+ 			}
+ 
+ 			// status message
+
+
+--- NEW FILE: psi-emots-mod.diff ---
+diff -ru -X exclude psi-clean/libpsi/psiwidgets/psitextview.cpp psi/libpsi/psiwidgets/psitextview.cpp
+--- psi-clean/libpsi/psiwidgets/psitextview.cpp	Thu Apr 01 09:44:40 2004
++++ psi/libpsi/psiwidgets/psitextview.cpp	Mon Apr 19 14:50:32 2004
+@@ -242,6 +242,9 @@
+ 		y = ypos;
+ 	}
+ 
++	y+=2; cy+=2; 
++	p->setClipping(FALSE);
++
+ 	if ( !icon ) {
+ 		p->fillRect( x, y, width, height, cg.dark() );
+ 		return;
+diff -ru -X exclude psi-clean/src/common.cpp psi/src/common.cpp
+--- psi-clean/src/common.cpp	Sun Mar 21 15:44:42 2004
++++ psi/src/common.cpp	Mon Apr 19 14:54:52 2004
+@@ -635,11 +635,10 @@
+ 							continue;
+ 
+ 						if(ePos == -1 || n < ePos || (rx.matchedLength() > foundLen && n < ePos + foundLen)) {
+-							// there must be whitespace at least on one side of the emoticon
+ 							if ( ( n == 0 ) ||
+ 							     ( n+rx.matchedLength() == (int)str.length() ) ||
+-							     ( n > 0 && str[n-1].isSpace() ) ||
+-							     ( n+rx.matchedLength() < (int)str.length() && str[n+rx.matchedLength()].isSpace() ) )
++							     ( n > 0 && ( !option.spaceEmoticons || str[n+rx.matchedLength()].isSpace() ) ) ||
++							     ( n+rx.matchedLength() < (int)str.length() && ( !option.spaceEmoticons || str[n+rx.matchedLength()].isSpace() ) ) )
+ 							{
+ 								ePos = n;
+ 								closest = icon;
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Thu Mar 04 22:04:00 2004
++++ psi/src/common.h	Mon Apr 19 14:54:12 2004
+@@ -108,7 +108,7 @@
+ 	QString player;
+ 	QString customBrowser, customMailer;
+ 
+-	bool ignoreHeadline, ignoreNonRoster, scrollTo, keepSizes, useEmoticons, alertOpenChats;
++	bool ignoreHeadline, ignoreNonRoster, scrollTo, keepSizes, useEmoticons, spaceEmoticons, alertOpenChats;
+ 	bool raiseChatWindow, showSubjects, showCounter, chatSays, chatSoftReturn, showGroupCounts;
+ 
+ 	QSize sizeEventDlg, sizeChatDlg;
+diff -ru -X exclude psi-clean/src/eventdlg.cpp psi/src/eventdlg.cpp
+--- psi-clean/src/eventdlg.cpp	Thu Apr 01 09:44:50 2004
++++ psi/src/eventdlg.cpp	Mon Apr 19 14:50:32 2004
+@@ -1465,10 +1465,12 @@
+ 		d->mle->moveCursor(QTextEdit::MoveHome, false);
+ 		d->mle->setTextFormat(RichText);
+ 
++		txt = linkify(txt);
++
+ 		if(option.useEmoticons)
+ 			txt = emoticonify(txt);
+ 
+-		d->mle->setText("<qt>" + linkify(txt) + "</qt>");
++		d->mle->setText("<qt>" + txt + "</qt>");
+ 
+ 		d->le_subj->setText(m.subject());
+ 		d->le_subj->setCursorPosition(0);
+diff -ru -X exclude psi-clean/src/options/opt_iconset.cpp psi/src/options/opt_iconset.cpp
+--- psi-clean/src/options/opt_iconset.cpp	Sat Jan 17 14:48:14 2004
++++ psi/src/options/opt_iconset.cpp	Mon Apr 19 14:59:00 2004
+@@ -459,6 +459,7 @@
+ 
+ 	IconsetEmoUI *d = (IconsetEmoUI *)w;
+ 	opt->useEmoticons = d->ck_useEmoticons->isChecked();
++	opt->spaceEmoticons = d->ck_spaceEmoticons->isChecked();
+ 
+ 	opt->emoticons.clear();
+ 	IconWidgetItem *item = (IconWidgetItem *)d->iss_emoticons->firstItem();
+@@ -483,6 +484,7 @@
+ 
+ 	IconsetEmoUI *d = (IconsetEmoUI *)w;
+ 	d->ck_useEmoticons->setChecked( opt->useEmoticons );
++	d->ck_spaceEmoticons->setChecked( opt->spaceEmoticons );
+ 
+ 	// fill in the iconset view
+ 	d->iss_emoticons->clear();
+@@ -514,6 +516,8 @@
+ 		customPal.setDisabled(customPal.inactive());
+ 		d->ck_useEmoticons->setEnabled(false);
+ 		d->ck_useEmoticons->setPalette(customPal);
++		d->ck_spaceEmoticons->setEnabled(false);
++		d->ck_spaceEmoticons->setPalette(customPal);
+ 
+ 		d->groupBox9->setEnabled(false);
+ 		d->groupBox9->setPalette(customPal);
+@@ -557,6 +561,8 @@
+ 	else if ( e->type() == QEvent::User + 1 ) { // finish event
+ 		d->ck_useEmoticons->setEnabled(true);
+ 		d->ck_useEmoticons->unsetPalette();
++		d->ck_spaceEmoticons->setEnabled(true);
++		d->ck_spaceEmoticons->unsetPalette();
+ 
+ 		d->groupBox9->setEnabled(true);
+ 		d->groupBox9->unsetPalette();
+@@ -566,6 +572,10 @@
+ 		bool checked = d->ck_useEmoticons->isChecked();
+ 		d->ck_useEmoticons->setChecked( true );
+ 		d->ck_useEmoticons->setChecked( checked );
++
++		checked = d->ck_spaceEmoticons->isChecked();
++		d->ck_spaceEmoticons->setChecked( true );
++		d->ck_spaceEmoticons->setChecked( checked );
+ 
+ 		d->progress->hide();
+ 
+diff -ru -X exclude psi-clean/src/options/opt_iconset_emo.ui psi/src/options/opt_iconset_emo.ui
+--- psi-clean/src/options/opt_iconset_emo.ui	Sun Sep 14 23:38:50 2003
++++ psi/src/options/opt_iconset_emo.ui	Mon Apr 19 15:01:08 2004
+@@ -28,6 +28,17 @@
+             </property>
+             <property name="text">
+                 <string>Enable Emoticons</string>
++            </property>
++            <property name="checked">
++                <bool>true</bool>
++            </property>
++        </widget>
++        <widget class="QCheckBox">
++            <property name="name">
++                <cstring>ck_spaceEmoticons</cstring>
++            </property>
++            <property name="text">
++                <string>Require whitespace before/after emoticons</string>
+             </property>
+             <property name="checked">
+                 <bool>true</bool>
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sun Mar 21 15:47:06 2004
++++ psi/src/psi_profiles.cpp	Mon Apr 19 14:55:54 2004
+@@ -382,6 +382,7 @@
+ 	prefs.asMessage = QObject::tr("Auto Status (idle)");
+ 	prefs.scrollTo = TRUE;
+ 	prefs.useEmoticons = false;
++	prefs.spaceEmoticons = false;
+ 	prefs.alertOpenChats = false;
+ 	prefs.raiseChatWindow = false;
+ 	prefs.showSubjects = true;
+@@ -660,6 +661,7 @@
+ 			p_misc.appendChild(textTag(doc, "ignoreNonRoster", prefs.ignoreNonRoster));
+ 			p_misc.appendChild(textTag(doc, "scrollTo", prefs.scrollTo));
+ 			p_misc.appendChild(textTag(doc, "useEmoticons", prefs.useEmoticons));
++			p_misc.appendChild(textTag(doc, "spaceEmoticons", prefs.spaceEmoticons));
+ 			p_misc.appendChild(textTag(doc, "alertOpenChats", prefs.alertOpenChats));
+ 			p_misc.appendChild(textTag(doc, "raiseChatWindow", prefs.raiseChatWindow));
+ 			p_misc.appendChild(textTag(doc, "showSubjects", prefs.showSubjects));
+@@ -1141,6 +1143,7 @@
+ 				readBoolEntry(tag, "ignoreNonRoster", &prefs.ignoreNonRoster);
+ 				readBoolEntry(tag, "scrollTo", &prefs.scrollTo);
+ 				readBoolEntry(tag, "useEmoticons", &prefs.useEmoticons);
++				readBoolEntry(tag, "spaceEmoticons", &prefs.spaceEmoticons);
+ 				readBoolEntry(tag, "alertOpenChats", &prefs.alertOpenChats);
+ 				readBoolEntry(tag, "raiseChatWindow", &prefs.raiseChatWindow);
+ 				readBoolEntry(tag, "showSubjects", &prefs.showSubjects);
+
+--- NEW FILE: psi-empty_group-fix.diff ---
+diff -ru -X exclude iris-clean/xmpp-im/types.cpp iris/xmpp-im/types.cpp
+--- ../../iris-clean/xmpp-im/types.cpp	Wed Nov 26 18:24:42 2003
++++ ../../iris/xmpp-im/types.cpp	Thu May 20 12:12:28 2004
+@@ -941,7 +1026,7 @@
+ 
+ bool RosterItem::addGroup(const QString &g)
+ {
+-	if(inGroup(g))
++	if(inGroup(g) || g.isEmpty())
+ 		return false;
+ 
+ 	v_groups += g;
+@@ -990,8 +1075,10 @@
+ 		QDomElement i = n.toElement();
+ 		if(i.isNull())
+ 			continue;
+-		if(i.tagName() == "group")
++		if(i.tagName() == "group"){
+ 			g += tagContent(i);
++			g.remove(QString(""));
++		}
+ 	}
+ 	QString a = item.attribute("ask");
+ 
+
+--- NEW FILE: psi-framechecks-mod.diff ---
+diff -ru -X exclude psi-clean/src/options/opt_application-ui.ui psi/src/options/opt_application-ui.ui
+--- psi-clean/src/options/opt_application-ui.ui	Thu Mar 04 22:04:10 2004
++++ psi/src/options/opt_application-ui.ui	Thu May 13 10:53:18 2004
+@@ -124,6 +124,12 @@
+                             <property name="name">
+                                 <cstring>le_linkMailer</cstring>
+                             </property>
++                            <property name="frameShape">
++                                <enum>LineEditPanel</enum>
++                            </property>
++                            <property name="frameShadow">
++                                <enum>Sunken</enum>
++                            </property>
+                         </widget>
+                         <widget class="QLineEdit" row="0" column="1">
+                             <property name="name">
+@@ -150,24 +156,16 @@
+                 </widget>
+             </vbox>
+         </widget>
+-        <widget class="QCheckBox">
+-            <property name="name">
+-                <cstring>ck_docklet</cstring>
+-            </property>
+-            <property name="text">
+-                <string>Enable Docklet</string>
+-            </property>
+-            <property name="checked">
+-                <bool>true</bool>
+-            </property>
+-        </widget>
+         <widget class="QGroupBox">
+             <property name="name">
+-                <cstring>groupBox7</cstring>
++                <cstring>ck_docklet</cstring>
+             </property>
+             <property name="title">
+                 <string>Docklet</string>
+             </property>
++            <property name="checkable">
++                <bool>true</bool>
++            </property>
+             <vbox>
+                 <property name="name">
+                     <cstring>unnamed</cstring>
+@@ -283,14 +281,6 @@
+         </widget>
+     </vbox>
+ </widget>
+-<connections>
+-    <connection>
+-        <sender>ck_docklet</sender>
+-        <signal>toggled(bool)</signal>
+-        <receiver>groupBox7</receiver>
+-        <slot>setEnabled(bool)</slot>
+-    </connection>
+-</connections>
+ <tabstops>
+     <tabstop>ck_alwaysOnTop</tabstop>
+     <tabstop>ck_keepSizes</tabstop>
+@@ -298,7 +288,6 @@
+     <tabstop>cb_link</tabstop>
+     <tabstop>le_linkBrowser</tabstop>
+     <tabstop>le_linkMailer</tabstop>
+-    <tabstop>ck_docklet</tabstop>
+     <tabstop>ck_dockDCstyle</tabstop>
+     <tabstop>ck_dockHideMW</tabstop>
+     <tabstop>ck_dockToolMW</tabstop>
+diff -ru -X exclude psi-clean/src/options/opt_events-ui.ui psi/src/options/opt_events-ui.ui
+--- psi-clean/src/options/opt_events-ui.ui	Sun Jan 04 19:30:30 2004
++++ psi/src/options/opt_events-ui.ui	Thu May 13 10:58:58 2004
+@@ -121,24 +121,16 @@
+                 </widget>
+             </hbox>
+         </widget>
+-        <widget class="QCheckBox">
+-            <property name="name">
+-                <cstring>ck_popupOn</cstring>
+-            </property>
+-            <property name="text">
+-                <string>Enable popup notifications</string>
+-            </property>
+-            <property name="checked">
+-                <bool>true</bool>
+-            </property>
+-        </widget>
+         <widget class="QGroupBox">
+             <property name="name">
+-                <cstring>groupBox1</cstring>
++                <cstring>ck_popupOn</cstring>
+             </property>
+             <property name="title">
+                 <string>Popup Notifications</string>
+             </property>
++            <property name="checkable">
++                <bool>true</bool>
++            </property>
+             <vbox>
+                 <property name="name">
+                     <cstring>unnamed</cstring>
+@@ -187,14 +179,6 @@
+         </widget>
+     </vbox>
+ </widget>
+-<connections>
+-    <connection>
+-        <sender>ck_popupOn</sender>
+-        <signal>toggled(bool)</signal>
+-        <receiver>groupBox1</receiver>
+-        <slot>setEnabled(bool)</slot>
+-    </connection>
+-</connections>
+ <tabstops>
+     <tabstop>ck_popupMsgs</tabstop>
+     <tabstop>ck_allowAwayPopup</tabstop>
+@@ -205,7 +189,6 @@
+     <tabstop>rb_aSolid</tabstop>
+     <tabstop>rb_aBlink</tabstop>
+     <tabstop>rb_aAnimate</tabstop>
+-    <tabstop>ck_popupOn</tabstop>
+     <tabstop>ck_popupOnMessage</tabstop>
+     <tabstop>ck_popupOnOnline</tabstop>
+     <tabstop>ck_popupOnStatus</tabstop>
+diff -ru -X exclude psi-clean/src/options/opt_general_groupchat.ui psi/src/options/opt_general_groupchat.ui
+--- psi-clean/src/options/opt_general_groupchat.ui	Sat Jan 17 14:48:10 2004
++++ psi/src/options/opt_general_groupchat.ui	Thu May 13 11:00:46 2004
+@@ -30,21 +30,16 @@
+                 <property name="name">
+                     <cstring>unnamed</cstring>
+                 </property>
+-                <widget class="QCheckBox">
+-                    <property name="name">
+-                        <cstring>ck_gcHighlights</cstring>
+-                    </property>
+-                    <property name="text">
+-                        <string>Enable word highlighting</string>
+-                    </property>
+-                </widget>
+                 <widget class="QGroupBox">
+                     <property name="name">
+-                        <cstring>alertGroupBox</cstring>
++                        <cstring>ck_gcHighlights</cstring>
+                     </property>
+                     <property name="title">
+                         <string>Word Highlighting</string>
+                     </property>
++                    <property name="checkable">
++                        <bool>true</bool>
++                    </property>
+                     <property name="toolTip" stdset="0">
+                         <string>Highlight lines and alert the user if this text is included in chat</string>
+                     </property>
+@@ -172,21 +167,16 @@
+                 <property name="name">
+                     <cstring>unnamed</cstring>
+                 </property>
+-                <widget class="QCheckBox">
+-                    <property name="name">
+-                        <cstring>ck_gcNickColoring</cstring>
+-                    </property>
+-                    <property name="text">
+-                        <string>Enable Nick Coloring</string>
+-                    </property>
+-                </widget>
+                 <widget class="QGroupBox">
+                     <property name="name">
+-                        <cstring>ncGroupBox</cstring>
++                        <cstring>ck_gcNickColoring</cstring>
+                     </property>
+                     <property name="title">
+                         <string>Nick Coloring</string>
+                     </property>
++                    <property name="checkable">
++                        <bool>true</bool>
++                    </property>
+                     <vbox>
+                         <property name="name">
+                             <cstring>unnamed</cstring>
+@@ -318,12 +308,10 @@
+     </hbox>
+ </widget>
+ <tabstops>
+-    <tabstop>ck_gcHighlights</tabstop>
+     <tabstop>lb_highlightWords</tabstop>
+     <tabstop>le_newHighlightWord</tabstop>
+     <tabstop>pb_removeHighlightWord</tabstop>
+     <tabstop>pb_addHighlightWord</tabstop>
+-    <tabstop>ck_gcNickColoring</tabstop>
+     <tabstop>lb_nickColors</tabstop>
+     <tabstop>le_newNickColor</tabstop>
+     <tabstop>pb_nickColor</tabstop>
+
+--- NEW FILE: psi-gnome_toolwindow-mod.diff ---
+diff -ru -X exclude psi-clean/src/mainwin.cpp psi/src/mainwin.cpp
+--- psi-clean/src/mainwin.cpp	2004-08-21 09:58:25.000000000 +0200
++++ psi/src/mainwin.cpp	2004-08-22 19:55:29.000000000 +0200
+@@ -182,7 +182,8 @@
+ //#ifdef Q_WS_X11
+ //#define TOOLW_FLAGS WStyle_Customize
+ //#else
+-#define TOOLW_FLAGS 0
++//#define TOOLW_FLAGS WStyle_NormalBorder | WStyle_Customize
++#define TOOLW_FLAGS WStyle_DialogBorder | WStyle_Customize
+ //#endif
+ 
+ MainWin::MainWin(bool _onTop, bool _asTool, PsiCon *psi, const char *name)
+
+--- NEW FILE: psi-group_openclose_single_click-mod.diff ---
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Mon Jan 26 17:33:30 2004
++++ psi/src/contactview.cpp	Sun Feb 01 20:12:08 2004
+@@ -1878,7 +1878,12 @@
+ 			item->contactProfile()->scActionDefault(item);
+ 	}
+ 	else {
+-		if(option.useleft) {
++		const QPixmap * pix = item->pixmap(0);			
++		if(button == QListView::LeftButton && item->type() == ContactViewItem::Group &&
++		   pix && viewport()->mapFromGlobal(pos).x() <= pix->width() + treeStepSize()) {
++			setOpen(item, !item->isOpen());
++		}
++		else if(option.useleft) {
+ 			if(button == QListView::LeftButton) {
+ 				if(option.singleclick) {
+ 					qlv_contextPopup(i, pos, c);
+
+--- NEW FILE: psi-headings-mod.diff ---
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Mon Oct 06 07:42:10 2003
++++ psi/src/contactview.cpp	Tue Oct 14 20:46:46 2003
+@@ -2249,7 +2249,8 @@
+ 		if(d->type == Group && option.clNewHeadings) {
+ 			//xcg.setColor(QColorGroup::Text, option.color[cGroupBack]);
+ 			QFont f = p->font();
+-			f.setPointSize(option.smallFontSize);
++			//f.setPointSize(option.smallFontSize);
++			f.setWeight(QFont::Bold);
+ 			p->setFont(f);
+ 		} else {
+ 			//xcg.setColor(QColorGroup::Text, option.color[cGroupFore]);
+
+--- NEW FILE: psi-icon_buttons_big_return-mod.diff ---
+diff -ru -X exclude psi-clean/libpsi/psiwidgets/iconwidget.cpp psi/libpsi/psiwidgets/iconwidget.cpp
+--- psi-clean/libpsi/psiwidgets/iconwidget.cpp	Thu Dec 18 14:10:44 2003
++++ psi/libpsi/psiwidgets/iconwidget.cpp	Thu Dec 18 14:27:52 2003
+@@ -587,11 +587,6 @@
+ 
+ void IconButton::setIcon(const Icon *i, bool activate)
+ {
+-#ifndef Q_WS_X11
+-	if ( !text().isEmpty() )
+-		return;
+-#endif
+-
+ 	forceSetIcon(i, activate);
+ 	d->forced = false;
+ }
+
+--- NEW FILE: psi-iconselect-mod.diff ---
+diff -ru psi-clean/libpsi/psiwidgets/iconselect.cpp psi/libpsi/psiwidgets/iconselect.cpp
+--- psi-clean/libpsi/psiwidgets/iconselect.cpp	Thu Aug 14 10:14:48 2003
++++ psi/libpsi/psiwidgets/iconselect.cpp	Thu Aug 14 17:53:40 2003
+@@ -15,6 +15,9 @@
+ 
+ #include "iconset.h"
+ 
++#include <qstylesheet.h>
++#define expandEntities(s) (QStyleSheet::escape(s))
++
+ //----------------------------------------------------------------------------
+ // IconSelectButton
+ //----------------------------------------------------------------------------
+@@ -109,15 +112,22 @@
+ 
+ 				// and list all possible variants in the ToolTip
+ 				QString toolTip;
++				
++				if ( str )
++					toolTip=QString("<nobr><b>")+expandEntities(*str)+"</b></nobr>";
++				
+ 				QDictIterator<QString> it2 ( ic->text() );
+ 				for ( ; it2.current(); ++it2) {
+-					if ( !toolTip.isEmpty() )
+-						toolTip += ", ";
+-					toolTip += **it2;
+-					break; // comment this to get list of iconsets
++					if ( *it2!=str ) {
++						if ( !toolTip.isEmpty() )
++							toolTip += "<br>";
++						if ( toolTip.length() > 50 ) {
++							toolTip += "...";
++							break;
++						}
++						toolTip += QString("<nobr>")+expandEntities(**it2)+"</nobr>";
++					}
+ 				}
+-				if ( toolTip.length() > 30 )
+-					toolTip = toolTip.left(30) + "...";
+ 				QToolTip::add(this, toolTip);
+ 			}
+ 		}
+
+--- NEW FILE: psi-indicator-icon.pw.patch ---
+diff -ruN psi.orig/iconsets/roster/default/icondef.xml psi/iconsets/roster/default/icondef.xml
+--- psi.orig/iconsets/roster/default/icondef.xml	2004-04-22 21:49:53.000000000 +0200
++++ psi/iconsets/roster/default/icondef.xml	2004-10-18 13:32:24.000000000 +0200
+@@ -112,4 +112,9 @@
+ 		<x xmlns='name'>psi/groupOpen</x>
+ 		<object mime='image/png'>groupopen.png</object>
+ 	</icon>
++
++	<icon>
++		<x>psi/statInd</x>
++		<object mime="image/png">indicator.png</object>
++	</icon>
+ </icondef>
+
+--- NEW FILE: psi-line_in_options-mod.diff ---
+diff -ru -X exclude psi-clean/src/options/ui_options.ui psi/src/options/ui_options.ui
+--- psi-clean/src/options/ui_options.ui	Tue Nov 25 20:16:46 2003
++++ psi/src/options/ui_options.ui	Sun Nov 30 16:57:20 2003
+@@ -9,7 +9,7 @@
+             <x>0</x>
+             <y>0</y>
+             <width>408</width>
+-            <height>292</height>
++            <height>295</height>
+         </rect>
+     </property>
+     <property name="caption">
+@@ -54,6 +54,20 @@
+                         <enum>LastColumn</enum>
+                     </property>
+                 </widget>
++                <widget class="Line">
++                    <property name="name">
++                        <cstring>line2</cstring>
++                    </property>
++                    <property name="frameShape">
++                        <enum>VLine</enum>
++                    </property>
++                    <property name="frameShadow">
++                        <enum>Sunken</enum>
++                    </property>
++                    <property name="orientation">
++                        <enum>Vertical</enum>
++                    </property>
++                </widget>
+                 <widget class="QLayoutWidget">
+                     <property name="name">
+                         <cstring>layout3</cstring>
+
+--- NEW FILE: psi-linkify-mod-rev-fix.diff ---
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Tue Nov 04 07:12:56 2003
++++ psi/src/contactview.cpp	Tue Nov 11 12:39:18 2003
+@@ -1674,7 +1683,7 @@
+ 		return;
+ 	QRect r(itemRect(i));
+ 	if(i->type() == ContactViewItem::Contact)
+-		tip(r, i->u()->makeTip(true, false));
++		tip(r, i->u()->makeTip(true, true));
+ 	else if(i->type() == ContactViewItem::Profile) {
+-		tip(r, i->contactProfile()->makeTip(true, false));
++		tip(r, i->contactProfile()->makeTip(true, true));
+	}
+diff -ru -X exclude psi-clean/src/psipopup.cpp psi/src/psipopup.cpp
+--- psi-clean/src/psipopup.cpp	Tue Oct 28 18:05:50 2003
++++ psi/src/psipopup.cpp	Tue Nov 11 12:14:36 2003
+@@ -334,7 +334,7 @@
+ 	else
+ 		name = "<nobr>&lt;" + jid + "&gt;</nobr>";
+ 
+-	QString statusString = plain2rich(status);
++	QString statusString = linkify(plain2rich(status));
+ 	if ( option.useEmoticons )
+ 		statusString = emoticonify(statusString);
+ 
+diff -ru -X exclude psi-clean/src/userlist.cpp psi/src/userlist.cpp
+--- psi-clean/src/userlist.cpp	Mon Oct 27 23:42:38 2003
++++ psi/src/userlist.cpp	Tue Nov 11 12:43:50 2003
+@@ -398,7 +404,7 @@
+ 					s = plain2rich(s);
+ 				if ( doLinkify )
+ 					s = linkify(s);
+-				if( option.useEmoticons && !doLinkify )
++				if( option.useEmoticons )
+ 					s = emoticonify(s);
+ 				str += QString("<br><nobr><u>%1</u></nobr><br>%2").arg(head).arg(s);
+ 			}
+@@ -419,14 +425,15 @@
+ 		// status message
+ 		QString s = lastUnavailableStatus().status();
+ 		if(!s.isEmpty()) {
+-			QString head = QObject::tr("Last Status Message");
++			QString head = QObject::tr("Status Message");
+ 			if(trim)
+ 				s = plain2rich(clipStatus(s, 200, 12));
+-			else {
+-				s = plain2rich(clipStatus(s, 200, 12));
+-				if ( doLinkify )
+-					s = linkify(s);
+-			}
++			else
++				s = plain2rich(s);
++			if ( doLinkify )
++				s = linkify(s);
++			if( option.useEmoticons )
++				s = emoticonify(s);
+ 			str += QString("<br><nobr><u>%1</u></nobr><br>%2").arg(head).arg(s);
+ 		}
+ 	}
+
+--- NEW FILE: psi-nicechats-mod.diff ---
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Tue Jan 06 17:24:54 2004
++++ psi/src/chatdlg.cpp	Sat Mar 27 11:47:06 2004
+@@ -506,7 +507,13 @@
+ 	// update the widget icon
+ #ifdef Q_WS_MAC
+ 	setIcon(IconsetFactory::icon("psi/chat"));
+ #endif
++
++	d->log->setPaletteBackgroundColor(option.color[cChatBG]);
++	d->mle->setPaletteBackgroundColor(option.color[cChatBG]);
++
++	d->log->setPaletteForegroundColor(option.color[cChatMessage]);
++	d->mle->setPaletteForegroundColor(option.color[cChatMessage]);
+ }
+ 
+ void ChatDlg::optionsUpdate()
+@@ -739,7 +746,7 @@
+ 		y = 0;
+[...1042 lines suppressed...]
+ 				readBoolEntry(tag, "showGroupCounts", &prefs.showGroupCounts);
+ 				readBoolEntry(tag, "showCounter", &prefs.showCounter);
+ 				readBoolEntry(tag, "chatSays", &prefs.chatSays);
++				readBoolEntry(tag, "showTimeStamps", &prefs.showTimeStamps);
+ 				readBoolEntry(tag, "jidComplete", &prefs.jidComplete);
+ 				readBoolEntry(tag, "grabUrls", &prefs.grabUrls);
+ 				readBoolEntry(tag, "smallChats", &prefs.smallChats);
+@@ -1270,6 +1285,12 @@
+ 				readColorEntry(tag, "groupback", &prefs.color[cGroupBack]);
+ 				readColorEntry(tag, "animfront", &prefs.color[cAnimFront]);
+ 				readColorEntry(tag, "animback", &prefs.color[cAnimBack]);
++				readColorEntry(tag, "chatmessage", &prefs.color[cChatMessage]);
++				readColorEntry(tag, "chatsys", &prefs.color[cChatSys]);
++				readColorEntry(tag, "chatto", &prefs.color[cChatTo]);
++				readColorEntry(tag, "chatfrom", &prefs.color[cChatFrom]);
++				readColorEntry(tag, "chatspool", &prefs.color[cChatSpool]);
++				readColorEntry(tag, "chatbg", &prefs.color[cChatBG]);
+ 			}
+ 
+ 			tag = findSubTag(p_lnf, "fonts", &found);
+
+--- NEW FILE: psi-no_online_status-mod.diff ---
+diff -ru psi/src/psiaccount.cpp psi-smk2/src/psiaccount.cpp
+--- psi/src/psiaccount.cpp	2003-06-17 05:46:02.000000000 +0200
++++ psi-smk2/src/psiaccount.cpp	2003-06-19 23:48:40.000000000 +0200
+@@ -1551,7 +1551,7 @@
+ 	}
+ 	else {
+ 		if(x == STATUS_ONLINE && !option.askOnline) {
+-			setStatus(Status());
++			setStatus(Status("","",0,true));
+ 		}
+ 		else if(x == STATUS_INVISIBLE){
+ 			Status s("","",0,true);
+
+--- NEW FILE: psi-options_resize-fix.diff ---
+diff -ru -X exclude psi-clean/src/options/ui_options.ui psi/src/options/ui_options.ui
+--- psi-clean/src/options/ui_options.ui	Tue Nov 25 20:16:46 2003
++++ psi/src/options/ui_options.ui	Sun Feb 15 22:21:06 2004
+                         <cstring>layout3</cstring>
+@@ -73,7 +87,7 @@
+                             </property>
+                             <property name="sizePolicy">
+                                 <sizepolicy>
+-                                    <hsizetype>7</hsizetype>
++                                    <hsizetype>3</hsizetype>
+                                     <vsizetype>3</vsizetype>
+                                     <horstretch>0</horstretch>
+                                     <verstretch>0</verstretch>
+
+--- NEW FILE: psi-qt_trans-add.diff ---
+diff -ru -X exclude psi-clean/src/main.cpp psi/src/main.cpp
+--- psi-clean/src/main.cpp	Tue Mar 16 01:16:02 2004
++++ psi/src/main.cpp	Thu Jun 17 19:53:30 2004
+@@ -55,6 +55,7 @@
+ using namespace XMPP;
+ 
+ QTranslator *trans;
++QTranslator *qttrans;
+ QString curLang = "en";
+ QString curLangName = QT_TR_NOOP("language_name");
+ 
+@@ -62,6 +63,7 @@
+ {
+ 	//printf("changing lang: [%s]\n", lang.latin1());
+ 	trans->clear();
++	qttrans->clear();
+ 	if(lang == "en") {
+ 		curLang = lang;
+ 		curLangName = "English";
+@@ -77,6 +79,8 @@
+ 		if(!QFile::exists(*it))
+ 			continue;
+ 		if(trans->load("psi_" + lang, *it)) {
++			// try to load qt library translation
++			qttrans->load("qt_" + lang, *it);
+ 			curLang = lang;
+ 			return;
+ 		}
+@@ -373,6 +377,9 @@
+ 	trans = new QTranslator(0);
+ 	app->installTranslator(trans);
+ 
++	qttrans = new QTranslator(0);
++	app->installTranslator(qttrans);
++
+ 	// need SHA1 for Iconset sound
+ 	if(!QCA::isSupported(QCA::CAP_SHA1))
+ 		QCA::insertProvider(XMPP::createProviderHash());
+@@ -385,6 +392,9 @@
+ 	app->removeTranslator(trans);
+ 	delete trans;
+ 	trans = 0;
++	app->removeTranslator(qttrans);
++	delete qttrans;
++	qttrans = 0;
+ 
+ 	delete app;
+ 
+
+--- NEW FILE: psi-rich_contactview-0.7-add.diff ---
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Tue Jun 08 05:40:46 2004
++++ psi/src/common.h	Fri Jun 18 08:18:34 2004
+@@ -85,6 +85,9 @@
+ 	QString defaultRosterIconset;
+ 	QMap<QString, QString> serviceRosterIconset;
+ 	QMap<QString, QString> customRosterIconset;
++	QString defaultTemplate;	
++	QMap<QString, QString> customRosterTemplate;
++	int templFieldTrim;
+ 
+ 	bool useleft, singleclick, askOnline, popupMsgs, popupChats, popupHeadlines, raise;
+ 	bool alwaysOnTop, noAwaySound, noAwayPopup, noUnlistedPopup, rosterAnim, autoVersion, autoVCardOnLogin, xmlConsoleOnLogin;
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Sun Jun 06 20:18:00 2004
++++ psi/src/contactview.cpp	Fri Jun 18 08:36:52 2004
+@@ -1698,7 +1698,7 @@
+ };
+ 
+ ContactView::ContactView(QWidget *parent, const char *name)
+-:QListView(parent, name, QListView::WRepaintNoErase | QListView::WResizeNoErase), QToolTip(viewport())
++:QListView(parent, name, 0/* these are default for QLView QListView::WRepaintNoErase | QListView::WResizeNoErase*/), QToolTip(viewport())
+ {
+ 	d = new Private(this);
+ 
+@@ -2190,7 +2190,7 @@
+ };
+ 
+ ContactViewItem::ContactViewItem(const QString &profileName, ContactProfile *cp, ContactView *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d->type = Profile;
+@@ -2205,7 +2205,7 @@
+ }
+ 
+ ContactViewItem::ContactViewItem(const QString &groupName, int groupType, ContactProfile *cp, ContactView *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d->type = Group;
+@@ -2221,7 +2221,7 @@
+ }
+ 
+ ContactViewItem::ContactViewItem(const QString &groupName, int groupType, ContactProfile *cp, ContactViewItem *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d->type = Group;
+@@ -2240,7 +2240,7 @@
+ }
+ 
+ ContactViewItem::ContactViewItem(UserListItem *u, ContactProfile *cp, ContactViewItem *parent)
+-:QListViewItem(parent)
++:RichListViewItem(parent)
+ {
+ 	d = new Private(this, cp);
+ 	d->cp = cp;
+@@ -2259,6 +2259,8 @@
+ 
+ 	if(!parent->isVisible())
+ 		setVisible(false);
++	else
++		setup();
+ }
+ 
+ ContactViewItem::~ContactViewItem()
+@@ -2360,6 +2388,104 @@
+ 	p->fillRect(0, 0, w, h, cg.base());
+ }
+ 
++QString jid2template(const Jid &jid)
++{
++	QString templ = option.defaultTemplate;
++	QMapIterator<QString, QString> it = option.customRosterTemplate.begin();
++	for ( ; it != option.customRosterTemplate.end(); ++it) {
++		QRegExp rx = QRegExp(it.key());
++		if ( rx.search(jid.userHost()) != -1 ) {
++			templ = it.data();
++			break;
++		}
++	}
++	return templ;
++}
++
++QString ContactViewItem::expandTemplate(int column)
++{	
++	QString txt;
++	// default template (best case), skip all regexes
++	if(!d->u ||  (txt = jid2template(d->u->jid())).isEmpty())
++		return RichListViewItem::expandTemplate(column);
++
++	QString ins;
++	QRegExp repl;
++
++	repl.setCaseSensitive(FALSE);
++	// contact name (default)
++	ins = expandEntities(text(column));
++	repl.setPattern("<text>"); txt.replace(repl, ins);
++	if(!ins.isEmpty()){
++		repl.setPattern("<!text>"); txt.replace(repl, QString("<br>") + ins);
++	}
++	// jid
++	ins = expandEntities(d->u->jid().bare());
++	repl.setPattern("<jid>"); txt.replace(repl, ins);
++	if(!ins.isEmpty()){
++		repl.setPattern("<!jid>"); txt.replace(repl, QString("<br>") + ins);
++	}
++	// subscription
++	ins = d->u->subscription().toString();
++	repl.setPattern("<subscription>"); txt.replace(repl, ins);
++	if(!ins.isEmpty()){
++		repl.setPattern("<!subscription>"); txt.replace(repl, QString("<br>") + ins);
++	}
++	// resource dependent
++	UserResourceList srl = d->u->userResourceList();
++	if(!srl.isEmpty()){
++		srl.sort();
++		const UserResource &r = *(srl.begin());
++		// status description
++		ins = linkify(expandEntities(r.status().status().stripWhiteSpace()));
++		if(option.useEmoticons)
++			ins = emoticonify(ins);
++		ins.replace("\n", "<br>");
++		if(option.templFieldTrim > 0 ){
++			// try not to break <tags>
++			int trim = ins.left(option.templFieldTrim).findRev("<");
++			if( trim != -1 )
++				trim = ins.find(">", trim);
++			if( trim == -1 || trim < option.templFieldTrim)
++				trim = option.templFieldTrim;
++			ins = ins.left(trim).stripWhiteSpace() + (((int)ins.length() > trim)?(" ..."):(""));
++		}
++		repl.setPattern("<status_msg>"); txt.replace(repl, ins);
++		if(!ins.isEmpty()){
++			repl.setPattern("<!status_msg>"); txt.replace(repl, QString("<br>") + ins);
++		}
++		// resource name
++		ins = r.name();
++		if(ins.isEmpty())
++			ins = QObject::tr("[blank]");
++		repl.setPattern("<resource>"); txt.replace(repl, ins);
++		repl.setPattern("<!resource>"); txt.replace(repl, QString("<br>") + ins);
++		// priority
++		ins = QString("%1").arg(r.priority());
++		repl.setPattern("<priority>"); txt.replace(repl, ins);
++		if(!ins.isEmpty()){
++			repl.setPattern("<!priority>"); txt.replace(repl, QString("<br>") + ins);
++		}
++		// version
++		ins = expandEntities(r.versionString());
++		repl.setPattern("<version>"); txt.replace(repl, ins);
++		if(!ins.isEmpty()){
++			repl.setPattern("<!version>"); txt.replace(repl, QString("<br>") + ins);
++		}
++	}
++	// ... TODO
++
++	// nothing left (worst case), use default
++	repl.setMinimal(TRUE);
++	repl.setPattern("<.*>");
++	QString out = txt;
++	out.remove(repl);
++	if(out.stripWhiteSpace().isEmpty())
++		return RichListViewItem::expandTemplate(column);
++
++	return txt;
++}
++
+ void ContactViewItem::paintCell(QPainter *p, const QColorGroup & cg, int column, int width, int alignment)
+ {
+ 	if ( d->type == Contact ) {
+@@ -2377,11 +2470,12 @@
+ 			xcg.setColor(QColorGroup::HighlightedText, d->animateNickColor ? option.color[cAnimFront] : option.color[cAnimBack]);
+ 		}
+ 
+-		QListViewItem::paintCell(p, xcg, column, width, alignment);
++		RichListViewItem::paintCell(p, xcg, column, width, alignment);
+ 
+-		QFontMetrics fm(p->font());
++//		QFontMetrics fm(p->font());
+ 		const QPixmap *pix = pixmap(column);
+-		int x = fm.width(text(column)) + (pix ? pix->width() : 0) + 8;
++//		int x = fm.width(text(column)) + (pix ? pix->width() : 0) + 8;
++		int x = widthUsed();
+ 
+ 		if ( d->u ) {
+ 			UserResourceList::ConstIterator it = d->u->priority();
+@@ -2798,6 +2892,7 @@
+ 	if(needUpdate)
+ 		updatePosition();
+ 
++	setup();
+ 	repaint();
+ }
+ 
+diff -ru -X exclude psi-clean/src/contactview.h psi/src/contactview.h
+--- psi-clean/src/contactview.h	Thu Mar 18 22:50:10 2004
++++ psi/src/contactview.h	Fri Jun 18 08:17:42 2004
+@@ -23,6 +23,7 @@
+ 
+ #include<qobject.h>
+ #include<qlistview.h>
++#include<richlistview.h>
+ #include<qtooltip.h>
+ #include<qvaluelist.h>
+ #include"xmpp.h"
+@@ -238,7 +239,7 @@
+ };
+ 
+ // ContactViewItem: an entry in the ContactView (profile, group, or contact)
+-class ContactViewItem : public QObject, public QListViewItem
++class ContactViewItem : public QObject, public RichListViewItem
+ {
+ 	Q_OBJECT
+ public:
+@@ -302,6 +303,7 @@
+ 	void dragEntered();
+ 	void dragLeft();
+ 	void dropped(QDropEvent *);
++	virtual QString expandTemplate(int column = 0);
+ 
+ private:
+ 	class Private;
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sat May 15 17:34:30 2004
++++ psi/src/psi_profiles.cpp	Fri Jun 18 08:23:48 2004
+@@ -556,6 +556,10 @@
+ 
+ 	prefs.customRosterIconset.clear();
+ 
++	prefs.defaultTemplate = "";
++	prefs.customRosterTemplate.clear();
++	prefs.templFieldTrim = 0;
++
+ 	// roster sorting
+ 	prefs.rosterContactSortStyle = Options::ContactSortStyle_Status;
+ 	prefs.rosterGroupSortStyle   = Options::GroupSortStyle_Alpha;
+@@ -651,6 +655,22 @@
+ 					name = "rank";
+ 				sorting.appendChild(textTag(doc, "account", name));
+ 			}
++			{
++				QDomElement templates = doc.createElement("templates");
++				p_roster.appendChild(templates);
++				templates.setAttribute("fieldTrim", QString::number(prefs.templFieldTrim));
++
++				templates.appendChild(textTag(doc, "default", prefs.defaultTemplate));
++
++				QMapIterator<QString, QString> it = prefs.customRosterTemplate.begin();
++				for ( ; it != prefs.customRosterTemplate.end(); ++it) {
++					QDomElement item = doc.createElement("item");
++					templates.appendChild(item);
++
++					item.setAttribute("regExp", it.key());
++					item.setAttribute("template", it.data());
++				}
++			}
+ 		}
+ 		{
+ 			QDomElement p_misc = doc.createElement("misc");
+@@ -1137,6 +1157,20 @@
+ 						prefs.rosterAccountSortStyle = Options::AccountSortStyle_Rank;
+ 					else
+ 						prefs.rosterAccountSortStyle = Options::AccountSortStyle_Alpha;
++				}
++				QDomElement templates = findSubTag(p_roster, "templates", &found);
++				if (found) {
++					prefs.templFieldTrim = templates.attribute("fieldTrim").toInt();
++					readEntry(templates, "default", &prefs.defaultTemplate);
++
++					prefs.customRosterTemplate.clear();
++					for (QDomNode n = templates.firstChild(); !n.isNull(); n = n.nextSibling()) {
++						QDomElement i = n.toElement();
++						if ( i.isNull() || i.nodeName() != "item")
++							continue;
++
++						prefs.customRosterTemplate[i.attribute("regExp")] = i.attribute("template");
++					}
+ 				}
+ 			}
+ 
+diff -ru -X exclude psi-clean/src/src.pro psi/src/src.pro
+--- psi-clean/src/src.pro	Tue Jun 08 05:39:36 2004
++++ psi/src/src.pro	Fri Jun 18 08:17:42 2004
+@@ -81,6 +81,7 @@
+ 
+ # Header files
+ HEADERS += \
++	$$PSI_CPP/richlistview.h \
+ 	$$PSI_CPP/varlist.h \
+ 	$$PSI_CPP/profiles.h \
+ 	$$PSI_CPP/profiledlg.h \
+@@ -125,6 +126,7 @@
+ 
+ # Source files
+ SOURCES += \
++	$$PSI_CPP/richlistview.cpp \
+ 	$$PSI_CPP/varlist.cpp \
+ 	$$PSI_CPP/psi_profiles.cpp \
+ 	$$PSI_CPP/profiledlg.cpp \
+
+--- NEW FILE: psi-save_profile-mod.diff ---
+diff -ru -X exclude psi-clean/src/statusdlg.cpp psi/src/statusdlg.cpp
+--- psi-clean/src/statusdlg.cpp	Sun Jan 04 20:30:30 2004
++++ psi/src/statusdlg.cpp	Mon Jan 05 00:14:58 2004
+@@ -149,11 +149,16 @@
+ 	d->save = new QCheckBox(this);
+ 	d->save->setText(tr("Sa&ve as Preset"));
+ 	d->save->setChecked(false);
+-	hb->addWidget(pb1);
+-	hb->addStretch(1);
+ 	hb->addWidget(d->save);
+ 	hb->addStretch(1);
++	hb->addWidget(pb1);
+ 	hb->addWidget(pb2);
++	
++	setTabOrder(d->cb_type, d->cb_preset);
++	setTabOrder(d->cb_preset, d->te);
++	setTabOrder(d->te, d->save);
++	setTabOrder(d->save, pb1);
++	setTabOrder(pb1, pb2);
+ 
+ 	// set the rest up
+ 	d->te->setTextFormat(PlainText);
+
+--- NEW FILE: psi-settoggles-fix.diff ---
+diff -ru -X exclude psi-clean/src/psicon.cpp psi/src/psicon.cpp
+--- psi-clean/src/psicon.cpp	2004-08-09 21:10:21.000000000 +0200
++++ psi/src/psicon.cpp	2004-08-22 13:38:55.000000000 +0200
+@@ -915,8 +912,8 @@
+ 
+ void PsiCon::setToggles(bool tog_offline, bool tog_away, bool tog_agents, bool tog_hidden, bool tog_self)
+ {
+-	if(d->listEnabled.count() > 1)
+-		return;
++//	if(d->listEnabled.count() > 1)
++//		return;
+ 
+ 	d->mainwin->cvlist->setShowOffline(tog_offline);
+ 	d->mainwin->cvlist->setShowAway(tog_away);
+
+--- NEW FILE: psi-status_history-add.diff ---
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Tue Jan 27 18:09:30 2004
++++ psi/src/common.h	Tue Feb 10 17:59:16 2004
+@@ -93,6 +93,8 @@
+ 	int defaultAction;
+ 	int incomingAs;
+ 	VarList sp; //status message presets
++	int recentStatusLimit;
++	bool storePresets;
+ 	QStringList recentStatus; //recent status messages
+ 
+ 	int asAway, asXa, asOffline;
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Tue Jan 27 18:09:32 2004
++++ psi/src/psi_profiles.cpp	Tue Feb 10 18:03:10 2004
+@@ -396,6 +396,8 @@
+ 	prefs.sp.set(QObject::tr("Out for the night"), QObject::tr("Out for the night."));
+ 	prefs.sp.set(QObject::tr("Greece"), QObject::tr("I have gone to a far away place.  I will be back someday!"));
+ 	prefs.recentStatus.clear();
++	prefs.recentStatusLimit = 5;
++	prefs.storePresets = true;
+ 
+ 	prefs.color[cOnline]    = QColor("#0060C0");
+ 	prefs.color[cListBack]  = QColor("#C0C0C0");
+@@ -752,7 +754,12 @@
+ 			p_pres.appendChild(prefs.sp.toXml(doc, "statuspresets"));
+ 		}
+ 		{
+-			p_pres.appendChild(stringListToXml(doc, "recentstatus",prefs.recentStatus));
++			QDomElement e;
++			
++			e = stringListToXml(doc, "recentstatus",prefs.recentStatus);
++			e.setAttribute("limit", prefs.recentStatusLimit);
++			setBoolAttribute(e, "storePresets", prefs.storePresets);
++			p_pres.appendChild(e);
+ 		}
+ 	}
+ 
+@@ -1227,7 +1234,14 @@
+ 			tag = findSubTag(p_pres, "statuspresets", &found);
+ 			if(found)
+ 				prefs.sp.fromXml(tag);
+-			xmlToStringList(p_pres, "recentstatus", &prefs.recentStatus);
++			tag = findSubTag(p_pres, "recentstatus", &found);
++			if(found){
++				if(tag.hasAttribute("limit"))
++					prefs.recentStatusLimit = tag.attribute("limit").toInt();
++				if(tag.hasAttribute("storePresets"))
++					readBoolAttribute(tag, "storePresets", &prefs.storePresets);
++				xmlToStringList(p_pres, "recentstatus", &prefs.recentStatus);
++			}
+ 		}
+ 
+ 		QDomElement p_lnf = findSubTag(p, "lookandfeel", &found);
+diff -ru -X exclude psi-clean/src/statusdlg.cpp psi/src/statusdlg.cpp
+--- psi-clean/src/statusdlg.cpp	Sun Jan 04 20:30:30 2004
++++ psi/src/statusdlg.cpp	Tue Feb 10 18:27:36 2004
+@@ -72,6 +72,8 @@
+ public:
+ 	Private() {}
+ 
++	int recentNum;
++	QString newStatus;
+ 	PsiCon *psi;
+ 	PsiAccount *pa;
+ 	Status s;
+@@ -88,6 +90,7 @@
+ 	d->pa = 0;
+ 	d->psi->dialogRegister(this);
+ 	d->s = s;
++	d->recentNum = -1;
+ 
+ 	setCaption(CAP(tr("Set Status: All accounts")));
+ 	init();
+@@ -101,6 +104,7 @@
+ 	d->pa = pa;
+ 	d->pa->dialogRegister(this);
+ 	d->s = s;
++	d->recentNum = -1;
+ 
+ 	setCaption(CAP(tr("Set Status: %1").arg(d->pa->name())));
+ 	init();
+@@ -159,6 +163,8 @@
+ 	d->te->setTextFormat(PlainText);
+ 	d->te->setText(d->s.status());
+ 	d->te->selectAll();
++	d->te->installEventFilter( this );
++	d->newStatus = d->te->text();
+ 	connect(pb1, SIGNAL(clicked()), SLOT(doButton()));
+ 	connect(pb2, SIGNAL(clicked()), SLOT(cancel()));
+ 	d->te->setFocus();
+@@ -185,6 +191,37 @@
+ 		e->ignore();
+ }
+ 
++bool StatusSetDlg::eventFilter( QObject *o, QEvent *e )
++{
++	if ( e->type() == QEvent::KeyPress ) {
++		QKeyEvent *ke = (QKeyEvent*)e;
++		if(ke->key() == Key_Up && (ke->state() & AltButton) )
++			return historySelect(-1);
++		else if(ke->key() == Key_Down && (ke->state() & AltButton) )
++			return historySelect(1);
++	}
++	return FALSE; 
++}
++
++bool StatusSetDlg::historySelect(int offs)
++{
++	// d->recentNum == -1 is new status (not saved yet)
++	if(d->recentNum == -1 && offs > 0)
++		d->newStatus = d->te->text();
++	else if(d->recentNum == 0 && offs < 0){
++		d->te->setText(d->newStatus);
++		d->recentNum += offs;
++		return TRUE;
++	}
++
++	if((d->recentNum + offs < 0) || (d->recentNum + offs >= (int)option.recentStatus.count()))
++		return FALSE;
++
++	d->recentNum += offs;
++	d->te->setText(option.recentStatus[d->recentNum]);	
++	return TRUE;
++}
++
+ void StatusSetDlg::doButton()
+ {
+ 	// Save preset
+@@ -220,6 +257,17 @@
+ 	int type = combomap[d->cb_type->currentItem()];
+ 	QString str = d->te->text();
+ 
++	// save recent if not saved yet else bring to front
++	if(!str.isEmpty()){
++		option.recentStatus.remove(str);
++		// if status is from preset, don't save it unless storePresets = "true" (config.xml)
++		if(option.storePresets || option.sp.findByData(str) == option.sp.end())
++			option.recentStatus.push_front(str);
++	}
++	// trim 
++	if((int)option.recentStatus.size() > option.recentStatusLimit)
++		option.recentStatus.pop_back();
++	
+ 	set(makeStatus(type, str));
+ 	close();
+ }
+diff -ru -X exclude psi-clean/src/statusdlg.h psi/src/statusdlg.h
+--- psi-clean/src/statusdlg.h	Fri Oct 24 05:38:44 2003
++++ psi/src/statusdlg.h	Tue Feb 10 17:58:26 2004
+@@ -47,6 +47,8 @@
+ 
+ protected:
+ 	void keyPressEvent(QKeyEvent *);
++	bool eventFilter(QObject *, QEvent *);
++	bool historySelect(int);
+ 
+ signals:
+ 	void set(const Status &);
+diff -ru -X exclude psi-clean/src/varlist.cpp psi/src/varlist.cpp
+--- psi-clean/src/varlist.cpp	Thu Mar 13 01:13:32 2003
++++ psi/src/varlist.cpp	Tue Feb 10 18:14:50 2004
+@@ -105,6 +105,17 @@
+ 	return it;
+ }
+ 
++VarList::Iterator VarList::findByData(const QString &data)
++{
++	VarList::Iterator it;
++	for(it = begin(); it != end(); ++it) {
++		if((*it).data() == data)
++			break;
++	}
++
++	return it;
++}
++
+ VarList::Iterator VarList::findByNum(int x)
+ {
+ 	int n = 0;
+diff -ru -X exclude psi-clean/src/varlist.h psi/src/varlist.h
+--- psi-clean/src/varlist.h	Thu Mar 13 01:13:32 2003
++++ psi/src/varlist.h	Tue Feb 10 18:14:16 2004
+@@ -53,6 +53,7 @@
+ 	const QString & get(const QString &);
+ 
+ 	VarList::Iterator findByKey(const QString &);
++	VarList::Iterator findByData(const QString &);
+ 	VarList::Iterator findByNum(int);
+ 
+ 	QStringList varsToStringList();
+
+--- NEW FILE: psi-status_indicator++-add.diff ---
+diff -ru -X exclude iris-clean/xmpp-im/client.cpp iris/xmpp-im/client.cpp
+--- ../../iris-clean/xmpp-im/client.cpp	Sun May 16 16:06:10 2004
++++ ../../iris/xmpp-im/client.cpp	Fri May 28 10:27:02 2004
+@@ -789,10 +789,27 @@
+ 
+ 	// unavailable?  remove the resource
+ 	if(!s.isAvailable()) {
+-		if(found) {
+-			(*rit).setStatus(s);
+-			debug(QString("Client: Removing resource from [%1]: name=[%2]\n").arg(i->jid().full()).arg(j.resource()));
+-			resourceUnavailable(j, *rit);
++		Resource r;
++		if(!found) {
++			//if (!s.status().isEmpty()) {
++				r = Resource(j.resource(), s);
++				i->resourceList() += r;
++				debug(QString("Client: Adding resource to [%1]: name=[%2]\n").arg(i->jid().full()).arg(j.resource()));
++				resourceAvailable(j, r);
++		} 
++		else {
++				(*rit).setStatus(s);
++				r = *rit;
++				debug(QString("Client: Updating resource to [%1]: name=[%2]\n").arg(i->jid().full()).arg(j.resource()));
++				resourceAvailable(j, r);			
++		}
++		
++		rit = i->resourceList().find(j.resource());
++		found = (rit == i->resourceList().end()) ? false: true;
++		
++ 		if(found) {
++ 			(*rit).setStatus(s);
++ 			debug(QString("Client: Removing resource from [%1]: name=[%2]\n").arg(i->jid().full()).arg(j.resource())); 	resourceUnavailable(j, *rit);
+ 			i->resourceList().remove(rit);
+ 			i->setLastUnavailableStatus(s);
+ 		}
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Sun May 16 16:06:14 2004
++++ psi/src/chatdlg.cpp	Fri May 28 10:27:02 2004
+@@ -371,8 +371,10 @@
+ 			u = ul.first();
+ 			if(rname.isEmpty()) {
+ 				// use priority
+-				if(!u->isAvailable())
++				if(!u->isAvailable()){
+ 					status = STATUS_OFFLINE;
++					statusString = u->lastUnavailableStatus().status();
++				}
+ 				else {
+ 					const UserResource &r = *u->userResourceList().priority();
+ 					status = makeSTATUS(r.status());
+diff -ru -X exclude psi-clean/src/common.h psi/src/common.h
+--- psi-clean/src/common.h	Fri May 07 20:23:00 2004
++++ psi/src/common.h	Fri May 28 10:27:02 2004
+@@ -138,6 +138,7 @@
+ 	QStringList gcHighlights, gcNickColors;
+ 
+ 	bool clNewHeadings;
++	bool clStIndicator;
+ 
+ 	// passive popups
+ 	bool ppIsOn;
+diff -ru -X exclude psi-clean/src/contactview.cpp psi/src/contactview.cpp
+--- psi-clean/src/contactview.cpp	Sun Mar 21 15:45:20 2004
++++ psi/src/contactview.cpp	Fri May 28 10:27:36 2004
+@@ -25,6 +25,7 @@
+ #include<qheader.h>
+ #include<qtimer.h>
+ #include<qpainter.h>
++#include<qbitmap.h>
+ #include<qpopupmenu.h>
+ #include<qmessagebox.h>
+ #include<qinputdialog.h>
+@@ -2111,7 +2112,7 @@
+ 		cp = _cp;
+ 		u = 0;
+ 
+-		icon = lastIcon = 0;
++		icon = lastIcon = indIcon = 0;
+ 	}
+ 
+ 	~Private() {
+@@ -2171,7 +2172,7 @@
+ 	bool alerting;
+ 	bool animatingNick;
+ 
+-	Icon *icon, *lastIcon;
++	Icon *icon, *lastIcon, *indIcon;
+ 	int animateNickX, animateNickColor; // nick animation
+ };
+ 
+@@ -2380,6 +2382,11 @@
+ 				}
+ 			}
+ 		}
++
++		if( d->indIcon ){
++			const QPixmap &ipix = d->indIcon->pixmap();
++			p->drawPixmap((pix->width() - ipix.width())/2, (height() - ipix.height())/2, ipix);
++		}
+ 	}
+ 	else if ( d->type == Group || d->type == Profile ) {
+ 		QColorGroup xcg = cg;
+@@ -2652,12 +2659,13 @@
+ 
+ void ContactViewItem::setIcon(const Icon *icon, bool alert)
+ {
++	/* needed by status indicator :o| 
+ 	if ( d->lastIcon == icon ) {
+ 		return; // cause less flicker. but still have to run calltree valgring skin on psi while online (mblsha).
+ 	}
+ 	else
+ 		d->lastIcon = (Icon *)icon;
+-
++	*/
+ 	if ( d->icon ) {
+ 		disconnect(d->icon, 0, this, 0 );
+ 		d->icon->stop();
+@@ -2679,11 +2687,29 @@
+ 		pix = d->icon->pixmap();
+ 	}
+ 
+-	setPixmap(0, pix);
++	iconUpdated(pix);
+ }
+ 
+ void ContactViewItem::iconUpdated(const QPixmap &pix)
+ {
++	// set status indicator icon
++	if(d->u){
++		bool ind = false;
++		if(!d->u->userResourceList().isEmpty() && option.clStIndicator) {
++			UserResourceList srl = d->u->userResourceList();
++
++			for(UserResourceList::ConstIterator rit = srl.begin(); rit != srl.end(); ++rit)
++				if(!(*rit).status().status().isEmpty()) { ind = true; break; }
++			
++		} 
++		else if(!d->u->lastUnavailableStatus().status().isEmpty() && option.clStIndicator)
++			ind = true;
++
++		if(ind)
++			d->indIcon = is->indicatorPtr(d->u->jid());
++		else
++			d->indIcon = 0;
++	}
+ 	setPixmap(0, pix);
+ }
+ 
+diff -ru -X exclude psi-clean/src/options/opt_appearance-ui.ui psi/src/options/opt_appearance-ui.ui
+--- psi-clean/src/options/opt_appearance-ui.ui	Sat May 01 18:08:18 2004
++++ psi/src/options/opt_appearance-ui.ui	Fri May 28 10:27:02 2004
+@@ -30,6 +30,14 @@
+                 <string>Small group headings in roster</string>
+             </property>
+         </widget>
++        <widget class="QCheckBox">
++            <property name="name">
++                <cstring>ck_statusIndicator</cstring>
++            </property>
++            <property name="text">
++                <string>Show indicator for text statuses</string>
++            </property>
++        </widget>
+         <widget class="QGroupBox">
+             <property name="name">
+                 <cstring>groupBox11</cstring>
+diff -ru -X exclude psi-clean/src/options/opt_appearance.cpp psi/src/options/opt_appearance.cpp
+--- psi-clean/src/options/opt_appearance.cpp	Sat May 01 18:08:20 2004
++++ psi/src/options/opt_appearance.cpp	Fri May 28 10:27:02 2004
+@@ -148,6 +148,9 @@
+ 	QWhatsThis::add(d->pb_cAnimBack,
+ 		tr("Specifies the background animation color for nicks."));
+ 
++	QWhatsThis::add(d->ck_statusIndicator,
++		tr("Displays an indicator by the contact name if the contact entered a descriptive text status line."));
++
+ 	QWhatsThis::add(d->ck_newHeadings,
+ 		tr("Toggles on new, smaller group headings."));
+ 
+@@ -161,6 +164,7 @@
+ 
+ 	OptAppearanceUI *d = (OptAppearanceUI *)w;
+ 	opt->clNewHeadings = d->ck_newHeadings->isChecked();
++	opt->clStIndicator = d->ck_statusIndicator->isChecked();
+ 	//opt->avatarsChatdlgEnabled = d->ck_avatarsChatdlg->isChecked(); // Avatars
+ 
+ 	int n;
+@@ -177,6 +181,7 @@
+ 
+ 	OptAppearanceUI *d = (OptAppearanceUI *)w;
+ 	d->ck_newHeadings->setChecked( opt->clNewHeadings );
++	d->ck_statusIndicator->setChecked( opt->clStIndicator );
+ 	//d->ck_avatarsChatdlg->setChecked( opt->avatarsChatdlgEnabled ); // Avatars
+ 
+ 	int n;
+diff -ru -X exclude psi-clean/src/psiiconset.cpp psi/src/psiiconset.cpp
+--- psi-clean/src/psiiconset.cpp	Wed May 05 14:41:20 2004
++++ psi/src/psiiconset.cpp	Fri May 28 10:27:02 2004
+@@ -513,6 +513,19 @@
+ 	return Icon();
+ }
+ 
++Icon *PsiIconset::indicatorPtr(const XMPP::Jid &jid)
++{
++	return d->jid2icon(jid, "psi/statInd");
++}
++
++Icon PsiIconset::indicator(const XMPP::Jid &jid)
++{
++	Icon *icon = indicatorPtr(jid);
++	if ( icon )
++		return *icon;
++	return Icon();
++}
++
+ Icon *PsiIconset::statusPtr(const XMPP::Jid &jid, int s)
+ {
+ 	return d->jid2icon(jid, status2name(s));
+diff -ru -X exclude psi-clean/src/psiiconset.h psi/src/psiiconset.h
+--- psi-clean/src/psiiconset.h	Sat Nov 22 07:47:10 2003
++++ psi/src/psiiconset.h	Fri May 28 10:27:02 2004
+@@ -61,9 +61,11 @@
+ 	// JID-enabled status functions
+ 	Icon *statusPtr(const XMPP::Jid &, int);
+ 	Icon *statusPtr(const XMPP::Jid &, const XMPP::Status &);
++	Icon *indicatorPtr(const XMPP::Jid &);
+ 
+ 	Icon status(const XMPP::Jid &, int);
+ 	Icon status(const XMPP::Jid &, const XMPP::Status &);
++	Icon indicator(const XMPP::Jid &);
+ 
+ 	// functions to get status icon by transport name
+ 	Icon *transportStatusPtr(QString name, int);
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sun May 16 16:06:18 2004
++++ psi/src/psi_profiles.cpp	Fri May 28 10:27:02 2004
+@@ -423,6 +423,8 @@
+ 		prefs.font[fPopup] = font.toString();
+ 	}
+ 
++	prefs.clStIndicator = TRUE;
++
+ 	// calculate the small font size
+ 	const int minimumFontSize = 7;
+ 	prefs.smallFontSize = qApp->font().pointSize();
+@@ -783,6 +785,7 @@
+ 		p.appendChild(p_lnf);
+ 
+ 		p_lnf.appendChild(textTag(doc, "newHeadings", prefs.clNewHeadings));
++		p_lnf.appendChild(textTag(doc, "statusIndicator", prefs.clStIndicator));
+ 
+ 		{
+ 			QDomElement tag = doc.createElement("colors");
+@@ -1271,6 +1274,7 @@
+ 			bool found;
+ 
+ 			readBoolEntry(p_lnf, "newHeadings", &prefs.clNewHeadings);
++			readBoolEntry(p_lnf, "statusIndicator", &prefs.clStIndicator);
+ 
+ 			QDomElement tag = findSubTag(p_lnf, "colors", &found);
+ 			if(found) {
+
+--- NEW FILE: psi-subs_reason-recv.diff ---
+diff -ru -X exclude iris-clean/include/im.h iris/include/im.h
+--- ../../iris-clean/include/im.h	Sat Dec 06 20:29:16 2003
++++ ../../iris/include/im.h	Tue Feb 03 01:31:32 2004
+@@ -582,7 +582,7 @@
+ 		void resourceAvailable(const Jid &, const Resource &);
+ 		void resourceUnavailable(const Jid &, const Resource &);
+ 		void presenceError(const Jid &, int, const QString &);
+-		void subscription(const Jid &, const QString &);
++		void subscription(const Jid &, const QString &, const QString &);
+ 		void messageReceived(const Message &);
+ 		void debugText(const QString &);
+ 		void xmlIncoming(const QString &);
+@@ -608,7 +608,7 @@
+ 		void slotRosterRequestFinished();
+ 
+ 		// basic daemons
+-		void ppSubscription(const Jid &, const QString &);
++		void ppSubscription(const Jid &, const QString &, const QString &);
+ 		void ppPresence(const Jid &, const Status &);
+ 		void pmMessage(const Message &);
+ 		void prRoster(const Roster &);
+diff -ru -X exclude iris-clean/xmpp-im/client.cpp iris/xmpp-im/client.cpp
+--- ../../iris-clean/xmpp-im/client.cpp	Sat Dec 06 20:29:22 2003
++++ ../../iris/xmpp-im/client.cpp	Tue Feb 03 01:30:32 2004
+@@ -200,7 +200,7 @@
+ 	d->resourceList += Resource(resource(), stat);
+ 
+ 	JT_PushPresence *pp = new JT_PushPresence(rootTask());
+-	connect(pp, SIGNAL(subscription(const Jid &, const QString &)), SLOT(ppSubscription(const Jid &, const QString &)));
++	connect(pp, SIGNAL(subscription(const Jid &, const QString &, const QString &)), SLOT(ppSubscription(const Jid &, const QString &, const QString &)));
+ 	connect(pp, SIGNAL(presence(const Jid &, const Status &)), SLOT(ppPresence(const Jid &, const Status &)));
+ 
+ 	JT_PushMessage *pm = new JT_PushMessage(rootTask());
+@@ -647,9 +647,9 @@
+ 	return Jid(s);
+ }
+ 
+-void Client::ppSubscription(const Jid &j, const QString &s)
++void Client::ppSubscription(const Jid &j, const QString &s, const QString &r)
+ {
+-	subscription(j, s);
++	subscription(j, s, r);
+ }
+ 
+ void Client::ppPresence(const Jid &j, const Status &s)
+diff -ru -X exclude iris-clean/xmpp-im/xmpp_tasks.cpp iris/xmpp-im/xmpp_tasks.cpp
+--- ../../iris-clean/xmpp-im/xmpp_tasks.cpp	Fri Jan 16 17:06:28 2004
++++ ../../iris/xmpp-im/xmpp_tasks.cpp	Tue Feb 03 01:38:12 2004
+@@ -561,6 +561,9 @@
+ 	Jid j(e.attribute("from"));
+ 	Status p;
+ 
++	QDomElement tag;
++	bool found;
++
+ 	if(e.hasAttribute("type")) {
+ 		QString type = e.attribute("type");
+ 		if(type == "unavailable") {
+@@ -573,13 +576,14 @@
+ 			p.setError(code, str);
+ 		}
+ 		else {
+-			subscription(j, type);
++			tag = findSubTag(e, "status", &found);
++			if(found)
++				subscription(j, type, tagContent(tag));
++			else
++				subscription(j, type, "");
+ 			return true;
+ 		}
+ 	}
+-
+-	QDomElement tag;
+-	bool found;
+ 
+ 	tag = findSubTag(e, "status", &found);
+ 	if(found)
+diff -ru -X exclude iris-clean/xmpp-im/xmpp_tasks.h iris/xmpp-im/xmpp_tasks.h
+--- ../../iris-clean/xmpp-im/xmpp_tasks.h	Fri Oct 24 05:38:10 2003
++++ ../../iris/xmpp-im/xmpp_tasks.h	Tue Feb 03 01:29:08 2004
+@@ -155,7 +155,7 @@
+ 
+ 	signals:
+ 		void presence(const Jid &, const Status &);
+-		void subscription(const Jid &, const QString &);
++		void subscription(const Jid &, const QString &, const QString &);
+ 
+ 	private:
+ 		class Private;
+diff -ru -X exclude psi-clean/src/eventdb.cpp psi/src/eventdb.cpp
+--- psi-clean/src/eventdb.cpp	Tue Aug 19 15:53:16 2003
++++ psi/src/eventdb.cpp	Tue Feb 03 01:41:50 2004
+@@ -744,7 +744,7 @@
+ 		else if(type == 8)
+ 			subType = "unsubscribed";
+ 
+-		AuthEvent *ae = new AuthEvent(j, subType, 0);
++		AuthEvent *ae = new AuthEvent(j, subType, "", 0);
+ 		ae->setTimeStamp(QDateTime::fromString(sTime, Qt::ISODate));
+ 		return ae;
+ 	}
+diff -ru -X exclude psi-clean/src/eventdlg.cpp psi/src/eventdlg.cpp
+--- psi-clean/src/eventdlg.cpp	Thu Dec 18 14:10:46 2003
++++ psi/src/eventdlg.cpp	Tue Feb 03 01:22:34 2004
+@@ -1487,6 +1487,8 @@
+ 		d->le_subj->setText("");
+ 		if(type == "subscribe") {
+ 			QString body(tr("<big>[System Message]</big><br>This user wants to subscribe to your presence.  Click the button labelled \"Add/Auth\" to authorize the subscription.  This will also add the person to your contact list if it is not already there."));
++			if(!ae->reason().isEmpty())
++				body += QString(tr("<br><br>Reason:<br>%1")).arg(ae->reason());
+ 			d->mle->moveCursor(QTextEdit::MoveHome, false);
+ 			d->mle->setTextFormat(RichText);
+ 			d->mle->setText("<qt>" + body + "</qt>");
+diff -ru -X exclude psi-clean/src/psiaccount.cpp psi/src/psiaccount.cpp
+--- psi-clean/src/psiaccount.cpp	Tue Jan 27 18:09:36 2004
++++ psi/src/psiaccount.cpp	Tue Feb 03 02:02:50 2004
+@@ -400,7 +400,7 @@
+ 	connect(d->client, SIGNAL(resourceUnavailable(const Jid &, const Resource &)), SLOT(client_resourceUnavailable(const Jid &, const Resource &)));
+ 	connect(d->client, SIGNAL(presenceError(const Jid &, int, const QString &)), SLOT(client_presenceError(const Jid &, int, const QString &)));
+ 	connect(d->client, SIGNAL(messageReceived(const Message &)), SLOT(client_messageReceived(const Message &)));
+-	connect(d->client, SIGNAL(subscription(const Jid &, const QString &)), SLOT(client_subscription(const Jid &, const QString &)));
++	connect(d->client, SIGNAL(subscription(const Jid &, const QString &, const QString &)), SLOT(client_subscription(const Jid &, const QString &, const QString &)));
+ 	connect(d->client, SIGNAL(debugText(const QString &)), SLOT(client_debugText(const QString &)));
+ 	connect(d->client, SIGNAL(groupChatJoined(const Jid &)), SLOT(client_groupChatJoined(const Jid &)));
+ 	connect(d->client, SIGNAL(groupChatLeft(const Jid &)), SLOT(client_groupChatLeft(const Jid &)));
+@@ -1428,7 +1428,7 @@
+ 	handleEvent(me);
+ }
+ 
+-void PsiAccount::client_subscription(const Jid &j, const QString &str)
++void PsiAccount::client_subscription(const Jid &j, const QString &str, const QString &reason)
+ {
+ 	// if they remove our subscription, then we lost presence
+ 	if(str == "unsubscribed") {
+@@ -1437,7 +1437,7 @@
+ 			simulateContactOffline(u);
+ 	}
+ 
+-	AuthEvent *ae = new AuthEvent(j, str, this);
++	AuthEvent *ae = new AuthEvent(j, str, reason, this);
+ 	ae->setTimeStamp(QDateTime::currentDateTime());
+ 	handleEvent(ae);
+ }
+diff -ru -X exclude psi-clean/src/psiaccount.h psi/src/psiaccount.h
+--- psi-clean/src/psiaccount.h	Tue Jan 27 18:09:36 2004
++++ psi/src/psiaccount.h	Tue Feb 03 01:39:16 2004
+@@ -280,7 +280,7 @@
+ 	void client_resourceUnavailable(const Jid &, const Resource &);
+ 	void client_presenceError(const Jid &, int, const QString &);
+ 	void client_messageReceived(const Message &);
+-	void client_subscription(const Jid &, const QString &);
++	void client_subscription(const Jid &, const QString &, const QString &);
+ 	void client_debugText(const QString &);
+ 	void client_groupChatJoined(const Jid &);
+ 	void client_groupChatLeft(const Jid &);
+diff -ru -X exclude psi-clean/src/psievent.cpp psi/src/psievent.cpp
+--- psi-clean/src/psievent.cpp	Tue Jan 27 18:09:38 2004
++++ psi/src/psievent.cpp	Tue Feb 03 01:40:56 2004
+@@ -294,15 +294,16 @@
+ // AuthEvent
+ //----------------------------------------------------------------------------
+ 
+-AuthEvent::AuthEvent(const Jid &j, const QString &authType, PsiAccount *acc)
++AuthEvent::AuthEvent(const Jid &j, const QString &authType, const QString &reason, PsiAccount *acc)
+ : PsiEvent(acc)
+ {
+ 	v_from = j;
+ 	v_at = authType;
++	v_reason = reason;
+ }
+ 
+ AuthEvent::AuthEvent(const AuthEvent &from)
+-: PsiEvent(from), v_from(from.v_from), v_at(from.v_at)
++: PsiEvent(from), v_from(from.v_from), v_at(from.v_at), v_reason(from.v_reason)
+ {
+ }
+ 
+@@ -330,6 +331,11 @@
+ 	return v_at;
+ }
+ 
++QString AuthEvent::reason() const
++{
++	return v_reason;
++}
++
+ QDomElement *AuthEvent::toXml(QDomDocument *doc) const
+ {
+ 	QDomElement *e = PsiEvent::toXml(doc);
+@@ -338,6 +344,7 @@
+ 
+ 	e->appendChild( textTag(*doc, "from",	 v_from.full()) );
+ 	e->appendChild( textTag(*doc, "authType", v_at) );
++	e->appendChild( textTag(*doc, "reason", v_reason) );
+ 
+ 	return 0;
+ }
+@@ -349,6 +356,7 @@
+ 
+ 	v_from = Jid( subTagText(*e, "from") );
+ 	v_at   = subTagText(*e, "authType");
++	v_at   = subTagText(*e, "reason");
+ 
+ 	return false;
+ }
+@@ -692,7 +700,7 @@
+ 			}
+ 		}
+ 		else if ( eventType == "AuthEvent" ) {
+-			event = new AuthEvent("", "", 0);
++			event = new AuthEvent("", "", "", 0);
+ 			if ( !event->fromXml(d->psi, &e) ) {
+ 				delete event;
+ 				event = 0;
+diff -ru -X exclude psi-clean/src/psievent.h psi/src/psievent.h
+--- psi-clean/src/psievent.h	Tue Jan 27 18:09:38 2004
++++ psi/src/psievent.h	Tue Feb 03 01:23:44 2004
+@@ -112,7 +112,7 @@
+ {
+ 	Q_OBJECT
+ public:
+-	AuthEvent(const Jid &j, const QString &authType, PsiAccount *acc);
++	AuthEvent(const Jid &j, const QString &authType, const QString &reason, PsiAccount *acc);
+ 	AuthEvent(const AuthEvent &from);
+ 	~AuthEvent();
+ 
+@@ -121,6 +121,8 @@
+ 	void setFrom(const Jid &j);
+ 
+ 	QString authType() const;
++	
++	QString reason() const;
+ 
+ 	QDomElement *toXml(QDomDocument *) const;
+ 	bool fromXml(PsiCon *, const QDomElement *);
+@@ -130,6 +132,7 @@
+ private:
+ 	Jid v_from;
+ 	QString v_at;
++	QString v_reason;
+ };
+ 
+ // request pgp passphrase
+
+--- NEW FILE: psi-thin_borders-mod.diff ---
+diff -ru -X exclude psi-clean/src/mainwin.cpp psi/src/mainwin.cpp
+--- psi-clean/src/mainwin.cpp	Wed May 05 14:41:00 2004
++++ psi/src/mainwin.cpp	Tue May 11 15:09:24 2004
+@@ -97,6 +97,6 @@
+ 	QWidget *center = new QWidget (this, "Central widget");
+ 	setCentralWidget ( center );
+ 
+-	d->vb_main = new QVBoxLayout(center, 2);
++	d->vb_main = new QVBoxLayout(center);
+ 	cvlist = new ContactView(center);
+ 
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Fri May 07 20:23:00 2004
++++ psi/src/chatdlg.cpp	Tue May 11 19:10:18 2004
+@@ -133,13 +133,13 @@
+ 	d->key = "";
+ 	d->lastWasEncrypted = false;
+ 
+-	QVBoxLayout *vb1 = new QVBoxLayout(this, 4);
++	QVBoxLayout *vb1 = new QVBoxLayout(this, 2);
+ 	QSplitter *sp = new QSplitter(Vertical, this);
+ 	vb1->addWidget(sp);
+ 
+ 	QWidget *sp_top = new QWidget(sp);
+ 	// first row
+-	QVBoxLayout *vb2 = new QVBoxLayout(sp_top, 4);
++	QVBoxLayout *vb2 = new QVBoxLayout(sp_top, 2);
+ 	d->lb_ident = d->pa->accountLabel(sp_top, true);
+ 	d->lb_ident->setSizePolicy(QSizePolicy( QSizePolicy::Minimum, QSizePolicy::Minimum ));
+ 
+@@ -164,7 +164,7 @@
+ 
+ 	QWidget *sp_bottom = new QWidget(sp);
+ 	// tool area
+-	QVBoxLayout *vb3 = new QVBoxLayout(sp_bottom, 4);
++	QVBoxLayout *vb3 = new QVBoxLayout(sp_bottom, 2);
+ 	QHBoxLayout *hb3 = new QHBoxLayout(vb3);
+ 	d->tb_clear = new IconToolButton(sp_bottom);
+ 	connect(d->tb_clear, SIGNAL(clicked()), SLOT(doClearButton()));
+
+--- NEW FILE: psi-tooltips_linkify-rev.diff ---
+diff -ru -X exclude psi-clean/src/chatdlg.cpp psi/src/chatdlg.cpp
+--- psi-clean/src/chatdlg.cpp	Thu Apr 01 09:44:42 2004
++++ psi/src/chatdlg.cpp	Thu Apr 01 10:02:20 2004
+@@ -406,7 +406,7 @@
+ 		//}
+ 
+ 		if(u)
+-			QToolTip::add(d->lb_status, u->makeTip(true, false));
++			QToolTip::add(d->lb_status, u->makeTip());
+ 		else
+ 			QToolTip::remove(d->lb_status);
+ 
+diff -ru -X exclude psi-clean/src/eventdlg.cpp psi/src/eventdlg.cpp
+--- psi-clean/src/eventdlg.cpp	Thu Apr 01 09:44:50 2004
++++ psi/src/eventdlg.cpp	Thu Apr 01 10:02:34 2004
+@@ -1410,7 +1410,7 @@
+ 			d->lb_status->setIcon(is->statusPtr(jid, status));
+ 
+ 		if(u)
+-			QToolTip::add(d->lb_status, u->makeTip(true, false));
++			QToolTip::add(d->lb_status, u->makeTip());
+ 		else
+ 			QToolTip::remove(d->lb_status);
+ 
+
+--- NEW FILE: psi-url_emoticon-mod.diff ---
+diff -ru -X exclude psi-clean/src/common.cpp psi/src/common.cpp
+--- psi-clean/src/common.cpp	Sat Oct 25 09:10:08 2003
++++ psi/src/common.cpp	Sun Oct 26 15:53:26 2003
+@@ -603,6 +586,11 @@
+ 		// returns us the first chunk as a plaintext string
+ 		QString str = p.next();
+ 
++		if ( p.tag() == "a" ) {
++			p.putPlain(str);
++			continue;
++		}
++
+ 		int i = 0;
+ 		while ( i >= 0 ) {
+ 			// find closest emoticon
+diff -ru -X exclude psi-clean/src/rtparse.cpp psi/src/rtparse.cpp
+--- psi-clean/src/rtparse.cpp	Thu Mar 13 01:13:32 2003
++++ psi/src/rtparse.cpp	Sun Oct 26 15:55:06 2003
+@@ -27,6 +27,7 @@
+ 	in = _in;
+ 	v_atEnd = false;
+ 	v_at = 0;
++	v_tag = "";
+ 	//printf("rtparse:\n");
+ }
+ 
+@@ -36,6 +37,11 @@
+ 	return out;
+ }
+ 
++const QString &RTParse::tag() const
++{
++	return v_tag;
++}
++
+ QString RTParse::next()
+ {
+ 	if(v_atEnd)
+@@ -52,6 +58,8 @@
+ 			++n;
+ 			s = in.mid(v_at, n-v_at);
+ 		}
++		int te = in.find(QRegExp("\\s|>"), v_at);
++		v_tag = in.mid(v_at+1, te-v_at-1);
+ 		v_at += s.length();
+ 		out += s;
+ 	}
+diff -ru -X exclude psi-clean/src/rtparse.h psi/src/rtparse.h
+--- psi-clean/src/rtparse.h	Thu Mar 13 01:13:32 2003
++++ psi/src/rtparse.h	Sun Oct 26 15:54:00 2003
+@@ -31,12 +31,14 @@
+ 	const QString &output() const;
+ 
+ 	QString next();
++	const QString &tag() const;
+ 	bool atEnd() const;
+ 	void putPlain(const QString &);
+ 	void putRich(const QString &);
+ 
+ private:
+ 	QString in, out;
++	QString v_tag;
+ 	int v_at;
+ 	bool v_atEnd;
+ };
+
+--- NEW FILE: psi-weather_agent_icons-add.diff ---
+diff -ru -X exclude psi-clean/src/common.cpp psi/src/common.cpp
+--- psi-clean/src/common.cpp	Sun Sep 14 23:38:20 2003
++++ psi/src/common.cpp	Sat Sep 27 09:23:40 2003
+@@ -790,6 +790,11 @@
+ 		// voice
+ 		return is->status(STATUS_ONLINE);
+ 	}
++	else if ( category == "application" ) {
++		QString trans;
++		if (type == "weather" || type == "x-weather")
++			return is->transportStatus("weather", STATUS_ONLINE);
++	}
+ 	// application
+ 	   // bot
+ 	   // calendar
+diff -ru -X exclude psi-clean/src/options/opt_iconset_roster.ui psi/src/options/opt_iconset_roster.ui
+--- psi-clean/src/options/opt_iconset_roster.ui	Mon Sep 29 22:47:28 2003
++++ psi/src/options/opt_iconset_roster.ui	Mon Sep 29 22:54:42 2003
+@@ -124,6 +124,26 @@
+                         </column>
+                     <item>
+                         <property name="text">
++                            <string>Weather</string>
++                        </property>
++                        <property name="text">
++                            <string></string>
++                        </property>
++                        <property name="text">
++                            <string>weather</string>
++                        </property>
++                        <property name="pixmap">
++                            <pixmap></pixmap>
++                        </property>
++                        <property name="pixmap">
++                            <pixmap></pixmap>
++                        </property>
++                        <property name="pixmap">
++                            <pixmap></pixmap>
++                        </property>
++                    </item>
++                    <item>
++                        <property name="text">
+                             <string>Default</string>
+                         </property>
+                         <property name="text">
+diff -ru -X exclude psi-clean/src/psi_profiles.cpp psi/src/psi_profiles.cpp
+--- psi-clean/src/psi_profiles.cpp	Sun Sep 14 23:38:34 2003
++++ psi/src/psi_profiles.cpp	Sat Sep 27 09:04:04 2003
+@@ -515,6 +515,7 @@
+ 	prefs.serviceRosterIconset["msn"]	= "msn";
+ 	prefs.serviceRosterIconset["yahoo"]	= "yahoo";
+ 	prefs.serviceRosterIconset["sms"]	= "sms";
++	prefs.serviceRosterIconset["weather"]	= "weather.jisp";
+ 
+ 	prefs.customRosterIconset.clear();
+ 
+diff -ru -X exclude psi-clean/src/psiiconset.cpp psi/src/psiiconset.cpp
+--- psi-clean/src/psiiconset.cpp	Mon Sep 08 19:16:12 2003
++++ psi/src/psiiconset.cpp	Sat Sep 27 09:35:34 2003
+@@ -114,7 +114,8 @@
+ 			services["icq"]		= QRegExp("^icq");
+ 			services["msn"]		= QRegExp("^msn");
+ 			services["yahoo"]	= QRegExp("^yahoo");
+ 			services["sms"]		= QRegExp("^sms");
++			services["weather"]	= QRegExp("^(pogoda|weather)");
+ 
+ 			bool found = false;
+ 
+
+--- NEW FILE: richlistview.cpp ---
+#include "richlistview.h"
+#include <qsimplerichtext.h>
+#include <qpainter.h>
+#include <qpixmap.h>
+#include <qapplication.h>
+
+RichListViewItem::RichListViewItem( QListView * parent ):
+QListViewItem(parent)
+{
+	v_rt = 0;
+	v_active = v_selected = false;
+}
+
+RichListViewItem::RichListViewItem( QListViewItem * parent ):
+QListViewItem(parent)
+{
+	v_rt = 0;
+	v_active = v_selected = false;
+}
+
+RichListViewItem::~RichListViewItem()
+{
+	if(v_rt)
+		delete v_rt;
+}
+
+void RichListViewItem::setup()
+{
+	QListViewItem::setup();
+	int h = height();
+
+	QString txt = expandTemplate(0); // single column !!!
+	if( txt.isEmpty() ){
+		if(v_rt)
+			delete v_rt;
+		v_rt = 0;
+		return;
+	}
+    
+	const QListView* lv = listView();
+	const QPixmap* px = pixmap(0);
+	int left =  lv->itemMargin() + ((px)?(px->width() + lv->itemMargin()):0);
+
+	v_active = lv->isActiveWindow();
+	v_selected = isSelected();
+
+	if ( v_selected  ) {
+		txt = QString("<font color=\"%1\">").arg(listView()->colorGroup().color( QColorGroup::HighlightedText ).name()) + txt + "</font>";
+	}
+	
+	if(v_rt)
+		delete v_rt;
+	v_rt = new QSimpleRichText(txt, lv->font());
+	
+	v_rt->setWidth(lv->columnWidth(0) - left - depth() * lv->treeStepSize());
+
+	v_widthUsed = v_rt->widthUsed() + left;
+
+	h = QMAX( h, v_rt->height() );
+
+    if ( h % 2 > 0 )
+	h++;
+    setHeight( h );
+}
+
+void RichListViewItem::paintCell(QPainter *p, const QColorGroup &cg, int column, int width, int align)
+{
+	if(!v_rt){
+		QListViewItem::paintCell(p, cg, column, width, align);
+		return;
+	}
+
+	p->save();
+
+	QListView* lv = listView();
+
+	if ( isSelected() != v_selected || lv->isActiveWindow() != v_active) 
+		setup();
+	
+	int r = lv->itemMargin();
+	
+	const QBrush *paper;
+	// setup (colors, sizes, ...)
+	if ( isSelected() ) {
+		paper = &cg.brush( QColorGroup::Highlight );
+	}
+	else{
+		const QColorGroup::ColorRole crole = QPalette::backgroundRoleFromMode( lv->viewport()->backgroundMode() );
+		paper = &cg.brush( crole );
+	}
+	
+	const QPixmap * px = pixmap( column );
+	QRect pxrect;
+	int pxw = 0;
+	int pxh = 0;
+	if(px) {
+		pxw = px->width();
+		pxh = px->height();
+		pxrect = QRect(r, (height() - pxh)/2, pxw, pxh);
+		r += pxw + lv->itemMargin();
+	}
+
+	if(px)
+		pxrect.moveTop((height() - pxh)/2);
+
+	// start drawing
+	QRect rtrect(r, (height() - v_rt->height())/2, v_widthUsed, v_rt->height());
+	v_rt->draw(p, rtrect.left(), rtrect.top(), rtrect, cg, paper);
+	
+	QRegion clip(0, 0, width, height());
+	clip -= rtrect;
+	p->setClipRegion(clip, QPainter::CoordPainter);
+	p->fillRect( 0, 0, width, height(), *paper );
+
+	if(px)
+		p->drawPixmap(pxrect, *px);
+
+	p->restore();
+}
+
+int RichListViewItem::widthUsed()
+{
+	return v_widthUsed;
+}
+
+--- NEW FILE: richlistview.h ---
+#ifndef RICHLISTVIEW_H
+#define RICHLISTVIEW_H
+
+#include "qlistview.h"
+class QSimpleRichText;
+class RichListViewItem : public QListViewItem  
+{
+	int v_widthUsed;
+	bool v_selected, v_active;
+	QSimpleRichText* v_rt;
+protected:
+	virtual void paintCell( QPainter * p, const QColorGroup & cg, int column, int width, int align );	
+	virtual QString expandTemplate(int column = 0) { return QString::null;};
+public:
+	RichListViewItem( QListView * parent );
+	RichListViewItem( QListViewItem * parent );
+    virtual void setup();
+	virtual ~RichListViewItem();
+	int widthUsed();
+};
+
+#endif
+
+Index: indicator.png
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/psi/indicator.png,v
+retrieving revision 1.1
+retrieving revision 1.2
+diff -C2 -d -r1.1 -r1.2
+Binary files /tmp/cvs.BxsRHK and /tmp/cvs.bjEMT4 differ
+
+Index: psi-cvs.pwbuild
+===================================================================
+RCS file: /cvsroot/packware/pwbuild/xap/psi/psi-cvs.pwbuild,v
+retrieving revision 1.3
+retrieving revision 1.4
+diff -C2 -d -r1.3 -r1.4
+*** psi-cvs.pwbuild	19 Aug 2004 08:10:48 -0000	1.3
+--- psi-cvs.pwbuild	18 Oct 2004 11:58:16 -0000	1.4
+***************
+*** 2,6 ****
+  
+  name="psi"
+! version="20040819"
+  build="1"
+  
+--- 2,6 ----
+  
+  name="psi"
+! version="20041018"
+  build="1"
+  
+***************
+*** 9,45 ****
+  _doc -d ChangeLog -x CVS
+  
+! _source -m bb2b879b12fed18c4301543d6d58ee96 -s 1845166 -t ${name}/${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
+  _patch -p 0 translations
+! _patch no_online_status
+! _patch no_default_status_text
+! _patch status_history
+! #_patch status_indicator-cvs
+  
+  _have_libmng && _patch enable-mng
+  
+! _setexecdir ${src1}/../qca
+! _execindir cp README ${doc}/README.qca
+! _execindir _configure --prefix=/usr
+  _qconf_fix ${src1}/../qca/Makefile
+! _execindir _make
+! _execindir _install
+  
+  if _have_sasl2; then
+!     _setexecdir ${src1}/../qca/plugins/qca-sasl
+!     _execindir cp README ${doc}/README.qca-sasl
+!     _execindir _configure
+      _qconf_fix ${src1}/../qca/plugins/qca-sasl/Makefile
+!     _execindir _make
+!     _execindir _install
+  fi
+  
+  if _have_openssl; then
+!     _setexecdir ${src1}/../qca/plugins/qca-tls
+!     _execindir cp README ${doc}/README.qca-tls
+!     _execindir _configure
+      _qconf_fix ${src1}/../qca/plugins/qca-tls/Makefile
+!     _execindir _make
+!     _execindir _install
+  fi
+  
+--- 9,69 ----
+  _doc -d ChangeLog -x CVS
+  
+! _source -m 196aed09319ba5ba584b4605ffdf63b4 -s 1848309 -t ${name}/${name} ftp://ftp.berlios.de/pub/packware/sources/
+  
++ cp ${src}/richlistview.* ${src1}/src
++ 
++ _patch client_wrap-mod
++ _patch emots-mod
++ _patch empty_group-fix
++ _patch framechecks-mod
++ _patch gnome_toolwindow-mod
++ _patch group_openclose_single_click-mod
++ _patch headings-mod
++ _patch icon_buttons_big_return-mod
++ _patch iconselect-mod
++ _patch line_in_options-mod
++ _patch linkify-mod-rev-fix
++ _patch nicechats-mod
++ _patch no_online_status-mod
++ _patch options_resize-fix
++ _patch qt_trans-add
++ _patch rich_contactview-0.7-add
++ _patch save_profile-mod
++ _patch settoggles-fix
++ _patch status_history-add
++ _patch status_indicator++-add
++ _patch subs_reason-recv
++ _patch thin_borders-mod
++ _patch tooltips_linkify-rev
++ _patch url_emoticon-mod
++ _patch weather_agent_icons-add
+  _patch -p 0 translations
+! _patch indicator-icon
+  
+  _have_libmng && _patch enable-mng
+  
+! execdir=${src1}/../qca
+! _execindir ${execdir} cp README ${doc}/README.qca
+! _configure -d ${execdir} --prefix=/usr
+  _qconf_fix ${src1}/../qca/Makefile
+! _make -d ${execdir} 
+! _install -d ${execdir} 
+  
+  if _have_sasl2; then
+!     execdir=${src1}/../qca/plugins/qca-sasl
+!     _execindir ${execdir} cp README ${doc}/README.qca-sasl
+!     _configure -d ${execdir}
+      _qconf_fix ${src1}/../qca/plugins/qca-sasl/Makefile
+!     _make -d ${execdir}
+!     _install -d ${execdir}
+  fi
+  
+  if _have_openssl; then
+!     execdir=${src1}/../qca/plugins/qca-tls
+!     _execindir ${execdir} cp README ${doc}/README.qca-tls
+!     _configure -d ${execdir}
+      _qconf_fix ${src1}/../qca/plugins/qca-tls/Makefile
+!     _make -d ${execdir}
+!     _install -d ${execdir}
+  fi
+  
+***************
+*** 61,64 ****
+--- 85,90 ----
+  _install
+  
++ find ${pkg}/usr/share/psi -type d -name CVS -exec rm -rf {} \; 2> /dev/null
++ 
+  rm ${pkg}/usr/share/psi/{COPYING,README}
+  ln -s ${docdir}/COPYING ${pkg}/usr/share/psi
+***************
+*** 68,71 ****
+--- 94,101 ----
+  
+  # $Log$
++ # Revision 1.4  2004/10/18 11:58:16  swiergot
++ # - Version 20041018.
++ # - Added many patches from http://ftp.xiaoka.com/friends/skazi/psi/patches/.
++ #
+  # Revision 1.3  2004/08/19 08:10:48  swiergot
+  # - Version 20040819.
+
+
+
+From nobody at sheep.berlios.de  Tue Oct 19 23:52:44 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 19 Oct 2004 23:52:44 +0200
+Subject: [Packware-cvs] pwbuild/kde - New directory
+Message-ID: <200410192152.i9JLqiB18475@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/kde
+In directory sheep:/tmp/cvs-serv27009/kde
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/kde added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Tue Oct 19 23:52:49 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 19 Oct 2004 23:52:49 +0200
+Subject: [Packware-cvs] pwbuild/kde/comix - New directory
+Message-ID: <200410192152.i9JLqnB18479@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/kde/comix
+In directory sheep:/tmp/cvs-serv27032/comix
+
+Log Message:
+Directory /cvsroot/packware/pwbuild/kde/comix added to the repository
+
+
+
+
+From nobody at sheep.berlios.de  Tue Oct 19 23:53:12 2004
+From: nobody at sheep.berlios.de (swiergot)
+Date: Tue, 19 Oct 2004 23:53:12 +0200
+Subject: [Packware-cvs] pwbuild/kde/comix comix.pwbuild,NONE,1.1 comix.pwinfo,NONE,1.1
+Message-ID: <200410192153.i9JLrCB18509@bat.berlios.de>
+
+Update of /cvsroot/packware/pwbuild/kde/comix
+In directory sheep:/tmp/cvs-serv27076
+
+Added Files:
+	comix.pwbuild comix.pwinfo 
+Log Message:
+- Initial commit.
+- Version 1.1.3.
+
+
+--- NEW FILE: comix.pwbuild ---
+#!/bin/sh
+
+name="comix"
+version="1.1.3"
+build="1"
+
+_pwbuilder 0.6.3
+
+_doc -d
+
+_source -m 277ba067cc7d9466c35be377e573e86a -s 412576 -n 16028-${name} -t ${name}-${version} http://www.kde-look.org/content/files/
+ 
+_cmi
+
+# $Log: comix.pwbuild,v $
+# Revision 1.1  2004/10/19 21:53:10  swiergot
+# - Initial commit.
+# - Version 1.1.3.
+#
+
+--- NEW FILE: comix.pwinfo ---
+info=""
+desc=""
+
+
+
